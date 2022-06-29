@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+
+
+<head>
+  
+
+
+
+
+
+
+  
+    
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>First experience with Azure AD Connect Cloud Provisioning | NothingButCloud</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="First experience with Azure AD Connect Cloud Provisioning" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Introduction to the new cloud based synchronization technology" />
+<meta property="og:description" content="Introduction to the new cloud based synchronization technology" />
+<link rel="canonical" href="http://localhost:4000/2020-03-21-CP/" />
+<meta property="og:url" content="http://localhost:4000/2020-03-21-CP/" />
+<meta property="og:site_name" content="NothingButCloud" />
+<meta property="og:image" content="http://localhost:4000/MyPics/2020-03-21-CP_Cover.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-21T20:59:57+01:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="http://localhost:4000/MyPics/2020-03-21-CP_Cover.png" />
+<meta property="twitter:title" content="First experience with Azure AD Connect Cloud Provisioning" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-28T15:19:14+02:00","datePublished":"2020-03-21T20:59:57+01:00","description":"Introduction to the new cloud based synchronization technology","headline":"First experience with Azure AD Connect Cloud Provisioning","image":"http://localhost:4000/MyPics/2020-03-21-CP_Cover.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020-03-21-CP/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/MyPics/Klaus.jpeg"}},"url":"http://localhost:4000/2020-03-21-CP/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+  
+    <meta name="keywords" content="Identity,AzureAD">
+  
+
+
+
+  <meta name="theme-color" content="rgb(25,55,71)">
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NothingButCloud">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<meta name="application-name" content="NothingButCloud">
+
+<meta name="generator" content="Hydejack v9.1.6" />
+
+
+<link rel="alternate" href="http://localhost:4000/2020-03-21-CP/" hreflang="en">
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="NothingButCloud" />
+
+
+<link rel="shortcut icon"    href="/assets/icons/KlausCartoon.ico">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
+
+<link rel="manifest" href="/assets/site.webmanifest">
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com"><link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+
+
+<link rel="preload" href="/assets/img/swipe.svg" as="image" id="_hrefSwipeSVG">
+
+<link rel="dns-prefetch" href="/assets/js/search-worker-9.1.6.js" as="worker" id="_hrefSearch">
+
+
+
+
+
+<script>!function(r,c){"use strict";function a(e,t,n,o){e.addEventListener?e.addEventListener(t,n,o):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n}r.loadJS=function(e,t){var n=c.createElement("script"),e=(n.src=e,t&&a(n,"load",t,{once:!0}),c.scripts[0]);return e.parentNode.insertBefore(n,e),n},r._loaded=!1,r.loadJSDeferred=function(e,t){var n=c.createElement("script");function o(){r._loaded=!0,t&&a(n,"load",t,{once:!0});var e=c.scripts[0];e.parentNode.insertBefore(n,e)}return n.src=e,r._loaded?o():a(r,"load",o,{once:!0}),n},r.setRel=r.setRelStylesheet=function(e){a(c.getElementById(e),"load",function(){this.rel="stylesheet"},{once:!0})}}(window,document);
+!function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+!function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+!function(w) {
+  w._baseURL = '/';
+  w._publicPath = '/assets/js/';
+  w._noPushState = false;
+  w._noDrawer = false;
+  w._noNavbar = false;
+  w._noToc = false;
+  w._noSearch = false;
+  w._advertise = false;
+  w._search = {
+    DATA_URL: '/assets/sitedata.json?no-cache',
+    STORAGE_KEY: 'mini-search/',
+    INDEX_KEY: 'index--2022-06-28T18:35:19+02:00',
+  };
+  w._clapButton = true;
+}(window);</script>
+
+
+<script async src="/assets/bower_components/MathJax/es5/tex-mml-chtml.js" id="_MathJax"></script>
+
+
+<!--[if gt IE 8]><!---->
+
+  
+
+
+
+
+<link rel="stylesheet" href="/assets/css/hydejack-9.1.6.css" id="_stylePreload">
+<link rel="stylesheet" href="/assets/icomoon/style.css" id="_iconsPreload">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:700%7CNoto+Sans:400,400i,700,700i&display=swap" id="_fontsPreload">
+
+
+
+  <style id="_pageStyle">
+
+html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);--accent-color-highlight: rgba(79,177,186,0.1);--accent-color-darkened: #409ba3;--theme-color: rgb(25,55,71);--dark-mode-body-bg: #2a2d2f;--dark-mode-border-color: #363a3d}
+
+</style>
+
+
+<!--<![endif]-->
+
+
+
+
+
+</head>
+
+<body class="no-break-layout">
+  
+<script>
+  window._sunrise = 6;
+  window._sunset =  18;
+  !function(e,s){var d="light-mode",o="dark-mode",a=(new Date).getHours();"matchMedia"in e&&e.matchMedia("(prefers-color-scheme)")||(e=(a=a<=e._sunrise||a>=e._sunset?o:d)==o?d:o,s.body.classList.add(a),s.body.classList.remove(e))}(window,document);
+
+</script>
+
+
+
+<hy-push-state
+  id="_pushState"
+  replace-selector="#_main"
+  link-selector="a[href]:not([href^='/assets/']):not(.external):not(.no-push-state)"
+  script-selector="script"
+  duration="500"
+  hashchange
+>
+  
+  
+  <div id="_navbar" class="navbar fixed-top">
+  <div class="content">
+    <span class="sr-only">Jump to:</span>
+    <div class="nav-btn-bar">
+      <a id="_menu" class="nav-btn no-hover" href="#_drawer--opened">
+        <span class="sr-only">Navigation</span>
+        <span class="icon-menu"></span>
+      </a>
+      <div class="nav-span"></div>
+    </div>
+  </div>
+</div>
+<hr class="sr-only" hidden />
+
+  <main
+  id="_main"
+  class="content layout-list"
+  role="main"
+>
+  <nav id="breadcrumbs" class="screen-only"><ul>
+  
+  
+    <li><a href="/">home</a></li>
+    
+      <li>
+        
+          <span>/</span>
+          <span>2020-03-21-CP</span>
+        
+      </li>
+    
+  
+</ul></nav>
+  <article class="page mb6" role="article">
+  <header>
+    <h1 class="page-title">First experience with Azure AD Connect Cloud Provisioning</h1>
+    
+
+
+
+  
+    <p class="note-sm" >
+      Introduction to the new cloud based synchronization technology
+
+    </p>
+  
+
+
+  </header>
+
+  <ul id="markdown-toc">
+  <li><a href="#sync-service-history" id="markdown-toc-sync-service-history">Sync Service History</a></li>
+  <li><a href="#in-a-nutshell" id="markdown-toc-in-a-nutshell">In a nutshell</a></li>
+  <li><a href="#top-5-functionalities" id="markdown-toc-top-5-functionalities">Top 5 functionalities</a>    <ul>
+      <li><a href="#local-components" id="markdown-toc-local-components">Local components</a></li>
+      <li><a href="#no-service-hardening" id="markdown-toc-no-service-hardening">No service hardening</a></li>
+      <li><a href="#filtering-with-security-groups" id="markdown-toc-filtering-with-security-groups">Filtering with security groups</a></li>
+      <li><a href="#no-trust-relationships" id="markdown-toc-no-trust-relationships">No trust relationships</a></li>
+      <li><a href="#simplify-high-availability-deployment" id="markdown-toc-simplify-high-availability-deployment">Simplify High Availability Deployment</a></li>
+    </ul>
+  </li>
+  <li><a href="#but-dont-forget-its-preview" id="markdown-toc-but-dont-forget-its-preview">But don’t forget, it’s Preview</a></li>
+</ul>
+
+<p>Microsoft has released a new tool for object synchronisation in November 2019. A new and additional way for object synchronization. Is it a successor for the well known swiss army knife Azure AD Connect Server (AAD Connect)? In my opinion, not yet, but who knows what will happen in the future?</p>
+
+<p>I have extended my lab environment with cloud provisioning to keep an eye on that initial release. Here is what I have found out and I will share this from an vendor independent point of view. All details about Cloud Provisioning like requirements or setup instructions can be found in Microsoft Docs <a href="https://docs.microsoft.com/en-us/azure/active-directory/cloud-provisioning/" target="_blank">start here</a></p>
+
+<p>Before we get into Cloud Provisioning details let’s talk about Azure AD Connect Server for a bit.</p>
+
+<h2 id="sync-service-history">Sync Service History</h2>
+
+<p>The basis of AAD Connects server is the MIM Synchronization Service. It was first launched as the heart in the Microsoft Identity Product Family, which has a long history in the Microsoft Identity Portfolio.</p>
+
+<p>This Product Family was launched in 2007 under the abbreviation ILM 2007 (Identity Lifecycle Manager) and it was at that time a combination of the tools MIIS 2003 (Microsoft Identity Integration Server) and CLM Certificate Lifecycle Manager. In 2010 Microsoft has integrated the products into the Forefront range and the Forefront Identity Manager (FIM) was born. By discontinuing the Forefront portfolio, Microsoft announced in 2014 that FIM would be renamed and will now be developed further under a new flag and the name MIM (Microsoft Identity Manager).</p>
+
+<p>The last version of Microsoft Identity Manager was released in 2016 , which still includes an inconspicuous but very important service, the aforementioned synchronization service. It has survived all of the product cycles mentioned and it is currently twice in the Microsoft product portfolio: once on the MIM Server Binaries, in the just described variant, and when you install Azure AD Connect. A version adapted to the Azure Active Directory lands on the designated server to have the user information ready in Azure Active Directory.</p>
+
+<p>In my opinion the entire MIM Identity Familiy (except sync) becomes more and more irrelevant in the shadow of the Microsoft Cloud- and Azure Avalanche and the last version update was released in Oct. 2019. It remains an excitement to see what will happen in the future with MIM. But that’s another story.</p>
+
+<p class="notice--warning"><strong>Why is this important here?</strong></p>
+
+<p>It is important, because when you setup AAD Connect, you get a core technology (the sync engine) which has almost 20 years of  age. Of course, it is not the same in all aspects as it was in the first release of MIIS 2003, because a couple of features were being added by Microsoft to let the service fulfill specific hybrid Azure requirements: Passthru Authentication Agent is one example or the Azure AD Connect Health Agent and a few other features. But under the hood the Synchronization Service is still the same. Do not misunderstand this. For me AAD Connect is rock stable and I have implemented it a couple of times for several customers. It is one of the tools that you can setup and let them stand in the corner and forget it, it runs and runs and performs very reliable. There is nothing to criticize about this established technology. Nevertheless we want to know what Cloud Provisioning could do for us.</p>
+
+<h2 id="in-a-nutshell">In a nutshell</h2>
+
+<p>When you go thru the <a href="https://docs.microsoft.com/de-de/azure/active-directory/cloud-provisioning/what-is-cloud-provisioning" target="_blank">comparizon table</a> you can find that Cloud Provisioning is not a competitor to Azure AD Connect. On the contrary, it makes lot of sense to have both technologies implemented in an environment with a couple of scenarios.</p>
+
+<p>You can describe it like this:</p>
+
+<p class="notice--warning">Cloud Provisioning is a synchronization method, managed from the cloud, with just a tiny agent on a member server and with an easy way to implement high availlability.</p>
+
+<p>I guess this describes the solution best.</p>
+
+<p>Azure AD Connect cloud provisioning can be installed in an environment with an already existing Azure AD Connect server. The admin must take care that the OUs processed by AADConnect are not in the sync scope from Cloud Provisioning and vice versa. A how to deployment guide, with the specific rule configuration to can be found here <a href="https://docs.microsoft.com/en-us/azure/active-directory/cloud-provisioning/tutorial-pilot-aadc-aadccp" target="_blank">Setup in an existing synced forest</a></p>
+
+<h2 id="top-5-functionalities">Top 5 functionalities</h2>
+
+<p>For me, the most important aspect is the single point of administration, integrated into the Azure Portal. But there is more and I have picked 5 additional top functionalities.</p>
+
+<h3 id="local-components">Local components</h3>
+
+<p>Azure AD Connect is implemented on a member server or on a domain controller On-Premises. This can be an advantage, because you have a maximum of flexibility and independent redundance. When you go on maintenance with the active AD Connect Server for example or when you are developing and testing some filtering rules. A staging server can help in such scenarios, because it acts like a fully sync server, but without writing anything to the connected local Active Directory Domains or to the Azure Tenant. But it can be a trap aswell. The reason why the advantage of the staging server can become a disadvantage is that you have to take care that each configuration on all AAD Connect Servers is identical to the others. When you switch a staging server to an active server you must be rest assured that the box accomplishes the same as the former active server, without any surprises. And this requires that each config needs to be done manually on each server. The <a href="https://github.com/Microsoft/AADConnectConfigDocumenter" target="_blank">Azure AD Connect Documenter</a> can be a helpful tool to find differences, but in the end the config must be made manually.</p>
+
+<p>I will not go too much into detail with the staging technology, the complete story can be found  in <a href="https://docs.microsoft.com/de-de/azure/active-directory/hybrid/how-to-connect-sync-staging-server" target="_blank">this article</a>.</p>
+
+<p>But you can forget this aspect with Azure AD Connect Cloud Provisioning! I would say one of the pretty cool differences with that technology is that Microsoft got rid of the server based setup and they have moved the setup to the Azure Portal as a central point. The only thing that you have to do ist to download a tiny agent and install it on the server in the domain that you want to synchronize. There are a couple of requirements, yes, networking ports and URLs that need to be accessed for example, but it is really simple to implement.</p>
+
+<p>And, by the way, you have no SQL discussions when you plan for Cloud Provisioning.</p>
+
+<figure class="full">
+  <a href="/MyPics/2020-03-21-CP_IMG1_Large.png"><img src="/MyPics/2020-03-21-CP_IMG1.png" /></a>
+  <figcaption>Azure AD Connect Cloud Provisioning Overview</figcaption>
+</figure>
+
+<h3 id="no-service-hardening">No service hardening</h3>
+
+<p>Azure AD Connect uses a couple of service accounts on a Synchronization Server. One is for the service itself, and one for each Management Agent (MA), which will be used for writing operations into the connected Directory where the account belongs to.</p>
+
+<p>The most critical account here is for me the account which is used for the On Premises Directory MA, because it has the permission to make bulk updates to the Active Directory Domain. Microsoft has an valuable article with recommendations on how these accounts can be hardened.</p>
+
+<p>But this is no longer an aspect with Cloud Provisioning, since there are no configurable Management Agent Accounts that increase the security very well.</p>
+
+<h3 id="filtering-with-security-groups">Filtering with security groups</h3>
+
+<p>Part of the Azure AD Connect Server Setup is the well known Rule Editor. A powerful tool to configure filtering on an attribute basis or to setup attribute transformations within in the synchronization process. Cloud Provisioning in the current version has none such rule editor to configure attribute filtering, in a way similar to Azure AD Connect. But there is another cool option to implement filtering: <strong>the good old way to use domain groups</strong>. This is in a similar way also possible with Azure AD Connect. It is called Pilot setup and it is availlable when the setup of AAD Connect runs the first time. But this is not recommended for production environment and it is only an option for starting with the synchronization process for a small number of objects. The group cannot be changed and more then one group is also not possible.</p>
+
+<p>In Cloud Provisioning you can use groups for filtering in several ways. Multiple groups and the groups can also be aligned later.</p>
+
+<figure class="full">
+  <a href="/MyPics/2020-03-21-CP_IMG2_Large.png"><img src="/MyPics/2020-03-21-CP_IMG2.png" /></a>
+  <figcaption>Filtering Options based on groups</figcaption>
+</figure>
+
+<h3 id="no-trust-relationships">No trust relationships</h3>
+
+<p>When an additional domain must be taken into an existing synchronization setup, maybe in case of a merger, the new domain must be trusted to the domain where the Azure AD Connect Server is installed. Cloud provisioning allows adding new domains from untrusted environments, especially when you are targeting an existing tenant. This makes setup of new domains very easy and it is another very big advantage and key feature.</p>
+
+<h3 id="simplify-high-availability-deployment">Simplify High Availability Deployment</h3>
+
+<p>The deployment of new agents to an additional member server in the source domain, which needs to be synchronized, is very easy. Download the binaries from the Azure Cloud Provisioning Portal and install it on a machine. A short configuration and that’s it. This makes especially sense in an enviroment for High Availlability where Password hash sync is enabled.</p>
+
+<figure class="full">
+  <a href="/MyPics/2020-03-21-CP_IMG3_Large.png"><img src="/MyPics/2020-03-21-CP_IMG3.png" /></a>
+  <figcaption>Agent Setup Overview Page</figcaption>
+</figure>
+
+<h2 id="but-dont-forget-its-preview">But don’t forget, it’s Preview</h2>
+
+<p>Cloud Provisioning has a lot of cool features and it can be an enrichment to every Azure hybrid identity setup. The current Public Preview has lot of features from AAD Connect not implemented. But is this required at the moment? I don’t think so, because a side by side setup with both technologies is possible and and Cloud Provisioning brings additional features to extend the overall possibilities</p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2020-03-21-CP/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2020-03-21-CP/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2020-03-21-CP/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    <h2 id="y-2022" class="hr-bottom">2022</h2>
+    <ul class="related-posts">
+    
+  
+  
+
+
+<li class="h4">
+  <a href="/2022-02-10-Azure-MeetupStuttgart/" class="flip-title"><span>Azure Meetup Stuttgart (10.02.2022) - Zero trust identity - minor but powerful functionalities in Azure AD</span></a>
+  <time class="faded fine" datetime="2022-02-10T10:00:32+01:00">10 Feb</time>
+</li>
+
+  
+
+  
+  
+  
+
+
+<li class="h4">
+  <a href="/2022-01-10-GoodBye-ADFS-Overview/" class="flip-title"><span>Want to switch off ADFS? Looking for some content?</span></a>
+  <time class="faded fine" datetime="2022-01-10T00:06:32+01:00">10 Jan</time>
+</li>
+
+  
+
+  
+  
+    </ul>
+    <h2 id="y-2021" class="hr-bottom">2021</h2>
+    <ul class="related-posts">
+    
+  
+  
+
+
+<li class="h4">
+  <a href="/2021-09-10-CloudIdentitySummit_21/" class="flip-title"><span>Cloud Identity Summit ´21 Conference session</span></a>
+  <time class="faded fine" datetime="2021-09-10T21:13:32+02:00">10 Sep</time>
+</li>
+
+  
+
+  
+  
+  
+
+
+<li class="h4">
+  <a href="/2021-07-04-ChangeLanguageinM365Portal/" class="flip-title"><span>How to change language in M365 Portal for a synchronized identity</span></a>
+  <time class="faded fine" datetime="2021-07-04T00:01:32+02:00">04 Jul</time>
+</li>
+
+  
+
+  
+  
+  
+
+
+<li class="h4">
+  <a href="/2021-06-11-Azure-MeetupBonn/" class="flip-title"><span>Azure Meetup Bonn (10.06.2021) - Azure AD Connect - Schaltzentrale der hybriden Identitätsinfrastruktur (German session)</span></a>
+  <time class="faded fine" datetime="2021-06-11T00:01:32+02:00">11 Jun</time>
+</li>
+
+  
+
+  
+  
+  
+
+
+<li class="h4">
+  <a href="/2021-01-22-ZeroTrust-Monitoring/" class="flip-title"><span>Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Accounts</span></a>
+  <time class="faded fine" datetime="2021-01-22T23:01:32+01:00">22 Jan</time>
+</li>
+
+  
+
+  
+  
+  
+
+
+<li class="h4">
+  <a href="/2021-01-19-ZeroTrust-AR/" class="flip-title"><span>Zero Trust in Azure Identity - Part 4: Access Reviews</span></a>
+  <time class="faded fine" datetime="2021-01-19T14:22:32+01:00">19 Jan</time>
+</li>
+
+  
+
+  
+  
+  
+
+
+<li class="h4">
+  <a href="/2021-01-18-ZeroTrust-CA/" class="flip-title"><span>Zero Trust in Azure Identity - Part 3: Conditional Access</span></a>
+  <time class="faded fine" datetime="2021-01-18T20:01:57+01:00">18 Jan</time>
+</li>
+
+  
+
+  
+  
+  
+
+
+<li class="h4">
+  <a href="/2021-01-16-ZeroTrust-MFA/" class="flip-title"><span>Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?</span></a>
+  <time class="faded fine" datetime="2021-01-16T15:59:57+01:00">16 Jan</time>
+</li>
+
+  
+
+  
+  
+  
+
+
+<li class="h4">
+  <a href="/2021-01-16-ZeroTrust-Tenant-Security/" class="flip-title"><span>Zero Trust in Azure Identity - Part 1: Tenant Security</span></a>
+  <time class="faded fine" datetime="2021-01-16T10:59:57+01:00">16 Jan</time>
+</li>
+
+  
+
+  
+  
+  
+
+
+<li class="h4">
+  <a href="/2021-01-12-ZeroTrust/" class="flip-title"><span>Zero Trust in Azure Identity: Overview of the Journey</span></a>
+  <time class="faded fine" datetime="2021-01-12T11:59:57+01:00">12 Jan</time>
+</li>
+
+  
+
+  
+  
+    </ul>
+    <h2 id="y-2020" class="hr-bottom">2020</h2>
+    <ul class="related-posts">
+    
+  
+  
+
+
+<li class="h4">
+  <a href="/2020-09-24-CP-Advanced/" class="flip-title"><span>More Infos on Azure AD Cloud Provisioning and news from Ignite 2020</span></a>
+  <time class="faded fine" datetime="2020-09-24T12:59:57+02:00">24 Sep</time>
+</li>
+
+  
+
+  
+  
+  
+
+
+<li class="h4">
+  <a href="/2020-03-21-CP/" class="flip-title"><span>First experience with Azure AD Connect Cloud Provisioning</span></a>
+  <time class="faded fine" datetime="2020-03-21T20:59:57+01:00">21 Mar</time>
+</li>
+
+  </ul>
+
+
+</article>
+
+
+  <hr class="dingbat related mb6" />
+
+
+
+
+
+  
+<footer class="content" role="contentinfo">
+  <hr/>
+  
+    <p><small class="copyright">© 2022. All rights reserved.
+</small></p>
+  
+  
+    <nav class="legal"><small>
+    
+      
+      <a class="heading flip-title" href="/privacy/">Privacy</a>
+      |
+    
+      
+      <a class="heading flip-title" href="/disclaimer/">Discaimer</a>
+      
+    
+    </small></nav>
+  
+  
+  <hr class="sr-only"/>
+</footer>
+
+
+</main>
+
+  <hy-drawer
+  id="_drawer"
+  class=""
+  side="left"
+  threshold="10"
+  noscroll
+  
+>
+  <header id="_sidebar" class="sidebar" role="banner">
+    
+
+
+
+
+<div class="sidebar-bg sidebar-overlay" style="background-color:rgb(25,55,71);background-image:url(/MyPics/CA_Background.png)"></div>
+
+    <div class="sidebar-sticky">
+  <div class="sidebar-about">
+    
+      <a class="no-hover" href="/" tabindex="-1">
+        <img src="/MyPics/Klaus.jpeg" class="avatar" alt="NothingButCloud" width="120" height="120" loading="lazy" />
+      </a>
+    
+    <a class="sidebar-title" href="/"><h2 class="h1">NothingButCloud</h2></a>
+    
+    
+      <p class="">
+        Klaus Bierschenk - Azure and Identity Enthusiast. Occasional author
+
+      </p>
+    
+  </div>
+
+  <nav class="sidebar-nav heading" role="navigation">
+    <span class="sr-only">Navigation:</span>
+<ul>
+  
+    
+      
+      <li>
+        <a
+          id="_drawer--opened"
+          href="/Posts/"
+          class="sidebar-nav-item "
+          
+        >
+          Posts
+        </a>
+      </li>
+    
+      
+      <li>
+        <a
+          
+          href="/publications/"
+          class="sidebar-nav-item "
+          
+        >
+          Publications
+        </a>
+      </li>
+    
+      
+      <li>
+        <a
+          
+          href="/about/"
+          class="sidebar-nav-item "
+          
+        >
+          About
+        </a>
+      </li>
+    
+  
+</ul>
+
+  </nav>
+
+  
+  <div class="sidebar-social">
+    <span class="sr-only">Social:</span>
+<ul>
+  
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://twitter.com/klabiers" title="Twitter" class="no-mark-external">
+      <span class="icon-twitter"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="mailto:klaus@nothingbutcloud.net" title="Email" class="no-mark-external">
+      <span class="icon-mail"></span>
+      <span class="sr-only">Email</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://sessionize.com/klabier/" title="Sessionize" class="no-mark-external">
+      <span class="icon-link"></span>
+      <span class="sr-only">Sessionize</span>
+    </a>
+  </li>
+
+
+    
+      
+
+
+
+  
+
+  
+  
+  
+  
+
+  
+
+  
+
+  <li>
+    <a href="https://www.linkedin.com/in/klaus-bierschenk-452a40153" title="LinkedIn" class="no-mark-external">
+      <span class="icon-linkedin2"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  </li>
+
+
+    
+  
+</ul>
+
+  </div>
+</div>
+  </header>
+</hy-drawer>
+<hr class="sr-only" hidden />
+
+</hy-push-state>
+
+
+  <!--[if gt IE 10]><!---->
+  <script nomodule>!function(){var t,n=document.createElement("script");!("noModule"in n)&&"onbeforeload"in n&&(t=!1,document.addEventListener("beforeload",function(e){if(e.target===n)t=!0;else if(!e.target.hasAttribute("nomodule")||!t)return;e.preventDefault()},!0),n.type="module",n.src=".",document.head.appendChild(n),n.remove())}();
+</script>
+  <script src="/assets/js/hydejack-9.1.6.js" type="module"></script>
+  <script src="/assets/js/LEGACY-hydejack-9.1.6.js" nomodule defer></script>
+  
+
+  
+
+  <script type="module">
+    if ('serviceWorker' in navigator) {
+      /**/
+      navigator.serviceWorker.getRegistration()
+        .then(r => r.unregister())
+        .catch(() => {});
+      /**/
+    }
+  </script>
+<!--<![endif]-->
+  
+
+
+
+<div hidden>
+  
+  <h2 class="sr-only">Templates (for web app):</h2>
+
+  <template id="_animation-template">
+  <div class="animation-main fixed-top">
+    <nav id="breadcrumbs" class="screen-only"><ul>
+  
+  
+</ul></nav>
+    <div class="content">
+      <div class="page"></div>
+    </div>
+  </div>
+</template>
+
+  <template id="_loading-template">
+  <div class="loading nav-btn fr">
+    <span class="sr-only">Loading…</span>
+    <span class="icon-cog"></span>
+  </div>
+</template>
+
+  <template id="_error-template">
+  <div class="page">
+    <h1 class="page-title">Error</h1>
+    
+    
+    <p class="lead">
+      Sorry, an error occurred while loading <a class="this-link" href=""></a>.
+
+    </p>
+  </div>
+</template>
+
+  <template id="_permalink-template">
+  <a href="#" class="permalink">
+    <span class="sr-only">Permalink</span>
+    <span class="content-hash"></span>
+  </a>
+</template>
+
+  
+  
+    <template id="_dark-mode-template">
+  <button id="_dark-mode" class="nav-btn no-hover" >
+    <span class="sr-only">Dark Mode</span>
+    <span class="icon-brightness-contrast"></span>
+  </button>
+</template>
+
+  
+  
+    <template id="_search-template">
+  <button id="_search" class="nav-btn no-hover">
+    <label class="sr-only" for="_search-input">Search</label>
+    <span class="icon-search"></span>
+  </button>
+  <div id="_search-box">
+    <div class="nav-btn">
+      <span class="icon-search"></span>
+    </div>
+    <input 
+      id="_search-input"
+      type="search"
+      class="form-control form-control-lg nav-btn"
+      placeholder="Build with JEKYLL_ENV=production to enable search."
+    />
+    <button type="reset" class="nav-btn no-hover">
+      <span class="sr-only">Close</span>
+      <span class="icon-cross"></span>
+    </button>
+  </div>
+  <div id="_hits"></div>
+</template>
+
+  
+</div>
+
+</body>
+</html>

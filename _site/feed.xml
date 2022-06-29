@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-06-28T18:35:19+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
+</subtitle><entry><title type="html">Azure Meetup Stuttgart (10.02.2022) - Zero trust identity - minor but powerful functionalities in Azure AD</title><link href="http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/" rel="alternate" type="text/html" title="Azure Meetup Stuttgart (10.02.2022) - Zero trust identity - minor but powerful functionalities in Azure AD" /><published>2022-02-10T10:00:32+01:00</published><updated>2022-06-28T15:19:14+02:00</updated><id>http://localhost:4000/Azure-MeetupStuttgart</id><content type="html" xml:base="http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/"><![CDATA[<figure>
+  <img src="/MyPics/2022-02-10-Azure-MeetupStuttgart_2.png" style="width:75%" />
+  <figcaption>Figure 1: Azure Meetup Teaser</figcaption>
+</figure>
+
+<h2 id="session-powerpoint-material">Session Powerpoint material</h2>
+
+<p>All my demos were running perfect and stable during the session.</p>
+
+<p>Murphy, thanks for that 😀</p>
+
+<p>I have enjoyed the evening and being a speaker at the <a href="https://www.meetup.com/de-DE/Azure-Stuttgart/events/282805130/">Meetup in Stuttgart</a></p>
+
+<p>Please find my slides here: <a href="/MySlides/Meetup_Stuttgart_Zero_Trust_with_Identity.pdf">Session slides</a></p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name>Klaus Bierschenk</name></author><summary type="html"><![CDATA[Figure 1: Azure Meetup Teaser]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2022-02-10-Azure-MeetupStuttgart_2.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2022-02-10-Azure-MeetupStuttgart_2.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Want to switch off ADFS? Looking for some content?</title><link href="http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/" rel="alternate" type="text/html" title="Want to switch off ADFS? Looking for some content?" /><published>2022-01-10T00:06:32+01:00</published><updated>2022-06-28T15:19:14+02:00</updated><id>http://localhost:4000/GoodBye-ADFS-Overview</id><content type="html" xml:base="http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/"><![CDATA[<figure>
+  <img src="/MyPics/2022-01-09-GoodBye-ADFS-Linklist_I.png" style="width:75%" />
+  <figcaption>Figure 1: Federation Services Splash Screen</figcaption>
+</figure>
+
+<p>Don’t get me wrong, ADFS is great. But it is also a technology with a long history and can (in some cases) be replaced by a better and easier technology in our modern Azure AD World.</p>
+
+<p>But where to start when you have a bunch of applications relying in ADFS?</p>
+
+<p>Or when you might have a relying party to M365 with your federated Azure AD Domain?</p>
+
+<p>Then there are a couple of activities waiting for you …</p>
+
+<p>I attended some sessions last year on shutting down ADFS, and in migrating Relying Party Trusts from ADFS to Azure AD Enterprise Applications, for enduser SSO experiences. From those events and talks I got my own short archive with a list of articles and videos from Microsoft which covers related topics.</p>
+
+<p>In some cases it can make sense to get rid of the ADFS deployment and use PTA or PHS instead and also to move your relying party trusts to Azure AD Enterprise Applications. With this approach you can use the entire stack of Zero Trust features whilst accessing your applications. Conditional access e.g.</p>
+
+<p>Therefore it is a good time to start with migration considerations … if not done already</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Link/Reference</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Upgrade from Active Directory Federation Services (AD FS)</td>
+      <td><a href="https://www.microsoft.com/en-us/security/business/identity-access-management/upgrade-adfs" target="_blank">Show Article</a></td>
+      <td>Overview of the entire situation! Start reading here when you plan to upgrade from ADFS to Azure AD. Contains comparison between ADFS and Azure AD Features</td>
+    </tr>
+    <tr>
+      <td>Migrate from federation to PHS or PTA</td>
+      <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/hybrid/migrate-from-federation-to-cloud-authentication" target="_blank">Show Article</a></td>
+      <td>Good article with lots of considerations in planning and required pre-work on the entire migration process flow. Also covers step-by-step guidance for implementation. Provides links to more additional articles for topics which are not covered</td>
+    </tr>
+    <tr>
+      <td>Migrate application authentication to Azure Active Directory</td>
+      <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/migrate-application-authentication-to-azure-active-directory" target="_blank">Show Article</a></td>
+      <td>Bring time to read this one (30min read). Sophisticated article with details reagarding application migration from ADFS to Azure AD</td>
+    </tr>
+    <tr>
+      <td>ADFS Activity Report</td>
+      <td><a href="https://aka.ms/migrateapps/ADFSactivity" target="_blank">Show Article</a></td>
+      <td>Explains how a ADFS activity report can be created to discover AD FS applications that can be migrated (or not). Covers additional claim rule support aswell</td>
+    </tr>
+    <tr>
+      <td>Videos with topics to upgrade your apps authentication from ADFS to Azure AD</td>
+      <td><a href="http://aka.ms/upgradeadfstoaad" target="_blank">Get Videos</a></td>
+      <td>Short Videos on YouTube (5-7 min each) from MS Security</td>
+    </tr>
+    <tr>
+      <td>Resources for migrating applications to Azure Active Directory</td>
+      <td><a href="https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/migration-resources" target="_blank">Show Article</a></td>
+      <td>Links with resources for migration (deployment plan etc.)</td>
+    </tr>
+    <tr>
+      <td>ADFS to AAD App Migration tool</td>
+      <td><a href="https://aka.ms/migrateapps/ADFStools" target="_blank">Open Github</a></td>
+      <td>Powershell based tools box with cmdlets to collect and analyze ADFS apps. Includes Excel export and cmdlets for migration</td>
+    </tr>
+  </tbody>
+</table>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[summary of ADFS decommissioning aspects]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2022-01-09-GoodBye-ADFS-Linklist_Cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2022-01-09-GoodBye-ADFS-Linklist_Cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloud Identity Summit ´21 Conference session</title><link href="http://localhost:4000/2021-09-10-CloudIdentitySummit_21/" rel="alternate" type="text/html" title="Cloud Identity Summit ´21 Conference session" /><published>2021-09-10T21:13:32+02:00</published><updated>2022-06-28T15:19:14+02:00</updated><id>http://localhost:4000/CloudIdentitySummit_21</id><content type="html" xml:base="http://localhost:4000/2021-09-10-CloudIdentitySummit_21/"><![CDATA[<figure>
+  <img src="/MyPics/2021-09-30-CloudIdentitySummit_21.png" style="width:75%" />
+  <figcaption>Figure 1: Cloud Identity Summit '21 Teaser</figcaption>
+</figure>
+
+<h2 id="session-from-the-cloud-identity-summit-21">Session from the Cloud Identity Summit ´21</h2>
+
+<p>This was my second appearence at the Cloud Identity Summit and I am proud to return to the line of other great speakers.</p>
+
+<p>All my demos were running “perfectly” and “stable” during my session.</p>
+
+<p>Murphy and demo-god, thanks for that 😀</p>
+
+<p>I have enjoyed the evening and being part of the <a href="https://www.identitysummit.cloud">Cloud Identity Summit ´21</a></p>
+
+<p>Please find my slides here: <a href="/MySlides/TroubleShoot_Sync_EN_Final.pdf">Session slides</a></p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-09-10-CloudIdentitySummit_21/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-09-10-CloudIdentitySummit_21/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-09-10-CloudIdentitySummit_21/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Figure 1: Cloud Identity Summit '21 Teaser]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to change language in M365 Portal for a synchronized identity</title><link href="http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/" rel="alternate" type="text/html" title="How to change language in M365 Portal for a synchronized identity" /><published>2021-07-04T00:01:32+02:00</published><updated>2022-06-28T15:19:14+02:00</updated><id>http://localhost:4000/ChangeLanguageinM365Portal</id><content type="html" xml:base="http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/"><![CDATA[<figure>
+  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" style="width:75%" />
+</figure>
+
+<h2 id="puzzling-why-language-can-not-be-changed-in-m365-portal-for-synced-users">Puzzling why language can not be changed in M365 Portal for synced users?</h2>
+
+<p>Changing the language in the Azure portal instead is quite simple. Just click on the gear icon in the upper right corner and then on the language item, change it, save and you’re done. And the whole thing in the Azure Portal is independent of whether you are currently working with a cloud-only identity or with a synchronized account. So far so good 😃</p>
+
+<p>However, there is one issue in my daily life that I have been wondering about and putting off for quite some time. Whenever I work with a synchronized account in the M365 Admin portal and try to change the language there, the following message is shown:</p>
+
+<p>if the language is in German</p>
+
+<figure>
+  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_II.png" style="width:75%" />
+  <figcaption>Figure 1: Language Setting in German</figcaption>
+</figure>
+
+<p>and when you have set it already in English language</p>
+
+<figure>
+  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_IV.png" style="width:75%" />
+  <figcaption>Figure 2: Language setting in English</figcaption>
+</figure>
+
+<p>Now the whole thing becomes clumsy at last when you are the administrator yourself, as in my case. In my daily work the language was German, it was ok and the whole thing does not belong to my main issues. But whenever I try to change the language, I wonder at which central place this setting has to be made? On the myaccount.microsoft.com page? Or in some other place in the M365 portal?</p>
+
+<p>This week I didn’t have the topic with the language in the M365 portal present at all and I was in completely different topics in the Active Directory and with the attributes. But after looking through the list of attributes, I noticed the <strong>preferredLanguage</strong> attribute</p>
+
+<figure>
+  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_III.png" style="width:50%" />
+  <figcaption>Figure 3: Use Attribute "preferredLanguage" to set requested language</figcaption>
+</figure>
+
+<p>I remembered the language in the Microsoft 365 portal and indeed the attribute is used to set the language in Microsoft 365 in the form of the “Language Culture Names”. So <strong>de-DE</strong> stands for German and <strong>en-US</strong> for English - United States etc.. You can find an overview of the codes here:
+<a href="https://docs.microsoft.com/en-us/previous-versions/commerce-server/ee825488(v=cs.20)?redirectedfrom=MSDN">Table of Language Culture Names</a></p>
+
+<p>My first thought was, not really consistent from Microsoft to control the language behavior differently in two portals (Azure / M365), at least for synchronized identities. But the language is not changed too often and managing it centrally in on-premises for accounts originating there can make sense. After all, many other settings are also administered there, why not the language as well?</p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[this is really hidden]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Azure Meetup Bonn (10.06.2021) - Azure AD Connect - Schaltzentrale der hybriden Identitätsinfrastruktur (German session)</title><link href="http://localhost:4000/2021-06-11-Azure-MeetupBonn/" rel="alternate" type="text/html" title="Azure Meetup Bonn (10.06.2021) - Azure AD Connect - Schaltzentrale der hybriden Identitätsinfrastruktur (German session)" /><published>2021-06-11T00:01:32+02:00</published><updated>2022-06-28T15:19:14+02:00</updated><id>http://localhost:4000/Azure-MeetupBonn</id><content type="html" xml:base="http://localhost:4000/2021-06-11-Azure-MeetupBonn/"><![CDATA[<figure>
+  <img src="/MyPics/2021-06-10-MeetupSplash.png" style="width:50%" />
+</figure>
+
+<h2 id="session-powerpoint-material">Session Powerpoint material</h2>
+
+<p>All my demos were running perfect and stable during the session.</p>
+
+<p>Murphy, thanks for that 😀</p>
+
+<p>I have enjoyed the evening and being a speaker at the <a href="https://www.meetup.com/de-DE/Azure-Bonn-Meetup/events/277714201/.">Meetup in Bonn</a></p>
+
+<p>Please find my slides here: <a href="/MySlides/Meetup_10.06.2021.pdf">Session slides</a></p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-06-11-Azure-MeetupBonn/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-06-11-Azure-MeetupBonn/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-06-11-Azure-MeetupBonn/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-06-10-MeetupSplash_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-06-10-MeetupSplash_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Accounts</title><link href="http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Accounts" /><published>2021-01-22T23:01:32+01:00</published><updated>2022-06-28T15:19:14+02:00</updated><id>http://localhost:4000/ZeroTrust%20Monitoring</id><content type="html" xml:base="http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#monitoring-and-dealing-with-critical-user-accounts" id="markdown-toc-monitoring-and-dealing-with-critical-user-accounts">Monitoring and Dealing with critical user accounts</a></li>
+  <li><a href="#keep-ad-logs-perfectly" id="markdown-toc-keep-ad-logs-perfectly">Keep AD logs perfectly</a></li>
+  <li><a href="#automated-alerts" id="markdown-toc-automated-alerts">Automated alerts</a></li>
+  <li><a href="#be-careful-with-access-reviews" id="markdown-toc-be-careful-with-access-reviews">Be careful with Access Reviews</a></li>
+</ul>
+
+<h2 id="monitoring-and-dealing-with-critical-user-accounts">Monitoring and Dealing with critical user accounts</h2>
+
+<p>Microsoft recommends so-called Break Glass accounts for emergency access. These have maximum permissions and are exempt from security measures such as “Conditional Access” policies. If something goes wrong with any policy or with the connection to on-premises, it is possible to access the tenant with these unaffected Break Glass accounts. In the first part of this post, we looked at more details about Break Glass accounts.
+However, it is not only important to be prepared for an emergency. It is equally important to monitor activities around these accounts. For simplicity, the administrator has created a group with the accounts stored in the “Excludes” in the policies. But what if someone cheats his way into this group with his account? The person could work unhindered with wide rights past all policies and thus represents a high risk. Since all activities are documented in the Azure logs, it is easy based on these logs to react to entries using KQL (Kusto Query Language) queries and, for example, send a mail and an SMS to a sender circle when changes are made to the BGA group. The following is necessary for this.</p>
+
+<h2 id="keep-ad-logs-perfectly">Keep AD logs perfectly</h2>
+
+<p>First of all, a log analytics workspace is needed to which Azure automatically sends the AD logs. This makes sense even without our example with the BGA accounts, since the monitoring and logon logs are kept on a limited basis. For Azure AD P1/P2 license 30 days otherwise 7 days.
+The Log Analytics workspace is quickly created in the Azure Portal in the dashboard of the same name. In Azure AD, the workspace is added to the diagnostic settings. Thus, the entries end up in the storage account of the workspace, for which the retention period can be defined as desired. Step-by-step instructions for this can be found in the Azure Docs with the corresponding keyword search.</p>
+
+<h2 id="automated-alerts">Automated alerts</h2>
+
+<p>The alerts view for a Log Analytics workspace lists the alert rules that the administrator has created here over time. If you create a new alert rule, the essential elements are a condition and an action group. Both can be created directly at this point. In the same way, you can also use existing conditions or action groups and reuse them as you wish.
+If a new action group is created, it may either contain notifications or actions or both. For a notification as in our example, a message definition is sufficient. To do this, we define both a mail and SMS send type in the group, which justifies a change to a critical group, such as the group containing BGA accounts. Note that action groups can be used in a variety of ways, including triggering a webhook or starting an automation runbook.
+The second part in the warning rule, the condition, is essentially based on a KQL query that can bring to light from the workspace anything stored in the logs there. Besides our area, the “audit log”, which we need to specify as the source here, there are other areas in a Log Analytics workspace. This ultimately depends on what data sources are connected to the Log Analytics.
+Regardless of the alert rules, you can reach the KQL Editor in the Log Analytics workspace via the “Logs” option. Here, several examples are waiting to be tried out and modified for your own purposes. The whole thing invites you to try it out and it is not critical either. KQL queries are the foundation for warnings and the administrative expertise required for this wants to be learned through trial and error.</p>
+
+<p>Back to our warning rule: figure (KQL group change.png) shows the basic statement and the KQL editor with the explorer.</p>
+
+<figure class="medium">
+  <a href="/MyPics/2021-01-22-ZeroTrust Monitoring_I.png"><img src="/MyPics/2021-01-22-ZeroTrust Monitoring_I.png" /></a>
+  <figcaption>Exclude BGAs from CAs. A "must" in CA deployment</figcaption>
+</figure>
+
+<p>The statement is stripped down to the bare essentials and could still be drilled down, for example to include a temporal filter. In the lower area of the results you can see which values the result still provides, which are therefore part of the log entry. In addition to the account that the BGA group has changed, the account that has been added to the group is also visible here.
+The KQL statement is inserted into the condition and is thus part of the signal logic (Figure: Warning_Rule_Condition_SignalLogic.png). A number greater than 0 in the case means that the KQL statement was found, thus a change to the group has taken place and this in turn entails that as part of the warning rule the condition is met and the mail and SMS are sent. This is the principle of warnings in Log Analytics. It is recommended in the context of Break Glass accounts to also generate a warning when a BGA account logs in, which can then be acted upon in the manner described. If we assume that all BGA user accounts start with “BG”, so for example the UPN is “BGAx@kbcorp.de” with sequential number x. The KQL statement for this looks like the following:</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SigninLogs</span><span class="w">
+</span><span class="o">|</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="nx">OperationName</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"Sign-in activity"</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="nx">UserPrincipalName</span><span class="w"> </span><span class="nx">startswith</span><span class="w"> </span><span class="s2">"BG"</span><span class="o">.</span><span class="w"> 
+</span></code></pre></div></div>
+
+<h2 id="be-careful-with-access-reviews">Be careful with Access Reviews</h2>
+
+<p>Actually, access reviews lend themselves to the control of BGA groups, but caution is advised in that context. Access Reviews also always allow members of a group to be removed, be it because an admin on his iPhone, on the go, mistakenly selects “deny”, the BGA accounts fall out of the group and are thus unsuitable for emergency use. Admittedly a contrived example but the possibility exists and with sensitive accounts such as the BGA accounts you should leave nothing to chance and fare far better with the warning rules against Access Reviews in the event of controls on the break Glass accounts.</p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[keep an eye on it :-)]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 4: Access Reviews</title><link href="http://localhost:4000/2021-01-19-ZeroTrust-AR/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 4: Access Reviews" /><published>2021-01-19T14:22:32+01:00</published><updated>2022-06-28T15:19:14+02:00</updated><id>http://localhost:4000/ZeroTrust%20AR</id><content type="html" xml:base="http://localhost:4000/2021-01-19-ZeroTrust-AR/"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#goodbye-forgotten-group-memberships" id="markdown-toc-goodbye-forgotten-group-memberships">Goodbye forgotten group memberships</a></li>
+  <li><a href="#access-review-using-an-example" id="markdown-toc-access-review-using-an-example">Access Review using an example</a></li>
+  <li><a href="#fine-tuning-for-access-control" id="markdown-toc-fine-tuning-for-access-control">Fine tuning for access control</a></li>
+  <li><a href="#access-reviews-vs-dynamic-groups" id="markdown-toc-access-reviews-vs-dynamic-groups">Access Reviews vs. Dynamic Groups</a></li>
+</ul>
+
+<h2 id="goodbye-forgotten-group-memberships">Goodbye forgotten group memberships</h2>
+
+<p>Who hasn’t had this happen to them? A user account is added to a group and then you forget to remove the member? Unfortunate if the group is a security-sensitive group or role, and there are quite a few of those in Azure. One remedy for this is the “Access Reviews”, or access checks, in German portal language. Access reviews are a means of putting groups, roles or enterprise applications to the test and validating the members assigned or contained.
+The settings in the Azure AD portal can be found in the objects for which you want to create a check. This means in the area of the groups or enterprise applications. The exception to this are the roles, whose “Access Reviews” are not administered in Azure AD in the roles, but in the PIM Dashboard. Somewhat hidden after selecting the “Manage” option. By the way, do not confuse this with the item “Review Access”, which is located in PIM directly above, under “Tasks”. This is used to process any pending reviews for the user account that is currently navigating in the PIM portal and is stored as a reviewer.</p>
+
+<h2 id="access-review-using-an-example">Access Review using an example</h2>
+
+<p>To explain the options available when reviewing roles, let’s take a look at an example of the settings you may encounter. Let’s say you want to review the members of the Global Reader role on a weekly basis and remove any user accounts you no longer need that you know should not be members there. To do this, we navigate to the “Manage” section in the PIM Dashboard and select the “Azure AD Roles” option, from where we go directly to the access checks. Many of the setting options are self-explanatory, such as the name or even the start date. One of the elementary options here is the time frame, notably the “Duration (in days)” option. This defines the period for which an “Access Review” is available and reviewers can make entries. The number of days possible here again depends on whether and which “Frequency” is selected, as the duration must not be longer than the number of days in the selected period, otherwise time overlaps will occur during the reviews. For our example, we select the weekly interval and 1 day for the duration. You can specify more than one role, but for our example we will limit ourselves to the role “Global Reader”.
+Further down in the dialog you specify the already mentioned reviewers. If there are several decision makers in your department, it may make sense to specify all of them here. If one of them starts the check, the list will later show for which user accounts the membership was approved or denied and also who decided this.</p>
+
+<h2 id="fine-tuning-for-access-control">Fine tuning for access control</h2>
+
+<p>At the very bottom of the dialog there is still the possibility of “fine tuning” via some advanced settings. Here you can specify whether accounts are actually removed or not. If no, this is only logged, which is useful for a test phase, for example. Especially worth mentioning at this point is the possibility to define what should happen if the reviewer(s) do not react. “No changes”, “Remove access”, “Approve access” or “Follow recommendations”. In the case of the latter, the system decides on the continued existence of the membership. For example, has a user not logged in for a period of 30 days? In that case, the role membership would be removed. Also hidden, but possibly very useful, is the possibility to select “Members (self)” in the checker. As the name already conveys, no other persons are requested to check, but the members themselves. This kind of check is basically a “knot in the handkerchief” that the administrator makes himself here to be reminded of the membership. An administratively probably rather rare scenario, but if the admin wants it, the option can certainly provide valuable services.</p>
+
+<h2 id="access-reviews-vs-dynamic-groups">Access Reviews vs. Dynamic Groups</h2>
+
+<p>When using access reviews for Azure AD groups, it is worth mentioning the possibility of dynamic groups, which permanently fill the security groups with members based on query rules. This can replace access checks and may be a more elegant way to deal with members, as the admin does not have to worry about anything else with a well-defined query. Of course, this only applies to groups where dynamic membership is appropriate and not to roles and enterprise applications, as there is no dynamic assignment here. Here, it is important to plan well and make an approach for access reviews or a dynamic group in advance.
+Access reviews also show up in various other places in Azure AD, such as access packages. The methodology behind this is always the same and analogous to that described here.</p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-19-ZeroTrust-AR/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-19-ZeroTrust-AR/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-19-ZeroTrust-AR/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Automatic membership reminder]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 3: Conditional Access</title><link href="http://localhost:4000/2021-01-18-ZeroTrust-CA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 3: Conditional Access" /><published>2021-01-18T20:01:57+01:00</published><updated>2022-06-28T15:19:14+02:00</updated><id>http://localhost:4000/ZeroTrust%20CA</id><content type="html" xml:base="http://localhost:4000/2021-01-18-ZeroTrust-CA/"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#conditional-access-example" id="markdown-toc-conditional-access-example">Conditional access example</a></li>
+  <li><a href="#policy-parameters" id="markdown-toc-policy-parameters">Policy parameters</a></li>
+  <li><a href="#test-before-deploy" id="markdown-toc-test-before-deploy">Test before deploy</a></li>
+</ul>
+
+<p>Conditional access policies are a perfect tool for best adapting logon and access to specific applications to the diverse circumstances of users. They are suitable for aggregating signals, making decisions based on them, and enforcing organizational policies. The user context is crucial for this and after evaluating the policy, access is allowed, blocked or certain criteria must be met in order for the user to reach their destination.</p>
+
+<p>Unlike what you may be used to in other policies, the design of CA policies is very complex and the administrator determines the level of complexity. It starts with a string of if statements that evaluate signals mentioned earlier. These can be simple group memberships of the user up to the combination of device platforms(iOS, Windows) or a location from which the user started his access attempt.
+In the editor, the target for the policy is defined in the “Assignments” section. In the “Access controls” section, it is possible to describe what should happen in a positive or negative sense. It is also possible to evaluate signals from other areas of the Azure platform here, for example, the logon risk from Identity Protection can be included in the conditions. If the user’s access represents a medium or high logon risk, access to sensitive applications may no longer be permitted or only by using MFA.</p>
+
+<h2 id="conditional-access-example">Conditional access example</h2>
+
+<p>Let’s look at an example to illustrate the power of the policy. Let’s say you want to allow access to Azure Portal for administrators only when they are accessing from the corporate location and when the machine being used is a hybrid device mounted in Azure AD.
+Navigate to the conditional access policies section. You can find the CA policies in the Azure Active directory dashboard and there in the “Manage” and “Security” section.
+If you want to make it quick, you can also search for “Conditional Access” in the resources search box at the top of the Azure portal and you’ll get right to it. You may well have Baseline Policies in your policy list, which are a legacy feature from the early days of policies. Make sure that these are not activated, they will be removed from the portal “soon”.
+Below that, all defined policies are displayed, with an indication if they are active. Here it becomes quickly apparent that especially with the configuration variety an overview of the contents of the policies is desirable. Who wants to open each policy to see what its purpose is. For this purpose, a well thought-out naming concept is helpful, with which you can recognize the purpose in the list on the basis of the names. Microsoft has some design recommendations ready, among other things how the name concept can look like, so that you can keep the overview (https://docs.microsoft.com/de-de/azure/active-directory/conditional-access/plan-conditional-access).
+Since we are referring to familiar sites with our policy, they must exist. Named locations can be edited in the editor in the administration area on the left. No matter if locations are used within the guidelines, it is recommended to store due subnets of the known location. This way you always have everything ready for all cases.</p>
+
+<h2 id="policy-parameters">Policy parameters</h2>
+
+<p>In our example the policy is named: “<strong>CA03-AzurePortal: Block for all Security Roles when Admin not On-Prem AND hybrid Client</strong>”.
+Which actually says everything without the administrator having to look at the policy. Creating the policy is self-explanatory in the editor. In the assignments we leave users and groups blank and select all the roles we want for the scenario, “Global Administrator”, “Security Administrator”, etc. At this point it is especially important that in the “Exclude” tab of the users and groups we leave the Break Glass accounts mentioned above, as these must be excluded. Next, we go to “Cloud apps …” and select Azure Portal from the list of registered apps. For the conditions, we focus on the sites and here it is important to select “All sites” under “Include” and for “Exclude” we select “All trusted sites”. Since our policy denies access, we exclude trusted location from the policy. The policy can be further refined and in the conditions these can be extended with the criterion device status and “hybrid device”.</p>
+
+<figure>
+  <img src="/MyPics/2021-01-18-ZeroTrust CA_I.png" style="width:100%" />
+  <figcaption>Example of a location based Conditional Access Policy</figcaption>
+</figure>
+
+<h2 id="test-before-deploy">Test before deploy</h2>
+
+<p>Not every administrator has a test environment ready to test the impact of the policies. Or often the labs are not as close to production to develop the policies there. Since working on policies is open-heart surgery in production, there are some tools to help with the startup. For example, when activating the policy, the “Report Only” option is useful. This means that the policy does nothing more than write an entry in the login log. So the policy is armed in production, but does not do anything except the log entry.</p>
+
+<figure>
+  <img src="/MyPics/2021-01-18-ZeroTrust CA_III.png" style="width:100%" />
+  <figcaption>Sign-in logs help investigate what happened regarding CA</figcaption>
+</figure>
+
+<p>Furthermore the function “What If” should be pointed out. Here you have the possibility to simulate a login or an access. In a list the applied policies and their result are shown.</p>
+
+<figure>
+  <img src="/MyPics/2021-01-18-ZeroTrust CA_II.png" style="width:100%" />
+  <figcaption>Sign-in logs help investigate what happened regarding CA</figcaption>
+</figure>
+
+<p>These tools help to avoid that the administrator locks out. If this should happen nevertheless times, there is the possibility to log in with a Break Glass account, provided it is deposited with the guidelines in the “Excludes”.</p>
+
+<figure>
+  <img src="/MyPics/2021-01-18-ZeroTrust CA_IV.png" style="width:70%" />
+  <figcaption>Exclude BGAs from CAs. A "must" in CA deployment</figcaption>
+</figure>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-18-ZeroTrust-CA/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-18-ZeroTrust-CA/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-18-ZeroTrust-CA/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[CA - the center of Zero Trust with Identity]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?</title><link href="http://localhost:4000/2021-01-16-ZeroTrust-MFA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?" /><published>2021-01-16T15:59:57+01:00</published><updated>2022-06-28T15:19:14+02:00</updated><id>http://localhost:4000/ZeroTrust%20MFA</id><content type="html" xml:base="http://localhost:4000/2021-01-16-ZeroTrust-MFA/"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#is-there-a-right-way-to-implement-mfa" id="markdown-toc-is-there-a-right-way-to-implement-mfa">Is there a right way to implement MFA</a></li>
+  <li><a href="#good-planning-is-important" id="markdown-toc-good-planning-is-important">Good planning is important</a></li>
+  <li><a href="#exploit-the-possibilities" id="markdown-toc-exploit-the-possibilities">Exploit the possibilities</a></li>
+</ul>
+
+<h2 id="is-there-a-right-way-to-implement-mfa">Is there a right way to implement MFA</h2>
+
+<p>MFA has become more prevalent with many providers on the Internet. This definitely also includes the Microsoft world and the logon to Azure AD or Microsoft 365. The distribution of MFA, or switching on when which user has to log on with a second factor in Azure AD, is linked to powerful policies. The topic as a whole has a multi-layered structure, and this is especially true for licensing, i.e. costs, in addition to the options for deployment. Here, unfortunately, as with other Azure features, the cost and capabilities depend on which Azure AD plan they are using. For example, the ability to use SMS as a second factor is not available in all editions. A good overview of all tariffs with the corresponding functionalities can be found in the following Microsoft Docs <a href="https://docs.microsoft.com/de-de/azure/active-directory/authentication/concept-mfa-licensing" target="_blank">article</a>. At this point we are looking at the technology, primarily the provision of MFA.</p>
+
+<h2 id="good-planning-is-important">Good planning is important</h2>
+
+<p>The easiest way to get MFA to users is to do it statically. This no “ifs” and “buts” method can be found somewhat hidden in the Azure AD Portal, in the display of all users in the command bar at the top. This method also requires you to specify a CSV file as the source with the contents of the desired user accounts. You should think twice about this but rather antiquated method. In today’s dynamic times, a rather smart method of distributing MFA is required, preferably if this can be tied to conditions. And there you have several options at hand. The most common, and the one recommended by Microsoft, is to enable it via “Conditional Access Policies”. They offer more options than controlling the distribution of MFA. CA is only one part of it, but more on that later.</p>
+
+<h2 id="exploit-the-possibilities">Exploit the possibilities</h2>
+
+<p>If you have Identity Protection in place, you can define MFA as part of the logon risk policy. If a user logon risk is detected, you can react in several ways, one of them is to allow logon using MFA.
+A typical lab case is, for example, a logon using the TOR browser, which hides the actual IP address, or when a logon is made from two different geographical locations, which is also atypical in normal cases. However, it is always possible that this is legitimate, for example when a developer is testing something, so the logon can be granted via MFA. Identity Protection can also be used to roll out MFA to all users by enabling the MFA registration policy in the Identity Protection Dashboard. Unlike the manual approach mentioned above, here it is possible to specify AD groups, which allows us to make the activation selective for specific users.</p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-16-ZeroTrust-MFA/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-16-ZeroTrust-MFA/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-16-ZeroTrust-MFA/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[MFA - 2 min considerations]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 1: Tenant Security</title><link href="http://localhost:4000/2021-01-16-ZeroTrust-Tenant-Security/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 1: Tenant Security" /><published>2021-01-16T10:59:57+01:00</published><updated>2022-06-28T15:19:14+02:00</updated><id>http://localhost:4000/ZeroTrust%20Tenant%20Security</id><content type="html" xml:base="http://localhost:4000/2021-01-16-ZeroTrust-Tenant-Security/"><![CDATA[<ul id="markdown-toc">
+  <li><a href="#start-with-inventory" id="markdown-toc-start-with-inventory">Start with inventory</a>    <ul>
+      <li><a href="#vulnerability-analysis" id="markdown-toc-vulnerability-analysis">Vulnerability analysis</a></li>
+    </ul>
+  </li>
+  <li><a href="#common-tenant-settings" id="markdown-toc-common-tenant-settings">Common Tenant Settings</a></li>
+  <li><a href="#emergency-access" id="markdown-toc-emergency-access">Emergency Access</a></li>
+</ul>
+
+<h2 id="start-with-inventory">Start with inventory</h2>
+
+<p>One of the key challenges is to determine the current status of identity and security measures in Azure Active Directory. Did you miss anything? Are there new features in the Azure portfolio that are worth implementing? If you ask yourself these questions regularly as an administrator, this has nothing to do with you being paranoid, but is rather a normal part of the daily work of a CISO and is propagated by Microsoft again and again in training courses and also in documents on Azure security.
+If you are at the beginning of the considerations, the <a href="https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/" target="_blank">Zero Trust Journey Assessment Tool</a> can be helpful to get a basic feeling for the current situation.
+The term “tool” may be a bit of a stretch here, but the website definitely assists in getting a feel for the possibilities. After answering a few questions regarding your current setup, you’ll get a list of additional documents on what you consider critical. You don’t use MFA for external users? For this and other aspects, you will find links to further Microsoft Docs pages at the end of the evaluation, which show how best to close gaps.
+Based on the existing categories, you can also see here which aspects still belong to the “Zero Trust” area, of which Identity is only one part, which we will look at further in the following.</p>
+
+<h3 id="vulnerability-analysis">Vulnerability analysis</h3>
+
+<p>The Identity Secure Score on the Azure Portal is more dynamic. In addition to the Secure Score, which you may be familiar with from the Security Center and which examines everything from virtual machines to network security, the Identity Secure Score is limited purely to identities and evaluates the current implementation against Microsoft recommendations. The result is a point scale that signals to the administrator where he stands on average. The result can be exported, sent as an e-mail and thus serves as a constant proof for responsible third parties in the company, such as the security department. You can find the identity security score in the Azure Active Directory dashboard, behind the “Security” option.
+Further up, in the security dashboard, in the “Protect” category is the Security Center, which is an additional option for analysis. Here you will find a subset, so to speak, related to Identity, of the aforementioned higher-level Security Center, which examines all infrastructure resources.
+Each of the mentioned dashboards has a high value for administration. Regular evaluation of the Secure Scores should be part of every Azure AD operations manual. Only then can you be sure to use the maximum of measures for security. However, there are more security aspects related to identities that you should be aware of, for example, the settings in Azure AD, the tenant settings.</p>
+
+<figure class="medium">
+  <a href="/MyPics/2021-01-14-ZeroTrust_Tenant_Security_II.png"><img src="/MyPics/2021-01-14-ZeroTrust_Tenant_Security_II.png" /></a>
+  <figcaption>Identity Secure Score to analyse vulnerabilities</figcaption>
+</figure>
+
+<h2 id="common-tenant-settings">Common Tenant Settings</h2>
+
+<p>The Azure Active Directory dashboard contains all configuration elements related to the directory service. Starting from user settings to application registration. Behind just about every category are settings that affect the behavior and capabilities of the respective function. Interesting here are the possibilities when selecting the option “User settings”. Here you can find settings that can significantly contribute to securing the client in context. If you navigate to the “User settings”, some general settings become visible on the first pages, such as whether access to the Admin Portal is allowed for non-administrators, which is possible by default.</p>
+
+<p>Things get exciting behind the inconspicuous hyperlink “Manage external collaboration settings”.</p>
+<figure class="medium">
+  <a href="/MyPics/2021-01-14-ZeroTrust_Tenant_Security_I.png"><img src="/MyPics/2021-01-14-ZeroTrust_Tenant_Security_I.png" /></a>
+  <figcaption>Tenant Security: External Collaboration Settings</figcaption>
+</figure>
+<p>Here you have, among other things, the option to control what external users are allowed to do and how far this can go. If you want to prevent unnecessary guest accounts from accumulating in Azure, consider which of the settings available here are suitable for fine-tuning for your tenant. For example, you might want to question whether guests should really be allowed to invite additional guests. Or with the “Collaboration restrictions” option, which domains are allowed for user cones to be invited and which are not. Both whitelisting and blacklisting are possible here.
+Familiarize yourself with all the tenant settings. There are no standard recipes here, because the security requirements of today’s companies are too diverse. Knowing the possibilities of which settings apply to the tenant can contribute significantly to security.</p>
+
+<h2 id="emergency-access">Emergency Access</h2>
+
+<p>Before you start protecting Azure AD with various tools and policies, you should consider emergency scenarios. In this case, emergency means that access to Azure AD is no longer possible with a Global Admin or other administrative users. There are a lot of reasons for this. The MFA service at Microsoft is down or the administrator has locked himself out when configuring policies, to name just two. For these scenarios, the so-called “Break Glass Accounts” or “BGAs” come into play. These are administrative accounts that you don’t use for day-to-day operations, but which have the maximum user rights in Azure AD. Other aspects make the accounts stand out: they are cloud only accounts, therefore not synced from on-premises. You implement two of the accounts and preferably add them to a group. And most importantly, they are excluded from all policies. “Exclude” options are used for this accordingly when configuring the policies. These features are critical for any business. It is unthinkable if the accounts and passwords fall into the wrong hands. Therefore, you should think about how the processes around the accounts look like. Maybe it makes sense to document and store the password in two parts and to grant access to the password fragments only to a divided group of people? It is also very important to test the login with the accounts from time to time to make sure that you are prepared for an emergency. It is also necessary to monitor the Azure AD group, which serves as an exclude group, because this represents a backdoor for people who want to bypass all protection mechanisms. The same applies to a login with a BGA account. For both cases, alerts in combination with KQL queries are suitable, which we will deal with in the second part of this workshop. There are a couple of articles in the Internet, including <a href="https://docs.microsoft.com/de-de/azure/active-directory/users-groups-roles/directory-emergency-access" target="_blank">this one</a>, that provide a step by step guide to setup up BGA Accounts.
+Part 6 of this blog series “Monitoring critical roles” describes additional aspects regarding monitoring of BGA Accounts</p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-16-ZeroTrust-Tenant-Security/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-16-ZeroTrust-Tenant-Security/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-16-ZeroTrust-Tenant-Security/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Overview of generell tenant related security settings]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_TenantSecurity_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_TenantSecurity_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
