@@ -1,5 +1,5 @@
 ---
-permalink: /Privacy/
+permalink: /privacy/
 title: "Privacy Policy"
 classes: wide
 ---
