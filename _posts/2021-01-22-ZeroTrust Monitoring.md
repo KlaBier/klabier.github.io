@@ -12,7 +12,7 @@ image:
 * this unordered seed list will be replaced by the toc
 {:toc}
 
-## Monitoring and Dealing with critical user accounts
+## Monitoring and Dealing with critical user accountss
 
 
 Microsoft recommends so-called Break Glass accounts for emergency access. These have maximum permissions and are exempt from security measures such as "Conditional Access" policies. If something goes wrong with any policy or with the connection to on-premises, it is possible to access the tenant with these unaffected Break Glass accounts. In the first part of this post, we looked at more details about Break Glass accounts.
