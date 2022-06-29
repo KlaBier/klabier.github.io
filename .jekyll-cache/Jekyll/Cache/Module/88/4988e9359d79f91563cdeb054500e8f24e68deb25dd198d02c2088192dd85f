@@ -1,0 +1,67 @@
+I"¹
+
+
+
+
+
+<article id="post-CP" class="page post mb6" role="article">
+  <header>
+    <h1 class="post-title flip-project-title">
+      <a href="/2020-03-21-CP/" class="flip-title">
+        First experience with Azure AD Connect Cloud Provisioning
+      </a>
+    </h1>
+
+    <div class="post-date">
+      
+      <span class="ellipsis mr1">
+        <time datetime="2020-03-21T20:59:57+01:00">21 Mar 2020</time>  
+      </span>
+      
+        
+          
+          
+          
+            
+            
+            <span class="ellipsis" data-tippy-content="Last modified at: 29 Jun 2022">
+              <span class="sr-only">Last modified at:</span>
+              <span class="icon-history"></span>
+              <time datetime="2022-06-29T11:28:43+02:00">2022-06-29</time>
+            </span>
+          
+        
+      
+    </div>
+
+    
+    
+
+    
+
+
+
+  
+    <p class="note-sm" >
+      Introduction to the new cloud based synchronization technology
+
+    </p>
+  
+
+
+  </header>
+
+  
+    
+
+    
+    
+    <footer>
+      <p class="read-more">
+        Continue reading <a class="heading flip-title" href="/2020-03-21-CP/">First experience with Azure AD Connect Cloud Provisioning</a>
+
+      </p>
+    </footer>
+  
+</article>
+:ET
