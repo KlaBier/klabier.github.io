@@ -25,8 +25,8 @@ title:                 NothingButCloud
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Hydejack is a boutique Jekyll theme for hackers, nerds, and academics,
-  with a focus on personal sites that are meant to impress.
+  The blog is for people who are interested in
+  Active Directory - On-Premises, Azure AD and hybrid
 
 # A shorter description for the sidebar.
 tagline:               Klaus Bierschenk - Azure and Identity Enthusiast. Occasional author
