@@ -3,7 +3,7 @@ title: "How to change language in M365 Portal for a synchronized identity"
 date: 2021-07-03T22:01:32
 layout: list
 
-description: this is really hidden
+description: this setting is really hard to find
 
 image:
   path: /MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png
