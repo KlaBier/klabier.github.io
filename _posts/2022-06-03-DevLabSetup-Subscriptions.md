@@ -1,5 +1,5 @@
 ---
-title: "Hybrid identity Testlab: Move Subscriptions between Tenants (Part #2)"
+title: "Hybrid identity Testlab (Part #2): Move Subscriptions between Tenants"
 date: 2023-06-03T22:01:32
 #search: true
 #classes:

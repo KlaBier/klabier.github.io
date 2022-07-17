@@ -38,7 +38,7 @@
 </url>
 <url>
 <loc>http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/</loc>
-<lastmod>2022-06-29T11:28:43+02:00</lastmod>
+<lastmod>2022-07-04T21:35:56+02:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/2021-09-10-CloudIdentitySummit_21/</loc>
@@ -51,6 +51,10 @@
 <url>
 <loc>http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/</loc>
 <lastmod>2022-06-29T11:28:43+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2022-07-10-AMA_AADConnect/</loc>
+<lastmod>2022-07-17T23:25:16+02:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/Posts/</loc>
@@ -74,7 +78,7 @@
 </url>
 <url>
 <loc>http://localhost:4000/publications/</loc>
-<lastmod>2022-06-29T17:58:39+02:00</lastmod>
+<lastmod>2022-07-17T23:34:03+02:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/LICENSE/</loc>

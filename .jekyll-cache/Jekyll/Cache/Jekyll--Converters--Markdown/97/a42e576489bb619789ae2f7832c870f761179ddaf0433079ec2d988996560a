@@ -1,0 +1,563 @@
+I"!�<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_I.png" style="width:75%" />
+  <figcaption>Figure 1: AMA AAD Connect Teaser</figcaption>
+</figure>
+
+<ul id="markdown-toc">
+  <li><a href="#deutsche-inhalte" id="markdown-toc-deutsche-inhalte">Deutsche Inhalte</a>    <ul>
+      <li><a href="#configuration-setup" id="markdown-toc-configuration-setup">Configuration, Setup</a>        <ul>
+          <li><a href="#wo-finde-ich-die-version-von-aadconnect-server" id="markdown-toc-wo-finde-ich-die-version-von-aadconnect-server">Wo finde ich die Version von AADConnect Server?</a></li>
+          <li><a href="#welche-möglichkeiten-von-hochverfügbarkeit-und-lastenausgleich-gibt-es" id="markdown-toc-welche-möglichkeiten-von-hochverfügbarkeit-und-lastenausgleich-gibt-es">Welche Möglichkeiten von Hochverfügbarkeit und Lastenausgleich gibt es?</a></li>
+          <li><a href="#wobei-kann-der-azure-ad-connect-documenter-helfen" id="markdown-toc-wobei-kann-der-azure-ad-connect-documenter-helfen">Wobei kann der Azure AD Connect Documenter helfen?</a></li>
+          <li><a href="#welche-möglichkeiten-gibt-es-für-den-export-der-config" id="markdown-toc-welche-möglichkeiten-gibt-es-für-den-export-der-config">Welche Möglichkeiten gibt es für den Export der Config?</a></li>
+          <li><a href="#was-bedeutet-es-wenn-aadc-im-azure-health-portal-unmonitored-ist" id="markdown-toc-was-bedeutet-es-wenn-aadc-im-azure-health-portal-unmonitored-ist">Was bedeutet es wenn AADC im Azure Health portal unmonitored ist?</a></li>
+          <li><a href="#was-sind-denn-die-unterschiede-von-cloud-sync-zu-aad-connect-server-vorteilenachteile" id="markdown-toc-was-sind-denn-die-unterschiede-von-cloud-sync-zu-aad-connect-server-vorteilenachteile">Was sind denn die Unterschiede von Cloud Sync zu AAD Connect Server (Vorteile/Nachteile!)</a></li>
+          <li><a href="#ist-migration-nach-cloud-sync-empfohlen-sinnvoll-oder-möglich" id="markdown-toc-ist-migration-nach-cloud-sync-empfohlen-sinnvoll-oder-möglich">Ist Migration nach Cloud Sync empfohlen, sinnvoll oder möglich?</a></li>
+        </ul>
+      </li>
+      <li><a href="#operations" id="markdown-toc-operations">Operations:</a>        <ul>
+          <li><a href="#wie-sieht-ein-health-check-aus" id="markdown-toc-wie-sieht-ein-health-check-aus">Wie sieht ein Health Check aus?</a></li>
+          <li><a href="#-bei-cloud-sync" id="markdown-toc--bei-cloud-sync">… bei Cloud Sync</a></li>
+          <li><a href="#-und-bei-aadc-server" id="markdown-toc--und-bei-aadc-server">… und bei AADC Server</a></li>
+          <li><a href="#was-ist-zu-tun-wenn-localdb-zu-klein-oder-nicht-mehr-ausreichend-ist-10gb" id="markdown-toc-was-ist-zu-tun-wenn-localdb-zu-klein-oder-nicht-mehr-ausreichend-ist-10gb">Was ist zu tun wenn localDb zu klein oder nicht mehr ausreichend ist (10GB)?</a></li>
+        </ul>
+      </li>
+      <li><a href="#was-gibt-es-beim-update-auf-v2-zu-beachten" id="markdown-toc-was-gibt-es-beim-update-auf-v2-zu-beachten">Was gibt es beim Update auf V2 zu beachten?</a></li>
+    </ul>
+  </li>
+  <li><a href="#english-content-from-the-ama" id="markdown-toc-english-content-from-the-ama">English content from the AMA</a>    <ul>
+      <li><a href="#configuration-setup-1" id="markdown-toc-configuration-setup-1">Configuration, Setup</a>        <ul>
+          <li><a href="#where-can-i-find-the-version-of-aadconnect-server" id="markdown-toc-where-can-i-find-the-version-of-aadconnect-server">Where can I find the version of AADConnect Server?</a></li>
+          <li><a href="#what-are-the-options-for-high-availability-and-load-balancing" id="markdown-toc-what-are-the-options-for-high-availability-and-load-balancing">What are the options for high availability and load balancing?</a></li>
+          <li><a href="#what-the-azure-ad-connect-documenter-can-help-with" id="markdown-toc-what-the-azure-ad-connect-documenter-can-help-with">What the Azure AD Connect Documenter can help with?</a></li>
+          <li><a href="#welche-möglichkeiten-gibt-es-für-den-export-der-config-1" id="markdown-toc-welche-möglichkeiten-gibt-es-für-den-export-der-config-1">Welche Möglichkeiten gibt es für den Export der Config?</a></li>
+          <li><a href="#was-bedeutet-es-wenn-aadc-im-azure-health-portal-unmonitored-ist-1" id="markdown-toc-was-bedeutet-es-wenn-aadc-im-azure-health-portal-unmonitored-ist-1">Was bedeutet es wenn AADC im Azure Health portal unmonitored ist?</a></li>
+          <li><a href="#was-sind-denn-die-unterschiede-von-cloud-sync-zu-aad-connect-server-vorteilenachteile-1" id="markdown-toc-was-sind-denn-die-unterschiede-von-cloud-sync-zu-aad-connect-server-vorteilenachteile-1">Was sind denn die Unterschiede von Cloud Sync zu AAD Connect Server (Vorteile/Nachteile!)</a></li>
+          <li><a href="#ist-migration-nach-cloud-sync-empfohlen-sinnvoll-oder-möglich-1" id="markdown-toc-ist-migration-nach-cloud-sync-empfohlen-sinnvoll-oder-möglich-1">Ist Migration nach Cloud Sync empfohlen, sinnvoll oder möglich?</a></li>
+        </ul>
+      </li>
+      <li><a href="#operations-1" id="markdown-toc-operations-1">Operations:</a>        <ul>
+          <li><a href="#wie-sieht-ein-health-check-aus-1" id="markdown-toc-wie-sieht-ein-health-check-aus-1">Wie sieht ein Health Check aus?</a></li>
+          <li><a href="#-bei-cloud-sync-1" id="markdown-toc--bei-cloud-sync-1">… bei Cloud Sync</a></li>
+          <li><a href="#-und-bei-aadc-server-1" id="markdown-toc--und-bei-aadc-server-1">… und bei AADC Server</a></li>
+          <li><a href="#was-ist-zu-tun-wenn-localdb-zu-klein-oder-nicht-mehr-ausreichend-ist-10gb-1" id="markdown-toc-was-ist-zu-tun-wenn-localdb-zu-klein-oder-nicht-mehr-ausreichend-ist-10gb-1">Was ist zu tun wenn localDb zu klein oder nicht mehr ausreichend ist (10GB)?</a></li>
+        </ul>
+      </li>
+      <li><a href="#was-gibt-es-beim-update-auf-v2-zu-beachten-1" id="markdown-toc-was-gibt-es-beim-update-auf-v2-zu-beachten-1">Was gibt es beim Update auf V2 zu beachten?</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>This was a German Session. but I have seen a couple of english speaking attandies in the audience, therefore you can also find the english content below.</p>
+
+<p>Azure AMA zum Thema Synchronisation, zusammen mit Gregor Reimling vom Azure Metup Bonn. Das waren spannende Fragestellungen rund um den endenden Support von AAD Connect v1 und dem Update auf die Version 2 des Sync Boliden. Wir hatten aber noch weitere Themen, die ich ebenfalls sehr spannend fand. Eine Liste der Fragen und Antworten findet ihr in diesem Beitrag</p>
+
+<p>Die Session wurde aufgezeichnet und ist auf <a href="https://www.youtube.com/watch?v=W2YGSMEvaKA&amp;t=1s" target="_blank">YouTube</a></p>
+
+<p><strong>Hinweis</strong></p>
+
+<p>Wenn in diesem Beitrag von AADC Server die Rede ist, ist immer die aktuelle Variante der Synchronisation, der On-Premises Bolide, gemeint. Wann immer Cloud Sync (Azure AD Cloud Sync) angesprochen wird, ist die neue Technologie der Synchronisation gemeint. Die macht mit Einschränkungen das Gleiche, arbeitet aber unter der Haube komplett anders. In den ersten Versionen (vor GA) wurde Cloud Sync mit Azure AD Cloud Provisioning betitelt.</p>
+
+<h1 id="deutsche-inhalte">Deutsche Inhalte</h1>
+<h2 id="configuration-setup">Configuration, Setup</h2>
+<h3 id="wo-finde-ich-die-version-von-aadconnect-server">Wo finde ich die Version von AADConnect Server?</h3>
+<p>Die Frage ist berechtigt, denn lange Zeit war die Version nur an wenigen Stellen und nicht wirklich intuitiv zu finden.</p>
+
+<p>Ein Ort war (und ist) in “Apps &amp; features”, wie folgende Abbildung zeigt:</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_II.png" style="width:90%" />
+  <figcaption>Figure 2: Die Version von AADC ist unter anderem in "Apps &amp; features" zu finden</figcaption>
+</figure>
+
+<p>Zwischenzeitlich hat Microsoft die Verion auch im “Synchronization Service Manager” integriert, wo sie meiner Meinung nach auch hingehört. Dort ist sie im Menü “Help” und dann “About …” zu finden</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_III.png" style="width:100%" />
+  <figcaption>Figure 3: Version findet sich seit Neuestem auch im Sync Manager ...</figcaption>
+</figure>
+
+<p>… oder mittlerweile auch im AAD Portal</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_IV.png" style="width:100%" />
+  <figcaption>Figure 4: ... oder im Azure AD Portal</figcaption>
+</figure>
+
+<p><strong>Hinweis</strong></p>
+
+<p>Sollten die erforderlichen Berechtigungen fehlen, um den “Synchronization Manager” auszuführen, lässt sich die Version auch im Azure AD ermitteln. Und zwar im Bereich Connect Health, wie oben abgebildet. Sollte das aus irgendeinem Grund nicht gehen, weil zum Beispiel der Health Agent nicht registriert ist oder keine Infos liefert, bleibt immer noch “Apps &amp; features”.</p>
+
+<p>Die Version ist bei AADC wichtig, da es häufiger Updates gibt und es von Bedeutung sein kann, zu wissen, was aktuell installiert ist. Umso verwirrender war es bislang, die Version nicht dort zu finden, wo sie intuitiv vermutet wird. Aber umso besser jetzt, dass MS dies nun an den richtigen Stellen integriert hat.</p>
+
+<p>Solltest Du eine ältere Version von AADC einsetzen, und im AAD Connect Health Dashboard und auch im Synchronization Manager” nicht fündig werden, ist “Apps &amp; features” ebenfalls die beste Wahl für Dich, um die version herauszufinden</p>
+
+<h3 id="welche-möglichkeiten-von-hochverfügbarkeit-und-lastenausgleich-gibt-es">Welche Möglichkeiten von Hochverfügbarkeit und Lastenausgleich gibt es?</h3>
+<p>Cloud Sync bietet die Möglichkeit mehrere Agenten On-Premises auf Memberserver zu installieren. Diese Server bieten Hochverfügbarkeit, aber keinen Lastenausgleich. Mit anderen Worten: fällt ein Server aus, übernimmt ein anderer. Müssen x tausend Identitäten synchronisiert werden, geschieht dies durch einen Agenten (Server), ohne dass sich mehrere die Last teilen werden.</p>
+
+<p>Diesen Lastenausgleich gibt es bei AADC nicht. Genauso gibt es keine “richtige” Möglichkeit der Hochverfügbarkeit. Einzig die Implementierueng eines oder mehrere sogenannter “Staging” Server ist eine Option, für ein Ausfallszenario vorzusorgen. Bei AADC ist immer ein Server der aktive Server. Das heisst, er schreibt (exportiert) Änderungen. Staging Server machen das Gleiche, jedoch exportieren sie nicht, auch machen sie keinen Password Hash Sync. In ihrer Datenbank ist aber der komplette Bestand an Identitäten enthalten. Fällt der aktive Servers aus, wird manuell aus dem Staging Server der aktive Server und ein kompletter Import aller zu synchronisierenden Objekte ist nicht notwendig, da diese Infos schon in der Datenbank liegen. Somit bedeutet dies eine Zeitersparnis, da quasi nur der Export aktiviert wird.
+Das ist aber nicht wirklich Hochverfügbarkeit.</p>
+
+<p>Das Thema ist spannend und herausfordernd. Da es einige Aspekte gibt, die hier unbedingt beachtet werden müssen. Zum Beispiel hat jeder AADC Server seine eigene Konfiguration, die mit den anderen AADC Servern nicht synchronisiert oder abgeglichen wird, wie das von einem Farm Setup bekannt ist, bei ADFS beispielsweise. Das birgt ein Risiko im Falle eines Wechsels von Staging zu aktivem Server, wenn der Staging Server ein anderes Setup als sein Pendant besitzt. Es gibt hier Maßnahmen und Tools wie dem zu begegnen ist. zum Teil ist dies hier beschrieben <a href="https://nothingbutcloud.net/2020-03-21-CP/#local-components" target="_blank">Local components in AADC</a></p>
+
+<p>Die ganze Story beschreibt Microsoft in diesem <a href="https://docs.microsoft.com/de-de/azure/active-directory/hybrid/how-to-connect-sync-staging-server" target="_blank">Docs Artikel</a></p>
+
+<h3 id="wobei-kann-der-azure-ad-connect-documenter-helfen">Wobei kann der Azure AD Connect Documenter helfen?</h3>
+<p>Der Azure AD Connect Documenter ist ein Tool, das nicht Teil des Setups ist und separat installiert werden muss. Die Installation auf einem AADC Server ist einfach und besteht nur aus einem simplen Copy der Dateien aus Github.
+Danch wird für den Vergleich ein Dump der Konfiguration auf jedem der AADC Server erstellt, die es zu vergleichen gilt.</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-ADSyncServerConfiguration</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s2">"C:\ExportFolder"</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Dieser Export jedes Servers, mit allen Unterverzeichnissen, muss sich auf dem Computer befinden, auf dem der Documenter ausgeführt wird. Der wertet diesen aus und erstellt einen HTML Report der farblich die Unterschiede sichtbar macht.</p>
+
+<p>Die Dateien und die Dokumentation sind hier zu finden: <a href="https://github.com/Microsoft/AADConnectConfigDocumenter" target="_blank">Azure AD Connect Documenter</a></p>
+
+<p>Erwähnenswert ist an dieser Stelle noch, das der “Documenter” dabei helfen kann “Sync Rules” von einem Server zu einem anderen zu transferieren. Der gesamte Vorgang ist zwar manuell, aber der Export mittels generiertem PS1 Script kann auf dem Zielserver ausgeführt werden, ohne das die Connector-ID anzupassen ist, wie das beispielsweise bei einem Transfer mittels Regeleditor der Fall ist. Hierfür ist in dem HTML-Report lediglich die Option “Only show changes” zu aktvieren. Danach erscheint die Möglichkeit “Download Sync Rule Changes Script”</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_V.png" style="width:100%" />
+  <figcaption>Figure 5: AADC Documenter vergleicht den Export von zwei AADC Servern</figcaption>
+</figure>
+
+<h3 id="welche-möglichkeiten-gibt-es-für-den-export-der-config">Welche Möglichkeiten gibt es für den Export der Config?</h3>
+<p>Ab Version 1.5.42.0 (July 2020) ist der Export der Konfiguration über den Setup Assistenten von AADC möglich</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_VI.png" style="width:90%" />
+  <figcaption>Figure 6: AADC Config manager erlaubt Export der Konfiguration für den Import auf einem weiteren Server</figcaption>
+</figure>
+
+<p>Beim Einsatz einer älteren Version, die den Export in der GUI des Config Managers nicht unterstützt, wie oben abgebildet, gibt es einen alternativen Weg für den Export. Details sind hier zu finden <a href="https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-import-export-config#migrate-settings-from-an-existing-server" target="_blank">“Migrate settings from an existing server”</a></p>
+
+<p>Etwas umständlicher, aber der Weg führt hier über die Powershell genauso zum Ziel</p>
+
+<p>Übrigens erstellt der AADC Config Wizard bei Änderungen ein JSON File mit der Konfiguration, die für den Import auf einem weiteren Server (z.B. als Staging) genutzt werden kann.</p>
+
+<p>(Ordner: C:\ProgramData\AADConnect)</p>
+
+<h3 id="was-bedeutet-es-wenn-aadc-im-azure-health-portal-unmonitored-ist">Was bedeutet es wenn AADC im Azure Health portal unmonitored ist?</h3>
+<p>Ist ein AADC Server länger als 30 Tage inaktiv, wechselt sein Status im Dashboard von Azure AD Connect Health zu “unmonitored”, auch wenn der Server danach wieder gestartet wird, bleibt er “unmonitored”
+Das lässt sich beheben, in dem der Health Agent neu installiert wird oder eine Neuregistrierung des Agent mit dem folgendem Cmdlet erfolgt:</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Register-AzureADConnectHealthSyncAgent</span><span class="w"> </span><span class="nt">-AttributeFiltering</span><span class="w"> </span><span class="bp">$true</span><span class="w"> </span><span class="nt">-StagingMode</span><span class="w"> </span><span class="bp">$true</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="was-sind-denn-die-unterschiede-von-cloud-sync-zu-aad-connect-server-vorteilenachteile">Was sind denn die Unterschiede von Cloud Sync zu AAD Connect Server (Vorteile/Nachteile!)</h3>
+
+<p>Azure AD Connect Cloud Sync ist die neuere (Public Preview Okt. 2019) Technology für die Synchronisation und vollständig in das Azure AD Portal integriert. Der Teil, der On-Premises installiert wird, ist gering und beschränkt sich auf einen schlanken Agent. Konfiguration, und alles was damit zusammenhängt, liegt im Azure AD. Der lokale Agent kommuniziert lediglich mit dem Forest und transferiert die Identitäten in Richtung Azure AD.</p>
+
+<p>Im Gegenzug dazu ist AADC Server die seit langem etablierte, On-Premises Server basierte Technologie der Synchronisation. Sie entstammt ursprünglich dem Sync Client von MIIS (miisclient.exe) aus dem Jahre 2007 und ist eine für das Azure AD angepasstes Variante des Sync Client</p>
+
+<p>Ich habe zwei Artikel um Thema Cloud Sync hier in meinem Blog, die auch auf die Unterschiede zwischen den beiden Technologien eingehen:</p>
+
+<p><a href="https://nothingbutcloud.net/2020-03-21-CP/" target="_blank">“First experience with Azure AD Connect Cloud Provisioning”</a></p>
+
+<p><a href="https://nothingbutcloud.net/2020-09-24-CP-Advanced/" target="_blank">“More Infos on Azure AD Connect Cloud Provisioning”</a></p>
+
+<p>Ein entsprechender Microsoft Artikel, der auf die Unterschiede eingeht, ist hier zu finden:</p>
+
+<p><a href="https://docs.microsoft.com/de-de/azure/active-directory/cloud-sync/what-is-cloud-sync#comparison-between-azure-ad-connect-and-cloud-sync" target="_blank">“Unterschiede zwischen Cloud Sync und AADC Server”</a></p>
+
+<h3 id="ist-migration-nach-cloud-sync-empfohlen-sinnvoll-oder-möglich">Ist Migration nach Cloud Sync empfohlen, sinnvoll oder möglich?</h3>
+<p>Beide Technlogien sind von der Architektur her verschieden und bislang ist mir kein Migrationspfad bekannt. Warum auch? Eine intakte AADC Server Implementierung durch eine Cloud Sync Implementierung zu ersetzen macht aktuell keinen Sinn, da AADC Server derzeit noch einen größeren Funktionsumfang besitzt. Die Frage stellt sich somit aktuell nicht. Aber ich bin ziemlich sicher, dass irgendwann, wenn die Funktionen in Cloud Sync zunehmen und ein Einsatz dieser Technologie attraktiver wird, eine Migration von nutzen sein kann und Microsoft einen Migrationspfad beschreiben wird.</p>
+
+<h2 id="operations">Operations:</h2>
+<h3 id="wie-sieht-ein-health-check-aus">Wie sieht ein Health Check aus?</h3>
+
+<h3 id="-bei-cloud-sync">… bei Cloud Sync</h3>
+
+<p>Bei Cloud Sync gibt es mehrere Möglichkeiten, dem Service auf dem Zahn zu fühlen. Ein guter und erster Start für einen Check ist das Cloud Sync Dashboard sowohl beim Service aber auch bei den jeweiligen Agenten, die hier aufgelistet sind:</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_VII.png" style="width:100%" />
+  <figcaption>Figure 7: "Healthy" als Service Status sieht gut aus</figcaption>
+</figure>
+
+<p>Die Option “Logs” in der Auswahl oben bezieht sich übrigens auf die Protokolle der Synchronisation. Hier ist nicht der Status zu den Agenten oder Ähnliches zu finden</p>
+
+<p>Auch wenn Cloud Sync den Schwerpunkt der Administration in Azure hat, so gibt es doch auf den Servern mit installiertem Agent die Möglichkeit den Status zu prüfen und auch gezielt nach Fehlern zu suchen. Meiner Meinung nach aber als eine Option, wenn die Aussagekraft der Fehler in Azure AD nicht schlüssig ist, quasi als nächsten Schritt in der Fehlersuche.</p>
+
+<p>Das Eventlog ist immer eine gute Quelle um auf einem Server nach dem Rechten zu sehen, so auch bei Cloud Sync. Mit dem Agentsetup werden zwei Protokolle mit installiert, <strong>AgentUpdater</strong> und <strong>ProvisioningAgent</strong> Ersteres dient dem Update, wie der Name auch andeutet, interesseanter ist da schon das Log des Provioning Agenten, das zeigt ob alles rund läuft oder eben nicht.</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_VIII.png" style="width:100%" />
+  <figcaption>Figure 8: "Das Log des Provioning Agenten gibt Aufschluss ob alles richtig tickt</figcaption>
+</figure>
+
+<p>Im Übrigen sind das “Application Log” und auch das “System Log” gleichfalls Orte, die der Agent für die Ablage von Informationen verwendet. Es bietet sich also an sämtliche Logs zu betrachten.</p>
+
+<p>Dann wäre da natürlich noch die Powershell. Mit dem Setup des Agenten wird alles erforderlich bereitgestellt. Mit einigen wenigen Cmdlets ist das Module am Start und bietet somit die Möglichkeit von der Kommandozeile aus aktiv zu werden, wie die nächste Abbildung zeigt:</p>
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_IX.png" style="width:100%" />
+  <figcaption>Figure 9: "Das mit installierte Powershell Module für Cloud Sync</figcaption>
+</figure>
+
+<p>Für eine noch detailliertere Analyse bieten sich die Trace Logs an. Hier sind übrigens auch die Eventlogs (EVTX files) zu finden, die mit folgendem Cmdlet aus dem Cloud Sync Module generiert werden:</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Export-AADCloudSyncToolsLogs</span><span class="w">
+</span></code></pre></div></div>
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_X.png" style="width:100%" />
+  <figcaption>Figure 10: Die Tracelogs bieten einen noch tieferen Einblick in die Arbeitsweise des Cloud Sync Agenten</figcaption>
+</figure>
+
+<h3 id="-und-bei-aadc-server">… und bei AADC Server</h3>
+
+<p>Bei Azure AD Connect Server gibt es mehr Möglichkeiten für einen Health Check, verglichen zu Cloud Sync. Für einen ersten Blick, und um zu prüfen, ob alles passt, macht es Sinn im Azure AD Portal zu starten. Hier wird ein umfassender Status angezeigt und das Health Dashboard ist zu finden im Portal des Azure AD in der Navigation unter <strong>Azure AD Connect</strong> und dann im Bereich von Azure AD Connect über die Auswahl <strong>HEALTH AND ANALYTICS</strong></p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_XI.png" style="width:100%" />
+  <figcaption>Figure 11: Health Dashboard zeigt den Gesamtstatus von Azure AD Connect Server</figcaption>
+</figure>
+
+<p>Da es auch einen Health Agenten für ADFS und einen für die AD Domain Services gibt, lässt sich hier alles gesammelt betrachten, natürlich nur wenn die lokalen Systeme mit dem jeweiligen Agenten ausgestattet sind. Alle Infos zu AADC befinden sich hinter den entsprechenden Quick start links (siehe roter Rahmen in Abbildung 11)</p>
+
+<p>Das Dashboard hier besteht aus einer Vielzahl aktiver Elemente, die per Quicklink zwischen den Bereichen wechselt, andere Einsichten liefert und eine detaillierte Analyse der Health Infos gestattet. Wie am Beispiel der beiden Sever unten bei Auswahl eines der jeweiligen Serverobjekte.</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_XII.png" style="width:100%" />
+  <figcaption>Figure 12: So soll es aussehen: alles gesund meldet der health Agent von den On-prem AADC Servern</figcaption>
+</figure>
+
+<p>Sollte das Azure AD und die Health Dashboards keinen Hinweis zu einer Fehlersituation liefern, besteht auch bei den Azure AD Connect Servern die Möglichkeit das Eventlog zu untersuchen. Das Augenmerk sollte hier auf dem “Application Log” liegen, hier listet der Sync Service akkribisch was Sache ist.</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_XIII.png" style="width:100%" />
+  <figcaption>Figure 13: Application Event Log liefert detaillierte Infos zum Zustand der Synchronisation</figcaption>
+</figure>
+
+<p>Die Powershell bietet perfekte Möglichkeiten um auf einem AADC Server nach dem Rechten zu sehen. Das mächtige PS-Module “adsync” (117 cmdlets) liefert viele Möglichkeiten hierzu. Genauso hilfreich ist das Modul “ADSyncDagnostics” mit dem Cmdlet</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Invoke-ADSyncDiagnostics</span><span class="w">
+</span></code></pre></div></div>
+
+<p>wie Abbildung 14 zeigt.</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_XIV.png" style="width:100%" />
+  <figcaption>Figure 14: Powershell eignet sich perfekt für Health Check und Analyse. Hier das Cmdlet "Invoke-ADSyncDiagnostics"</figcaption>
+</figure>
+
+<h3 id="was-ist-zu-tun-wenn-localdb-zu-klein-oder-nicht-mehr-ausreichend-ist-10gb">Was ist zu tun wenn localDb zu klein oder nicht mehr ausreichend ist (10GB)?</h3>
+<p>Beim Setup von Azure AD Connect wird, wenn im Wizard nicht anders angegeben, ein Local DB installiert. Dies ist praktisch und einfach. Local DB ist aber auf eine maximale DB Größe von 10GB beschränkt, was sich viel anhört, aber unter Umständen schnell erreicht ist. Es lässt sich pauschal nicht beziffern, das bei x Usern im Sync die 10GB bei dieser oder jener Anzahl erreicht ist. Das hängt von mehreren Faktoren ab. Aber der wichtigste Faktor ist <strong>wieviele Connectoren (AD Forests) sind Teil der Synchronisation?</strong></p>
+
+<p>In der Gesamt DB ist schließlich alles enthalten: Metaverse (sämtliche Objekte). Genauso die Objekte der jeweiligen Connectoren, quasi als “Rohdaten Import” für den Abgleich mit der Metaverse.</p>
+
+<p>Um es für die Frage hier auf den Punkt zu bringen, habe ich zuletzt ein AADC Setup mit einer AD Domain gesehen. Hier wurden ca. 500 Gruppen synchronisiert. Keine Computerobjekte. Und es waren um die 30.000 Benutzer vorhanden als die DB Größe die Grenze von 10GB erreichte.</p>
+
+<p>Microsoft beschreibt in <a href="https://docs.microsoft.com/de-de/azure/active-directory/hybrid/how-to-connect-install-move-db" target="_blank">diesem Artikel</a> und auch <a href="https://docs.microsoft.com/de-de/azure/active-directory/hybrid/how-to-connect-install-existing-database" target="_blank">hier</a> die einzelnen Schritte, die beim Verschieben der Datenbank, bzw. beim Wiederverwenden einer vorhandenenen DB, zu tun sind.</p>
+
+<p>Um es hier zusammenfassend auf den Ounkt zu bringen:</p>
+
+<ul>
+  <li>
+    <p>DB (MDF- und LDF- Dateien) auf dem aktuellen Sync Server dem Dateisystem an einen sicheren Ort kopieren bzw. direkt auf den dedizierten, entfernten SQL Server.</p>
+  </li>
+  <li>
+    <p>DB dort einbinden</p>
+  </li>
+  <li>
+    <p>AADC neu installieren, und wie in den Beitrag aus den Links oben beschrieben, das Setup mit dem Switch <strong>/useexistingdatabase</strong> aufrufen. Im Setup-Wizard besteht dadurch die Option einen SQL Server anzugeben. Im Weiteren wird die dort befindliche DB erkannt und verwendet.</p>
+  </li>
+  <li>
+    <p>Bitte unbedingt die Post-Tasks aus den MS Beiträgen beachten!</p>
+  </li>
+</ul>
+
+<h2 id="was-gibt-es-beim-update-auf-v2-zu-beachten">Was gibt es beim Update auf V2 zu beachten?</h2>
+<p>Aus meiner Sicht ist die Aktualisierung auf die v2 unkritisch und kein Problem! Ich habe schon in-place Updates gemacht, würde aber strategisch gesehen einen anderen Weg gehen, wie weiter unten beschrieben. Zunächst einmal einige Eckpunkte rund um das Thema AADC Update auf v2</p>
+
+<ul>
+  <li>
+    <p>v2 enthält keinerlei gravierende Änderungen an den Funktionalitäten und Features. Lediglich die Serverkomponenten wurden an die aktuellen Server Versionen angepasst: Windows Server 2016 und SQL 2019. Eine Gesamtliste der Anforderungen befindet sich hier <a href="https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-version-history#2030" target="_blank">Functional changes in 2.0.3.0</a></p>
+  </li>
+  <li>
+    <p>Auch wenn automatisches Update “Set-ADSyncAutoUpgrade -AutoUpgradeState enabled”  eingeschaltet ist, greift das Setting hier nicht. Die Aktualisierung auf v2 ist ein manueller Schritt, der nicht automatisiert ausgeführt wird</p>
+  </li>
+  <li>
+    <p>Eine von einem v1 AADC Server erstellter Export der Config kann auf einem neuen v2 Server importiert werden. Die JSON Files sind kompatibel</p>
+  </li>
+  <li>
+    <p>Wie oben erwähnt ist ein In-Place Update unterstützt. Da hier aber Altlasten auf dem Server zurückbleiben (SQL Server Komponenten) würd ich zu einer neuen Installation raten. Alte SQL Server Überbleibsel lassen sich zwar manuell entfernen, aber eine neue Version macht hier aus meiner Sicht Sinn.</p>
+  </li>
+</ul>
+
+<p>Wie bereits erwähnt unterstützt das Setup ein In-Place Update. ich würde aber folgende Schritte ausführen um einen Server auf v2 zu aktualisieren:</p>
+
+<ol>
+  <li>Von aktuellem AADC Server die Config exportieren (AADC Config Wizard)</li>
+  <li>Aktiven AADC Server zum Staging machen</li>
+  <li>Neuen Server (neuer Computername) bereitstellen.</li>
+  <li>TLS 1.2 aktivieren, wenn noch nicht geschehen. Sonst droht eine Fehlermeldung beim Setup von AADC
+<a href="https://docs.microsoft.com/de-de/azure/active-directory/hybrid/reference-connect-tls-enforcement#enable-tls-12" target="_blank">Erzwingen von TLS 1.2 für AADC</a></li>
+  <li>Installieren von AADC mit v2 und Import der JSON Config von anderem AADC Server (Punkt #1)</li>
+  <li>Server ist Staging. Health Check, ob alles passt. AD Health Dashboard, Eventlog, Synchronization Service Manager Console. Im Regeleditor prüfen ob die Regeln vorhanden sind</li>
+  <li>Ändern von Testdaten On-Premises (Benutzer Telefonnummer, neuen Benutzer anlegen etc.) und manuelle Synchronisation starten. Cmdlet: “Start-ADSyncSyncCycle”
+Werden Änderungen verarbeitet? Prüfen von Pending Exports für den Azure AD Connector Space. Der Server ist Staging. Er wird nichts Richtung Azure AD schreiben</li>
+  <li>Wenn alles ok ist, den neuen Server aktivieren (AADC Config Wizard)</li>
+  <li>Geht bei den Punkten oben irgendetwas schief, kann der zuvor zum Staging Server ausgemusterte Sync Server wieder in Betrieb genommen werden und es besteht Zeit in Ruhe das Problem zu untersuchen.</li>
+  <li>Ist bis hierhin alles in Ordnung (wovon auszugehen ist), sind jetzt der Reihe nach die vorhandenen Staging Server zu aktualisieren. Auch hier gilt wieder, entweder In-Place oder mit einer komplett neuen Maschine</li>
+</ol>
+
+<h1 id="english-content-from-the-ama">English content from the AMA</h1>
+
+<p>Azure AMA (Ask me anything) on the topic of synchronization, together with Gregor Reimling from Azure Metup Bonn. These were exciting questions around the ending support of AAD Connect v1 and the update to version 2 of the Sync Bolide. However, we had other topics that I also found very exciting. You can find a list of the questions and answers in this post</p>
+
+<p>The session was recorded and is available on <a href="https://www.youtube.com/watch?v=W2YGSMEvaKA&amp;t=1s" target="_blank">YouTube</a></p>
+
+<h2 id="configuration-setup-1">Configuration, Setup</h2>
+<h3 id="where-can-i-find-the-version-of-aadconnect-server">Where can I find the version of AADConnect Server?</h3>
+<p>The question is justified, because for a long time the version could only be found in a few places and not really intuitively.</p>
+
+<p>One place was (and is) in “Apps &amp; features”, as the following figure shows:</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_II.png" style="width:90%" />
+  <figcaption>Figure 2: The version of AADC can be found in "Apps &amp; features" among others</figcaption>
+</figure>
+
+<p>In the meantime, Microsoft has also integrated the Verion in the “Synchronization Service Manager”, where I think this is the perfect place. There it can be found in the menu “Help” and then “About …”</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_III.png" style="width:100%" />
+  <figcaption>Figure 3: version can now also be found in the Sync Manager ...</figcaption>
+</figure>
+
+<p>… or meanwhile also in the AAD Portal</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_IV.png" style="width:100%" />
+  <figcaption>Figure 4: ... or in the Azure AD Portal</figcaption>
+</figure>
+
+<p><strong>Note</strong></p>
+
+<p>If the required permissions to run the “Synchronization Manager” are missing, the version can also be determined in Azure AD. This is done in the Connect Health area, as shown above. If for some reason this does not work, for example because the Health Agent is not registered or does not provide any info, there is still “Apps &amp; features” the location to check the version</p>
+
+<p>The version is important with AADC because updates are more frequent and it can be significant to know what is currently installed. So it was all the more confusing not to find the version where it is intuitively assumed. But all the better now that MS has integrated this in the right places.</p>
+
+<p>If you are using an older version of AADC and can’t find it in the AAD Connect Health Dashboard and also in the Synchronization Manager, Apps &amp; features is also the best choice for you to find out the version.</p>
+
+<h3 id="what-are-the-options-for-high-availability-and-load-balancing">What are the options for high availability and load balancing?</h3>
+<p>Cloud Sync provides the ability to install multiple agents on-premises on member servers. These servers provide high availability, but no load balancing. In other words, if one server fails, another one takes over. If x thousand identities need to be synchronized, this is done by one agent (server) without to share the load between them.</p>
+
+<p>This load balancing does not exist in AADC. In the same way there is no “real” possibility of high availability. Only the implementation of one or more so-called “staging” servers is an option to provide for a failure scenario. With AADC one server is always the active server. This box writes changes (exports). Staging servers do the same, but they do not run an export, nor do they do password hash sync. However, their database contains the complete set of identities. If the active server fails, the staging server manually becomes the active server and a complete import of all objects to be synchronized is not necessary, because this info is already in the database. Thus this means a time saving, since quasi only the export is activated.
+But this is not really high availability.</p>
+
+<p>The topic is exciting and challenging. As there are some aspects that have to be taken into account. For example, each AADC server has its own configuration, which is not synchronized or aligned with the other AADC servers, as is known from a farm setup, with ADFS for example. This poses a risk in case of a change from staging to active server, if the staging server has a different setup than its counterpart. There are measures and tools to counter this, some of which are described here. <a href="https://nothingbutcloud.net/2020-03-21-CP/#local-components" target="_blank">Local components in AADC</a></p>
+
+<p>Microsoft describes the whole story in this <a href="https://docs.microsoft.com/de-de/azure/active-directory/hybrid/how-to-connect-sync-staging-server" target="_blank">Docs Artikel</a></p>
+
+<h3 id="what-the-azure-ad-connect-documenter-can-help-with">What the Azure AD Connect Documenter can help with?</h3>
+<p>Azure AD Connect Documenter is a tool that is not part of the built-in tools and it must be installed separately. The installation on an AADC server is simple and only consists of a simple copy of the files from Github.
+Then a dump of the configuration on each of the AADC servers is created for comparison by the Documenter.</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-ADSyncServerConfiguration</span><span class="w"> </span><span class="nt">-Path</span><span class="w"> </span><span class="s2">"C:\ExportFolder"</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This dump of each server, with all subdirectories, must be on the computer on which the Documenter is executed. The Documenter evaluates this and creates a HTML report that shows the differences in color.</p>
+
+<p>The files and the documentation can be found here: <a href="https://github.com/Microsoft/AADConnectConfigDocumenter" target="_blank">Azure AD Connect Documenter</a></p>
+
+<p>Erwähnenswert ist an dieser Stelle noch, das der “Documenter” dabei helfen kann “Sync Rules” von einem Server zu einem anderen zu transferieren. Der gesamte Vorgang ist zwar manuell, aber der Export mittels generiertem PS1 Script kann auf dem Zielserver ausgeführt werden, ohne das die Connector-ID anzupassen ist, wie das beispielsweise bei einem Transfer mittels Regeleditor der Fall ist. Hierfür ist in dem HTML-Report lediglich die Option “Only show changes” zu aktvieren. Danach erscheint die Möglichkeit “Download Sync Rule Changes Script”</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_V.png" style="width:100%" />
+  <figcaption>Figure 5: AADC Documenter vergleicht den Export von zwei AADC Servern</figcaption>
+</figure>
+
+<h3 id="welche-möglichkeiten-gibt-es-für-den-export-der-config-1">Welche Möglichkeiten gibt es für den Export der Config?</h3>
+<p>Ab Version 1.5.42.0 (July 2020) ist der Export der Konfiguration über den Setup Assistenten von AADC möglich</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_VI.png" style="width:90%" />
+  <figcaption>Figure 6: AADC Config manager erlaubt Export der Konfiguration für den Import auf einem weiteren Server</figcaption>
+</figure>
+
+<p>Beim Einsatz einer älteren Version, die den Export in der GUI des Config Managers nicht unterstützt, wie oben abgebildet, gibt es einen alternativen Weg für den Export. Details sind hier zu finden <a href="https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-import-export-config#migrate-settings-from-an-existing-server" target="_blank">“Migrate settings from an existing server”</a></p>
+
+<p>Etwas umständlicher, aber der Weg führt hier über die Powershell genauso zum Ziel</p>
+
+<p>Übrigens erstellt der AADC Config Wizard bei Änderungen ein JSON File mit der Konfiguration, die für den Import auf einem weiteren Server (z.B. als Staging) genutzt werden kann.</p>
+
+<p>(Ordner: C:\ProgramData\AADConnect)</p>
+
+<h3 id="was-bedeutet-es-wenn-aadc-im-azure-health-portal-unmonitored-ist-1">Was bedeutet es wenn AADC im Azure Health portal unmonitored ist?</h3>
+<p>Ist ein AADC Server länger als 30 Tage inaktiv, wechselt sein Status im Dashboard von Azure AD Connect Health zu “unmonitored”, auch wenn der Server danach wieder gestartet wird, bleibt er “unmonitored”
+Das lässt sich beheben, in dem der Health Agent neu installiert wird oder eine Neuregistrierung des Agent mit dem folgendem Cmdlet erfolgt:</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Register-AzureADConnectHealthSyncAgent</span><span class="w"> </span><span class="nt">-AttributeFiltering</span><span class="w"> </span><span class="bp">$true</span><span class="w"> </span><span class="nt">-StagingMode</span><span class="w"> </span><span class="bp">$true</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="was-sind-denn-die-unterschiede-von-cloud-sync-zu-aad-connect-server-vorteilenachteile-1">Was sind denn die Unterschiede von Cloud Sync zu AAD Connect Server (Vorteile/Nachteile!)</h3>
+
+<p>Azure AD Connect Cloud Sync ist die neuere (Public Preview Okt. 2019) Technology für die Synchronisation und vollständig in das Azure AD Portal integriert. Der Teil, der On-Premises installiert wird, ist gering und beschränkt sich auf einen schlanken Agent. Konfiguration, und alles was damit zusammenhängt, liegt im Azure AD. Der lokale Agent kommuniziert lediglich mit dem Forest und transferiert die Identitäten in Richtung Azure AD.</p>
+
+<p>Im Gegenzug dazu ist AADC Server die seit langem etablierte, On-Premises Server basierte Technologie der Synchronisation. Sie entstammt ursprünglich dem Sync Client von MIIS (miisclient.exe) aus dem Jahre 2007 und ist eine für das Azure AD angepasstes Variante des Sync Client</p>
+
+<p>Ich habe zwei Artikel um Thema Cloud Sync hier in meinem Blog, die auch auf die Unterschiede zwischen den beiden Technologien eingehen:</p>
+
+<p><a href="https://nothingbutcloud.net/2020-03-21-CP/" target="_blank">“First experience with Azure AD Connect Cloud Provisioning”</a></p>
+
+<p><a href="https://nothingbutcloud.net/2020-09-24-CP-Advanced/" target="_blank">“More Infos on Azure AD Connect Cloud Provisioning”</a></p>
+
+<p>Ein entsprechender Microsoft Artikel, der auf die Unterschiede eingeht, ist hier zu finden:</p>
+
+<p><a href="https://docs.microsoft.com/de-de/azure/active-directory/cloud-sync/what-is-cloud-sync#comparison-between-azure-ad-connect-and-cloud-sync" target="_blank">“Unterschiede zwischen Cloud Sync und AADC Server”</a></p>
+
+<h3 id="ist-migration-nach-cloud-sync-empfohlen-sinnvoll-oder-möglich-1">Ist Migration nach Cloud Sync empfohlen, sinnvoll oder möglich?</h3>
+<p>Beide Technlogien sind von der Architektur her verschieden und bislang ist mir kein Migrationspfad bekannt. Warum auch? Eine intakte AADC Server Implementierung durch eine Cloud Sync Implementierung zu ersetzen macht aktuell keinen Sinn, da AADC Server derzeit noch einen größeren Funktionsumfang besitzt. Die Frage stellt sich somit aktuell nicht. Aber ich bin ziemlich sicher, dass irgendwann, wenn die Funktionen in Cloud Sync zunehmen und ein Einsatz dieser Technologie attraktiver wird, eine Migration von nutzen sein kann und Microsoft einen Migrationspfad beschreiben wird.</p>
+
+<h2 id="operations-1">Operations:</h2>
+<h3 id="wie-sieht-ein-health-check-aus-1">Wie sieht ein Health Check aus?</h3>
+
+<h3 id="-bei-cloud-sync-1">… bei Cloud Sync</h3>
+
+<p>Bei Cloud Sync gibt es mehrere Möglichkeiten, dem Service auf dem Zahn zu fühlen. Ein guter und erster Start für einen Check ist das Cloud Sync Dashboard sowohl beim Service aber auch bei den jeweiligen Agenten, die hier aufgelistet sind:</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_VII.png" style="width:100%" />
+  <figcaption>Figure 7: "Healthy" als Service Status sieht gut aus</figcaption>
+</figure>
+
+<p>Die Option “Logs” in der Auswahl oben bezieht sich übrigens auf die Protokolle der Synchronisation. Hier ist nicht der Status zu den Agenten oder Ähnliches zu finden</p>
+
+<p>Auch wenn Cloud Sync den Schwerpunkt der Administration in Azure hat, so gibt es doch auf den Servern mit installiertem Agent die Möglichkeit den Status zu prüfen und auch gezielt nach Fehlern zu suchen. Meiner Meinung nach aber als eine Option, wenn die Aussagekraft der Fehler in Azure AD nicht schlüssig ist, quasi als nächsten Schritt in der Fehlersuche.</p>
+
+<p>Das Eventlog ist immer eine gute Quelle um auf einem Server nach dem Rechten zu sehen, so auch bei Cloud Sync. Mit dem Agentsetup werden zwei Protokolle mit installiert, <strong>AgentUpdater</strong> und <strong>ProvisioningAgent</strong> Ersteres dient dem Update, wie der Name auch andeutet, interesseanter ist da schon das Log des Provioning Agenten, das zeigt ob alles rund läuft oder eben nicht.</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_VIII.png" style="width:100%" />
+  <figcaption>Figure 8: "Das Log des Provioning Agenten gibt Aufschluss ob alles richtig tickt</figcaption>
+</figure>
+
+<p>Im Übrigen sind das “Application Log” und auch das “System Log” gleichfalls Orte, die der Agent für die Ablage von Informationen verwendet. Es bietet sich also an sämtliche Logs zu betrachten.</p>
+
+<p>Dann wäre da natürlich noch die Powershell. Mit dem Setup des Agenten wird alles erforderlich bereitgestellt. Mit einigen wenigen Cmdlets ist das Module am Start und bietet somit die Möglichkeit von der Kommandozeile aus aktiv zu werden, wie die nächste Abbildung zeigt:</p>
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_IX.png" style="width:100%" />
+  <figcaption>Figure 9: "Das mit installierte Powershell Module für Cloud Sync</figcaption>
+</figure>
+
+<p>Für eine noch detailliertere Analyse bieten sich die Trace Logs an. Hier sind übrigens auch die Eventlogs (EVTX files) zu finden, die mit folgendem Cmdlet aus dem Cloud Sync Module generiert werden:</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Export-AADCloudSyncToolsLogs</span><span class="w">
+</span></code></pre></div></div>
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_X.png" style="width:100%" />
+  <figcaption>Figure 10: Die Tracelogs bieten einen noch tieferen Einblick in die Arbeitsweise des Cloud Sync Agenten</figcaption>
+</figure>
+
+<h3 id="-und-bei-aadc-server-1">… und bei AADC Server</h3>
+
+<p>Bei Azure AD Connect Server gibt es mehr Möglichkeiten für einen Health Check, verglichen zu Cloud Sync. Für einen ersten Blick, und um zu prüfen, ob alles passt, macht es Sinn im Azure AD Portal zu starten. Hier wird ein umfassender Status angezeigt und das Health Dashboard ist zu finden im Portal des Azure AD in der Navigation unter <strong>Azure AD Connect</strong> und dann im Bereich von Azure AD Connect über die Auswahl <strong>HEALTH AND ANALYTICS</strong></p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_XI.png" style="width:100%" />
+  <figcaption>Figure 11: Health Dashboard zeigt den Gesamtstatus von Azure AD Connect Server</figcaption>
+</figure>
+
+<p>Da es auch einen Health Agenten für ADFS und einen für die AD Domain Services gibt, lässt sich hier alles gesammelt betrachten, natürlich nur wenn die lokalen Systeme mit dem jeweiligen Agenten ausgestattet sind. Alle Infos zu AADC befinden sich hinter den entsprechenden Quick start links (siehe roter Rahmen in Abbildung 11)</p>
+
+<p>Das Dashboard hier besteht aus einer Vielzahl aktiver Elemente, die per Quicklink zwischen den Bereichen wechselt, andere Einsichten liefert und eine detaillierte Analyse der Health Infos gestattet. Wie am Beispiel der beiden Sever unten bei Auswahl eines der jeweiligen Serverobjekte.</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_XII.png" style="width:100%" />
+  <figcaption>Figure 12: So soll es aussehen: alles gesund meldet der health Agent von den On-prem AADC Servern</figcaption>
+</figure>
+
+<p>Sollte das Azure AD und die Health Dashboards keinen Hinweis zu einer Fehlersituation liefern, besteht auch bei den Azure AD Connect Servern die Möglichkeit das Eventlog zu untersuchen. Das Augenmerk sollte hier auf dem “Application Log” liegen, hier listet der Sync Service akkribisch was Sache ist.</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_XIII.png" style="width:100%" />
+  <figcaption>Figure 13: Application Event Log liefert detaillierte Infos zum Zustand der Synchronisation</figcaption>
+</figure>
+
+<p>Die Powershell bietet perfekte Möglichkeiten um auf einem AADC Server nach dem Rechten zu sehen. Das mächtige PS-Module “adsync” (117 cmdlets) liefert viele Möglichkeiten hierzu. Genauso hilfreich ist das Modul “ADSyncDagnostics” mit dem Cmdlet</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Invoke-ADSyncDiagnostics</span><span class="w">
+</span></code></pre></div></div>
+
+<p>wie Abbildung 14 zeigt.</p>
+
+<figure>
+  <img src="/MyPics/2022-07-12-AMA_AADConnect_XIV.png" style="width:100%" />
+  <figcaption>Figure 14: Powershell eignet sich perfekt für Health Check und Analyse. Hier das Cmdlet "Invoke-ADSyncDiagnostics"</figcaption>
+</figure>
+
+<h3 id="was-ist-zu-tun-wenn-localdb-zu-klein-oder-nicht-mehr-ausreichend-ist-10gb-1">Was ist zu tun wenn localDb zu klein oder nicht mehr ausreichend ist (10GB)?</h3>
+<p>Beim Setup von Azure AD Connect wird, wenn im Wizard nicht anders angegeben, ein Local DB installiert. Dies ist praktisch und einfach. Local DB ist aber auf eine maximale DB Größe von 10GB beschränkt, was sich viel anhört, aber unter Umständen schnell erreicht ist. Es lässt sich pauschal nicht beziffern, das bei x Usern im Sync die 10GB bei dieser oder jener Anzahl erreicht ist. Das hängt von mehreren Faktoren ab. Aber der wichtigste Faktor ist <strong>wieviele Connectoren (AD Forests) sind Teil der Synchronisation?</strong></p>
+
+<p>In der Gesamt DB ist schließlich alles enthalten: Metaverse (sämtliche Objekte). Genauso die Objekte der jeweiligen Connectoren, quasi als “Rohdaten Import” für den Abgleich mit der Metaverse.</p>
+
+<p>Um es für die Frage hier auf den Punkt zu bringen, habe ich zuletzt ein AADC Setup mit einer AD Domain gesehen. Hier wurden ca. 500 Gruppen synchronisiert. Keine Computerobjekte. Und es waren um die 30.000 Benutzer vorhanden als die DB Größe die Grenze von 10GB erreichte.</p>
+
+<p>Microsoft beschreibt in <a href="https://docs.microsoft.com/de-de/azure/active-directory/hybrid/how-to-connect-install-move-db" target="_blank">diesem Artikel</a> und auch <a href="https://docs.microsoft.com/de-de/azure/active-directory/hybrid/how-to-connect-install-existing-database" target="_blank">hier</a> die einzelnen Schritte, die beim Verschieben der Datenbank, bzw. beim Wiederverwenden einer vorhandenenen DB, zu tun sind.</p>
+
+<p>Um es hier zusammenfassend auf den Ounkt zu bringen:</p>
+
+<ul>
+  <li>
+    <p>DB (MDF- und LDF- Dateien) auf dem aktuellen Sync Server dem Dateisystem an einen sicheren Ort kopieren bzw. direkt auf den dedizierten, entfernten SQL Server.</p>
+  </li>
+  <li>
+    <p>DB dort einbinden</p>
+  </li>
+  <li>
+    <p>AADC neu installieren, und wie in den Beitrag aus den Links oben beschrieben, das Setup mit dem Switch <strong>/useexistingdatabase</strong> aufrufen. Im Setup-Wizard besteht dadurch die Option einen SQL Server anzugeben. Im Weiteren wird die dort befindliche DB erkannt und verwendet.</p>
+  </li>
+  <li>
+    <p>Bitte unbedingt die Post-Tasks aus den MS Beiträgen beachten!</p>
+  </li>
+</ul>
+
+<h2 id="was-gibt-es-beim-update-auf-v2-zu-beachten-1">Was gibt es beim Update auf V2 zu beachten?</h2>
+<p>Aus meiner Sicht ist die Aktualisierung auf die v2 unkritisch und kein Problem! Ich habe schon in-place Updates gemacht, würde aber strategisch gesehen einen anderen Weg gehen, wie weiter unten beschrieben. Zunächst einmal einige Eckpunkte rund um das Thema AADC Update auf v2</p>
+
+<ul>
+  <li>
+    <p>v2 enthält keinerlei gravierende Änderungen an den Funktionalitäten und Features. Lediglich die Serverkomponenten wurden an die aktuellen Server Versionen angepasst: Windows Server 2016 und SQL 2019. Eine Gesamtliste der Anforderungen befindet sich hier <a href="https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-version-history#2030" target="_blank">Functional changes in 2.0.3.0</a></p>
+  </li>
+  <li>
+    <p>Auch wenn automatisches Update “Set-ADSyncAutoUpgrade -AutoUpgradeState enabled”  eingeschaltet ist, greift das Setting hier nicht. Die Aktualisierung auf v2 ist ein manueller Schritt, der nicht automatisiert ausgeführt wird</p>
+  </li>
+  <li>
+    <p>Eine von einem v1 AADC Server erstellter Export der Config kann auf einem neuen v2 Server importiert werden. Die JSON Files sind kompatibel</p>
+  </li>
+  <li>
+    <p>Wie oben erwähnt ist ein In-Place Update unterstützt. Da hier aber Altlasten auf dem Server zurückbleiben (SQL Server Komponenten) würd ich zu einer neuen Installation raten. Alte SQL Server Überbleibsel lassen sich zwar manuell entfernen, aber eine neue Version macht hier aus meiner Sicht Sinn.</p>
+  </li>
+</ul>
+
+<p>Wie bereits erwähnt unterstützt das Setup ein In-Place Update. ich würde aber folgende Schritte ausführen um einen Server auf v2 zu aktualisieren:</p>
+
+<ol>
+  <li>Von aktuellem AADC Server die Config exportieren (AADC Config Wizard)</li>
+  <li>Aktiven AADC Server zum Staging machen</li>
+  <li>Neuen Server (neuer Computername) bereitstellen.</li>
+  <li>TLS 1.2 aktivieren, wenn noch nicht geschehen. Sonst droht eine Fehlermeldung beim Setup von AADC
+<a href="https://docs.microsoft.com/de-de/azure/active-directory/hybrid/reference-connect-tls-enforcement#enable-tls-12" target="_blank">Erzwingen von TLS 1.2 für AADC</a></li>
+  <li>Installieren von AADC mit v2 und Import der JSON Config von anderem AADC Server (Punkt #1)</li>
+  <li>Server ist Staging. Health Check, ob alles passt. AD Health Dashboard, Eventlog, Synchronization Service Manager Console. Im Regeleditor prüfen ob die Regeln vorhanden sind</li>
+  <li>Ändern von Testdaten On-Premises (Benutzer Telefonnummer, neuen Benutzer anlegen etc.) und manuelle Synchronisation starten. Cmdlet: “Start-ADSyncSyncCycle”
+Werden Änderungen verarbeitet? Prüfen von Pending Exports für den Azure AD Connector Space. Der Server ist Staging. Er wird nichts Richtung Azure AD schreiben</li>
+  <li>Wenn alles ok ist, den neuen Server aktivieren (AADC Config Wizard)</li>
+  <li>Geht bei den Punkten oben irgendetwas schief, kann der zuvor zum Staging Server ausgemusterte Sync Server wieder in Betrieb genommen werden und es besteht Zeit in Ruhe das Problem zu untersuchen.</li>
+  <li>Ist bis hierhin alles in Ordnung (wovon auszugehen ist), sind jetzt der Reihe nach die vorhandenen Staging Server zu aktualisieren. Auch hier gilt wieder, entweder In-Place oder mit einer komplett neuen Maschine</li>
+</ol>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022-07-10-AMA_AADConnect/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022-07-10-AMA_AADConnect/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2022-07-10-AMA_AADConnect/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>
+:ET

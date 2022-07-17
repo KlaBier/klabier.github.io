@@ -32,7 +32,7 @@ Part of the blog series is my favourite collection of Azure Identity Technologie
 
 - [Tenant Security](https://nothingbutcloud.net/azuread/security/identity/ZeroTrust-Tenant-Security/){:target="_blank"}
 - [MFA deployment](https://nothingbutcloud.net/azuread/security/identity/ZeroTrust-MFA/){:target="_blank"}
-- [Conditional Access](https://nothingbutcloud.net/azuread/security/identity/ZeroTrust-CA/){:target="_blank"}
+- [Conditional Access](https://nothingbutcloud.net/2021-01-18-ZeroTrust-CA/){:target="_blank"}
 - [Access Reviews](https://nothingbutcloud.net/azuread/security/identity/ZeroTrust-AR/){:target="_blank"}
 - [Monitoring critical rolles and groups](https://nothingbutcloud.net/azuread/security/identity/ZeroTrust-Monitoring/){:target="_blank"}
 - Passwordless
