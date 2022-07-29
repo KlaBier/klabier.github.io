@@ -29,7 +29,7 @@ Hurtenweg 30
 
 Germany
 
-Email: klaus@nothingbutcloud.net
+Email: mail@klabier.de
 
 The controller's data protection officer is:
 
