@@ -3,7 +3,7 @@
 # Change `author1` to your shortname.
 author1:
   name:              Klaus Bierschenk
-  email:             mail@klabier.de
+  email:             mail@nothingbutcloud.net
 
   # If active and not commented this will used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
@@ -24,8 +24,7 @@ author1:
   social:
     twitter:          klabiers
     # github:          <username>
-    email:            mail@klabier.de
-    #email:            klaus@nothingbutcloud.net
+    email:            mail@nothingbutcloud.net
     Sessionize:       "https://sessionize.com/klabier/"
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
