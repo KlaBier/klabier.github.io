@@ -1,0 +1,52 @@
+I";
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="project-card">
+  <a href="/2021/01/18/ZeroTrust-CA.html" class="no-hover no-print-link flip-project" tabindex="-1">
+    <div class="project-card-img aspect-ratio sixteen-nine flip-project-img">
+      
+        
+
+
+<img
+  
+    src="/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg"
+    
+    sizes="(min-width:86em)27.5rem,(min-width:54em)24.5rem,(min-width:42em)21.5rem,42rem"
+  
+  alt="Zero Trust in Azure Identity - Part 3: Conditional Access"
+  
+  
+  width="864"
+  height="486"
+  loading="lazy"
+/>
+
+      
+    </div>
+  </a>
+  <h3 class="project-card-title flip-project-title">
+    <a href="/2021/01/18/ZeroTrust-CA.html" class="flip-title">Zero Trust in Azure Identity - Part 3: Conditional Access</a>
+  </h3>
+  
+    <p class="project-card-text fine" property="disambiguatingDescription">
+      CA - the center of Zero Trust with Identity
+
+    </p>
+  
+  
+  <a class="fill-card no-hover" href="/2021/01/18/ZeroTrust-CA.html" tabindex="-1"><span class="sr-only">Continue reading Zero Trust in Azure Identity - Part 3: Conditional Access
+</span></a>
+</article>
+:ET

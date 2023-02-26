@@ -44,6 +44,6 @@ I have seen many articles around the Zero Trust topic in the Internet and also i
 
 It is like "driving a car" You can do this many ways: defensive or offensive! Being a beginner or an experienced driver! like this you can have a varied view to the Zero Trust topic. In that series I share my experiences from my projects and from my day to day use of that journey. 
 
-Cover image by Gerd Altmann from Pixabay 
+Cover image by Gerd Altmann from Pixabay
 
 {% include  share.html %}
