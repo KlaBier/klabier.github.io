@@ -1,5 +1,5 @@
 ---
-title: "Ask me anything - Synchronization"
+title: "Ask my anything - Synchronization"
 date: 2022-07-10T12:34:32
 layout: list
 
