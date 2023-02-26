@@ -1,0 +1,75 @@
+I"O
+
+
+
+
+
+<article id="post-ZeroTrust AR" class="page post mb6" role="article">
+  <header>
+    <h1 class="post-title flip-project-title">
+      <a href="/2021-01-19-ZeroTrust-AR/" class="flip-title">
+        Zero Trust in Azure Identity - Part 4: Access Reviews
+      </a>
+    </h1>
+
+    <div class="post-date">
+      
+      <span class="ellipsis mr1">
+        <time datetime="2021-01-19T14:22:32+01:00">19 Jan 2021</time>  
+      </span>
+      
+        
+          
+          
+          
+            
+            
+            <span class="ellipsis" data-tippy-content="Last modified at: 29 Jun 2022">
+              <span class="sr-only">Last modified at:</span>
+              <span class="icon-history"></span>
+              <time datetime="2022-06-29T11:28:43+02:00">2022-06-29</time>
+            </span>
+          
+        
+      
+    </div>
+
+    
+    
+
+    
+
+
+
+  
+    <p class="note-sm" >
+      Automatic membership reminder
+
+    </p>
+  
+
+
+  </header>
+
+  
+    <ul>
+  <li>
+    <figure>
+</figure>
+  </li>
+  <li><img src="/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" style="width:75%" /></li>
+  <li>&lt;/figure&gt;</li>
+</ul>
+
+
+    
+    
+    <footer>
+      <p class="read-more">
+        Continue reading <a class="heading flip-title" href="/2021-01-19-ZeroTrust-AR/">Zero Trust in Azure Identity - Part 4: Access Reviews</a>
+
+      </p>
+    </footer>
+  
+</article>
+:ET

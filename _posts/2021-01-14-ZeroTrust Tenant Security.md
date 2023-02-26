@@ -6,7 +6,7 @@ layout: list
 description: Overview of generell tenant related security settings
 
 image:
-  path: /MyPics/2021-01-18-ZeroTrust_TenantSecurity_cover.png
+  path: /MyPics/2021-01-18-ZeroTrust_TenantSecurity_cover.jpg
 
 # License according to CC-BY
 ---
@@ -48,6 +48,8 @@ Familiarize yourself with all the tenant settings. There are no standard recipes
 
 Before you start protecting Azure AD with various tools and policies, you should consider emergency scenarios. In this case, emergency means that access to Azure AD is no longer possible with a Global Admin or other administrative users. There are a lot of reasons for this. The MFA service at Microsoft is down or the administrator has locked himself out when configuring policies, to name just two. For these scenarios, the so-called "Break Glass Accounts" or "BGAs" come into play. These are administrative accounts that you don't use for day-to-day operations, but which have the maximum user rights in Azure AD. Other aspects make the accounts stand out: they are cloud only accounts, therefore not synced from on-premises. You implement two of the accounts and preferably add them to a group. And most importantly, they are excluded from all policies. "Exclude" options are used for this accordingly when configuring the policies. These features are critical for any business. It is unthinkable if the accounts and passwords fall into the wrong hands. Therefore, you should think about how the processes around the accounts look like. Maybe it makes sense to document and store the password in two parts and to grant access to the password fragments only to a divided group of people? It is also very important to test the login with the accounts from time to time to make sure that you are prepared for an emergency. It is also necessary to monitor the Azure AD group, which serves as an exclude group, because this represents a backdoor for people who want to bypass all protection mechanisms. The same applies to a login with a BGA account. For both cases, alerts in combination with KQL queries are suitable, which we will deal with in the second part of this workshop. There are a couple of articles in the Internet, including [this one](https://docs.microsoft.com/de-de/azure/active-directory/users-groups-roles/directory-emergency-access){:target="_blank"}, that provide a step by step guide to setup up BGA Accounts.
 Part 6 of this blog series "Monitoring critical roles" describes additional aspects regarding monitoring of BGA Accounts
+
+Cover image by Gerd Altmann from Pixabay
 
 {% include  share.html %}
 

@@ -1,5 +1,5 @@
 ---
-permalink: /disclaimer/
+permalink: /Disclaimer/
 title: "Disclaimer"
 classes: wide
 ---

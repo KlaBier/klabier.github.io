@@ -6,11 +6,13 @@ layout: list
 description: Automatic membership reminder
 
 image:
-  path: /MyPics/2021-01-19-ZeroTrust_AR_cover.png
-
-# Licensed according to CC BY-NC-ND
+  path: /MyPics/2021-01-19-ZeroTrust_AR_cover.jpg
 
 ---
+
+* <figure>
+*  <img src="/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" style="width:75%">
+* </figure>
 
 * this unordered seed list will be replaced by the toc
 {:toc}
@@ -33,5 +35,7 @@ At the very bottom of the dialog there is still the possibility of "fine tuning"
 
 When using access reviews for Azure AD groups, it is worth mentioning the possibility of dynamic groups, which permanently fill the security groups with members based on query rules. This can replace access checks and may be a more elegant way to deal with members, as the admin does not have to worry about anything else with a well-defined query. Of course, this only applies to groups where dynamic membership is appropriate and not to roles and enterprise applications, as there is no dynamic assignment here. Here, it is important to plan well and make an approach for access reviews or a dynamic group in advance.
 Access reviews also show up in various other places in Azure AD, such as access packages. The methodology behind this is always the same and analogous to that described here.
+
+Cover image Mohamed Hassan from Pixabay 
 
 {% include  share.html %}

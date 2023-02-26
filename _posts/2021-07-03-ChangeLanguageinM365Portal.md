@@ -3,7 +3,7 @@ title: "How to change language in M365 Portal for a synchronized identity"
 date: 2021-07-03T22:01:32
 layout: list
 
-description: this setting is really hard to find
+description:
 
 image:
   path: /MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png
@@ -12,7 +12,7 @@ image:
 ---
 
 <figure>
-  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" style="width:75%">
+  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" style="width:60%">
 </figure>
 
 ## Puzzling why language can not be changed in M365 Portal for synced users?
@@ -48,5 +48,7 @@ I remembered the language in the Microsoft 365 portal and indeed the attribute i
 [Table of Language Culture Names](https://docs.microsoft.com/en-us/previous-versions/commerce-server/ee825488(v=cs.20)?redirectedfrom=MSDN)
 
 My first thought was, not really consistent from Microsoft to control the language behavior differently in two portals (Azure / M365), at least for synchronized identities. But the language is not changed too often and managing it centrally in on-premises for accounts originating there can make sense. After all, many other settings are also administered there, why not the language as well?
+
+Cover image by Mary Pahlke from Pixabay
 
 {% include  share.html %}

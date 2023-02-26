@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-26T09:45:33+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>The blog is for people who are interested in Active Directory - On-Premises, Azure AD and hybrid
-</subtitle><entry><title type="html">Ask my anything - Synchronization</title><link href="http://localhost:4000/2022-07-10-AMA_AADConnect/" rel="alternate" type="text/html" title="Ask my anything - Synchronization" /><published>2022-07-10T14:34:32+02:00</published><updated>2022-07-17T23:35:33+02:00</updated><id>http://localhost:4000/AMA_AADConnect</id><content type="html" xml:base="http://localhost:4000/2022-07-10-AMA_AADConnect/"><![CDATA[<figure>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-26T13:18:37+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
+</subtitle><entry><title type="html">Ask me anything - Synchronization</title><link href="http://localhost:4000/2022-07-10-AMA_AADConnect/" rel="alternate" type="text/html" title="Ask me anything - Synchronization" /><published>2022-07-10T14:34:32+02:00</published><updated>2023-02-26T09:46:06+01:00</updated><id>http://localhost:4000/AMA_AADConnect</id><content type="html" xml:base="http://localhost:4000/2022-07-10-AMA_AADConnect/"><![CDATA[<figure>
   <img src="/MyPics/2022-07-12-AMA_AADConnect_I.png" style="width:75%" />
   <figcaption>Figure 1: AMA AAD Connect Teaser</figcaption>
 </figure>
@@ -592,7 +592,7 @@ If everything is in order up to this point (which is to be assumed), the existin
   <figcaption>Figure 1: Federation Services Splash Screen</figcaption>
 </figure>
 
-<p>Don’t get me wrong, ADFS is a great technology. But it is also a technology with a long history and can (in some cases) be replaced by a better and easier technology in our modern Azure AD World.</p>
+<p>Don’t get me wrong, ADFS is great. But it is also a technology with a long history and can (in some cases) be replaced by a better and easier technology in our modern Azure AD World.</p>
 
 <p>But where to start when you have a bunch of applications relying in ADFS?</p>
 
@@ -695,7 +695,7 @@ If everything is in order up to this point (which is to be assumed), the existin
 
 <a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-09-10-CloudIdentitySummit_21/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
 </div>]]></content><author><name></name></author><summary type="html"><![CDATA[Figure 1: Cloud Identity Summit '21 Teaser]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to change language in M365 Portal for a synchronized identity</title><link href="http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/" rel="alternate" type="text/html" title="How to change language in M365 Portal for a synchronized identity" /><published>2021-07-04T00:01:32+02:00</published><updated>2022-07-04T21:35:56+02:00</updated><id>http://localhost:4000/ChangeLanguageinM365Portal</id><content type="html" xml:base="http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/"><![CDATA[<figure>
-  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" style="width:75%" />
+  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" style="width:60%" />
 </figure>
 
 <h2 id="puzzling-why-language-can-not-be-changed-in-m365-portal-for-synced-users">Puzzling why language can not be changed in M365 Portal for synced users?</h2>
@@ -732,6 +732,8 @@ If everything is in order up to this point (which is to be assumed), the existin
 
 <p>My first thought was, not really consistent from Microsoft to control the language behavior differently in two portals (Azure / M365), at least for synchronized identities. But the language is not changed too often and managing it centrally in on-premises for accounts originating there can make sense. After all, many other settings are also administered there, why not the language as well?</p>
 
+<p>Cover image by Mary Pahlke from Pixabay</p>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 <div class="share-box">
@@ -744,7 +746,7 @@ If everything is in order up to this point (which is to be assumed), the existin
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
 <a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[this setting is really hard to find]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Azure Meetup Bonn (10.06.2021) - Azure AD Connect - Schaltzentrale der hybriden Identitätsinfrastruktur (German session)</title><link href="http://localhost:4000/2021-06-11-Azure-MeetupBonn/" rel="alternate" type="text/html" title="Azure Meetup Bonn (10.06.2021) - Azure AD Connect - Schaltzentrale der hybriden Identitätsinfrastruktur (German session)" /><published>2021-06-11T00:01:32+02:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/Azure-MeetupBonn</id><content type="html" xml:base="http://localhost:4000/2021-06-11-Azure-MeetupBonn/"><![CDATA[<figure>
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Azure Meetup Bonn (10.06.2021) - Azure AD Connect - Schaltzentrale der hybriden Identitätsinfrastruktur (German session)</title><link href="http://localhost:4000/2021-06-11-Azure-MeetupBonn/" rel="alternate" type="text/html" title="Azure Meetup Bonn (10.06.2021) - Azure AD Connect - Schaltzentrale der hybriden Identitätsinfrastruktur (German session)" /><published>2021-06-11T00:01:32+02:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/Azure-MeetupBonn</id><content type="html" xml:base="http://localhost:4000/2021-06-11-Azure-MeetupBonn/"><![CDATA[<figure>
   <img src="/MyPics/2021-06-10-MeetupSplash.png" style="width:50%" />
 </figure>
 
@@ -812,6 +814,8 @@ The KQL statement is inserted into the condition and is thus part of the signal 
 
 <p>Actually, access reviews lend themselves to the control of BGA groups, but caution is advised in that context. Access Reviews also always allow members of a group to be removed, be it because an admin on his iPhone, on the go, mistakenly selects “deny”, the BGA accounts fall out of the group and are thus unsuitable for emergency use. Admittedly a contrived example but the possibility exists and with sensitive accounts such as the BGA accounts you should leave nothing to chance and fare far better with the warning rules against Access Reviews in the event of controls on the break Glass accounts.</p>
 
+<p>Cover image by Peggy und Marco Lachmann-Anke from Pixabay</p>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 <div class="share-box">
@@ -824,7 +828,7 @@ The KQL statement is inserted into the condition and is thus part of the signal 
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
 <a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[keep an eye on it :-)]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 4: Access Reviews</title><link href="http://localhost:4000/2021-01-19-ZeroTrust-AR/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 4: Access Reviews" /><published>2021-01-19T14:22:32+01:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/ZeroTrust%20AR</id><content type="html" xml:base="http://localhost:4000/2021-01-19-ZeroTrust-AR/"><![CDATA[<ul id="markdown-toc">
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Keep an eye to the most sensitive accounts in your Azure AD]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 4: Access Reviews</title><link href="http://localhost:4000/2021-01-19-ZeroTrust-AR/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 4: Access Reviews" /><published>2021-01-19T14:22:32+01:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/ZeroTrust%20AR</id><content type="html" xml:base="http://localhost:4000/2021-01-19-ZeroTrust-AR/"><![CDATA[<ul id="markdown-toc">
   <li><a href="#goodbye-forgotten-group-memberships" id="markdown-toc-goodbye-forgotten-group-memberships">Goodbye forgotten group memberships</a></li>
   <li><a href="#access-review-using-an-example" id="markdown-toc-access-review-using-an-example">Access Review using an example</a></li>
   <li><a href="#fine-tuning-for-access-control" id="markdown-toc-fine-tuning-for-access-control">Fine tuning for access control</a></li>
@@ -850,6 +854,8 @@ Further down in the dialog you specify the already mentioned reviewers. If there
 <p>When using access reviews for Azure AD groups, it is worth mentioning the possibility of dynamic groups, which permanently fill the security groups with members based on query rules. This can replace access checks and may be a more elegant way to deal with members, as the admin does not have to worry about anything else with a well-defined query. Of course, this only applies to groups where dynamic membership is appropriate and not to roles and enterprise applications, as there is no dynamic assignment here. Here, it is important to plan well and make an approach for access reviews or a dynamic group in advance.
 Access reviews also show up in various other places in Azure AD, such as access packages. The methodology behind this is always the same and analogous to that described here.</p>
 
+<p>Cover image Mohamed Hassan from Pixabay</p>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 <div class="share-box">
@@ -862,7 +868,7 @@ Access reviews also show up in various other places in Azure AD, such as access 
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
 <a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-19-ZeroTrust-AR/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Automatic membership reminder]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 3: Conditional Access</title><link href="http://localhost:4000/2021-01-18-ZeroTrust-CA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 3: Conditional Access" /><published>2021-01-18T20:01:57+01:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/ZeroTrust%20CA</id><content type="html" xml:base="http://localhost:4000/2021-01-18-ZeroTrust-CA/"><![CDATA[<ul id="markdown-toc">
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Automatic membership reminder]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 3: Conditional Access</title><link href="http://localhost:4000/2021-01-18-ZeroTrust-CA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 3: Conditional Access" /><published>2021-01-18T20:01:57+01:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/ZeroTrust%20CA</id><content type="html" xml:base="http://localhost:4000/2021-01-18-ZeroTrust-CA/"><![CDATA[<ul id="markdown-toc">
   <li><a href="#conditional-access-example" id="markdown-toc-conditional-access-example">Conditional access example</a></li>
   <li><a href="#policy-parameters" id="markdown-toc-policy-parameters">Policy parameters</a></li>
   <li><a href="#test-before-deploy" id="markdown-toc-test-before-deploy">Test before deploy</a></li>
@@ -914,6 +920,8 @@ Which actually says everything without the administrator having to look at the p
   <figcaption>Exclude BGAs from CAs. A "must" in CA deployment</figcaption>
 </figure>
 
+<p>Cover image by Gerd Altmann from Pixabay</p>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 <div class="share-box">
@@ -926,7 +934,7 @@ Which actually says everything without the administrator having to look at the p
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
 <a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-18-ZeroTrust-CA/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[CA - the center of Zero Trust with Identity]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?</title><link href="http://localhost:4000/2021-01-16-ZeroTrust-MFA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?" /><published>2021-01-16T15:59:57+01:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/ZeroTrust%20MFA</id><content type="html" xml:base="http://localhost:4000/2021-01-16-ZeroTrust-MFA/"><![CDATA[<ul id="markdown-toc">
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[CA - the center of Zero Trust with Identity]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?</title><link href="http://localhost:4000/2021-01-16-ZeroTrust-MFA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?" /><published>2021-01-16T15:59:57+01:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/ZeroTrust%20MFA</id><content type="html" xml:base="http://localhost:4000/2021-01-16-ZeroTrust-MFA/"><![CDATA[<ul id="markdown-toc">
   <li><a href="#is-there-a-right-way-to-implement-mfa" id="markdown-toc-is-there-a-right-way-to-implement-mfa">Is there a right way to implement MFA</a></li>
   <li><a href="#good-planning-is-important" id="markdown-toc-good-planning-is-important">Good planning is important</a></li>
   <li><a href="#exploit-the-possibilities" id="markdown-toc-exploit-the-possibilities">Exploit the possibilities</a></li>
@@ -945,6 +953,8 @@ Which actually says everything without the administrator having to look at the p
 <p>If you have Identity Protection in place, you can define MFA as part of the logon risk policy. If a user logon risk is detected, you can react in several ways, one of them is to allow logon using MFA.
 A typical lab case is, for example, a logon using the TOR browser, which hides the actual IP address, or when a logon is made from two different geographical locations, which is also atypical in normal cases. However, it is always possible that this is legitimate, for example when a developer is testing something, so the logon can be granted via MFA. Identity Protection can also be used to roll out MFA to all users by enabling the MFA registration policy in the Identity Protection Dashboard. Unlike the manual approach mentioned above, here it is possible to specify AD groups, which allows us to make the activation selective for specific users.</p>
 
+<p>Cover image by Gerd Altmann from Pixabay</p>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 <div class="share-box">
@@ -957,4 +967,4 @@ A typical lab case is, for example, a logon using the TOR browser, which hides t
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
 <a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-16-ZeroTrust-MFA/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[MFA - 2 min considerations]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[MFA - 2 min considerations]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

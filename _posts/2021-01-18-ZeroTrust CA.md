@@ -6,7 +6,7 @@ layout: list
 description: CA - the center of Zero Trust with Identity
 
 image:
-  path: /MyPics/2021-01-18-ZeroTrust CA_cover.png
+  path: /MyPics/2021-01-18-ZeroTrust CA_cover.jpg
 
 ---
 
@@ -60,5 +60,7 @@ These tools help to avoid that the administrator locks out. If this should happe
   <img src="/MyPics/2021-01-18-ZeroTrust CA_IV.png" style="width:70%">
   <figcaption>Exclude BGAs from CAs. A "must" in CA deployment</figcaption>
 </figure>
+
+Cover image by Gerd Altmann from Pixabay 
 
 {% include  share.html %}

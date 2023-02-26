@@ -27,14 +27,14 @@
 <link rel="canonical" href="http://localhost:4000/2021-01-16-ZeroTrust-Tenant-Security/" />
 <meta property="og:url" content="http://localhost:4000/2021-01-16-ZeroTrust-Tenant-Security/" />
 <meta property="og:site_name" content="NothingButCloud" />
-<meta property="og:image" content="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_TenantSecurity_cover.png" />
+<meta property="og:image" content="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_TenantSecurity_cover.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-01-16T10:59:57+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_TenantSecurity_cover.png" />
+<meta property="twitter:image" content="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_TenantSecurity_cover.jpg" />
 <meta property="twitter:title" content="Zero Trust in Azure Identity - Part 1: Tenant Security" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-29T11:28:43+02:00","datePublished":"2021-01-16T10:59:57+01:00","description":"Overview of generell tenant related security settings","headline":"Zero Trust in Azure Identity - Part 1: Tenant Security","image":"http://localhost:4000/MyPics/2021-01-18-ZeroTrust_TenantSecurity_cover.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021-01-16-ZeroTrust-Tenant-Security/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/MyPics/Klaus.jpeg"}},"url":"http://localhost:4000/2021-01-16-ZeroTrust-Tenant-Security/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-29T11:28:43+02:00","datePublished":"2021-01-16T10:59:57+01:00","description":"Overview of generell tenant related security settings","headline":"Zero Trust in Azure Identity - Part 1: Tenant Security","image":"http://localhost:4000/MyPics/2021-01-18-ZeroTrust_TenantSecurity_cover.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021-01-16-ZeroTrust-Tenant-Security/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/MyPics/Klaus.jpeg"}},"url":"http://localhost:4000/2021-01-16-ZeroTrust-Tenant-Security/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -101,7 +101,7 @@
   w._search = {
     DATA_URL: '/assets/sitedata.json?no-cache',
     STORAGE_KEY: 'mini-search/',
-    INDEX_KEY: 'index--2023-02-26T09:45:33+01:00',
+    INDEX_KEY: 'index--2023-02-26T13:18:37+01:00',
   };
   w._clapButton = true;
 }(window);</script>
@@ -253,6 +253,8 @@ Familiarize yourself with all the tenant settings. There are no standard recipes
 <p>Before you start protecting Azure AD with various tools and policies, you should consider emergency scenarios. In this case, emergency means that access to Azure AD is no longer possible with a Global Admin or other administrative users. There are a lot of reasons for this. The MFA service at Microsoft is down or the administrator has locked himself out when configuring policies, to name just two. For these scenarios, the so-called “Break Glass Accounts” or “BGAs” come into play. These are administrative accounts that you don’t use for day-to-day operations, but which have the maximum user rights in Azure AD. Other aspects make the accounts stand out: they are cloud only accounts, therefore not synced from on-premises. You implement two of the accounts and preferably add them to a group. And most importantly, they are excluded from all policies. “Exclude” options are used for this accordingly when configuring the policies. These features are critical for any business. It is unthinkable if the accounts and passwords fall into the wrong hands. Therefore, you should think about how the processes around the accounts look like. Maybe it makes sense to document and store the password in two parts and to grant access to the password fragments only to a divided group of people? It is also very important to test the login with the accounts from time to time to make sure that you are prepared for an emergency. It is also necessary to monitor the Azure AD group, which serves as an exclude group, because this represents a backdoor for people who want to bypass all protection mechanisms. The same applies to a login with a BGA account. For both cases, alerts in combination with KQL queries are suitable, which we will deal with in the second part of this workshop. There are a couple of articles in the Internet, including <a href="https://docs.microsoft.com/de-de/azure/active-directory/users-groups-roles/directory-emergency-access" target="_blank">this one</a>, that provide a step by step guide to setup up BGA Accounts.
 Part 6 of this blog series “Monitoring critical roles” describes additional aspects regarding monitoring of BGA Accounts</p>
 
+<p>Cover image by Gerd Altmann from Pixabay</p>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 <div class="share-box">
@@ -288,7 +290,7 @@ Part 6 of this blog series “Monitoring critical roles” describes additional 
 
 
 <li class="h4">
-  <a href="/2022-07-10-AMA_AADConnect/" class="flip-title"><span>Ask my anything - Synchronization</span></a>
+  <a href="/2022-07-10-AMA_AADConnect/" class="flip-title"><span>Ask me anything - Synchronization</span></a>
   <time class="faded fine" datetime="2022-07-10T14:34:32+02:00">10 Jul</time>
 </li>
 
@@ -622,7 +624,7 @@ Part 6 of this blog series “Monitoring critical roles” describes additional 
   
 
   <li>
-    <a href="mailto:mail@nothingbutcloud.net" title="Email" class="no-mark-external">
+    <a href="mailto:klaus@nothingbutcloud.net" title="Email" class="no-mark-external">
       <span class="icon-mail"></span>
       <span class="sr-only">Email</span>
     </a>

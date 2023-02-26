@@ -27,14 +27,14 @@
 <link rel="canonical" href="http://localhost:4000/2021-01-16-ZeroTrust-MFA/" />
 <meta property="og:url" content="http://localhost:4000/2021-01-16-ZeroTrust-MFA/" />
 <meta property="og:site_name" content="NothingButCloud" />
-<meta property="og:image" content="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.png" />
+<meta property="og:image" content="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-01-16T15:59:57+01:00" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.png" />
+<meta property="twitter:image" content="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.jpg" />
 <meta property="twitter:title" content="Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-29T11:28:43+02:00","datePublished":"2021-01-16T15:59:57+01:00","description":"MFA - 2 min considerations","headline":"Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?","image":"http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021-01-16-ZeroTrust-MFA/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/MyPics/Klaus.jpeg"}},"url":"http://localhost:4000/2021-01-16-ZeroTrust-MFA/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-06-29T11:28:43+02:00","datePublished":"2021-01-16T15:59:57+01:00","description":"MFA - 2 min considerations","headline":"Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?","image":"http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021-01-16-ZeroTrust-MFA/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/MyPics/Klaus.jpeg"}},"url":"http://localhost:4000/2021-01-16-ZeroTrust-MFA/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -101,7 +101,7 @@
   w._search = {
     DATA_URL: '/assets/sitedata.json?no-cache',
     STORAGE_KEY: 'mini-search/',
-    INDEX_KEY: 'index--2023-02-26T09:45:33+01:00',
+    INDEX_KEY: 'index--2023-02-26T13:18:37+01:00',
   };
   w._clapButton = true;
 }(window);</script>
@@ -228,6 +228,8 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79,177,186,0.5);
 <p>If you have Identity Protection in place, you can define MFA as part of the logon risk policy. If a user logon risk is detected, you can react in several ways, one of them is to allow logon using MFA.
 A typical lab case is, for example, a logon using the TOR browser, which hides the actual IP address, or when a logon is made from two different geographical locations, which is also atypical in normal cases. However, it is always possible that this is legitimate, for example when a developer is testing something, so the logon can be granted via MFA. Identity Protection can also be used to roll out MFA to all users by enabling the MFA registration policy in the Identity Protection Dashboard. Unlike the manual approach mentioned above, here it is possible to specify AD groups, which allows us to make the activation selective for specific users.</p>
 
+<p>Cover image by Gerd Altmann from Pixabay</p>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 <div class="share-box">
@@ -263,7 +265,7 @@ A typical lab case is, for example, a logon using the TOR browser, which hides t
 
 
 <li class="h4">
-  <a href="/2022-07-10-AMA_AADConnect/" class="flip-title"><span>Ask my anything - Synchronization</span></a>
+  <a href="/2022-07-10-AMA_AADConnect/" class="flip-title"><span>Ask me anything - Synchronization</span></a>
   <time class="faded fine" datetime="2022-07-10T14:34:32+02:00">10 Jul</time>
 </li>
 
@@ -597,7 +599,7 @@ A typical lab case is, for example, a logon using the TOR browser, which hides t
   
 
   <li>
-    <a href="mailto:mail@nothingbutcloud.net" title="Email" class="no-mark-external">
+    <a href="mailto:klaus@nothingbutcloud.net" title="Email" class="no-mark-external">
       <span class="icon-mail"></span>
       <span class="sr-only">Email</span>
     </a>

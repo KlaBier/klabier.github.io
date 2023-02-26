@@ -1,5 +1,5 @@
 ---
-permalink: /privacy/
+permalink: /Privacy/
 title: "Privacy Policy"
 classes: wide
 ---
@@ -29,7 +29,7 @@ Hurtenweg 30
 
 Germany
 
-Email: mail@klabier.de
+Email: klaus@nothingbutcloud.net
 
 The controller's data protection officer is:
 

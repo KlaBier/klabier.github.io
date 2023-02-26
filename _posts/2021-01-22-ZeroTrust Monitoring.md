@@ -3,7 +3,7 @@ title: "Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Acc
 date: 2021-01-22T22:01:32
 layout: list
 
-description: keep an eye on it :-)
+description: Keep an eye to the most sensitive accounts in your Azure AD
 
 image:
   path: /MyPics/2021-01-22-ZeroTrust Monitoring_cover.png
@@ -48,5 +48,7 @@ SigninLogs
 ## Be careful with Access Reviews  
 
 Actually, access reviews lend themselves to the control of BGA groups, but caution is advised in that context. Access Reviews also always allow members of a group to be removed, be it because an admin on his iPhone, on the go, mistakenly selects "deny", the BGA accounts fall out of the group and are thus unsuitable for emergency use. Admittedly a contrived example but the possibility exists and with sensitive accounts such as the BGA accounts you should leave nothing to chance and fare far better with the warning rules against Access Reviews in the event of controls on the break Glass accounts.
+
+Cover image by Peggy und Marco Lachmann-Anke from Pixabay 
 
 {% include  share.html %}

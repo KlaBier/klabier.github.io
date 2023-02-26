@@ -14,7 +14,7 @@ image:
   <figcaption>Figure 1: Federation Services Splash Screen</figcaption>
 </figure>
 
-Don't get me wrong, ADFS is a great technology. But it is also a technology with a long history and can (in some cases) be replaced by a better and easier technology in our modern Azure AD World.
+Don't get me wrong, ADFS is great. But it is also a technology with a long history and can (in some cases) be replaced by a better and easier technology in our modern Azure AD World.
 
 But where to start when you have a bunch of applications relying in ADFS?
 

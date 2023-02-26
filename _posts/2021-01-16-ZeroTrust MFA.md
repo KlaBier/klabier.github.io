@@ -6,9 +6,8 @@ layout: list
 description: MFA - 2 min considerations
 
 image:
-  path: /MyPics/2021-01-18-ZeroTrust_MFA_cover.png
+  path: /MyPics/2021-01-18-ZeroTrust_MFA_cover.jpg
 
-# CC BY-NC
 ---
 
 * this unordered seed list will be replaced by the toc
@@ -26,5 +25,7 @@ The easiest way to get MFA to users is to do it statically. This no "ifs" and "b
 
 If you have Identity Protection in place, you can define MFA as part of the logon risk policy. If a user logon risk is detected, you can react in several ways, one of them is to allow logon using MFA.
 A typical lab case is, for example, a logon using the TOR browser, which hides the actual IP address, or when a logon is made from two different geographical locations, which is also atypical in normal cases. However, it is always possible that this is legitimate, for example when a developer is testing something, so the logon can be granted via MFA. Identity Protection can also be used to roll out MFA to all users by enabling the MFA registration policy in the Identity Protection Dashboard. Unlike the manual approach mentioned above, here it is possible to specify AD groups, which allows us to make the activation selective for specific users.
+
+Cover image by Gerd Altmann from Pixabay 
 
 {% include  share.html %}

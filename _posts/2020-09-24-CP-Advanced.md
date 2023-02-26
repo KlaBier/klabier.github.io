@@ -3,7 +3,7 @@ title: "More Infos on Azure AD Cloud Provisioning and news from Ignite 2020"
 date: 2020-09-24T10:59:57
 layout: list
 
-description: What's next wir Azure AD Cloud Sync
+description: What's next in Azure AD Cloud Sync
 
 image:
   path:    /MyPics/2020-09-24-CP-Advanced_Cover.png
@@ -151,5 +151,7 @@ Especialy with the monitoring and logging functionalities CP seems to be interes
 ## Summarize
 
 I have the CP installed in my Lab now for half a year. To be honest, I will not touch the Sync Feature every day, but whenever I work with it, I see lots of additions and improvements to Azure AD Connect. Definitly not an replacement of the AAD Connect Server but it brings many extensions to an existing hybrid environment, especially when new domains must be integrated into the  existing flow. The GA is also interesting for new setups, when the admin can live without the not included features.
+
+Cover image by Clker-Free-Vector-Images from Pixabay 
 
 {% include  share.html %}

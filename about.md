@@ -15,9 +15,9 @@ hide_description: true
 
 <!--author-->
 
-I started my experiences with the Microsoft Server Technologies for more than two decades ago and it was exciting for me to be a part of the growing process of the entire Microsoft Identity Technologies in the past few years. To see how products and technologies become more and more stable, with an increasing functionality. From the beginning, with the early Windows Server Active Directory running on W2K boxes up to today, where customers are in the cloud, being faced with hybrid scenarios and where users are authenticating and getting access from around the globe. A challenging world from an identity perspective
+I started my experiences with the Microsoft Server Technologies in 1998 and it was exciting for me to be a part of the growing process of the entire Microsoft Identity Technologies in the past few years. To see how products and technologies become more and more stable, with an increasing functionality. From the beginning, with the early Windows Server Active Directory running on W2K boxes up to today, where customers are in the cloud, being faced with hybrid scenarios and where users are authenticating and getting access from around the globe. A challenging world from an identity perspective
 
-I have a full time job at CGI as an Executive Consultant and I am supporting customers with questions and topics around the Active Directory Family and topics in Azure AD or related technolgies in the Microsoft Cloud. This is my personal blog and direct content from my job will not be shared here.
+I have a full time job at CGI as an Director Consulting Expert and I am supporting customers with questions and topics around the Active Directory Family and topics in Azure AD or related technolgies in the Microsoft Cloud. This is my personal blog and direct content from my job will not be shared here.
 
 I am also a occasional author and publish from time to time articles in the paper press or on the internet.
 
