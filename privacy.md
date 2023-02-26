@@ -233,6 +233,7 @@ This connection is required in order to be able to display the respective video 
 
 If you are logged in to YouTube when you access our site, YouTube will assign the connection information to your YouTube account. To prevent this, you must either log out of YouTube before visiting our site or make the appropriate settings in your YouTube account.
 
+
 For the purpose of functionality and analysis of usage behavior, YouTube permanently stores cookies on your device via your browser. If you do not agree to this processing, you have the option of preventing the installation of cookies by making the appropriate settings in your browser. Further details can be found in the section about cookies above.
 
 Further information about the collection and use of data as well as your rights and protection options in Google's privacy policy found at
