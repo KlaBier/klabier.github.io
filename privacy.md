@@ -239,4 +239,4 @@ Further information about the collection and use of data as well as your rights 
 
 https://policies.google.com/privacy
 
-Model Data Protection Statement for Anwaltskanzlei Weiß & Partner
+Model Data Protection Statement for Anwaltskanzlei Weiß&Partner

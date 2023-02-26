@@ -26,4 +26,4 @@ We would like to expressly point out that the transmission of data via the Inter
 
 The use by third parties of all published contact details for the purpose of advertising is expressly excluded. We reserve the right to take legal steps in the case of the unsolicited sending of advertising information; e.g., by means of spam mail.
 
-Source: Mustervorlage.net
+Source:Mustervorlage.net
