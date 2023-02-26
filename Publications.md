@@ -9,7 +9,7 @@ Please find below a list of my publications. This are official publications and 
 | Article:                                                     | Published:                                               |
 | ------------------------------------------------------------ | --------------------------------------------------------- |
 | **ADNetTools - Swiss Army knife for AD On-Prem**                     | coming soon in 2022, IT-Administrator                              |
-| **Azure AD Password Protection**                     | coming soon in 2022, IT-Administrator                              |
+| **Azure AD Password Protection**                     | coming son in 2022, IT-Administrator                              |
 | **Microsoft Azure: Sichere Infrastrukturen für Anwendungen und Client**                     | April 2022, IT-Administrator [Amazon Link](https://www.amazon.de/Microsoft-Azure-Infrastrukturen-Anwendungen-Administrator/dp/3941034324/ref=sr_1_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=LR7KO8IM458I&keywords=bierschenk+klaus&qid=1656341988&sprefix=bierschenk+klaus%2Caps%2C55&sr=8-1){:target="_blank"}                              |
 | **Screencast: Azure Active Directory im hybriden Context (64 Videos, 6,5 hrs)** | June 2021, [Heise Academy](https://heise-academy.de){:target="_blank"}
 | **Azure Security Center richtig nutzen**                     | April 2021, IT-Administrator                              |
