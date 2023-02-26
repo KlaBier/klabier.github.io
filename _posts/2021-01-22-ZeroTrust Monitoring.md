@@ -15,7 +15,7 @@ image:
 ## Monitoring and Dealing with critical user accounts
 
 
-Microsoft recommends so-called Break Glass accounts for emergency access. These have maximum permissions and are exempt from security measures such as "Conditional Access" policies. If something goes wrong with any policy or with the connection to on-premises, it is possible to access the tenant with these unaffected Break Glass accounts. In the first part of this post, we looked at more details about Break Glass accounts.
+Microsoft recommends so-called Breaking Glass accounts for emergency access. These have maximum permissions and are exempt from security measures such as "Conditional Access" policies. If something goes wrong with any policy or with the connection to on-premises, it is possible to access the tenant with these unaffected Break Glass accounts. In the first part of this post, we looked at more details about Break Glass accounts.
 However, it is not only important to be prepared for an emergency. It is equally important to monitor activities around these accounts. For simplicity, the administrator has created a group with the accounts stored in the "Excludes" in the policies. But what if someone cheats his way into this group with his account? The person could work unhindered with wide rights past all policies and thus represents a high risk. Since all activities are documented in the Azure logs, it is easy based on these logs to react to entries using KQL (Kusto Query Language) queries and, for example, send a mail and an SMS to a sender circle when changes are made to the BGA group. The following is necessary for this.
 
 ## Keep AD logs perfectly
