@@ -34,7 +34,7 @@
 <meta property="twitter:image" content="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" />
 <meta property="twitter:title" content="Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Accounts" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-02-26T13:20:26+01:00","datePublished":"2021-01-22T23:01:32+01:00","description":"Keep an eye to the most sensitive accounts in your Azure AD","headline":"Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Accounts","image":"http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/MyPics/Klaus.jpeg"}},"url":"http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-02-26T19:10:20+01:00","datePublished":"2021-01-22T23:01:32+01:00","description":"Keep an eye to the most sensitive accounts in your Azure AD","headline":"Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Accounts","image":"http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/MyPics/Klaus.jpeg"}},"url":"http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -101,7 +101,7 @@
   w._search = {
     DATA_URL: '/assets/sitedata.json?no-cache',
     STORAGE_KEY: 'mini-search/',
-    INDEX_KEY: 'index--2023-02-26T16:51:52+01:00',
+    INDEX_KEY: 'index--2023-02-26T19:21:58+01:00',
   };
   w._clapButton = true;
 }(window);</script>
@@ -217,7 +217,7 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79, 177, 186, 0.
 
 <h2 id="monitoring-and-dealing-with-critical-user-accounts">Monitoring and Dealing with critical user accounts</h2>
 
-<p>Microsoft recommends so-called Break Glass accounts for emergency access. These have maximum permissions and are exempt from security measures such as “Conditional Access” policies. If something goes wrong with any policy or with the connection to on-premises, it is possible to access the tenant with these unaffected Break Glass accounts. In the first part of this post, we looked at more details about Break Glass accounts.
+<p>Microsoft recommends so-called Breaking Glass accounts for emergency access. These have maximum permissions and are exempt from security measures such as “Conditional Access” policies. If something goes wrong with any policy or with the connection to on-premises, it is possible to access the tenant with these unaffected Break Glass accounts. In the first part of this post, we looked at more details about Break Glass accounts.
 However, it is not only important to be prepared for an emergency. It is equally important to monitor activities around these accounts. For simplicity, the administrator has created a group with the accounts stored in the “Excludes” in the policies. But what if someone cheats his way into this group with his account? The person could work unhindered with wide rights past all policies and thus represents a high risk. Since all activities are documented in the Azure logs, it is easy based on these logs to react to entries using KQL (Kusto Query Language) queries and, for example, send a mail and an SMS to a sender circle when changes are made to the BGA group. The following is necessary for this.</p>
 
 <h2 id="keep-ad-logs-perfectly">Keep AD logs perfectly</h2>
