@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-26T13:41:51+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><entry><title type="html">Ask me anything - Synchronization</title><link href="http://localhost:4000/2022/07/10/AMA_AADConnect.html" rel="alternate" type="text/html" title="Ask me anything - Synchronization" /><published>2022-07-10T14:34:32+02:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/2022/07/10/AMA_AADConnect</id><content type="html" xml:base="http://localhost:4000/2022/07/10/AMA_AADConnect.html"><![CDATA[<figure>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-02-26T13:49:09+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
+</subtitle><entry><title type="html">Ask me anything - Synchronization</title><link href="http://localhost:4000/2022-07-10-AMA_AADConnect/" rel="alternate" type="text/html" title="Ask me anything - Synchronization" /><published>2022-07-10T14:34:32+02:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/AMA_AADConnect</id><content type="html" xml:base="http://localhost:4000/2022-07-10-AMA_AADConnect/"><![CDATA[<figure>
   <img src="/MyPics/2022-07-12-AMA_AADConnect_I.png" style="width:75%" />
   <figcaption>Figure 1: AMA AAD Connect Teaser</figcaption>
 </figure>
@@ -552,14 +553,14 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022/07/10/AMA_AADConnect.html" onclick="window.open(this.href, 'mywin',
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022-07-10-AMA_AADConnect/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
 
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022/07/10/AMA_AADConnect.html&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022-07-10-AMA_AADConnect/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2022/07/10/AMA_AADConnect.html"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Figure 1: AMA AAD Connect Teaser]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2022-07-12-AMA_AADConnect_I.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2022-07-12-AMA_AADConnect_I.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Azure Meetup Stuttgart (10.02.2022) - Zero trust identity - minor but powerful functionalities in Azure AD</title><link href="http://localhost:4000/2022/02/10/Azure-MeetupStuttgart.html" rel="alternate" type="text/html" title="Azure Meetup Stuttgart (10.02.2022) - Zero trust identity - minor but powerful functionalities in Azure AD" /><published>2022-02-10T10:00:32+01:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/2022/02/10/Azure-MeetupStuttgart</id><content type="html" xml:base="http://localhost:4000/2022/02/10/Azure-MeetupStuttgart.html"><![CDATA[<figure>
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2022-07-10-AMA_AADConnect/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Figure 1: AMA AAD Connect Teaser]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2022-07-12-AMA_AADConnect_I.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2022-07-12-AMA_AADConnect_I.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Azure Meetup Stuttgart (10.02.2022) - Zero trust identity - minor but powerful functionalities in Azure AD</title><link href="http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/" rel="alternate" type="text/html" title="Azure Meetup Stuttgart (10.02.2022) - Zero trust identity - minor but powerful functionalities in Azure AD" /><published>2022-02-10T10:00:32+01:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/Azure-MeetupStuttgart</id><content type="html" xml:base="http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/"><![CDATA[<figure>
   <img src="/MyPics/2022-02-10-Azure-MeetupStuttgart_2.png" style="width:75%" />
   <figcaption>Figure 1: Azure Meetup Teaser</figcaption>
 </figure>
@@ -579,14 +580,14 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022/02/10/Azure-MeetupStuttgart.html" onclick="window.open(this.href, 'mywin',
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
 
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022/02/10/Azure-MeetupStuttgart.html&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2022/02/10/Azure-MeetupStuttgart.html"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name>Klaus Bierschenk</name></author><summary type="html"><![CDATA[Figure 1: Azure Meetup Teaser]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2022-02-10-Azure-MeetupStuttgart_2.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2022-02-10-Azure-MeetupStuttgart_2.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Want to switch off ADFS? Looking for some content?</title><link href="http://localhost:4000/2022/01/10/GoodBye-ADFS-Overview.html" rel="alternate" type="text/html" title="Want to switch off ADFS? Looking for some content?" /><published>2022-01-10T00:06:32+01:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/2022/01/10/GoodBye-ADFS-Overview</id><content type="html" xml:base="http://localhost:4000/2022/01/10/GoodBye-ADFS-Overview.html"><![CDATA[<figure>
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name>Klaus Bierschenk</name></author><summary type="html"><![CDATA[Figure 1: Azure Meetup Teaser]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2022-02-10-Azure-MeetupStuttgart_2.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2022-02-10-Azure-MeetupStuttgart_2.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Want to switch off ADFS? Looking for some content?</title><link href="http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/" rel="alternate" type="text/html" title="Want to switch off ADFS? Looking for some content?" /><published>2022-01-10T00:06:32+01:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/GoodBye-ADFS-Overview</id><content type="html" xml:base="http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/"><![CDATA[<figure>
   <img src="/MyPics/2022-01-09-GoodBye-ADFS-Linklist_I.png" style="width:75%" />
   <figcaption>Figure 1: Federation Services Splash Screen</figcaption>
 </figure>
@@ -657,14 +658,14 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022/01/10/GoodBye-ADFS-Overview.html" onclick="window.open(this.href, 'mywin',
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
 
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022/01/10/GoodBye-ADFS-Overview.html&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2022/01/10/GoodBye-ADFS-Overview.html"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[summary of ADFS decommissioning aspects]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2022-01-09-GoodBye-ADFS-Linklist_Cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2022-01-09-GoodBye-ADFS-Linklist_Cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloud Identity Summit ´21 Conference session</title><link href="http://localhost:4000/2021/09/10/CloudIdentitySummit_21.html" rel="alternate" type="text/html" title="Cloud Identity Summit ´21 Conference session" /><published>2021-09-10T21:13:32+02:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/2021/09/10/CloudIdentitySummit_21</id><content type="html" xml:base="http://localhost:4000/2021/09/10/CloudIdentitySummit_21.html"><![CDATA[<figure>
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[summary of ADFS decommissioning aspects]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2022-01-09-GoodBye-ADFS-Linklist_Cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2022-01-09-GoodBye-ADFS-Linklist_Cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cloud Identity Summit ´21 Conference session</title><link href="http://localhost:4000/2021-09-10-CloudIdentitySummit_21/" rel="alternate" type="text/html" title="Cloud Identity Summit ´21 Conference session" /><published>2021-09-10T21:13:32+02:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/CloudIdentitySummit_21</id><content type="html" xml:base="http://localhost:4000/2021-09-10-CloudIdentitySummit_21/"><![CDATA[<figure>
   <img src="/MyPics/2021-09-30-CloudIdentitySummit_21.png" style="width:75%" />
   <figcaption>Figure 1: Cloud Identity Summit '21 Teaser</figcaption>
 </figure>
@@ -686,14 +687,14 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021/09/10/CloudIdentitySummit_21.html" onclick="window.open(this.href, 'mywin',
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-09-10-CloudIdentitySummit_21/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
 
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021/09/10/CloudIdentitySummit_21.html&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-09-10-CloudIdentitySummit_21/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021/09/10/CloudIdentitySummit_21.html"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Figure 1: Cloud Identity Summit '21 Teaser]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to change language in M365 Portal for a synchronized identity</title><link href="http://localhost:4000/2021/07/04/ChangeLanguageinM365Portal.html" rel="alternate" type="text/html" title="How to change language in M365 Portal for a synchronized identity" /><published>2021-07-04T00:01:32+02:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/2021/07/04/ChangeLanguageinM365Portal</id><content type="html" xml:base="http://localhost:4000/2021/07/04/ChangeLanguageinM365Portal.html"><![CDATA[<figure>
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-09-10-CloudIdentitySummit_21/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Figure 1: Cloud Identity Summit '21 Teaser]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to change language in M365 Portal for a synchronized identity</title><link href="http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/" rel="alternate" type="text/html" title="How to change language in M365 Portal for a synchronized identity" /><published>2021-07-04T00:01:32+02:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/ChangeLanguageinM365Portal</id><content type="html" xml:base="http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/"><![CDATA[<figure>
   <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" style="width:60%" />
 </figure>
 
@@ -738,14 +739,14 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021/07/04/ChangeLanguageinM365Portal.html" onclick="window.open(this.href, 'mywin',
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
 
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021/07/04/ChangeLanguageinM365Portal.html&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021/07/04/ChangeLanguageinM365Portal.html"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Azure Meetup Bonn (10.06.2021) - Azure AD Connect - Schaltzentrale der hybriden Identitätsinfrastruktur (German session)</title><link href="http://localhost:4000/2021/06/11/Azure-MeetupBonn.html" rel="alternate" type="text/html" title="Azure Meetup Bonn (10.06.2021) - Azure AD Connect - Schaltzentrale der hybriden Identitätsinfrastruktur (German session)" /><published>2021-06-11T00:01:32+02:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/2021/06/11/Azure-MeetupBonn</id><content type="html" xml:base="http://localhost:4000/2021/06/11/Azure-MeetupBonn.html"><![CDATA[<figure>
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Azure Meetup Bonn (10.06.2021) - Azure AD Connect - Schaltzentrale der hybriden Identitätsinfrastruktur (German session)</title><link href="http://localhost:4000/2021-06-11-Azure-MeetupBonn/" rel="alternate" type="text/html" title="Azure Meetup Bonn (10.06.2021) - Azure AD Connect - Schaltzentrale der hybriden Identitätsinfrastruktur (German session)" /><published>2021-06-11T00:01:32+02:00</published><updated>2022-06-29T11:28:43+02:00</updated><id>http://localhost:4000/Azure-MeetupBonn</id><content type="html" xml:base="http://localhost:4000/2021-06-11-Azure-MeetupBonn/"><![CDATA[<figure>
   <img src="/MyPics/2021-06-10-MeetupSplash.png" style="width:50%" />
 </figure>
 
@@ -764,14 +765,14 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021/06/11/Azure-MeetupBonn.html" onclick="window.open(this.href, 'mywin',
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-06-11-Azure-MeetupBonn/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
 
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021/06/11/Azure-MeetupBonn.html&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-06-11-Azure-MeetupBonn/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021/06/11/Azure-MeetupBonn.html"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-06-10-MeetupSplash_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-06-10-MeetupSplash_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Accounts</title><link href="http://localhost:4000/2021/01/22/ZeroTrust-Monitoring.html" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Accounts" /><published>2021-01-22T23:01:32+01:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/2021/01/22/ZeroTrust%20Monitoring</id><content type="html" xml:base="http://localhost:4000/2021/01/22/ZeroTrust-Monitoring.html"><![CDATA[<ul id="markdown-toc">
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-06-11-Azure-MeetupBonn/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-06-10-MeetupSplash_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-06-10-MeetupSplash_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Accounts</title><link href="http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Accounts" /><published>2021-01-22T23:01:32+01:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/ZeroTrust%20Monitoring</id><content type="html" xml:base="http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/"><![CDATA[<ul id="markdown-toc">
   <li><a href="#monitoring-and-dealing-with-critical-user-accounts" id="markdown-toc-monitoring-and-dealing-with-critical-user-accounts">Monitoring and Dealing with critical user accounts</a></li>
   <li><a href="#keep-ad-logs-perfectly" id="markdown-toc-keep-ad-logs-perfectly">Keep AD logs perfectly</a></li>
   <li><a href="#automated-alerts" id="markdown-toc-automated-alerts">Automated alerts</a></li>
@@ -820,14 +821,14 @@ The KQL statement is inserted into the condition and is thus part of the signal 
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021/01/22/ZeroTrust-Monitoring.html" onclick="window.open(this.href, 'mywin',
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
 
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021/01/22/ZeroTrust-Monitoring.html&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021/01/22/ZeroTrust-Monitoring.html"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Keep an eye to the most sensitive accounts in your Azure AD]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 4: Access Reviews</title><link href="http://localhost:4000/2021/01/19/ZeroTrust-AR.html" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 4: Access Reviews" /><published>2021-01-19T14:22:32+01:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/2021/01/19/ZeroTrust%20AR</id><content type="html" xml:base="http://localhost:4000/2021/01/19/ZeroTrust-AR.html"><![CDATA[<ul id="markdown-toc">
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Keep an eye to the most sensitive accounts in your Azure AD]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 4: Access Reviews</title><link href="http://localhost:4000/2021-01-19-ZeroTrust-AR/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 4: Access Reviews" /><published>2021-01-19T14:22:32+01:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/ZeroTrust%20AR</id><content type="html" xml:base="http://localhost:4000/2021-01-19-ZeroTrust-AR/"><![CDATA[<ul id="markdown-toc">
   <li><a href="#goodbye-forgotten-group-memberships" id="markdown-toc-goodbye-forgotten-group-memberships">Goodbye forgotten group memberships</a></li>
   <li><a href="#access-review-using-an-example" id="markdown-toc-access-review-using-an-example">Access Review using an example</a></li>
   <li><a href="#fine-tuning-for-access-control" id="markdown-toc-fine-tuning-for-access-control">Fine tuning for access control</a></li>
@@ -860,14 +861,14 @@ Access reviews also show up in various other places in Azure AD, such as access 
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021/01/19/ZeroTrust-AR.html" onclick="window.open(this.href, 'mywin',
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-19-ZeroTrust-AR/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
 
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021/01/19/ZeroTrust-AR.html&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-19-ZeroTrust-AR/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021/01/19/ZeroTrust-AR.html"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Automatic membership reminder]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 3: Conditional Access</title><link href="http://localhost:4000/2021/01/18/ZeroTrust-CA.html" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 3: Conditional Access" /><published>2021-01-18T20:01:57+01:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/2021/01/18/ZeroTrust%20CA</id><content type="html" xml:base="http://localhost:4000/2021/01/18/ZeroTrust-CA.html"><![CDATA[<ul id="markdown-toc">
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-19-ZeroTrust-AR/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Automatic membership reminder]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 3: Conditional Access</title><link href="http://localhost:4000/2021-01-18-ZeroTrust-CA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 3: Conditional Access" /><published>2021-01-18T20:01:57+01:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/ZeroTrust%20CA</id><content type="html" xml:base="http://localhost:4000/2021-01-18-ZeroTrust-CA/"><![CDATA[<ul id="markdown-toc">
   <li><a href="#conditional-access-example" id="markdown-toc-conditional-access-example">Conditional access example</a></li>
   <li><a href="#policy-parameters" id="markdown-toc-policy-parameters">Policy parameters</a></li>
   <li><a href="#test-before-deploy" id="markdown-toc-test-before-deploy">Test before deploy</a></li>
@@ -926,14 +927,14 @@ Which actually says everything without the administrator having to look at the p
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021/01/18/ZeroTrust-CA.html" onclick="window.open(this.href, 'mywin',
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-18-ZeroTrust-CA/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
 
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021/01/18/ZeroTrust-CA.html&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-18-ZeroTrust-CA/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021/01/18/ZeroTrust-CA.html"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[CA - the center of Zero Trust with Identity]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?</title><link href="http://localhost:4000/2021/01/16/ZeroTrust-MFA.html" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?" /><published>2021-01-16T15:59:57+01:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/2021/01/16/ZeroTrust%20MFA</id><content type="html" xml:base="http://localhost:4000/2021/01/16/ZeroTrust-MFA.html"><![CDATA[<ul id="markdown-toc">
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-18-ZeroTrust-CA/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[CA - the center of Zero Trust with Identity]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?</title><link href="http://localhost:4000/2021-01-16-ZeroTrust-MFA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?" /><published>2021-01-16T15:59:57+01:00</published><updated>2023-02-26T13:20:26+01:00</updated><id>http://localhost:4000/ZeroTrust%20MFA</id><content type="html" xml:base="http://localhost:4000/2021-01-16-ZeroTrust-MFA/"><![CDATA[<ul id="markdown-toc">
   <li><a href="#is-there-a-right-way-to-implement-mfa" id="markdown-toc-is-there-a-right-way-to-implement-mfa">Is there a right way to implement MFA</a></li>
   <li><a href="#good-planning-is-important" id="markdown-toc-good-planning-is-important">Good planning is important</a></li>
   <li><a href="#exploit-the-possibilities" id="markdown-toc-exploit-the-possibilities">Exploit the possibilities</a></li>
@@ -959,11 +960,11 @@ A typical lab case is, for example, a logon using the TOR browser, which hides t
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021/01/16/ZeroTrust-MFA.html" onclick="window.open(this.href, 'mywin',
+<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-16-ZeroTrust-MFA/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
 
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021/01/16/ZeroTrust-MFA.html&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-16-ZeroTrust-MFA/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021/01/16/ZeroTrust-MFA.html"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-16-ZeroTrust-MFA/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
 </div>]]></content><author><name></name></author><summary type="html"><![CDATA[MFA - 2 min considerations]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
