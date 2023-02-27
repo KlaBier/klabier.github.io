@@ -9,7 +9,7 @@ Please find below a list of my publications. This are official publications and 
 | Article:                                                     | Published:                                               |
 | ------------------------------------------------------------ | --------------------------------------------------------- |
 | **MS Entra - Lifecycle Workflows**                     | March 2023, IT-Administrator                              |
-| **AD Management - Health Check**                     | December 2022, ADMIN-MAGAZINE, Security, Linux New Media USA                                    |
+| **AD Management - Active Directory Health Check**                     | December 2022, ADMIN-MAGAZINE, Security, Linux New Media USA                                    |
 | **ADNetTools - Swiss Army knife for AD On-Prem**                     | August 2022, IT-Administrator                                    |
 | **Azure AD Password Protection**                     | August 2022, IT-Administrator                              |
 | **Microsoft Azure: Sichere Infrastrukturen für Anwendungen und Client**                     | April 2022, IT-Administrator [Amazon Link](https://www.amazon.de/Microsoft-Azure-Infrastrukturen-Anwendungen-Administrator/dp/3941034324/ref=sr_1_1?__mk_de_DE=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=LR7KO8IM458I&keywords=bierschenk+klaus&qid=1656341988&sprefix=bierschenk+klaus%2Caps%2C55&sr=8-1){:target="_blank"}                              |
