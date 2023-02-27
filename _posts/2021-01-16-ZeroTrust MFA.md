@@ -3,7 +3,7 @@ title: "Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?"
 date: 2021-01-16T14:59:57
 layout: list
 
-description: MFA - 2 min considerations
+description: MFA - 2 min considerations and further reading
 
 image:
   path: /MyPics/2021-01-18-ZeroTrust_MFA_cover.jpg

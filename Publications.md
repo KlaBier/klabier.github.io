@@ -4,7 +4,7 @@ title: "Publications"
 classes: wide
 ---
 
-Please find below a list of my publications. This are official publications and the content is not free for download. They are published in paper press in Heinemann Verlag or Heise Verlag or as an Online Format
+Please find below a list of my publications. This are official publications and the content is in the most cases not free for download. They are published in paper press in Heinemann Verlag, Heise Verlag or other publishing houses or as an Online Format like a screencast
 
 | Article:                                                     | Published:                                               |
 | ------------------------------------------------------------ | --------------------------------------------------------- |

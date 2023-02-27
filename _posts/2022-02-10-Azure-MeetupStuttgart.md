@@ -16,9 +16,6 @@ image:
 
 ## Session Powerpoint material
 
-All my demos were running perfect and stable during the session.
-
-Murphy, thanks for that 😀
 
 I have enjoyed the evening and being a speaker at the [Meetup in Stuttgart](https://www.meetup.com/de-DE/Azure-Stuttgart/events/282805130/)
 

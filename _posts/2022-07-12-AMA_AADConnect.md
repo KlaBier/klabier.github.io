@@ -16,7 +16,7 @@ image:
 * this unordered seed list will be replaced by the toc
 {:toc}
 
-This was a German Session. but I have seen a couple of english speaking attandies in the audience, therefore you can also find the english content below.
+This was a German Session. But I have seen a couple of english speaking attandies in the audience, please find the english content below.
 
 Azure AMA zum Thema Synchronisation, zusammen mit Gregor Reimling vom Azure Metup Bonn. Das waren spannende Fragestellungen rund um den endenden Support von AAD Connect v1 und dem Update auf die Version 2 des Sync Boliden. Wir hatten aber noch weitere Themen, die ich ebenfalls sehr spannend fand. Eine Liste der Fragen und Antworten findet ihr in diesem Beitrag
 
