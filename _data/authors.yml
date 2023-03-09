@@ -22,8 +22,8 @@ author1:
   # Comment/uncommet to show/hide
   # Rearrange to change the order in which they appear
   social:
-    twitter:          klabiers
-    # github:          <username>
+    # twitter:          klabiers
+    github:           klabier
     email:            klaus@nothingbutcloud.net
     Sessionize:       "https://sessionize.com/klabier/"
     # rss:             https://<url>/feed.xml

@@ -1,5 +1,128 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-05T08:22:00+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
-</subtitle><entry><title type="html">Ask me anything - Synchronization</title><link href="http://localhost:4000/2022-07-10-AMA_AADConnect/" rel="alternate" type="text/html" title="Ask me anything - Synchronization" /><published>2022-07-10T14:34:32+02:00</published><updated>2023-03-05T07:35:35+01:00</updated><id>http://localhost:4000/AMA_AADConnect</id><content type="html" xml:base="http://localhost:4000/2022-07-10-AMA_AADConnect/"><![CDATA[<figure>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-09T19:18:40+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
+</subtitle><entry><title type="html">The Challange with Client Secrets in Azure AD</title><link href="http://localhost:4000/2023-01-07-GetSecretInfos/" rel="alternate" type="text/html" title="The Challange with Client Secrets in Azure AD" /><published>2023-01-07T10:00:32+01:00</published><updated>2023-03-09T19:18:40+01:00</updated><id>http://localhost:4000/GetSecretInfos</id><content type="html" xml:base="http://localhost:4000/2023-01-07-GetSecretInfos/"><![CDATA[<figure>
+  <img src="/MyPics/2023-01-07-GetSecretInfos_Cover.jpg" style="width:75%" />
+<!--  <figcaption>Figure 1: This can be any text here</figcaption> -->
+</figure>
+
+<ul id="markdown-toc">
+  <li><a href="#english-version" id="markdown-toc-english-version">English version</a>    <ul>
+      <li><a href="#in-general" id="markdown-toc-in-general">In general</a></li>
+      <li><a href="#challenge-with-client-secrets" id="markdown-toc-challenge-with-client-secrets">Challenge with Client Secrets</a></li>
+    </ul>
+  </li>
+  <li><a href="#beitrag-in-deutsch" id="markdown-toc-beitrag-in-deutsch">Beitrag in Deutsch</a>    <ul>
+      <li><a href="#grundlegendes" id="markdown-toc-grundlegendes">Grundlegendes</a></li>
+      <li><a href="#herausforderung-bei-client-secrets" id="markdown-toc-herausforderung-bei-client-secrets">Herausforderung bei Client Secrets</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="english-version">English version</h1>
+<p>To enable app registrations to authenticate themselves to other services, they have the option of adding credentials to them. Either certificates or so-called client secrets are used. Federated credentials are also possible, but the first two are probably the most common in my experience.</p>
+
+<p>Microsoft recommends certificates. These offer higher security compared to Client Secrets. A Secret is basically nothing more than an “application password”, with all the uncertainties that come with passwords. They are hard-coded into applications, posted in MS Teams chats, or sent by mail. In times of zero trust, you really don’t want that anymore.</p>
+<h2 id="in-general">In general</h2>
+
+<figure>
+  <img src="/MyPics/2023-01-07-GetSecretInfos_I.png" style="width:100%" />
+  <figcaption>App Registration Dashboard - showing a Secret</figcaption>
+</figure>
+
+<p>So, Microsoft’s recommendation to prefer certificates is understandable. In my practice, however, I often see the use of client secrets. Not surprisingly, after all, they are quick and easy to set up and available in no time.
+Microsoft offers a wealth of Docs articles that address the authentication of App Registrations. To describe the topic here again in my own words makes little sense. Rather, I feel it is important to point out a particular circumstance that Microsoft does not address in the docs in this way, but which I encounter frequently in practice and which we will now look at.</p>
+
+<h2 id="challenge-with-client-secrets">Challenge with Client Secrets</h2>
+<p>Besides the mentioned disadvantages of passwords, there is a serious disadvantage of Client Secrets. The maximum validity period can individually specified and it has a maximum of 24 months. This is configured when the secret is created. Unfortunately, there is no possibility to inform the owner of the app registration or other mail addressees when the validity period of a client secret is about to end. This would leave time to generate a new one and integrate the new password (the secret) for example on a web page or in the code.</p>
+
+<p>In practice, this means that a secret is configured for an app registration and is logically forgotten. At some point, the validity of the secret ends and an application that used to work suddenly stops working. The search continues until the evil is finally found. And on top of that, it’s urgent, because the application is definitely no longer working as it should.</p>
+
+<p>Let’s hope that Microsoft will soon integrate the possibility of a notification, similar to the SAML certificate for an enterprise application.</p>
+
+<p>If the threat is known, it can be dealt with in advance in various ways, for example, a SIEM can keep an eye on the expiration dates of the Secrets.</p>
+
+<p>In case this is not available, it might make sense to create an old-fashioned CSV file that generates a list of all app registrations in the tenant. Act instead of react is the motto here. For my activities in the field, I have a small Powershell script that creates two CSV text files:</p>
+
+<p>(a) list with all App Registrations, all Owners and then again per Owner all Secrets.
+This is redundant in terms of information, but if the CSV file is imported into Excel, there is a good possibility of filtering in many ways.</p>
+
+<figure>
+  <img src="/MyPics/2023-01-07-GetSecretInfos_II.png" style="width:100%" />
+  <figcaption>Imported CSV with all App Regs, their Secrets and "one" Owner</figcaption>
+</figure>
+
+<p>b) A list of all app registrations and all secrets. In this case, however, only one owner.</p>
+
+<figure>
+  <img src="/MyPics/2023-01-07-GetSecretInfos_III.png" style="width:100%" />
+  <figcaption>Imported CSV with all App Regs, their Secrets and "all" Owner</figcaption>
+</figure>
+
+<p>It may make sense to regularly create these lists as part of an operational manual, when no other monitoring is available, to see what is happening here with expiring Secrets.</p>
+
+<p>The script is primarily intended as an illustrative material. It is possible to extend it in many ways and to adapt it to your own needs. The integration into an automation runbook, into a logic app with resulting mail dispatch to the mail addresses of the listed owners are only a few examples.</p>
+
+<p>Please find the Powershell Script here: <a href="https://github.com/KlaBier/Powershell">Script </a></p>
+
+<h1 id="beitrag-in-deutsch">Beitrag in Deutsch</h1>
+<h2 id="grundlegendes">Grundlegendes</h2>
+<p>Damit App Registrations sich gegenüber anderen Diensten authentifizieren können, verfügen sie über die Möglichkeit ihnen Credentials hinzuzufügen. Dabei kommen entweder Zertifikate zum Einsatz oder sogenannte Client Secrets. Federated Credentials sind ebenfalls möglich, aber die beiden erstgenannten sind nach meiner Erfahrung wohl die am gebräuchlichsten.</p>
+
+<p>Microsoft empfiehlt Zertifikate. Diese bieten höhere Sicherheit gegenüber den Client Secrets. Ein Secret ist im Grunde genommen nichts anderes als ein “Applicationspassword”, mit allen Unsicherheiten, die es im Zusammenhang mit Passwörtern gibt. Sie werden in Anwendungen hart codiert eingefügt, in MS Teams Chats geposted oder per Mail versendet. Das möchte man in Zeiten von Zero Trust eigentlich nicht mehr haben.</p>
+
+<figure>
+  <img src="/MyPics/2023-01-07-GetSecretInfos_I.png" style="width:100%" />
+  <figcaption>App Registration Dashboard - einzelnes Secret</figcaption>
+</figure>
+
+<p>Also, Microsofts Empfehlung, Zertifikate vorzuziehen, ist nachvollziehbar. In meiner Praxis erlebe ich aber häufig die Verwendung von Client Secrets. Wen wundert es, schließlich sind diese schnell und unkompliziert angelegt und im Nullkommanix verfügbar.
+Microsoft bietet eine Fülle an Docs Artikeln, die die Authentifizierung von App Registrations thematisieren. Das Thema hier mit meinen Worten erneut zu beschreiben, macht wohl wenig Sinn. Mir ist es vielmehr wichtig auf einen besonderen Umstand hinzuweisen, den Microsoft so nicht in den Beiträgen thematisiert, der mir aber in der Praxis häufig begegnet und den wie wir uns jetzt anschauen.</p>
+
+<h2 id="herausforderung-bei-client-secrets">Herausforderung bei Client Secrets</h2>
+<p>Neben den genannten Nachteilen von Passwörtern gibt es einen gravierenden Nachteil von Client Secrets. Die maximale Gültigkeitsdauer eines manuell hinzugefügten Secrets liegt bei 24 Monaten. Diese wird angegeben, wenn das Secret erstellt wird. Leider besteht nicht die Möglichkeit den Owner der App Registration oder andere Mailadressaten darüber zu informieren, wenn der Zeitraum für die Gültigkeit eines Client Secret alsbald endet. Somit bliebe Zeit einen neuen zu generieren und das neue Passwort (den Secret) beispielsweise auf einer Webseite oder im Code zu integrieren.</p>
+
+<p>In der Praxis sieht das dann oft so aus, dass ein Secret für eine App Registration konfiguriert ist und logischerweise in Vergessenheit gerät. Irgendwann endet dann die Gültigkeit und eine Anwendung, die bislang funktionierte, funktioniert plötzlich nicht mehr. Die Sucherei geht los, bis das Übel endlich gefunden ist. Und obendrein ist Eile ist geboten, da die Anwendung definitiv nicht mehr funktioniert, wie sie sollte.</p>
+
+<p>Bleibt zu hoffen, dass Microsoft hier bald die Möglichkeit einer Benachrichtigung integriert, ähnlich wie dies beispielsweise bei einem SAML Zertifikat für eine Enterprise Application der Fall ist</p>
+
+<p>Wenn man die drohende Gefahr kennt, lässt sich im Vorfeld verschiedenartig damit umgehen, beispielsweise kann ein SIEM ein Auge auf die Ablaufdaten der Secrets werfen.</p>
+
+<p>Für den Fall, das dies nicht vorhanden ist, kann aber eventuell das Erstellen einer altmodische CSV-Datei Sinn machen, die eine Liste aller App Registrations im Tenant generiert. Agieren statt regieren ist hier die Devise. Aus meiner täglichen Arbeit habe ich ein kleines Powershell Script, das zwei CSV-Textdateien erstellt:</p>
+
+<p>a)  Liste mit allen App Registrations, allen Ownern und dann wiederum pro Owner alle Secrets
+Das ist von den Infos her gesehen zwar redundant, aber wird die CSV-Datei in Excel importiert, besteht so eine gute Möglichkeit der Filterung in vielerlei Ausprägung</p>
+
+<figure>
+  <img src="/MyPics/2023-01-07-GetSecretInfos_II.png" style="width:100%" />
+  <figcaption>Importierte CSV-Datei mit allen Secrets und "einem" Owner</figcaption>
+</figure>
+
+<p>b) Eine Liste aller App Registrations und allen Secrets. In diesem Fall aber nur ein Owner.</p>
+
+<figure>
+  <img src="/MyPics/2023-01-07-GetSecretInfos_III.png" style="width:100%" />
+  <figcaption>Importierte CSV-Datei mit allen Secrets und "allen" Ownern</figcaption>
+</figure>
+
+<p>Es kann Sinn machen regelmäßig diese Listen dokumentiert als Teil eines Betriebshandbuches für das Azure AD zu erstellen, wenn keine weitere Überwachung verfügbar ist, um zu sehen was der Status in Bezug auf ablaufende Secrets im Tenant ist.</p>
+
+<p>Das Script ist primär als Anschauungsmaterial gedacht. Es besteht die Möglichkeiten es in vielerlei Hinsicht auszubauen und es an eigene Bedürfnisse anzupassen. Die Integration in ein Automation Runbook, in eine Logic App mit daraus resultierender Mailversand, an die Maildressen der gelisteten Owner, sind nur einige Beispiele</p>
+
+<p><a href="https://github.com/KlaBier/Powershell/tree/main/AAD_Secret_Infos">Link zu dem Powershell Script </a></p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2023-01-07-GetSecretInfos/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2023-01-07-GetSecretInfos/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2023-01-07-GetSecretInfos/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name>Klaus Bierschenk</name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2023-01-07-GetSecretInfos_Cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2023-01-07-GetSecretInfos_Cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ask me anything - Synchronization</title><link href="http://localhost:4000/2022-07-10-AMA_AADConnect/" rel="alternate" type="text/html" title="Ask me anything - Synchronization" /><published>2022-07-10T14:34:32+02:00</published><updated>2023-03-05T07:35:35+01:00</updated><id>http://localhost:4000/AMA_AADConnect</id><content type="html" xml:base="http://localhost:4000/2022-07-10-AMA_AADConnect/"><![CDATA[<figure>
   <img src="/MyPics/2022-07-12-AMA_AADConnect_I.png" style="width:75%" />
   <figcaption>Figure 1: AMA AAD Connect Teaser</figcaption>
 </figure>
@@ -553,8 +676,9 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022-07-10-AMA_AADConnect/" onclick="window.open(this.href, 'mywin',
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2022-07-10-AMA_AADConnect/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
 
 <a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022-07-10-AMA_AADConnect/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
@@ -576,8 +700,9 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/" onclick="window.open(this.href, 'mywin',
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
 
 <a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022-02-10-Azure-MeetupStuttgart/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
@@ -654,8 +779,9 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/" onclick="window.open(this.href, 'mywin',
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
 
 <a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2022-01-10-GoodBye-ADFS-Overview/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
@@ -683,8 +809,9 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-09-10-CloudIdentitySummit_21/" onclick="window.open(this.href, 'mywin',
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2021-09-10-CloudIdentitySummit_21/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
 
 <a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-09-10-CloudIdentitySummit_21/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
@@ -735,8 +862,9 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/" onclick="window.open(this.href, 'mywin',
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
 
 <a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
@@ -761,8 +889,9 @@ If everything is in order up to this point (which is to be assumed), the existin
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-06-11-Azure-MeetupBonn/" onclick="window.open(this.href, 'mywin',
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2021-06-11-Azure-MeetupBonn/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
 
 <a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-06-11-Azure-MeetupBonn/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
@@ -817,8 +946,9 @@ The KQL statement is inserted into the condition and is thus part of the signal 
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/" onclick="window.open(this.href, 'mywin',
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
 
 <a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
@@ -857,20 +987,21 @@ Access reviews also show up in various other places in Azure AD, such as access 
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-19-ZeroTrust-AR/" onclick="window.open(this.href, 'mywin',
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2021-01-19-ZeroTrust-AR/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
 
 <a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-19-ZeroTrust-AR/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
 <a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-19-ZeroTrust-AR/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Automatic membership reminder]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 3: Conditional Access</title><link href="http://localhost:4000/2021-01-18-ZeroTrust-CA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 3: Conditional Access" /><published>2021-01-18T20:01:57+01:00</published><updated>2023-03-05T08:22:00+01:00</updated><id>http://localhost:4000/ZeroTrust%20CA</id><content type="html" xml:base="http://localhost:4000/2021-01-18-ZeroTrust-CA/"><![CDATA[<ul id="markdown-toc">
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Automatic membership reminder]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 3: Conditional Access</title><link href="http://localhost:4000/2021-01-18-ZeroTrust-CA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 3: Conditional Access" /><published>2021-01-18T20:01:57+01:00</published><updated>2023-03-08T08:23:14+01:00</updated><id>http://localhost:4000/ZeroTrust%20CA</id><content type="html" xml:base="http://localhost:4000/2021-01-18-ZeroTrust-CA/"><![CDATA[<ul id="markdown-toc">
   <li><a href="#conditional-access-example" id="markdown-toc-conditional-access-example">Conditional access example</a></li>
   <li><a href="#policy-parameters" id="markdown-toc-policy-parameters">Policy parameters</a></li>
   <li><a href="#test-before-deploy" id="markdown-toc-test-before-deploy">Test before deploy</a></li>
 </ul>
 
-<p>Conditional Access policies are a perfect tool for best adapting logon and access to specific applications to the diverse circumstances of users. They are suitable for aggregating signals, making decisions based on them, and enforcing organizational policies. The user context is crucial for this and after evaluating the policy, access is allowed, blocked or certain criteria must be met in order for the user to reach their destination.</p>
+<p>Conditional Access policies are a perfect functionality for best adapting logon and access to specific applications to the diverse circumstances of users. They are suitable for aggregating signals, making decisions based on them, and enforcing organizational policies. The user context is crucial for this and after evaluating the policy, access is allowed, blocked or certain criteria must be met in order for the user to reach their destination.</p>
 
 <p>Unlike what you may be used to in other policies, the design of CA policies is very complex and the administrator determines the level of complexity. It starts with a string of if statements that evaluate signals mentioned earlier. These can be simple group memberships of the user up to the combination of device platforms(iOS, Windows) or a location from which the user started his access attempt.
 In the editor, the target for the policy is defined in the “Assignments” section. In the “Access controls” section, it is possible to describe what should happen in a positive or negative sense. It is also possible to evaluate signals from other areas of the Azure platform here, for example, the logon risk from Identity Protection can be included in the conditions. If the user’s access represents a medium or high logon risk, access to sensitive applications may no longer be permitted or only by using MFA.</p>
@@ -923,44 +1054,12 @@ Which actually says everything without the administrator having to look at the p
 <div class="share-box">
 <h5>Share this:</h5>
 
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-18-ZeroTrust-CA/" onclick="window.open(this.href, 'mywin',
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2021-01-18-ZeroTrust-CA/" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
 
 <a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-18-ZeroTrust-CA/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
 <a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-18-ZeroTrust-CA/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[CA - the center of Zero Trust with Identity]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?</title><link href="http://localhost:4000/2021-01-16-ZeroTrust-MFA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 2: MFA! Is there a right way?" /><published>2021-01-16T15:59:57+01:00</published><updated>2023-03-05T07:35:35+01:00</updated><id>http://localhost:4000/ZeroTrust%20MFA</id><content type="html" xml:base="http://localhost:4000/2021-01-16-ZeroTrust-MFA/"><![CDATA[<ul id="markdown-toc">
-  <li><a href="#is-there-a-right-way-to-implement-mfa" id="markdown-toc-is-there-a-right-way-to-implement-mfa">Is there a right way to implement MFA</a></li>
-  <li><a href="#good-planning-is-important" id="markdown-toc-good-planning-is-important">Good planning is important</a></li>
-  <li><a href="#exploit-the-possibilities" id="markdown-toc-exploit-the-possibilities">Exploit the possibilities</a></li>
-</ul>
-
-<h2 id="is-there-a-right-way-to-implement-mfa">Is there a right way to implement MFA</h2>
-
-<p>MFA has become more prevalent with many providers on the Internet. This definitely also includes the Microsoft world and the logon to Azure AD or Microsoft 365. The distribution of MFA, or switching on when which user has to log on with a second factor in Azure AD, is linked to powerful policies. The topic as a whole has a multi-layered structure, and this is especially true for licensing, i.e. costs, in addition to the options for deployment. Here, unfortunately, as with other Azure features, the cost and capabilities depend on which Azure AD plan they are using. For example, the ability to use SMS as a second factor is not available in all editions. A good overview of all tariffs with the corresponding functionalities can be found in the following Microsoft Docs <a href="https://docs.microsoft.com/de-de/azure/active-directory/authentication/concept-mfa-licensing" target="_blank">article</a>. At this point we are looking at the technology, primarily the provision of MFA.</p>
-
-<h2 id="good-planning-is-important">Good planning is important</h2>
-
-<p>The easiest way to get MFA to users is to do it statically. This no “ifs” and “buts” method can be found somewhat hidden in the Azure AD Portal, in the display of all users in the command bar at the top. This method also requires you to specify a CSV file as the source with the contents of the desired user accounts. You should think twice about this but rather antiquated method. In today’s dynamic times, a rather smart method of distributing MFA is required, preferably if this can be tied to conditions. And there you have several options at hand. The most common, and the one recommended by Microsoft, is to enable it via “Conditional Access Policies”. They offer more options than controlling the distribution of MFA. CA is only one part of it, but more on that later.</p>
-
-<h2 id="exploit-the-possibilities">Exploit the possibilities</h2>
-
-<p>If you have Identity Protection in place, you can define MFA as part of the logon risk policy. If a user logon risk is detected, you can react in several ways, one of them is to allow logon using MFA.
-A typical lab case is, for example, a logon using the TOR browser, which hides the actual IP address, or when a logon is made from two different geographical locations, which is also atypical in normal cases. However, it is always possible that this is legitimate, for example when a developer is testing something, so the logon can be granted via MFA. Identity Protection can also be used to roll out MFA to all users by enabling the MFA registration policy in the Identity Protection Dashboard. Unlike the manual approach mentioned above, here it is possible to specify AD groups, which allows us to make the activation selective for specific users.</p>
-
-<p>Cover image by Gerd Altmann from Pixabay</p>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-
-<div class="share-box">
-<h5>Share this:</h5>
-
-<a class="t" href="https://twitter.com/intent/tweet?text=&amp;url=http://localhost:4000/2021-01-16-ZeroTrust-MFA/" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
-
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-16-ZeroTrust-MFA/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
-
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-16-ZeroTrust-MFA/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[MFA - 2 min considerations and further reading]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust_MFA_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[CA - the center of Zero Trust with Identity]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
