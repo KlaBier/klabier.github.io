@@ -112,4 +112,6 @@ Das Script ist primär als Anschauungsmaterial gedacht. Es besteht die Möglichk
 
 [Link zu dem Powershell Script ](https://github.com/KlaBier/Powershell/tree/main/AAD_Secret_Infos)
 
+Cover image Stefan Coders from Pixabay
+
 {% include  share.html %}
