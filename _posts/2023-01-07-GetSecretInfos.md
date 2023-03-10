@@ -1,5 +1,5 @@
 ---
-title: "The Challange with Client Secrets in Azure AD"
+title: "The Challenge with Client Secrets in Azure AD"
 author: Klaus Bierschenk
 date: 2023-01-07T09:00:32
 
