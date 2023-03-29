@@ -53,7 +53,7 @@ For example, a list with all devices can be created like this
 Get-AzureADDevice -All:$true | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | Format-Table 
 ```
 
-Some examples how to filter the output for a certain period of time and how to generate an Excel list directly can be found in [my Powershell repository](https://github.com/KlaBier/Powershell/FindUnusedObjects)
+Some examples how to filter the output for a certain period of time and how to generate an Excel list directly can be found in [my Powershell repository](https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects)
 
 The result in Excel looks like this:
 
@@ -106,7 +106,7 @@ The result will look like this, for example:
   <figcaption>Figure 4: List device objects with Powershell</figcaption>
 </figure>
 
-More comprehensive options like filtering, or exporting users who last logged in before a certain date, I have also in my [Powershell Repository ](https://github.com/KlaBier/Powershell/FindUnusedObjects)
+More comprehensive options like filtering, or exporting users who last logged in before a certain date, I have also in my [Powershell Repository ](https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects)
 
 #### Access Reviews zum Ermitteln unbenutzter Konten
 
@@ -167,7 +167,7 @@ Eine Liste mit allen Geräten lässt sich zum Beispiel so erstellen
 Get-AzureADDevice -All:$true | select-object -Property AccountEnabled, DeviceId, DeviceOSType, DeviceOSVersion, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | Format-Table 
 ```
 
- Einige Beispiele wie sich die Ausgabe für ein bestimmten Zeitraum filtern lässt und wie direkt eine Excelliste generiert wird habe ich [hier zusammengestellt. ](https://github.com/KlaBier/Powershell/FindUnusedObjects)
+ Einige Beispiele wie sich die Ausgabe für ein bestimmten Zeitraum filtern lässt und wie direkt eine Excelliste generiert wird habe ich [hier zusammengestellt. ](https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects)
 
 Das Ergebnis in Excel sieht dann beispielsweise so aus:
 
@@ -220,7 +220,7 @@ Das Ergebnis sieht dann beispielsweise so aus:
   <figcaption>Figure 4: List device objects with Powershell</figcaption>
 </figure>
 
-Umfassendere Möglichkeiten wie Filterung, oder den Export von Benutzern, die sich vor einem bestimmten Datum zuletzt angemeldet haben, habe ich in meinem [Powershell Repository ](https://github.com/KlaBier/Powershell/FindUnusedObjects)
+Umfassendere Möglichkeiten wie Filterung, oder den Export von Benutzern, die sich vor einem bestimmten Datum zuletzt angemeldet haben, habe ich in meinem [Powershell Repository ](https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects)
 
 #### Access Reviews zum Ermitteln unbenutzter Konten
 

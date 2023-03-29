@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-30T00:11:15+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
-</subtitle><entry><title type="html">The dilemma with unused objects in Azure AD</title><link href="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/" rel="alternate" type="text/html" title="The dilemma with unused objects in Azure AD" /><published>2023-03-22T09:00:32+01:00</published><updated>2023-03-30T00:11:15+02:00</updated><id>http://localhost:4000/FindStaledObjectsInAAD</id><content type="html" xml:base="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/"><![CDATA[<figure>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-30T00:19:53+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
+</subtitle><entry><title type="html">The dilemma with unused objects in Azure AD</title><link href="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/" rel="alternate" type="text/html" title="The dilemma with unused objects in Azure AD" /><published>2023-03-22T09:00:32+01:00</published><updated>2023-03-30T00:19:53+02:00</updated><id>http://localhost:4000/FindStaledObjectsInAAD</id><content type="html" xml:base="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/"><![CDATA[<figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_Cover.jpg" style="width:75%" />
   <figcaption>mohamed_hassan auf Pixabay</figcaption>
 </figure>
@@ -74,7 +74,7 @@ or BYOD scenarios, for example. This is very convenient and timely in terms of u
 <div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-AzureADDevice</span><span class="w"> </span><span class="nt">-All</span><span class="p">:</span><span class="bp">$true</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select-object</span><span class="w"> </span><span class="nt">-Property</span><span class="w"> </span><span class="nx">AccountEnabled</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceId</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceOSType</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceOSVersion</span><span class="p">,</span><span class="w"> </span><span class="nx">DisplayName</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceTrustType</span><span class="p">,</span><span class="w"> </span><span class="nx">ApproximateLastLogonTimestamp</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Format-Table</span><span class="w"> 
 </span></code></pre></div></div>
 
-<p>Some examples how to filter the output for a certain period of time and how to generate an Excel list directly can be found in <a href="https://github.com/KlaBier/Powershell/FindUnusedObjects">my Powershell repository</a></p>
+<p>Some examples how to filter the output for a certain period of time and how to generate an Excel list directly can be found in <a href="https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects">my Powershell repository</a></p>
 
 <p>The result in Excel looks like this:</p>
 
@@ -131,7 +131,7 @@ or BYOD scenarios, for example. This is very convenient and timely in terms of u
   <figcaption>Figure 4: List device objects with Powershell</figcaption>
 </figure>
 
-<p>More comprehensive options like filtering, or exporting users who last logged in before a certain date, I have also in my <a href="https://github.com/KlaBier/Powershell/FindUnusedObjects">Powershell Repository </a></p>
+<p>More comprehensive options like filtering, or exporting users who last logged in before a certain date, I have also in my <a href="https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects">Powershell Repository </a></p>
 
 <h4 id="access-reviews-zum-ermitteln-unbenutzter-konten">Access Reviews zum Ermitteln unbenutzter Konten</h4>
 
@@ -189,7 +189,7 @@ Schauen wir uns einige Möglichkeiten an, wie sich damit umgehen lässt</p>
 <div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-AzureADDevice</span><span class="w"> </span><span class="nt">-All</span><span class="p">:</span><span class="bp">$true</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select-object</span><span class="w"> </span><span class="nt">-Property</span><span class="w"> </span><span class="nx">AccountEnabled</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceId</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceOSType</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceOSVersion</span><span class="p">,</span><span class="w"> </span><span class="nx">DisplayName</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceTrustType</span><span class="p">,</span><span class="w"> </span><span class="nx">ApproximateLastLogonTimestamp</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Format-Table</span><span class="w"> 
 </span></code></pre></div></div>
 
-<p>Einige Beispiele wie sich die Ausgabe für ein bestimmten Zeitraum filtern lässt und wie direkt eine Excelliste generiert wird habe ich <a href="https://github.com/KlaBier/Powershell/FindUnusedObjects">hier zusammengestellt. </a></p>
+<p>Einige Beispiele wie sich die Ausgabe für ein bestimmten Zeitraum filtern lässt und wie direkt eine Excelliste generiert wird habe ich <a href="https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects">hier zusammengestellt. </a></p>
 
 <p>Das Ergebnis in Excel sieht dann beispielsweise so aus:</p>
 
@@ -246,7 +246,7 @@ Schauen wir uns einige Möglichkeiten an, wie sich damit umgehen lässt</p>
   <figcaption>Figure 4: List device objects with Powershell</figcaption>
 </figure>
 
-<p>Umfassendere Möglichkeiten wie Filterung, oder den Export von Benutzern, die sich vor einem bestimmten Datum zuletzt angemeldet haben, habe ich in meinem <a href="https://github.com/KlaBier/Powershell/FindUnusedObjects">Powershell Repository </a></p>
+<p>Umfassendere Möglichkeiten wie Filterung, oder den Export von Benutzern, die sich vor einem bestimmten Datum zuletzt angemeldet haben, habe ich in meinem <a href="https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects">Powershell Repository </a></p>
 
 <h4 id="access-reviews-zum-ermitteln-unbenutzter-konten-1">Access Reviews zum Ermitteln unbenutzter Konten</h4>
 
