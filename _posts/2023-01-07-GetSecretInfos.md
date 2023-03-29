@@ -1,5 +1,5 @@
 ---
-title: "The Challenge with Client Secrets in Azure AD"
+title: "Check your Azure AD for expiring App Secrets"
 author: Klaus Bierschenk
 date: 2023-01-07T09:00:32
 

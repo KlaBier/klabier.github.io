@@ -1,5 +1,290 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-14T19:46:46+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
-</subtitle><entry><title type="html">The Challenge with Client Secrets in Azure AD</title><link href="http://localhost:4000/2023-01-07-GetSecretInfos/" rel="alternate" type="text/html" title="The Challenge with Client Secrets in Azure AD" /><published>2023-01-07T10:00:32+01:00</published><updated>2023-03-10T15:51:35+01:00</updated><id>http://localhost:4000/GetSecretInfos</id><content type="html" xml:base="http://localhost:4000/2023-01-07-GetSecretInfos/"><![CDATA[<figure>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-30T00:11:15+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
+</subtitle><entry><title type="html">The dilemma with unused objects in Azure AD</title><link href="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/" rel="alternate" type="text/html" title="The dilemma with unused objects in Azure AD" /><published>2023-03-22T09:00:32+01:00</published><updated>2023-03-30T00:11:15+02:00</updated><id>http://localhost:4000/FindStaledObjectsInAAD</id><content type="html" xml:base="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/"><![CDATA[<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_Cover.jpg" style="width:75%" />
+  <figcaption>mohamed_hassan auf Pixabay</figcaption>
+</figure>
+
+<ul id="markdown-toc">
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#device-objects" id="markdown-toc-device-objects">Device objects</a>        <ul>
+          <li><a href="#azure-ad-dashboard" id="markdown-toc-azure-ad-dashboard">Azure AD Dashboard</a></li>
+          <li><a href="#powershell-examples" id="markdown-toc-powershell-examples">Powershell examples</a></li>
+        </ul>
+      </li>
+      <li><a href="#identifying-unused-user-accounts" id="markdown-toc-identifying-unused-user-accounts">Identifying unused user accounts</a>        <ul>
+          <li><a href="#azure-ad-dashboard-1" id="markdown-toc-azure-ad-dashboard-1">Azure AD Dashboard</a></li>
+        </ul>
+      </li>
+      <li><a href="#powershell-vs-graph-api" id="markdown-toc-powershell-vs-graph-api">Powershell vs. Graph API</a>        <ul>
+          <li><a href="#access-reviews-zum-ermitteln-unbenutzter-konten" id="markdown-toc-access-reviews-zum-ermitteln-unbenutzter-konten">Access Reviews zum Ermitteln unbenutzter Konten</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#deutsche-version" id="markdown-toc-deutsche-version">Deutsche Version</a>    <ul>
+      <li><a href="#übersicht" id="markdown-toc-übersicht">Übersicht</a>        <ul>
+          <li><a href="#computerkonten" id="markdown-toc-computerkonten">Computerkonten</a>            <ul>
+              <li><a href="#azure-ad-dashboard-2" id="markdown-toc-azure-ad-dashboard-2">Azure AD Dashboard</a></li>
+              <li><a href="#powershell-beispiele" id="markdown-toc-powershell-beispiele">Powershell Beispiele</a></li>
+            </ul>
+          </li>
+          <li><a href="#ermitteln-unbenutzter-benutzkonten" id="markdown-toc-ermitteln-unbenutzter-benutzkonten">Ermitteln unbenutzter Benutzkonten</a>            <ul>
+              <li><a href="#azure-ad-dashboard-3" id="markdown-toc-azure-ad-dashboard-3">Azure AD Dashboard</a></li>
+            </ul>
+          </li>
+          <li><a href="#powershell-vs-graph-api-1" id="markdown-toc-powershell-vs-graph-api-1">Powershell vs. Graph API</a>            <ul>
+              <li><a href="#access-reviews-zum-ermitteln-unbenutzter-konten-1" id="markdown-toc-access-reviews-zum-ermitteln-unbenutzter-konten-1">Access Reviews zum Ermitteln unbenutzter Konten</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+<p>It is very easy to add new users or computer objects in Azure Active Directory. Depending on the tenant settings, this can also be done quite extensively by end users themselves. Invited guest users 
+or BYOD scenarios, for example. This is very convenient and timely in terms of user experience, but brings the disadvantage that over time more and more unused identities accumulate, which may no longer be needed. Guest user accounts that were used by external project members during a project, but have been forgotten afterwards. The same is true for devices registered in Azure AD. Registration is easy, even for end users, but “out of the box” no mechanism in Azure AD ensures that device objects that are no longer used are removed as silently as they were added. Smartphones, computers are swapped or lost and users soon use another device for their work. The administrator has to keep an eye on it himself, either manually and on a regular basis, as part of various “housekeeping” activities that ensure good hygiene in the tenant, or the Admin establishes automatisms that generate reports of unused objects.</p>
+
+<p>Whatever the reason for these holdovers, they are unnecessary and pose a security risk.</p>
+
+<h3 id="device-objects">Device objects</h3>
+<p>In the best case, devices should be de-registered again via a lifecycle process, for example when a device is replaced. Or if a user reports a device as lost. Companies that use mobile device management (e.g., Microsoft Intune) can define policies that react in various ways to device objects that are no longer in use, such as deactivating or deleting them directly.</p>
+
+<p>Each time a user accesses a cloud application with his device, the attribute “ApproximateLastLogonTimestamp” is provided with the current timestamp. Using the delta from today to the last time used, it is easy to find out when the device was last used against the tenant.</p>
+
+<h4 id="azure-ad-dashboard">Azure AD Dashboard</h4>
+
+<p>This is very easy to do in the Azure AD Dashboard and the filter options there in the view of the devices.</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_1.png" style="width:100%" />
+  <figcaption>Figure 1: List with devices in the Azure AD Dashboard</figcaption>
+</figure>
+
+<p>This is helpful to look for individual devices or also with a smaller number of devices. With a high number of objects, however, this is hardly possible without the Powershell.</p>
+
+<h4 id="powershell-examples">Powershell examples</h4>
+<p>Here, a list can be generated in no time at all, which can be sent by mail or otherwise serve as a basis for cleanup work. The starting point for this is the cmdlet</p>
+
+<p class="text-center"><code class="language-plaintext highlighter-rouge">Get-AzureADDevice</code></p>
+
+<p>For example, a list with all devices can be created like this</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-AzureADDevice</span><span class="w"> </span><span class="nt">-All</span><span class="p">:</span><span class="bp">$true</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select-object</span><span class="w"> </span><span class="nt">-Property</span><span class="w"> </span><span class="nx">AccountEnabled</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceId</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceOSType</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceOSVersion</span><span class="p">,</span><span class="w"> </span><span class="nx">DisplayName</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceTrustType</span><span class="p">,</span><span class="w"> </span><span class="nx">ApproximateLastLogonTimestamp</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Format-Table</span><span class="w"> 
+</span></code></pre></div></div>
+
+<p>Some examples how to filter the output for a certain period of time and how to generate an Excel list directly can be found in <a href="https://github.com/KlaBier/Powershell/FindUnusedObjects">my Powershell repository</a></p>
+
+<p>The result in Excel looks like this:</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_2.png" style="width:100%" />
+  <figcaption>Figure 2: List with devices exported to Excel</figcaption>
+</figure>
+
+<p>With this list it is easy to implement a reaction to these detected devices, best also directly via Powershell. But be careful with deleting device objects. There is no recycle bin here from which objects can be recycled, as is the case with user objects, for example. Also, the Bitlocker Keys of the respective device are stored in Azure AD. These are lost when an object is deleted.</p>
+
+<p>It should also be noted that a distinction is made between Hybrid AAD Joined, AAD Joined and AAD Registered for the devices. When deleting from the AAD, the state on the respective device is not changed. Depending on which type of registration the device has, different aspects are significant here. This only applies to cases where devices may still be in use. Microsoft provides some Docs articles that describe what the differences are and what to look out for.</p>
+
+<p>Every company should have a policy that describes how unused device objects are handled:</p>
+<ul>
+  <li>what is the time period after which a device is considered a stale device?</li>
+  <li>Is Bitlocker used? Are the keys no longer needed or do recovery keys exist?</li>
+  <li>
+    <p>A two-step process is suitable for removing unused devices from a tenant:</p>
+
+    <ul>
+      <li>Step1: Deactivation of the device.</li>
+      <li>Step2: final deletion of the device after a defined period of time.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="identifying-unused-user-accounts">Identifying unused user accounts</h3>
+<p>Even more critical than device objects are orphaned user accounts. These are easier to abuse and they come with permissions and roles.</p>
+
+<h4 id="azure-ad-dashboard-1">Azure AD Dashboard</h4>
+<p>The Azure AD User Dashboard is only partially suitable for an investigation of identities that are no longer used. If it does get used, the column with the last login time must be part of the view. This is not visible by default. It can be easily added via “Manage view”. After that, filtering and customizing the view can be done to the best of your ability.</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_3.png" style="width:100%" />
+  <figcaption>Figure 3: Azure AD Dashboard showing device objects</figcaption>
+</figure>
+
+<h3 id="powershell-vs-graph-api">Powershell vs. Graph API</h3>
+<p>To get information about the last logon time via script, we have to take a little detour. This is not quite as simple for users as shown above for devices, or as it may also be known from ADDS On-Premises via the property “LastLogonTimestamp”. At least in Azure AD it does not work directly with the “Get-AzureADUser” cmdlet because the “lastSignInDateTime” property is not stored with the user object. We get this information through the signInActivity recource type of the Graph API. For this to work well graph permissions are necessary. What these are, and what other dependencies there are, is described by Microsoft in this <a href="https://learn.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts">article</a></p>
+
+<p>The following cmdlets show how to access user information:</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Login/Connect</span><span class="w">
+</span><span class="n">Connect-MgGraph</span><span class="w"> </span><span class="nt">-Scopes</span><span class="w"> </span><span class="s1">'User.Read.All'</span><span class="p">,</span><span class="w"> </span><span class="s2">"Auditlog.Read.All"</span><span class="w">
+
+</span><span class="c"># Get list with all users</span><span class="w">
+</span><span class="n">Get-MgUser</span><span class="w"> </span><span class="nt">-All</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Format-Table</span><span class="w">  </span><span class="nx">ID</span><span class="p">,</span><span class="w"> </span><span class="nx">DisplayName</span><span class="p">,</span><span class="w"> </span><span class="nx">Mail</span><span class="p">,</span><span class="w"> </span><span class="nx">UserPrincipalName</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The result will look like this, for example:</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_4.bmp" style="width:100%" />
+  <figcaption>Figure 4: List device objects with Powershell</figcaption>
+</figure>
+
+<p>More comprehensive options like filtering, or exporting users who last logged in before a certain date, I have also in my <a href="https://github.com/KlaBier/Powershell/FindUnusedObjects">Powershell Repository </a></p>
+
+<h4 id="access-reviews-zum-ermitteln-unbenutzter-konten">Access Reviews zum Ermitteln unbenutzter Konten</h4>
+
+<p>Access Reviews are also a possibility to detect inactive users and to delete them automatically after a certain period of time. With the intervention of an administrator (approval) or without. Only for guest users or for all user accounts. So even those that are not external. All this and more can be done with Access Reviews. So you already have all the stuff that you need to build when you use Powershell. You get along completely without code. This sounds very tempting and indeed I recommend to look into this possibility if not already done.
+Access Reviews have been around for a while. They were introduced at the time to review memberships in groups or to review and renew or revoke access to applications if necessary. Newly added in May 2022(<a href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/review-and-remove-aad-inactive-users-in-public-preview/ba-p/3290632">Link</a>) the described possibility to identify unused user activities.</p>
+
+<p>The following figure shows the elementary part of an access review that defines a target, in this case guest accounts.</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_5.png" style="width:100%" />
+  <figcaption>Figure 5: Access Reviews to find unused User Objects</figcaption>
+</figure>
+
+<p>By the way, besides the direct assignment of “Approvers”, it is possible to specify that automatically the respective manager of the user account or the owner of the respective group that is in review becomes Approver. There is also the possibility to define multiple approvers, who can reassign previously reviewed decisions, etc. And since it can also be that employees need to edit the results of an Access Review, but for security reasons are not allowed to have access to the Azure AD portal (project office employees, for example), there is the possibility to display the Access Reviews and administer the results via “myaccess.microsoft.com”. This is perfect in times of Zero Trust.</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_6.png" style="width:100%" />
+  <figcaption>Figure 6: "mayaccess" website for non admins to administer Access Reviews</figcaption>
+</figure>
+
+<p>We’ve only scratched the surface here on what Access Reviews can do. Microsoft has good articles in Microsoft Docs that describe Access Reviews in detail, including videos. With the appropriate keyword search you will quickly find what you are looking for. Have fun trying it out 😀</p>
+
+<h1 id="deutsche-version">Deutsche Version</h1>
+
+<h2 id="übersicht">Übersicht</h2>
+<p>Es ist sehr einfach im Azure Active Directory neue Benutzer oder Computerobjekte hinzuzufügen. Je nach Tenant Einstellungen können dies auch recht umfangreich Endbenutzer selbst bewerkstelligen. Eingeladene Gastbenutzer 
+oder BYOD Szenarien beispielsweise. Das ist im Sinne der Benutzererfahrung sehr komfortabel und zeitgemäß, bringt aber den Nachteil mit sich, das im Laufe der Zeit mehr und mehr ungenutzte Identitäten ansammeln, die evtl. nicht mehr benötigt werden. Gastbenutzerkonten, die während eines Projektes von externen Projektmitarbeitern genutzt wurden, danach aber in Vergessenheit geraten sind. Das gleiche gilt für im Azure AD registrierte Geräte. Die Registrierung ist einfach, auch für Endbenutzer, aber “out of the box” sorgt kein Mechanismus im Azure AD dafür, das nicht mehr benutzte Geräteobjekte so geräuschlos entfernt werden, wie sie hinzugefugt wurden. Smartphones, Computer werden getauscht oder gehen verloren und Anwender benutzen alsbald ein anderes Gerät für ihre Arbeit. Der Administrator muss selber ein Auge darauf werfen, sei es manuell und turnusmäßig, als Teil von diversen “Housekeeping” Aktivitäten, die für eine gute Hygiene im Tenant sorgen, oder er etabliert Automatismen, die Reports unbenutzter Objekte generieren.</p>
+
+<p>Was auch immer der Grund für diese Überbleibsel ist, sie sind überflüssig und stellen ein Sicherheitsrisiko dar.
+Schauen wir uns einige Möglichkeiten an, wie sich damit umgehen lässt</p>
+
+<h3 id="computerkonten">Computerkonten</h3>
+<p>Im besten Fall sollten Geräte über einen Lifecycle Prozess wieder deregestriert werden, zum Beispiel bei einem Gerätetausch. Oder sei es, dass ein Anwender ein Gerät als verloren meldet. Unternehmen, die ein “Mobile Device Management” (z.B. Microsoft Intune) einsetzen, können hierfür Policies definieren, die verschiedenartig auf nicht mehr benutzte Geräteobjekte reagieren, diese beispielsweise deaktivieren oder direkt löschen.</p>
+
+<p>Jedes mal wenn ein Anwender mit seinem Gerät auf eine Cloud Anwendung zugreift, wird das Attribut “ApproximateLastLogonTimestamp” mit dem aktuellen Zeitstempel versehen. Über das Delta von heute zu dem letzten verwendeten Zeitpunkt ist es leicht herauszufinden, wann das Gerät zuletzt gegen den Tenant benutzt wurde.</p>
+
+<h4 id="azure-ad-dashboard-2">Azure AD Dashboard</h4>
+
+<p>Sehr einfach geht das im Azure AD Dashboard und den dortigen Filtermöglichkeiten in der Ansicht der Geräte.</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_1.png" style="width:100%" />
+  <figcaption>Figure 1: List with devices in the Azure AD Dashboard</figcaption>
+</figure>
+
+<p>Das ist hilfreich um nach einzelnen Geräten zu schauen oder auch bei einer geringeren Anzahl an Devices. Bei einer hohen Anzahl an Objekten geht dies aber kaum ohne die Powershell.</p>
+
+<h4 id="powershell-beispiele">Powershell Beispiele</h4>
+<p>Hier lässt sich im Handumdrehen eine Liste generieren, die per Mail verschickt oder anderweitig als Grundlage für Aufräumarbeiten dienen kann. Ausgangspunkt hierfür ist das Cmdlet</p>
+
+<p class="text-center"><code class="language-plaintext highlighter-rouge">Get-AzureADDevice</code></p>
+
+<p>Eine Liste mit allen Geräten lässt sich zum Beispiel so erstellen</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Get-AzureADDevice</span><span class="w"> </span><span class="nt">-All</span><span class="p">:</span><span class="bp">$true</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select-object</span><span class="w"> </span><span class="nt">-Property</span><span class="w"> </span><span class="nx">AccountEnabled</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceId</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceOSType</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceOSVersion</span><span class="p">,</span><span class="w"> </span><span class="nx">DisplayName</span><span class="p">,</span><span class="w"> </span><span class="nx">DeviceTrustType</span><span class="p">,</span><span class="w"> </span><span class="nx">ApproximateLastLogonTimestamp</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Format-Table</span><span class="w"> 
+</span></code></pre></div></div>
+
+<p>Einige Beispiele wie sich die Ausgabe für ein bestimmten Zeitraum filtern lässt und wie direkt eine Excelliste generiert wird habe ich <a href="https://github.com/KlaBier/Powershell/FindUnusedObjects">hier zusammengestellt. </a></p>
+
+<p>Das Ergebnis in Excel sieht dann beispielsweise so aus:</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_2.png" style="width:100%" />
+  <figcaption>Figure 2: List with devices exported to Excel</figcaption>
+</figure>
+
+<p>Mit dieser Liste ist es einfach eine Reaktion auf diese ermittelten Geräte zu implementieren, am besten auch direkt per Powershell. Aber Vorsicht mit dem Löschen von Geräteobjekten. Es gibt hier keinen Papierkorb, aus dem sich Objekte recyclen lassen, wie dies  beispielsweise bei Benutzerobjekten der Fall ist. Auch werden die Bitlocker Keys des jeweiligen Geräters im Azure AD gespeichert. Diese sind verloren, wenn ein Objekt gelöscht wird.</p>
+
+<p>Zu beachten ist noch, dass bei den Geräten unterschieden wird zwischen Hyrid AAD joined, AAD Joined und AAD Registered. Beim Löschen aus dem AAD wird der Zustand auf dem jeweiligen Gerät nicht geändert. Je nach dem welche Art der Registrierung das Gerät hat, sind hier verschiedene Aspekte bedeutend. Dies betrifft nur die Fälle, in denen Geräte eventuell doch noch benutzt werden. Microsoft liefert einige Docs Artikel, die Beschreiben worin die Unterschiede liegen und worauf dabei zu achten ist.</p>
+
+<p>Jedes Unternehmen sollte eine Richtlinie haben, die beschreibt wie mit ungenutzten Geräteobjekten umgegangen wird:</p>
+<ul>
+  <li>was ist der Zeitraum, ab dem ein Gerät als Staled Device gilt?</li>
+  <li>kommt Bitlocker zum Einsatz? Werden die Keys nicht mehr benötigt oders existieren Recovery Keys?</li>
+  <li>
+    <p>zum Entfernen ungenutzter Geräte aus einem Tenant eignet sich ein zweistufiger Prozess:</p>
+
+    <ul>
+      <li>Step1: Deaktivieren des Gerätes.</li>
+      <li>Step2: endgültiges Löschen des Gerätes nach einem definierten Zeitraum.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="ermitteln-unbenutzter-benutzkonten">Ermitteln unbenutzter Benutzkonten</h3>
+<p>Noch kritischer als bei den Geräteobjekten sind verwaiste Benutzerkonten. Diese sind einfacher zu missbrauchen und sie sind mit Berechtigungen und Rollen ausgestattet.</p>
+
+<h4 id="azure-ad-dashboard-3">Azure AD Dashboard</h4>
+<p>Das Azure AD User Dashboard eignet sich nur bedingt für eine Untersuchung von nicht mehr genutzten Identitäten. Wenn es doch eingesetzt wird, muss die Spalte mit dem letzten Anmeldezeitpunkt Teil der Ansicht sein. Diese ist standardmäßig nicht sichtbar. Sie lässt sich einfach über “Manage view” hinzufügen. Danach kann nach Kräften gefiltert und die Ansicht angepasst werden.</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_3.png" style="width:100%" />
+  <figcaption>Figure 3: Azure AD Dashboard showing device objects</figcaption>
+</figure>
+
+<h3 id="powershell-vs-graph-api-1">Powershell vs. Graph API</h3>
+<p>Um Informationen über den letzten Anmeldezeitpunkt per Script zu erhalten, müssen wir einen kleinen Umweg wählen. Das geht bei Benutzern nicht ganz so einfach wie oben bei den Geräten gezeigt, oder wie es eventuell auch vom ADDS On-Premises über die Eigenschaft “LastLogonTimestamp” bekannt ist. Zumindest geht es im Azure AD nicht direkt mit dem Cmdlet “Get-AzureADUser”, da die Eigenschaft “lastSignInDateTime” nicht beim Benutzerobjekt gespeichert wird. Diese Informationen erhalten wir über den signInActivity recource type der Graph API. Damit dies gut funktioniert sind Graph Berechtigungen notwendig. Welche das sind, und welche weiteren Abhängigkeiten es gibt, beschreibt Microsoft in diesem  <a href="https://learn.microsoft.com/en-us/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts">Beitrag</a></p>
+
+<p>Folgende Cmdlets zeigen den Zugriff auf Benutzerinformationen:</p>
+
+<div class="language-posh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Login/Connect</span><span class="w">
+</span><span class="n">Connect-MgGraph</span><span class="w"> </span><span class="nt">-Scopes</span><span class="w"> </span><span class="s1">'User.Read.All'</span><span class="p">,</span><span class="w"> </span><span class="s2">"Auditlog.Read.All"</span><span class="w">
+
+</span><span class="c"># Get list with all users</span><span class="w">
+</span><span class="n">Get-MgUser</span><span class="w"> </span><span class="nt">-All</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Format-Table</span><span class="w">  </span><span class="nx">ID</span><span class="p">,</span><span class="w"> </span><span class="nx">DisplayName</span><span class="p">,</span><span class="w"> </span><span class="nx">Mail</span><span class="p">,</span><span class="w"> </span><span class="nx">UserPrincipalName</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Das Ergebnis sieht dann beispielsweise so aus:</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_4.bmp" style="width:100%" />
+  <figcaption>Figure 4: List device objects with Powershell</figcaption>
+</figure>
+
+<p>Umfassendere Möglichkeiten wie Filterung, oder den Export von Benutzern, die sich vor einem bestimmten Datum zuletzt angemeldet haben, habe ich in meinem <a href="https://github.com/KlaBier/Powershell/FindUnusedObjects">Powershell Repository </a></p>
+
+<h4 id="access-reviews-zum-ermitteln-unbenutzter-konten-1">Access Reviews zum Ermitteln unbenutzter Konten</h4>
+
+<p>Access Reviews sind ebenfalls eine Möglichkeit inaktive Benutzer aufzusprüren und diese automatisch nach einer gewissen Zeitspanne zu löschen. Mit Zutun eines Administrators (Approval) oder ohne. Nur für Gastbenutzer oder für sämtliche Benutzerkonten. Also auch diejenigen, die nicht extern sind. All das und mehr lässt sich mit Access Reviews bewerkstelligen. Sie bringen also das ganze Drumherum bereits mit, dass bei Vorgehensweise über die Powershell erst zu bauen ist. Sie kommen komplett ohne Code aus. Das klingt sehr verlockend und in der Tat empfehle ich sich mit dieser Möglichkeit auseinanderzusetzen, wenn noch nicht geschehen.
+Access Reviews gibt es schon länger. Sie wurden seinerzeit eingeführt um Mitgliedschaften in Gruppen oder um den Zugriff auf Anwendungen zu prüfen und gegebenenfalls zu verlängern oder zu entziehen. Neu hinzugekommen ist im Mai 2022 ( <a href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/review-and-remove-aad-inactive-users-in-public-preview/ba-p/3290632">Link</a>) die beschriebene Möglickeit ungenutzte Benutezeraktivitäten zu ermitteln.</p>
+
+<p>Nachfolgende Abbildung zeigt den elementaren Teil eines Access Reviews der ein Ziel definiert, in dem Fall Gastkonten.</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_5.png" style="width:100%" />
+  <figcaption>Figure 5: Access Reviews to find unused User Objects</figcaption>
+</figure>
+
+<p>Übrigens lässt sich neben dem direkten Zuweisen von “Approvern” angeben, dass automatisch der jeweilige Manager des Benutzerkontos oder der Owner der jeweiligen Gruppe, die im Review ist, zu Approver werden. Es besteht auch die Möglichkeit mehrere Genehmiger zu hinterlegen, die zuvor geprüfte Entscheidungen neu treffen können usw. Und da es auch sein kann, das Mitarbeiter die Ergebnisse eines Access Reviews bearbeiten müssen, die aber aus Gründen der Sicherheit keinen Zugriff auf das Azure AD Portal haben dürfen(Projektofficemitarbeiter z.B.), besteht die Möglichkeit über myaccess.microsoft.com die Access Reviews anzuzeigen und die Ergebnisse zu administrieren. Das ist absolut zeitgemäß in Zeiten von Zero Trust.</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_6.png" style="width:100%" />
+  <figcaption>Figure 6: "mayaccess" website for non admins to administer Access Reviews</figcaption>
+</figure>
+
+<p>Wir haben hier nur an der Oberfläche gekratzt, bei den Möglichkeiten, die Access Reviews bieten. Microsoft hat in Microsoft Docs gute Artikel die Access Reviews im Detail beschreiben, auch Videos. Mit entsprechender Schlagwortsuche wirst du dort schnell fündig. Viel Spaß beim Ausprobieren 😀</p>
+
+<p>Cover image Mohamed Hassan from Pixabay</p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name>Klaus Bierschenk</name></author><summary type="html"><![CDATA[mohamed_hassan auf Pixabay]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2023-03-22-FindStaledObjectsInAAD_Cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2023-03-22-FindStaledObjectsInAAD_Cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Check your Azure AD for expiring App Secrets</title><link href="http://localhost:4000/2023-01-07-GetSecretInfos/" rel="alternate" type="text/html" title="Check your Azure AD for expiring App Secrets" /><published>2023-01-07T10:00:32+01:00</published><updated>2023-03-29T22:51:19+02:00</updated><id>http://localhost:4000/GetSecretInfos</id><content type="html" xml:base="http://localhost:4000/2023-01-07-GetSecretInfos/"><![CDATA[<figure>
   <img src="/MyPics/2023-01-07-GetSecretInfos_Cover.jpg" style="width:75%" />
 <!--  <figcaption>Figure 1: This can be any text here</figcaption> -->
 </figure>
@@ -997,71 +1282,4 @@ Access reviews also show up in various other places in Azure AD, such as access 
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
 <a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-19-ZeroTrust-AR/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Automatic membership reminder]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 3: Conditional Access</title><link href="http://localhost:4000/2021-01-18-ZeroTrust-CA/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 3: Conditional Access" /><published>2021-01-18T20:01:57+01:00</published><updated>2023-03-08T08:23:14+01:00</updated><id>http://localhost:4000/ZeroTrust%20CA</id><content type="html" xml:base="http://localhost:4000/2021-01-18-ZeroTrust-CA/"><![CDATA[<ul id="markdown-toc">
-  <li><a href="#conditional-access-example" id="markdown-toc-conditional-access-example">Conditional access example</a></li>
-  <li><a href="#policy-parameters" id="markdown-toc-policy-parameters">Policy parameters</a></li>
-  <li><a href="#test-before-deploy" id="markdown-toc-test-before-deploy">Test before deploy</a></li>
-</ul>
-
-<p>Conditional Access policies are a perfect functionality for best adapting logon and access to specific applications to the diverse circumstances of users. They are suitable for aggregating signals, making decisions based on them, and enforcing organizational policies. The user context is crucial for this and after evaluating the policy, access is allowed, blocked or certain criteria must be met in order for the user to reach their destination.</p>
-
-<p>Unlike what you may be used to in other policies, the design of CA policies is very complex and the administrator determines the level of complexity. It starts with a string of if statements that evaluate signals mentioned earlier. These can be simple group memberships of the user up to the combination of device platforms(iOS, Windows) or a location from which the user started his access attempt.
-In the editor, the target for the policy is defined in the “Assignments” section. In the “Access controls” section, it is possible to describe what should happen in a positive or negative sense. It is also possible to evaluate signals from other areas of the Azure platform here, for example, the logon risk from Identity Protection can be included in the conditions. If the user’s access represents a medium or high logon risk, access to sensitive applications may no longer be permitted or only by using MFA.</p>
-
-<h2 id="conditional-access-example">Conditional access example</h2>
-
-<p>Let’s look at an example to illustrate the power of the policy. Let’s say you want to allow access to Azure Portal for administrators only when they are accessing from the corporate location and when the machine being used is a hybrid device mounted in Azure AD.
-Navigate to the conditional access policies section. You can find the CA policies in the Azure Active directory dashboard and there in the “Manage” and “Security” section.
-If you want to make it quick, you can also search for “Conditional Access” in the resources search box at the top of the Azure portal and you’ll get right to it. You may well have Baseline Policies in your policy list, which are a legacy feature from the early days of policies. Make sure that these are not activated, they will be removed from the portal “soon”.
-Below that, all defined policies are displayed, with an indication if they are active. Here it becomes quickly apparent that especially with the configuration variety an overview of the contents of the policies is desirable. Who wants to open each policy to see what its purpose is. For this purpose, a well thought-out naming concept is helpful, with which you can recognize the purpose in the list on the basis of the names. Microsoft has some design recommendations ready, among other things how the name concept can look like, so that you can keep the overview (https://docs.microsoft.com/de-de/azure/active-directory/conditional-access/plan-conditional-access).
-Since we are referring to familiar sites with our policy, they must exist. Named locations can be edited in the editor in the administration area on the left. No matter if locations are used within the guidelines, it is recommended to store due subnets of the known location. This way you always have everything ready for all cases.</p>
-
-<h2 id="policy-parameters">Policy parameters</h2>
-
-<p>In our example the policy is named: “<strong>CA03-AzurePortal: Block for all Security Roles when Admin not On-Prem AND hybrid Client</strong>”.
-Which actually says everything without the administrator having to look at the policy. Creating the policy is self-explanatory in the editor. In the assignments we leave users and groups blank and select all the roles we want for the scenario, “Global Administrator”, “Security Administrator”, etc. At this point it is especially important that in the “Exclude” tab of the users and groups we leave the Break Glass accounts mentioned above, as these must be excluded. Next, we go to “Cloud apps …” and select Azure Portal from the list of registered apps. For the conditions, we focus on the sites and here it is important to select “All sites” under “Include” and for “Exclude” we select “All trusted sites”. Since our policy denies access, we exclude trusted location from the policy. The policy can be further refined and in the conditions these can be extended with the criterion device status and “hybrid device”.</p>
-
-<figure>
-  <img src="/MyPics/2021-01-18-ZeroTrust CA_I.png" style="width:100%" />
-  <figcaption>Example of a location based Conditional Access Policy</figcaption>
-</figure>
-
-<h2 id="test-before-deploy">Test before deploy</h2>
-
-<p>Not every administrator has a test environment ready to test the impact of the policies. Or often the labs are not as close to production to develop the policies there. Since working on policies is open-heart surgery in production, there are some tools to help with the startup. For example, when activating the policy, the “Report Only” option is useful. This means that the policy does nothing more than write an entry in the login log. So the policy is armed in production, but does not do anything except the log entry.</p>
-
-<figure>
-  <img src="/MyPics/2021-01-18-ZeroTrust CA_III.png" style="width:100%" />
-  <figcaption>Sign-in logs help investigate what happened regarding CA</figcaption>
-</figure>
-
-<p>Furthermore the function “What If” should be pointed out. Here you have the possibility to simulate a login or an access. In a list the applied policies and their result are shown.</p>
-
-<figure>
-  <img src="/MyPics/2021-01-18-ZeroTrust CA_II.png" style="width:100%" />
-  <figcaption>Sign-in logs help investigate what happened regarding CA</figcaption>
-</figure>
-
-<p>These tools help to avoid that the administrator locks out. If this should happen nevertheless times, there is the possibility to log in with a Break Glass account, provided it is deposited with the guidelines in the “Excludes”.</p>
-
-<figure>
-  <img src="/MyPics/2021-01-18-ZeroTrust CA_IV.png" style="width:70%" />
-  <figcaption>Exclude BGAs from CAs. A "must" in CA deployment</figcaption>
-</figure>
-
-<p>Cover image by Gerd Altmann from Pixabay</p>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-
-<div class="share-box">
-<h5>Share this:</h5>
-
-<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2021-01-18-ZeroTrust-CA/" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
--->
-
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-18-ZeroTrust-CA/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
-
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-18-ZeroTrust-CA/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[CA - the center of Zero Trust with Identity]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-18-ZeroTrust%20CA_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Automatic membership reminder]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

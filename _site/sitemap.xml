@@ -58,7 +58,11 @@
 </url>
 <url>
 <loc>http://localhost:4000/2023-01-07-GetSecretInfos/</loc>
-<lastmod>2023-03-10T15:51:35+01:00</lastmod>
+<lastmod>2023-03-29T22:51:19+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/</loc>
+<lastmod>2023-03-30T00:11:15+02:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/Posts/</loc>
