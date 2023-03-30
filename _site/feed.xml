@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-30T00:19:53+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
-</subtitle><entry><title type="html">The dilemma with unused objects in Azure AD</title><link href="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/" rel="alternate" type="text/html" title="The dilemma with unused objects in Azure AD" /><published>2023-03-22T09:00:32+01:00</published><updated>2023-03-30T00:19:53+02:00</updated><id>http://localhost:4000/FindStaledObjectsInAAD</id><content type="html" xml:base="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/"><![CDATA[<figure>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-30T22:51:07+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
+</subtitle><entry><title type="html">The dilemma with unused objects in Azure AD</title><link href="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/" rel="alternate" type="text/html" title="The dilemma with unused objects in Azure AD" /><published>2023-03-22T09:00:32+01:00</published><updated>2023-03-30T22:51:07+02:00</updated><id>http://localhost:4000/FindStaledObjectsInAAD</id><content type="html" xml:base="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/"><![CDATA[<figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_Cover.jpg" style="width:75%" />
   <figcaption>mohamed_hassan auf Pixabay</figcaption>
 </figure>
@@ -58,11 +58,18 @@ or BYOD scenarios, for example. This is very convenient and timely in terms of u
 <p>This is very easy to do in the Azure AD Dashboard and the filter options there in the view of the devices.</p>
 
 <figure>
-  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_1.png" style="width:100%" />
-  <figcaption>Figure 1: List with devices in the Azure AD Dashboard</figcaption>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_7.png" style="width:100%" />
+  <figcaption>Figure 1: Devices in the Dashboard with a predefined "Stale devices" view</figcaption>
 </figure>
 
-<p>This is helpful to look for individual devices or also with a smaller number of devices. With a high number of objects, however, this is hardly possible without the Powershell.</p>
+<p>This is helpful to look for individual devices or also with a smaller number of devices.</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_1.png" style="width:100%" />
+  <figcaption>Figure 2: List with devices in the Azure AD Dashboard</figcaption>
+</figure>
+
+<p>With a high number of objects, however, this is hardly possible without the Powershell.</p>
 
 <h4 id="powershell-examples">Powershell examples</h4>
 <p>Here, a list can be generated in no time at all, which can be sent by mail or otherwise serve as a basis for cleanup work. The starting point for this is the cmdlet</p>
@@ -80,7 +87,7 @@ or BYOD scenarios, for example. This is very convenient and timely in terms of u
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_2.png" style="width:100%" />
-  <figcaption>Figure 2: List with devices exported to Excel</figcaption>
+  <figcaption>Figure 3: List with devices exported to Excel</figcaption>
 </figure>
 
 <p>With this list it is easy to implement a reaction to these detected devices, best also directly via Powershell. But be careful with deleting device objects. There is no recycle bin here from which objects can be recycled, as is the case with user objects, for example. Also, the Bitlocker Keys of the respective device are stored in Azure AD. These are lost when an object is deleted.</p>
@@ -109,7 +116,7 @@ or BYOD scenarios, for example. This is very convenient and timely in terms of u
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_3.png" style="width:100%" />
-  <figcaption>Figure 3: Azure AD Dashboard showing device objects</figcaption>
+  <figcaption>Figure 4: Azure AD Dashboard showing device objects</figcaption>
 </figure>
 
 <h3 id="powershell-vs-graph-api">Powershell vs. Graph API</h3>
@@ -128,13 +135,12 @@ or BYOD scenarios, for example. This is very convenient and timely in terms of u
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_4.bmp" style="width:100%" />
-  <figcaption>Figure 4: List device objects with Powershell</figcaption>
+  <figcaption>Figure 5: List device objects with Powershell</figcaption>
 </figure>
 
 <p>More comprehensive options like filtering, or exporting users who last logged in before a certain date, I have also in my <a href="https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects">Powershell Repository </a></p>
 
 <h4 id="access-reviews-zum-ermitteln-unbenutzter-konten">Access Reviews zum Ermitteln unbenutzter Konten</h4>
-
 <p>Access Reviews are also a possibility to detect inactive users and to delete them automatically after a certain period of time. With the intervention of an administrator (approval) or without. Only for guest users or for all user accounts. So even those that are not external. All this and more can be done with Access Reviews. So you already have all the stuff that you need to build when you use Powershell. You get along completely without code. This sounds very tempting and indeed I recommend to look into this possibility if not already done.
 Access Reviews have been around for a while. They were introduced at the time to review memberships in groups or to review and renew or revoke access to applications if necessary. Newly added in May 2022(<a href="https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/review-and-remove-aad-inactive-users-in-public-preview/ba-p/3290632">Link</a>) the described possibility to identify unused user activities.</p>
 
@@ -142,14 +148,14 @@ Access Reviews have been around for a while. They were introduced at the time to
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_5.png" style="width:100%" />
-  <figcaption>Figure 5: Access Reviews to find unused User Objects</figcaption>
+  <figcaption>Figure 6: Access Reviews to find unused User Objects</figcaption>
 </figure>
 
 <p>By the way, besides the direct assignment of “Approvers”, it is possible to specify that automatically the respective manager of the user account or the owner of the respective group that is in review becomes Approver. There is also the possibility to define multiple approvers, who can reassign previously reviewed decisions, etc. And since it can also be that employees need to edit the results of an Access Review, but for security reasons are not allowed to have access to the Azure AD portal (project office employees, for example), there is the possibility to display the Access Reviews and administer the results via “myaccess.microsoft.com”. This is perfect in times of Zero Trust.</p>
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_6.png" style="width:100%" />
-  <figcaption>Figure 6: "mayaccess" website for non admins to administer Access Reviews</figcaption>
+  <figcaption>Figure 7: "mayaccess" website for non admins to administer Access Reviews</figcaption>
 </figure>
 
 <p>We’ve only scratched the surface here on what Access Reviews can do. Microsoft has good articles in Microsoft Docs that describe Access Reviews in detail, including videos. With the appropriate keyword search you will quickly find what you are looking for. Have fun trying it out 😀</p>
@@ -173,11 +179,18 @@ Schauen wir uns einige Möglichkeiten an, wie sich damit umgehen lässt</p>
 <p>Sehr einfach geht das im Azure AD Dashboard und den dortigen Filtermöglichkeiten in der Ansicht der Geräte.</p>
 
 <figure>
-  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_1.png" style="width:100%" />
-  <figcaption>Figure 1: List with devices in the Azure AD Dashboard</figcaption>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_7.png" style="width:100%" />
+  <figcaption>Figure 1: Devices in the Dashboard with a predefined "Stale devices" view</figcaption>
 </figure>
 
-<p>Das ist hilfreich um nach einzelnen Geräten zu schauen oder auch bei einer geringeren Anzahl an Devices. Bei einer hohen Anzahl an Objekten geht dies aber kaum ohne die Powershell.</p>
+<p>Das ist hilfreich um nach einzelnen Geräten zu schauen oder auch bei einer geringeren Anzahl an Devices.</p>
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_1.png" style="width:100%" />
+  <figcaption>Figure 2: List with devices in the Azure AD Dashboard</figcaption>
+</figure>
+
+<p>Bei einer hohen Anzahl an Objekten geht dies aber kaum ohne die Powershell.</p>
 
 <h4 id="powershell-beispiele">Powershell Beispiele</h4>
 <p>Hier lässt sich im Handumdrehen eine Liste generieren, die per Mail verschickt oder anderweitig als Grundlage für Aufräumarbeiten dienen kann. Ausgangspunkt hierfür ist das Cmdlet</p>
@@ -195,7 +208,7 @@ Schauen wir uns einige Möglichkeiten an, wie sich damit umgehen lässt</p>
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_2.png" style="width:100%" />
-  <figcaption>Figure 2: List with devices exported to Excel</figcaption>
+  <figcaption>Figure 3: List with devices exported to Excel</figcaption>
 </figure>
 
 <p>Mit dieser Liste ist es einfach eine Reaktion auf diese ermittelten Geräte zu implementieren, am besten auch direkt per Powershell. Aber Vorsicht mit dem Löschen von Geräteobjekten. Es gibt hier keinen Papierkorb, aus dem sich Objekte recyclen lassen, wie dies  beispielsweise bei Benutzerobjekten der Fall ist. Auch werden die Bitlocker Keys des jeweiligen Geräters im Azure AD gespeichert. Diese sind verloren, wenn ein Objekt gelöscht wird.</p>
@@ -224,7 +237,7 @@ Schauen wir uns einige Möglichkeiten an, wie sich damit umgehen lässt</p>
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_3.png" style="width:100%" />
-  <figcaption>Figure 3: Azure AD Dashboard showing device objects</figcaption>
+  <figcaption>Figure 4: Azure AD Dashboard showing device objects</figcaption>
 </figure>
 
 <h3 id="powershell-vs-graph-api-1">Powershell vs. Graph API</h3>
@@ -243,7 +256,7 @@ Schauen wir uns einige Möglichkeiten an, wie sich damit umgehen lässt</p>
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_4.bmp" style="width:100%" />
-  <figcaption>Figure 4: List device objects with Powershell</figcaption>
+  <figcaption>Figure 5: List device objects with Powershell</figcaption>
 </figure>
 
 <p>Umfassendere Möglichkeiten wie Filterung, oder den Export von Benutzern, die sich vor einem bestimmten Datum zuletzt angemeldet haben, habe ich in meinem <a href="https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects">Powershell Repository </a></p>
@@ -257,14 +270,14 @@ Access Reviews gibt es schon länger. Sie wurden seinerzeit eingeführt um Mitgl
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_5.png" style="width:100%" />
-  <figcaption>Figure 5: Access Reviews to find unused User Objects</figcaption>
+  <figcaption>Figure 6: Access Reviews to find unused User Objects</figcaption>
 </figure>
 
 <p>Übrigens lässt sich neben dem direkten Zuweisen von “Approvern” angeben, dass automatisch der jeweilige Manager des Benutzerkontos oder der Owner der jeweiligen Gruppe, die im Review ist, zu Approver werden. Es besteht auch die Möglichkeit mehrere Genehmiger zu hinterlegen, die zuvor geprüfte Entscheidungen neu treffen können usw. Und da es auch sein kann, das Mitarbeiter die Ergebnisse eines Access Reviews bearbeiten müssen, die aber aus Gründen der Sicherheit keinen Zugriff auf das Azure AD Portal haben dürfen(Projektofficemitarbeiter z.B.), besteht die Möglichkeit über myaccess.microsoft.com die Access Reviews anzuzeigen und die Ergebnisse zu administrieren. Das ist absolut zeitgemäß in Zeiten von Zero Trust.</p>
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_6.png" style="width:100%" />
-  <figcaption>Figure 6: "mayaccess" website for non admins to administer Access Reviews</figcaption>
+  <figcaption>Figure 7: "mayaccess" website for non admins to administer Access Reviews</figcaption>
 </figure>
 
 <p>Wir haben hier nur an der Oberfläche gekratzt, bei den Möglichkeiten, die Access Reviews bieten. Microsoft hat in Microsoft Docs gute Artikel die Access Reviews im Detail beschreiben, auch Videos. Mit entsprechender Schlagwortsuche wirst du dort schnell fündig. Viel Spaß beim Ausprobieren 😀</p>

@@ -18,7 +18,6 @@ image:
 * this unordered seed list will be replaced by the toc
 {:toc}
 
-
 ## Overview
 It is very easy to add new users or computer objects in Azure Active Directory. Depending on the tenant settings, this can also be done quite extensively by end users themselves. Invited guest users 
 or BYOD scenarios, for example. This is very convenient and timely in terms of user experience, but brings the disadvantage that over time more and more unused identities accumulate, which may no longer be needed. Guest user accounts that were used by external project members during a project, but have been forgotten afterwards. The same is true for devices registered in Azure AD. Registration is easy, even for end users, but "out of the box" no mechanism in Azure AD ensures that device objects that are no longer used are removed as silently as they were added. Smartphones, computers are swapped or lost and users soon use another device for their work. The administrator has to keep an eye on it himself, either manually and on a regular basis, as part of various "housekeeping" activities that ensure good hygiene in the tenant, or the Admin establishes automatisms that generate reports of unused objects.
@@ -35,11 +34,18 @@ Each time a user accesses a cloud application with his device, the attribute "Ap
 This is very easy to do in the Azure AD Dashboard and the filter options there in the view of the devices.
 
 <figure>
-  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_1.png" style="width:100%">
-  <figcaption>Figure 1: List with devices in the Azure AD Dashboard</figcaption>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_7.png" style="width:100%">
+  <figcaption>Figure 1: Devices in the Dashboard with a predefined "Stale devices" view</figcaption>
 </figure>
 
-This is helpful to look for individual devices or also with a smaller number of devices. With a high number of objects, however, this is hardly possible without the Powershell.
+This is helpful to look for individual devices or also with a smaller number of devices.
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_1.png" style="width:100%">
+  <figcaption>Figure 2: List with devices in the Azure AD Dashboard</figcaption>
+</figure>
+
+With a high number of objects, however, this is hardly possible without the Powershell.
 
 #### Powershell examples
 Here, a list can be generated in no time at all, which can be sent by mail or otherwise serve as a basis for cleanup work. The starting point for this is the cmdlet
@@ -59,7 +65,7 @@ The result in Excel looks like this:
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_2.png" style="width:100%">
-  <figcaption>Figure 2: List with devices exported to Excel</figcaption>
+  <figcaption>Figure 3: List with devices exported to Excel</figcaption>
 </figure>
 
 With this list it is easy to implement a reaction to these detected devices, best also directly via Powershell. But be careful with deleting device objects. There is no recycle bin here from which objects can be recycled, as is the case with user objects, for example. Also, the Bitlocker Keys of the respective device are stored in Azure AD. These are lost when an object is deleted.
@@ -74,7 +80,6 @@ Every company should have a policy that describes how unused device objects are 
   * Step1: Deactivation of the device.
   * Step2: final deletion of the device after a defined period of time.
 
-
 ### Identifying unused user accounts
 Even more critical than device objects are orphaned user accounts. These are easier to abuse and they come with permissions and roles.
 
@@ -83,7 +88,7 @@ The Azure AD User Dashboard is only partially suitable for an investigation of i
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_3.png" style="width:100%">
-  <figcaption>Figure 3: Azure AD Dashboard showing device objects</figcaption>
+  <figcaption>Figure 4: Azure AD Dashboard showing device objects</figcaption>
 </figure>
 
 ### Powershell vs. Graph API
@@ -103,13 +108,12 @@ The result will look like this, for example:
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_4.bmp" style="width:100%">
-  <figcaption>Figure 4: List device objects with Powershell</figcaption>
+  <figcaption>Figure 5: List device objects with Powershell</figcaption>
 </figure>
 
 More comprehensive options like filtering, or exporting users who last logged in before a certain date, I have also in my [Powershell Repository ](https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects)
 
 #### Access Reviews zum Ermitteln unbenutzter Konten
-
 Access Reviews are also a possibility to detect inactive users and to delete them automatically after a certain period of time. With the intervention of an administrator (approval) or without. Only for guest users or for all user accounts. So even those that are not external. All this and more can be done with Access Reviews. So you already have all the stuff that you need to build when you use Powershell. You get along completely without code. This sounds very tempting and indeed I recommend to look into this possibility if not already done.
 Access Reviews have been around for a while. They were introduced at the time to review memberships in groups or to review and renew or revoke access to applications if necessary. Newly added in May 2022([Link](https://techcommunity.microsoft.com/t5/microsoft-entra-azure-ad-blog/review-and-remove-aad-inactive-users-in-public-preview/ba-p/3290632)) the described possibility to identify unused user activities.
 
@@ -117,20 +121,19 @@ The following figure shows the elementary part of an access review that defines 
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_5.png" style="width:100%">
-  <figcaption>Figure 5: Access Reviews to find unused User Objects</figcaption>
+  <figcaption>Figure 6: Access Reviews to find unused User Objects</figcaption>
 </figure>
 
 By the way, besides the direct assignment of "Approvers", it is possible to specify that automatically the respective manager of the user account or the owner of the respective group that is in review becomes Approver. There is also the possibility to define multiple approvers, who can reassign previously reviewed decisions, etc. And since it can also be that employees need to edit the results of an Access Review, but for security reasons are not allowed to have access to the Azure AD portal (project office employees, for example), there is the possibility to display the Access Reviews and administer the results via "myaccess.microsoft.com". This is perfect in times of Zero Trust.
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_6.png" style="width:100%">
-  <figcaption>Figure 6: "mayaccess" website for non admins to administer Access Reviews</figcaption>
+  <figcaption>Figure 7: "mayaccess" website for non admins to administer Access Reviews</figcaption>
 </figure>
 
 We've only scratched the surface here on what Access Reviews can do. Microsoft has good articles in Microsoft Docs that describe Access Reviews in detail, including videos. With the appropriate keyword search you will quickly find what you are looking for. Have fun trying it out 😀
 
 # Deutsche Version
-
 
 ## Übersicht
 Es ist sehr einfach im Azure Active Directory neue Benutzer oder Computerobjekte hinzuzufügen. Je nach Tenant Einstellungen können dies auch recht umfangreich Endbenutzer selbst bewerkstelligen. Eingeladene Gastbenutzer 
@@ -149,11 +152,18 @@ Jedes mal wenn ein Anwender mit seinem Gerät auf eine Cloud Anwendung zugreift,
 Sehr einfach geht das im Azure AD Dashboard und den dortigen Filtermöglichkeiten in der Ansicht der Geräte.
 
 <figure>
-  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_1.png" style="width:100%">
-  <figcaption>Figure 1: List with devices in the Azure AD Dashboard</figcaption>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_7.png" style="width:100%">
+  <figcaption>Figure 1: Devices in the Dashboard with a predefined "Stale devices" view</figcaption>
 </figure>
 
-Das ist hilfreich um nach einzelnen Geräten zu schauen oder auch bei einer geringeren Anzahl an Devices. Bei einer hohen Anzahl an Objekten geht dies aber kaum ohne die Powershell.
+Das ist hilfreich um nach einzelnen Geräten zu schauen oder auch bei einer geringeren Anzahl an Devices.
+
+<figure>
+  <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_1.png" style="width:100%">
+  <figcaption>Figure 2: List with devices in the Azure AD Dashboard</figcaption>
+</figure>
+
+Bei einer hohen Anzahl an Objekten geht dies aber kaum ohne die Powershell.
 
 #### Powershell Beispiele
 Hier lässt sich im Handumdrehen eine Liste generieren, die per Mail verschickt oder anderweitig als Grundlage für Aufräumarbeiten dienen kann. Ausgangspunkt hierfür ist das Cmdlet 
@@ -173,7 +183,7 @@ Das Ergebnis in Excel sieht dann beispielsweise so aus:
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_2.png" style="width:100%">
-  <figcaption>Figure 2: List with devices exported to Excel</figcaption>
+  <figcaption>Figure 3: List with devices exported to Excel</figcaption>
 </figure>
 
 Mit dieser Liste ist es einfach eine Reaktion auf diese ermittelten Geräte zu implementieren, am besten auch direkt per Powershell. Aber Vorsicht mit dem Löschen von Geräteobjekten. Es gibt hier keinen Papierkorb, aus dem sich Objekte recyclen lassen, wie dies  beispielsweise bei Benutzerobjekten der Fall ist. Auch werden die Bitlocker Keys des jeweiligen Geräters im Azure AD gespeichert. Diese sind verloren, wenn ein Objekt gelöscht wird.
@@ -197,7 +207,7 @@ Das Azure AD User Dashboard eignet sich nur bedingt für eine Untersuchung von n
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_3.png" style="width:100%">
-  <figcaption>Figure 3: Azure AD Dashboard showing device objects</figcaption>
+  <figcaption>Figure 4: Azure AD Dashboard showing device objects</figcaption>
 </figure>
 
 ### Powershell vs. Graph API
@@ -217,7 +227,7 @@ Das Ergebnis sieht dann beispielsweise so aus:
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_4.bmp" style="width:100%">
-  <figcaption>Figure 4: List device objects with Powershell</figcaption>
+  <figcaption>Figure 5: List device objects with Powershell</figcaption>
 </figure>
 
 Umfassendere Möglichkeiten wie Filterung, oder den Export von Benutzern, die sich vor einem bestimmten Datum zuletzt angemeldet haben, habe ich in meinem [Powershell Repository ](https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects)
@@ -231,14 +241,14 @@ Nachfolgende Abbildung zeigt den elementaren Teil eines Access Reviews der ein Z
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_5.png" style="width:100%">
-  <figcaption>Figure 5: Access Reviews to find unused User Objects</figcaption>
+  <figcaption>Figure 6: Access Reviews to find unused User Objects</figcaption>
 </figure>
 
 Übrigens lässt sich neben dem direkten Zuweisen von "Approvern" angeben, dass automatisch der jeweilige Manager des Benutzerkontos oder der Owner der jeweiligen Gruppe, die im Review ist, zu Approver werden. Es besteht auch die Möglichkeit mehrere Genehmiger zu hinterlegen, die zuvor geprüfte Entscheidungen neu treffen können usw. Und da es auch sein kann, das Mitarbeiter die Ergebnisse eines Access Reviews bearbeiten müssen, die aber aus Gründen der Sicherheit keinen Zugriff auf das Azure AD Portal haben dürfen(Projektofficemitarbeiter z.B.), besteht die Möglichkeit über myaccess.microsoft.com die Access Reviews anzuzeigen und die Ergebnisse zu administrieren. Das ist absolut zeitgemäß in Zeiten von Zero Trust.
 
 <figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_6.png" style="width:100%">
-  <figcaption>Figure 6: "mayaccess" website for non admins to administer Access Reviews</figcaption>
+  <figcaption>Figure 7: "mayaccess" website for non admins to administer Access Reviews</figcaption>
 </figure>
 
 Wir haben hier nur an der Oberfläche gekratzt, bei den Möglichkeiten, die Access Reviews bieten. Microsoft hat in Microsoft Docs gute Artikel die Access Reviews im Detail beschreiben, auch Videos. Mit entsprechender Schlagwortsuche wirst du dort schnell fündig. Viel Spaß beim Ausprobieren 😀
