@@ -1,5 +1,5 @@
 ---
-title: "The dilemma with unused objects in Azure AD"
+title: "Azure automation to find unused objects - step by step guide"
 author: Klaus Bierschenk
 date: 2023-08-10T08:00:32
 
