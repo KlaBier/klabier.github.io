@@ -1,7 +1,7 @@
 ---
 title: "Azure automation to find unused objects - step by step guide"
 author: Klaus Bierschenk
-date: 2023-08-10T08:00:32
+date: 2023-10-10T08:00:32
 
 layout: list
 
