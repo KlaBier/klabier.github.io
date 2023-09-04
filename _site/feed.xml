@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-09-04T20:50:03+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
-</subtitle><entry><title type="html">Setup Azure automation to find unused user and computer accounts (step-by-step guide)</title><link href="http://localhost:4000/2023-08-22-StaledAutomation/" rel="alternate" type="text/html" title="Setup Azure automation to find unused user and computer accounts (step-by-step guide)" /><published>2023-08-22T10:00:32+02:00</published><updated>2023-09-04T20:50:02+02:00</updated><id>http://localhost:4000/StaledAutomation</id><content type="html" xml:base="http://localhost:4000/2023-08-22-StaledAutomation/"><![CDATA[<figure>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-09-04T21:29:19+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
+</subtitle><entry><title type="html">Setup Azure automation to find unused user and computer accounts (step-by-step guide)</title><link href="http://localhost:4000/2023-08-22-StaledAutomation/" rel="alternate" type="text/html" title="Setup Azure automation to find unused user and computer accounts (step-by-step guide)" /><published>2023-08-22T10:00:32+02:00</published><updated>2023-09-04T21:29:18+02:00</updated><id>http://localhost:4000/StaledAutomation</id><content type="html" xml:base="http://localhost:4000/2023-08-22-StaledAutomation/"><![CDATA[<figure>
   <img src="/MyPics/2023-08-22-StaledAutomation_Cover.png" style="width:75%" />
   <figcaption>Niran Kasri auf Pixabay</figcaption>
 </figure>
@@ -142,7 +142,7 @@ Import des Modules bestätigen und fertig</p>
 
 <p>Das Automation-Konto ist noch nicht fertig, hier sind unter anderem noch Variablen zu ergänzen. Die hierfür notwendigen Inhalte entstammen aus Azure Elementen, die wir bis jetzt noch nicht erstellt haben, die App Registration und auch das Speicherkonto.</p>
 
-<p>Das Anlegen der App Registration ist unspektakulär. Füge einfach in MS Entra ID unter “App registrations” eine ebensolche hinzu und lasse alle Einstellungen beim Standard. Für unser Beispiel sind der öffentlichen Schlüssel des Zertifikates und die MS Graph Berechtigungen zusätzlich erforderlich. Der Name ist frei. Bei mir im Lab lautet er “AdminAutomationApp”</p>
+<p>Das Anlegen der App Registration ist unspektakulär. Füge einfach in Microsoft Entra ID unter “App registrations” eine ebensolche hinzu und lasse alle Einstellungen beim Standard. Für unser Beispiel sind der öffentlichen Schlüssel des Zertifikates und die MS Graph Berechtigungen zusätzlich erforderlich. Der Name ist frei. Bei mir im Lab lautet er “AdminAutomationApp”</p>
 
 <p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_12.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_12.png" alt="StaledAutomation_12" /></a>
 Erstellen einer App Registration mit Standardeinstellungen</p>
@@ -176,7 +176,7 @@ Graph Berechtigungen für die App Registration</p>
 <p>Ein Speicherkonto ist ein komplexes Objekt, mit vielfältigen Einsatzmöglichkeiten. In unserem Setup dient es allein zum Erstellen eines Containers, ähnlich einem Ordner im Dateisystem, als Ziel für die Excel-Datei.</p>
 
 <p><strong>➔ Hinweis:</strong>
-Übrigens empfiehlt es sich dieselbe Ressourcengruppe wie beim Automation-Konto zu verwenden. Wenn du nämlich das Setup nur testen möchtest, reicht es später aus, lediglich die Resssourcengruppe zu entfernen um aufzuräumen. Das gilt jedoch nicht für die zuvor erstellte App-Registrierung, diese ist unabhängig von einer Subscription und einer Ressourcengruppe, App-Registrierungen befinden sich in MS-Entra-ID.</p>
+Übrigens empfiehlt es sich dieselbe Ressourcengruppe wie beim Automation-Konto zu verwenden. Wenn du nämlich das Setup nur testen möchtest, reicht es später aus, lediglich die Resssourcengruppe zu entfernen um aufzuräumen. Das gilt jedoch nicht für die zuvor erstellte App-Registrierung, diese ist unabhängig von einer Subscription und einer Ressourcengruppe, App-Registrierungen befinden sich in Microsoft Entra ID.</p>
 
 <p>Also, weiter geht es mit dem Speicherkonto:</p>
 
@@ -303,20 +303,20 @@ Ein Automation-Konto bietet zahlreiche Gestaltungsmöglichkeiten. Mein Beispiel 
 <h2 id="overview-english-version">Overview (English version)</h2>
 <p>You can find some cmdlets from the Microsoft Graph module in my Powershell repository (<a href="https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects">link</a>). These cmdlets help to identify user and computer objects in Microsoft Entra ID that have not been used for a long time. This is done by reverting to the timestamp of the last time the objects were used. The repository contains examples and suggestions on how to apply the cmdlets. This can help to manually create lists and store the results in CSV files or directly in XLSX files. Feel free to check out my blog post for details on this topic (<a href="https://nothingbutcloud.net/2023-03-22-FindStaledObjectsInAAD/">link</a>).</p>
 
-<p>If you want to use the commands from the examples to run these operations automatically in Azure, you have several options. A Logic App or an Automation account are good options. Below are step-by-step instructions on how to set up an Automation account, including the necessary scripts and everything that goes with it in Azure. Once implemented, you won’t have to worry about anything and will regularly receive the Excel file with objects that have been unused for a while.</p>
+<p>If you want to use the commands from the examples to run these operations automatically in Azure, you have several options. A Logic App or an Automation Account are good options. Below are step-by-step instructions on how to set up an Automation Account, including the necessary scripts and everything that goes with it in Azure. Once implemented, you won’t have to worry about anything and will regularly receive the Excel file with objects that have been unused for a while.</p>
 
-<p>The basis for setting up the automation account is the following article from Microsoft:
+<p>The basis for setting up the Automation Account is the following article from Microsoft:
 (<a href="https://learn.microsoft.com/en-us/azure/active-directory/governance/identity-governance-automation">Automate Microsoft Entra Identity Governance tasks via Azure Automation and Microsoft Graph</a>)</p>
 
-<p>Here in this post, we build on the scenario described by Microsoft and supplement the setup with the relevant technologies that are necessary for the automatism to follow the requirements for determining unused computer and user objects. For example, we integrate the graph modules, take care of the relevant graph permissions and make sure that the results load as Excel regularly in a storage account.</p>
+<p>Here in this post, we build on the scenario described by Microsoft and supplement the setup with the relevant technologies that are necessary for the automatism to follow the requirements for determining unused computer and user objects. For example, we integrate the graph modules, take care of the relevant graph permissions and make sure that the results load as Excel regularly in a Storage Account.</p>
 
 <p>In summary, here is a Lab guide to setting up the following technologies:</p>
 
 <ul>
   <li>Implement the App Registration</li>
   <li>Create the certificate and store it in Azure Automation and App Registration.</li>
-  <li>A storage account</li>
-  <li>Automation account</li>
+  <li>Storage Account</li>
+  <li>Automation Account</li>
 </ul>
 
 <h2 id="the-certificate">The certificate</h2>
@@ -327,7 +327,7 @@ Ein Automation-Konto bietet zahlreiche Gestaltungsmöglichkeiten. Mein Beispiel 
 
 <p><strong>➔ Note:</strong>
 Self-signed certificates should be avoided for productive use because they are not issued by a trusted certificate authority. If you have the possibility to obtain a certificate from an authorized certification authority, this is the recommended way. You have to make sure that besides the public key the private key can be exported as well, since both are needed for the import into Azure and Microsoft Entra ID. In this example, however, I consider a self-signed certificate to be harmless, since it is only used for the authentication of the app registration, which is not critical in my opinion.
-Alternatively, a secret could also be used for authentication in the app registry. However, I personally like to do without Secrets. They require handling (write down, copy, paste, …) the Secret value, which is a kind of a password. If you want to know more about Secrets, have a look at the following blog post of mine (<a href="https://nothingbutcloud.net/2023-01-07-GetSecretInfos">Link</a>), because Secrets have even more disadvantages.</p>
+Alternatively, a secret could also be used for authentication in the app registry. However, I personally like to do without Secrets. They require handling (copy, paste, …) the Secret value, which is a kind of a password. If you want to know more about Secrets, have a look at the following blog post of mine (<a href="https://nothingbutcloud.net/2023-01-07-GetSecretInfos">Link</a>), because Secrets have even more disadvantages.</p>
 
 <p>So we decide to use the certificate and when you generate and export it with the cmdlets your screen should look something like this:</p>
 
@@ -383,9 +383,9 @@ Import Powershell Modules</p>
 
 <h2 id="create-app-registration">Create App registration</h2>
 
-<p>The Automation Account is not yet finished, among other things, variables still need to be added here. The content required for this comes from Azure elements that we have not yet created, the app registration and also the storage account.</p>
+<p>The Automation Account is not yet finished, among other things, variables still need to be added here. The content required for this comes from Azure elements that we have not yet created, the app registration and also the Storage Account.</p>
 
-<p>The creation of the App Registration is unspectacular. Just add one in MS Entra ID under “App registrations” and leave all settings at default. For our example the public key of the certificate and the MS Graph permissions are additionally required. The name is free. In my lab it is “AdminAutomationApp”.</p>
+<p>The creation of the App Registration is unspectacular. Just add one in Microsoft Entra ID under “App registrations” and leave all settings at default. For our example the public key of the certificate and the MS Graph permissions are additionally required. The name is free. In my lab it is “AdminAutomationApp”.</p>
 
 <p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_12.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_12.png" alt="StaledAutomation_12" /></a>
 Create App registration with default settings</p>
@@ -419,7 +419,7 @@ App registration Overview Page</p>
 <p>A Storage Account is a complex object, with multiple options and features. In our setup, it is used solely to create a container, similar to a folder in the file system, as a destination for the Excel file.</p>
 
 <p><strong>➔ Note:</strong>
-By the way, it is recommended to use the same Resource Group as for the Automation Account. If you only want to test the setup, it is sufficient to remove the Resource Group later to clean up the resources. However, this does not apply to the previously created App registration, this is independent of a Subscription and a Resource Group, because app registrations are located in MS-Entra-ID.</p>
+By the way, it is recommended to use the same Resource Group as for the Automation Account. If you only want to test the setup, it is sufficient to remove the Resource Group later to clean up the resources. However, this does not apply to the previously created App registration, this is independent of a Subscription and a Resource Group, because app registrations are located in Microsoft Entra ID.</p>
 
 <p>So, moving on to the Storage Account:</p>
 
@@ -433,13 +433,13 @@ Startpage to create the Storage Account</p>
 </figure>
 -->
 
-<p>It is not necessary to show all the pages of the wizard that are needed to create a storage account in Azure. The two screenshots below summarize which options and settings work overall here.</p>
+<p>It is not necessary to show all the pages of the wizard that are needed to create a Storage Account in Azure. The two screenshots below summarize which options and settings work overall here.</p>
 
 <p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_18.jpg" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_18.jpg" alt="StaledAutomation_18" /></a>
-Summary of all values before creating the storage account (page 1)</p>
+Summary of all values before creating the Storage Account (page 1)</p>
 
 <p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_19.jpg" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_19.jpg" alt="StaledAutomation_19" /></a>
-Summary of all values before creating the storage account (page 2)</p>
+Summary of all values before creating the Storage Account (page 2)</p>
 
 <p>After creating the account, the overview page looks like this:</p>
 
@@ -450,29 +450,30 @@ Storage Account Overview Page</p>
 
 <p>As a final measure, you add a container to the Storage Account</p>
 
-<p><a href="/MyPics/2023-08-22-StaledAutomation_21.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_21.png" alt="StaledAutomation_21" /></a>
-Add Container to the Storage Account{:.figcaption}</p>
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_21.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_21.png" alt="StaledAutomation_21" /></a>
+Add Container to the Storage Account</p>
 
 <p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_22.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_22.png" alt="StaledAutomation_22" /></a>
 Storage Account with the Container</p>
 
-<p>Finally, let’s take a look at the access key of the Storage Account. We need the key for the variables in the automation account as well as for the access to the Storage Account in the Runbook. It’s best to copy it to a text file as well for later when you add the variables.</p>
+<p>Finally, let’s take a look at the access key of the Storage Account. We need the key for the variables in the Automation Account as well as for the access to the Storage Account in the Runbook. It’s best to copy it to a text file as well for later when you add the variables.</p>
 
-<p><a href="/MyPics/2023-08-22-StaledAutomation_23.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_23.png" alt="StaledAutomation_23" /></a>
-Storage Account Access keys{:.figcaption}</p>
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_23.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_23.png" alt="StaledAutomation_23" /></a>
+Storage Account Access keys</p>
 
 <p>Admittedly, there are more secure ways possible to handle the keys. Access keys should be stored in a secure place (Key Vault) and renewed from time to time. I’m deliberately not doing this in the example.</p>
 
-<p>We switch back to the Automation account in Azure. We now have everything together to create the variables.</p>
+<p>We switch back to the Automation Account in Azure. We now have everything together to create the variables.</p>
 
-<p class="figcaption">So add the following variables to your account and make sure that the names of the variables match my ones shown here. Because this is how they will be referenced in the Powershell sequence for the runbook
-<a href="/MyPics/2023-08-22-StaledAutomation_24.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_24.png" alt="StaledAutomation_24" /></a>
+<p>So add the following variables to your account and make sure that the names of the variables match my ones shown here. Because this is how they will be referenced in the Powershell sequence for the runbook</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_24.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_24.png" alt="StaledAutomation_24" /></a>
 List with variables</p>
 
 <h2 id="add-runbook">Add Runbook</h2>
 
-<p>Jetzt erstellen wir das Herzstück des Automation-Kontos, das Runbook vom “Type” Powershell.
-Der Name ist beliebig</p>
+<p>Now we create the heart of the Automation account, the runbook of the “Type” Powershell.
+The name is arbitrary</p>
 
 <p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_25.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_25.png" alt="StaledAutomation_25" /></a>
 Create Runbook</p>
@@ -504,10 +505,10 @@ Error while testing the Powershell runbook</p>
 
 <h3 id="show-results">Show results</h3>
 
-<p>If everything fits, the container of the storage account should contain the desired Excel file.</p>
+<p>If everything fits, the container of the Storage Account should contain the desired Excel file.</p>
 
 <p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_31.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_31.png" alt="StaledAutomation_31" /></a>
-Storage account and Excel file</p>
+Storage Account and Excel file</p>
 
 <p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_32.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_32.png" alt="StaledAutomation_32" /></a>
 List of unused user accounts</p>
@@ -520,19 +521,19 @@ List of unused computer accounts</p>
 <p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_34.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_34.png" alt="StaledAutomation_34" /></a>
 Planned schedule</p>
 
-<p>What I find particularly powerful and worth mentioning here is the ability to keep multiple schedules in an automation account to allow for maximum flexibility in execution.</p>
+<p>What I find particularly powerful and worth mentioning here is the ability to keep multiple schedules in an Automation Account to allow for maximum flexibility in execution.</p>
 
 <p>However the runbook is executed, it does not matter whether manually, as described above in the test, or via a schedule. You will receive an Excel file after each execution with the execution timestamp in the file name.</p>
 
-<p>The runbook will finally look like this in the Automation account:</p>
+<p>The runbook will finally look like this in the Automation Account:</p>
 
 <p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_35.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_35.png" alt="StaledAutomation_35" /></a>
 Overview page of the completed runbook</p>
 
 <p><strong>➔ Conclusion:</strong>
-An Automation account offers numerous design options. My example shows some of the many options that Automation offers. The limits here are the imagination of the administrator.</p>
+An Automation Account offers numerous design options. My example shows some of the many options that Automation offers. The limits here are the imagination of the administrator.</p>
 
-<p>Why not create a new runbook in the Automation account that takes the Excel file and deactivates computer accounts directly or deletes them every six months? Something similar can be implemented with user accounts.</p>
+<p>Why not create a new runbook in the Automation Account that takes the Excel file and deactivates computer accounts directly or deletes them every six months? Something similar can be implemented with user accounts.</p>
 
 <p>I wish you success in administratively dealing with unused identities and with the setup described here.</p>
 
