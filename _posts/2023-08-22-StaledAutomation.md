@@ -14,7 +14,7 @@ image:
   <figcaption>Niran Kasri auf Pixabay</figcaption>
 </figure>
 
-([For English text](http://127.0.0.1:4000/2023-08-22-StaledAutomation/#overview))
+([For English text]https://nothingbutcloud.net/2023-08-22-StaledAutomation/#overview-english-version))
 
 * this unordered seed list will be replaced by the toc
 {:toc}
@@ -85,7 +85,7 @@ Seite mit den Tags: keine Änderung
 Abschlussseite und fertig
 {:.figcaption}
 
-### Zertifikat importieren
+### Zertifikat (private Key) importieren
 
 Nach Erstellung des Automation-Kontos wenden wir uns dem Zertifikat zu, das wir auf dem Windows 11 Client generiert und mit dem dazugehörigen privaten Schlüssel exportiert haben. Wenn du auf einem Client ein selbst signiertes Zertifikat verwendest, beispielsweise um eine zertifikatsbasierte Authentifizierung mit der Powershell zu initialisieren, musst du bezüglich des privaten Schlüssels nichts tun, da er im lokalen Zertifikatsspeicher des jeweiligen Computers liegt und von dort aus direkt verwendet wird.
 Im vorliegenden Beispiel ist dies aber nicht der Fall, da die Authentifizierung vom Automation-Konto ausgeht und nicht von einem Computer. Du musst den zuvor exportierten privaten Schlüssel hierzu in Azure importieren.
@@ -128,7 +128,7 @@ Das Anlegen der App Registration ist unspektakulär. Füge einfach in MS Entra I
 Erstellen einer App Registration mit Standardeinstellungen
 {:.figcaption}
 
-### Zertifikat importieren
+### Zertifikat (Public Key) importieren
 
 Ist die App Registration erstellt, fügen wir den öffentlichen Schlüssel des Zertifikates hinzu, den wir weiter oben (Win11 Client) erstellt und exportiert haben.
 
@@ -305,7 +305,7 @@ Zu guter Letzt sei dir noch folgender Microsoft Artikel empfohlen:
 
 ([Ausführen von Runbooks in Azure Automation](https://learn.microsoft.com/de-de/azure/automation/automation-runbook-execution))
 
-## Overview
+## Overview (English version)
 You can find some cmdlets from the Microsoft Graph module in my Powershell repository ([link](https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects)). These cmdlets help to identify user and computer objects in Microsoft Entra ID that have not been used for a long time. This is done by reverting to the timestamp of the last time the objects were used. The repository contains examples and suggestions on how to apply the cmdlets. This can help to manually create lists and store the results in CSV files or directly in XLSX files. Feel free to check out my blog post for details on this topic ([link](https://nothingbutcloud.net/2023-03-22-FindStaledObjectsInAAD/)).
 
 If you want to use the commands from the examples to run these operations automatically in Azure, you have several options. A Logic App or an Automation account are good options. Below are step-by-step instructions on how to set up an Automation account, including the necessary scripts and everything that goes with it in Azure. Once implemented, you won't have to worry about anything and will regularly receive the Excel file with objects that have been unused for a while.
@@ -329,7 +329,7 @@ For more information about creating self-signed certificates, see the following 
 ([Create a self-signed public certificate to authenticate your application](https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-self-signed-certificate)
 
 
-**➔ Hinweis:**
+**➔ Note:**
 Self-signed certificates should be avoided for productive use because they are not issued by a trusted certificate authority. If you have the possibility to obtain a certificate from an authorized certification authority, this is the recommended way. You have to make sure that besides the public key the private key can be exported as well, since both are needed for the import into Azure and Microsoft Entra ID. In this example, however, I consider a self-signed certificate to be harmless, since it is only used for the authentication of the app registration, which is not critical in my opinion.
 Alternatively, a secret could also be used for authentication in the app registry. However, I personally like to do without Secrets. They require handling (write down, copy, paste, ...) the Secret value, which is a kind of a password. If you want to know more about Secrets, have a look at the following blog post of mine ([Link](https://nothingbutcloud.net/2023-01-07-GetSecretInfos)), because Secrets have even more disadvantages.
 
@@ -341,7 +341,7 @@ Create self-signed certificate
 
 ## Create Automation Account
 
-Als nächstes wird das Automation-Konto erstellt. Im Setup-Prozess müssen folgende Seiten bedient werden.
+Now we create the Automation account. The next figures show the values and parameters to be entered.
 
 [![StaledAutomation_2](/MyPics/2023-08-22-StaledAutomation_2.png)](/MyPics/2023-08-22-StaledAutomation_2.png){:target="_blank"}
 Basic Page: select Subscription and Ressource Group
@@ -363,7 +363,7 @@ Tags Page: nothing is changed
 Summary page and done
 {:.figcaption}
 
-### Import certificate
+### Import certificate (private key)
 
 After creating the Automation account, we turn to the certificate that we generated on the Windows 11 client and exported with the associated private key. If you use a self-signed certificate on a client, for example to initialize certificate-based authentication with Powershell, you don't have to do anything regarding the private key, because it resides in the local certificate store of the respective computer and is used directly from there.
 In this example, however, this is not the case because the authentication originates from the Automation account and not from a computer. You need to import the previously exported private key into Azure for this.
@@ -376,7 +376,7 @@ Import the private certificate key to Automation
 After certificate import in Automation
 {:.figcaption}
 
-### MImport Powershell Modules
+### Import Powershell Modules
 
 After importing the certificate, we continue in the Automation Account. Here you have to add the Powershell modules for the runbook.
 
@@ -406,7 +406,7 @@ The creation of the App Registration is unspectacular. Just add one in MS Entra 
 Create App registration with default settings
 {:.figcaption}
 
-### Import certificate
+### Import certificate (public key)
 
 Once the app registration is created, we add the public key of the certificate we created and exported above (Win11 Client).
 
