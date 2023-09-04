@@ -14,7 +14,7 @@ image:
   <figcaption>Niran Kasri auf Pixabay</figcaption>
 </figure>
 
-([For English text]https://nothingbutcloud.net/2023-08-22-StaledAutomation/#overview-english-version))
+([For English text](https://nothingbutcloud.net/2023-08-22-StaledAutomation/#overview-english-version))
 
 * this unordered seed list will be replaced by the toc
 {:toc}
