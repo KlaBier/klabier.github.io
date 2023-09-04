@@ -83,6 +83,7 @@
 
 
 
+
 <script>!function(r,c){"use strict";function a(e,t,n,o){e.addEventListener?e.addEventListener(t,n,o):e.attachEvent?e.attachEvent("on"+t,n):e["on"+t]=n}r.loadJS=function(e,t){var n=c.createElement("script"),e=(n.src=e,t&&a(n,"load",t,{once:!0}),c.scripts[0]);return e.parentNode.insertBefore(n,e),n},r._loaded=!1,r.loadJSDeferred=function(e,t){var n=c.createElement("script");function o(){r._loaded=!0,t&&a(n,"load",t,{once:!0});var e=c.scripts[0];e.parentNode.insertBefore(n,e)}return n.src=e,r._loaded?o():a(r,"load",o,{once:!0}),n},r.setRel=r.setRelStylesheet=function(e){a(c.getElementById(e),"load",function(){this.rel="stylesheet"},{once:!0})}}(window,document);
 !function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
 !function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
@@ -98,7 +99,7 @@
   w._search = {
     DATA_URL: '/assets/sitedata.json?no-cache',
     STORAGE_KEY: 'mini-search/',
-    INDEX_KEY: 'index--2023-08-13T13:31:45+02:00',
+    INDEX_KEY: 'index--2023-09-04T16:22:43+02:00',
   };
   w._clapButton = true;
 }(window);</script>
@@ -220,6 +221,64 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79, 177, 186, 0.
     <h2 id="y-2023">2023</h2>
     <div class="columns columns-break">
     
+  
+
+  
+  <div class="column column-1-2">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article class="project-card">
+  <a href="/2023-08-22-StaledAutomation/" class="no-hover no-print-link flip-project" tabindex="-1">
+    <div class="project-card-img aspect-ratio sixteen-nine flip-project-img">
+      
+        
+
+
+<img
+  
+    src="/MyPics/2023-08-22-StaledAutomation_Cover.png"
+    
+    sizes="(min-width:86em)27.5rem,(min-width:54em)24.5rem,(min-width:42em)21.5rem,42rem"
+  
+  alt="Setup Azure automation to find unused user and computer accounts (step-by-step guide)"
+  
+  
+  width="864"
+  height="486"
+  loading="lazy"
+/>
+
+      
+    </div>
+  </a>
+  <h3 class="project-card-title flip-project-title">
+    <a href="/2023-08-22-StaledAutomation/" class="flip-title">Setup Azure automation to find unused user and computer accounts (step-by-step guide)</a>
+  </h3>
+  
+  
+  <a class="fill-card no-hover" href="/2023-08-22-StaledAutomation/" tabindex="-1"><span class="sr-only">Continue reading Setup Azure automation to find unused user and computer accounts (step-by-step guide)
+</span></a>
+</article>
+
+  </div>
+
+  
+
+  
+  
+
   
 
   
@@ -1445,6 +1504,7 @@ html{--accent-color: rgb(79,177,186);--accent-color-faded: rgba(79, 177, 186, 0.
   <script src="/assets/js/hydejack-9.1.6.js" type="module"></script>
   <script src="/assets/js/LEGACY-hydejack-9.1.6.js" nomodule defer></script>
   
+
 
   
 

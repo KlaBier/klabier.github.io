@@ -1,5 +1,562 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-08-13T13:31:45+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
-</subtitle><entry><title type="html">The dilemma with unused objects in Azure AD</title><link href="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/" rel="alternate" type="text/html" title="The dilemma with unused objects in Azure AD" /><published>2023-03-22T09:00:32+01:00</published><updated>2023-03-31T12:03:51+02:00</updated><id>http://localhost:4000/FindStaledObjectsInAAD</id><content type="html" xml:base="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/"><![CDATA[<figure>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-09-04T16:22:43+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
+</subtitle><entry><title type="html">Setup Azure automation to find unused user and computer accounts (step-by-step guide)</title><link href="http://localhost:4000/2023-08-22-StaledAutomation/" rel="alternate" type="text/html" title="Setup Azure automation to find unused user and computer accounts (step-by-step guide)" /><published>2023-08-22T10:00:32+02:00</published><updated>2023-09-04T16:22:42+02:00</updated><id>http://localhost:4000/StaledAutomation</id><content type="html" xml:base="http://localhost:4000/2023-08-22-StaledAutomation/"><![CDATA[<figure>
+  <img src="/MyPics/2023-08-22-StaledAutomation_Cover.png" style="width:75%" />
+  <figcaption>Niran Kasri auf Pixabay</figcaption>
+</figure>
+
+<p>(<a href="http://127.0.0.1:4000/2023-08-22-StaledAutomation/#overview">For English text</a>)</p>
+
+<ul id="markdown-toc">
+  <li><a href="#überblick" id="markdown-toc-überblick">Überblick</a></li>
+  <li><a href="#das-zertifikat" id="markdown-toc-das-zertifikat">Das Zertifikat</a></li>
+  <li><a href="#erstellen-des-automation-konto" id="markdown-toc-erstellen-des-automation-konto">Erstellen des Automation-Konto</a>    <ul>
+      <li><a href="#zertifikat-importieren" id="markdown-toc-zertifikat-importieren">Zertifikat importieren</a></li>
+      <li><a href="#module-importieren" id="markdown-toc-module-importieren">Module importieren</a></li>
+    </ul>
+  </li>
+  <li><a href="#erstellen-der-app-registration" id="markdown-toc-erstellen-der-app-registration">Erstellen der App Registration</a>    <ul>
+      <li><a href="#zertifikat-importieren-1" id="markdown-toc-zertifikat-importieren-1">Zertifikat importieren</a></li>
+      <li><a href="#graph-permissions-einrichten" id="markdown-toc-graph-permissions-einrichten">Graph Permissions einrichten</a></li>
+    </ul>
+  </li>
+  <li><a href="#erstellen-des-speicherkontos" id="markdown-toc-erstellen-des-speicherkontos">Erstellen des Speicherkontos</a>    <ul>
+      <li><a href="#container-dem-speicherkonto-hinzufügen" id="markdown-toc-container-dem-speicherkonto-hinzufügen">Container dem Speicherkonto hinzufügen</a></li>
+    </ul>
+  </li>
+  <li><a href="#powershell-runbook-integrieren" id="markdown-toc-powershell-runbook-integrieren">Powershell Runbook integrieren</a>    <ul>
+      <li><a href="#ergebnisse-anzeigen" id="markdown-toc-ergebnisse-anzeigen">Ergebnisse anzeigen</a></li>
+    </ul>
+  </li>
+  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li><a href="#the-certificate" id="markdown-toc-the-certificate">The certificate</a></li>
+  <li><a href="#create-automation-account" id="markdown-toc-create-automation-account">Create Automation Account</a>    <ul>
+      <li><a href="#import-certificate" id="markdown-toc-import-certificate">Import certificate</a></li>
+      <li><a href="#mimport-powershell-modules" id="markdown-toc-mimport-powershell-modules">MImport Powershell Modules</a></li>
+    </ul>
+  </li>
+  <li><a href="#create-app-registration" id="markdown-toc-create-app-registration">Create App registration</a>    <ul>
+      <li><a href="#import-certificate-1" id="markdown-toc-import-certificate-1">Import certificate</a></li>
+      <li><a href="#add-graph-permissions" id="markdown-toc-add-graph-permissions">Add Graph Permissions</a></li>
+    </ul>
+  </li>
+  <li><a href="#create-the-storage-account" id="markdown-toc-create-the-storage-account">Create the Storage Account</a>    <ul>
+      <li><a href="#add-the-container-to-the-storage-account" id="markdown-toc-add-the-container-to-the-storage-account">Add the container to the Storage Account</a></li>
+    </ul>
+  </li>
+  <li><a href="#add-runbook" id="markdown-toc-add-runbook">Add Runbook</a>    <ul>
+      <li><a href="#show-results" id="markdown-toc-show-results">Show results</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="überblick">Überblick</h2>
+<p>Du findest in meinem Powershell-Repository (<a href="https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects">Link</a>) einige Cmdlets aus dem Microsoft-Graph-Modul. Diese Cmdlets helfen, Benutzer- und Computerobjekte in Microsoft Entra ID zu identifizieren, die längere Zeit nicht benutzt wurden. Dabei wird auf den Zeitstempel der letzten Nutzung der Objekte zurückgegriffen. Im Repository sind Beispiele und Anregungen enthalten, wie die Cmdlets angewendet werden können. Das kann helfen, manuell Listen zu erstellen und die Ergebnisse in CSV-Dateien oder direkt in XLSX-Dateien abzulegen. Schau gerne in meinen Blog Beitrag für Details zu diesem Thema (<a href="https://nothingbutcloud.net/2023-03-22-FindStaledObjectsInAAD/">Link</a>)</p>
+
+<p>Wenn du die Befehle aus den Beispielen verwenden möchtest, um diese Vorgänge automatisiert in Azure zu starten, hast du verschiedene Möglichkeiten. Eine Logic App oder ein Automation-Konto bieten sich hierfür an. Im Folgenden findest du eine Schritt-für-Schritt-Anleitung zur Einrichtung eines Automation-Kontos, mitsamt den notwendigen Skripten und allem, was in Azure dazu gehört. Einmal Implementiert brauchst du dich dann um nichts mehr kümmern und erhältst regelmäßig die Exceldatei mit seit längerem unbenutzten Objekten.</p>
+
+<p>Grundlage für den Aufbau des Automation-Kontos ist folgender Artikel von Microsoft:
+(<a href="https://learn.microsoft.com/de-de/azure/active-directory/governance/identity-governance-automation">Automatisieren von Microsoft Entra Identity Governance-Aufgaben über Azure Automation und Microsoft Graph</a>)</p>
+
+<p>Wir bauen hier in diesem Beitrag auf das von Microsoft beschriebene Stzenario auf und ergänzen das Setup mit den relevanten Technologien, die notwendig sind, damit der Automatismus den Anforderungen für das Ermitteln ungenutzter Computer- und Benutzerobjekte folgt. Hierfür integrieren wir beispielsweise die Graph-Module, kümmern uns um die relevanten Graph-Berechtigungen und sorgen dafür, dass die Ergebnisse als Excel regelmäßig in einem Speicherkonto laden.</p>
+
+<p>Zusammenfassend findest du hier eine Anleitung für das Setup folgender Technologien:</p>
+
+<ul>
+  <li>Implementieren der App Registration</li>
+  <li>Erstellen des Zertifikats und hinterlegen in Azure Automation und App Registration</li>
+  <li>Ein Speicherkonto</li>
+  <li>Automation-Konto</li>
+</ul>
+
+<h2 id="das-zertifikat">Das Zertifikat</h2>
+<p>Nachfolgende Cmdlets (<a href="https://github.com/KlaBier/Powershell/blob/main/AutomationRunbookLab/SelfSignedCert.ps1">Link</a>) erstellen ein selbstsigniertes Zertifikat. Führe die Befehle auf einem Computer deiner Wahl aus. In meinem Lab hat es mit einem Windows 11 Client bestens funktioniert.</p>
+
+<p>Weitere Informationen zum Erstellen selbstsignierter Zertifikate findest du in folgendem Microsoft Artikel:
+(<a href="https://learn.microsoft.com/de-de/azure/active-directory/develop/howto-create-self-signed-certificate">Erstellen Sie ein selbstsigniertes öffentliches Zertifikat zum Authentifizieren Ihrer Anwendung</a></p>
+
+<p><strong>➔ Hinweis:</strong>
+Selbstsignierte Zertifikate sollten für den produktiven Einsatz vermieden werden, da sie nicht von einer vertrauenswürdigen Zertifizierungsstelle ausgestellt wurden. Wenn du die Möglichkeit hast, ein Zertifikat von einer autorisierten Zertifizierungsstelle zu beziehen, ist dies der empfohlene Weg. Du musst dabei sicherstellen, das neben dem öffentlichen Schlüssel der private Schlüssel ebenfalls exportiert werden kann, da beides für den Import in Azure und Microsoft Entra ID benötigt wird. Im vorliegenden Beispiel halte ich jedoch ein selbstsigniertes Zertifikat für unbedenklich, da es nur für die Authentifizierung der App-Registrierung eingesetzt wird, die meiner Meinung nach unkritisch ist.
+Alternativ ließe sich auch ein Secret für die Authentifizierung in der App-Registrierung verwenden. Ich persönlich verzichte jedoch gerne auf Secrets. Sie erfordern den Umgang (notieren, kopieren, einfügen, …) mit dem Secret-Wert, der im Grunde nichts anderes als ein Passwort ist. Wenn du mehr zum Thema Secrets wissen möchtest, schau doch mal in folgendem Blog Beitrag von mir (<a href="https://nothingbutcloud.net/2023-01-07-GetSecretInfos">Link</a>), Secrets haben nämlich noch mehr Nachteile.</p>
+
+<p>Wir entscheiden uns also für das Zertifikat und wenn du es mit den Cmdlets generierst und exportierst sollte dein Bildschirm in etwas wie folgt aussehen:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_1.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_1.png" alt="StaledAutomation_1" /></a>
+Erstellen des Zertifikates</p>
+
+<!---
+Das geht auch aber die oben benutzte Variate ist besser, da ein eigenes Fenster geöffnet wird 
+<figure>
+  <img src="/MyPics/2023-08-22-StaledAutomation_1.png" style="width:100%">
+  <figcaption>Erstellen des Zertifikates</figcaption>
+</figure>
+-->
+
+<h2 id="erstellen-des-automation-konto">Erstellen des Automation-Konto</h2>
+
+<p>Als nächstes wird das Automation-Konto erstellt. Im Setup-Prozess müssen folgende Seiten bedient werden.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_2.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_2.png" alt="StaledAutomation_2" /></a>
+Basic Seite: wähle Subscription und Ressource Gruppe deiner Wahl</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_3.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_3.png" alt="StaledAutomation_3" /></a>
+Advanced Seite: keine Änderung</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_4.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_4.png" alt="StaledAutomation_4" /></a>
+Netzwerk Seite: keine Änderung</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_5.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_5.png" alt="StaledAutomation_5" /></a>
+Seite mit den Tags: keine Änderung</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_6.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_6.png" alt="StaledAutomation_6" /></a>
+Abschlussseite und fertig</p>
+
+<h3 id="zertifikat-importieren">Zertifikat importieren</h3>
+
+<p>Nach Erstellung des Automation-Kontos wenden wir uns dem Zertifikat zu, das wir auf dem Windows 11 Client generiert und mit dem dazugehörigen privaten Schlüssel exportiert haben. Wenn du auf einem Client ein selbst signiertes Zertifikat verwendest, beispielsweise um eine zertifikatsbasierte Authentifizierung mit der Powershell zu initialisieren, musst du bezüglich des privaten Schlüssels nichts tun, da er im lokalen Zertifikatsspeicher des jeweiligen Computers liegt und von dort aus direkt verwendet wird.
+Im vorliegenden Beispiel ist dies aber nicht der Fall, da die Authentifizierung vom Automation-Konto ausgeht und nicht von einem Computer. Du musst den zuvor exportierten privaten Schlüssel hierzu in Azure importieren.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_7.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_7.png" alt="StaledAutomation_7" /></a>
+Import des Zertifikates (privater Schlüssel) in Automation</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_8.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_8.png" alt="StaledAutomation_8" /></a>
+Nach dem Import des Zertifikates in Automation</p>
+
+<h3 id="module-importieren">Module importieren</h3>
+
+<p>Nach dem Import des Zertifikates geht es in dem Automation-Konto weiter. Hier heisst es die Powershell Module für das Runbook hinzuzufügen.</p>
+
+<p>An den bestehenden Standardmodulen ändert sich nichts, lediglich die nachfolgend abgebildeten Module sind hinzuzufügen</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_9.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_9.png" alt="StaledAutomation_9" /></a>
+Hinzuzufügende Module im Automation-Konto</p>
+
+<p>Neben den drei Graph-Modulen benötigst du für die Verwendung das Modul “ImportExcel” von Doug Finke (<a href="https://github.com/dfinke/ImportExcel">Link</a>). Alle Module können über Browse Gallery problemlos hinzugefügt werden, wie die folgenden Abbildungen am Beispiel von “ImportExcel” zeigen. Die Vorgehensweise für die Graph-Module ist analog.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_10.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_10.png" alt="StaledAutomation_10" /></a>
+Browse Gallery zum Hinzufügen weiterer Module, sogenannter Custom Module</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_11.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_11.png" alt="StaledAutomation_11" /></a>
+Import des Modules bestätigen und fertig</p>
+
+<h2 id="erstellen-der-app-registration">Erstellen der App Registration</h2>
+
+<p>Das Automation-Konto ist noch nicht fertig, hier sind unter anderem noch Variablen zu ergänzen. Die hierfür notwendigen Inhalte entstammen aus Azure Elementen, die wir bis jetzt noch nicht erstellt haben, die App Registration und auch das Speicherkonto.</p>
+
+<p>Das Anlegen der App Registration ist unspektakulär. Füge einfach in MS Entra ID unter “App registrations” eine ebensolche hinzu und lasse alle Einstellungen beim Standard. Für unser Beispiel sind der öffentlichen Schlüssel des Zertifikates und die MS Graph Berechtigungen zusätzlich erforderlich. Der Name ist frei. Bei mir im Lab lautet er “AdminAutomationApp”</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_12.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_12.png" alt="StaledAutomation_12" /></a>
+Erstellen einer App Registration mit Standardeinstellungen</p>
+
+<h3 id="zertifikat-importieren-1">Zertifikat importieren</h3>
+
+<p>Ist die App Registration erstellt, fügen wir den öffentlichen Schlüssel des Zertifikates hinzu, den wir weiter oben (Win11 Client) erstellt und exportiert haben.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_13.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_13.png" alt="StaledAutomation_13" /></a>
+“Upload certificate” fügt den öffentlichen Schlüssel eines Zertifikates hinzu …</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_14.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_14.png" alt="StaledAutomation_14" /></a>
+… hierzu die zuvor exportierte CER Datei für den “Upload” angeben</p>
+
+<h3 id="graph-permissions-einrichten">Graph Permissions einrichten</h3>
+
+<p>Anschließend noch die MS Graph Berechtigungen anpassen, so dass die Liste mit den Berechtigungen wie folgt aussieht:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_15.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_15.png" alt="StaledAutomation_15" /></a>
+Graph Berechtigungen für die App Registration</p>
+
+<p>Die “Application ID” und die “Tenant ID” aus deinem Setup benötigst du später bei den Variablen im Automation-Konto. Kopiere sie am besten in ein Textfile für später.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_16.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_16.png" alt="StaledAutomation_16" /></a>
+Übersichtsseite der erstellten App Registration</p>
+
+<h2 id="erstellen-des-speicherkontos">Erstellen des Speicherkontos</h2>
+
+<p>An dieser Stelle schließen wir die App-Registrierung ab und richten unsere Aufmerksamkeit auf das Speicherkonto, das vom Runbook genutzt wird, um die Excel-Datei mit den unbenutzten Objekten zu speichern.</p>
+
+<p>Ein Speicherkonto ist ein komplexes Objekt, mit vielfältigen Einsatzmöglichkeiten. In unserem Setup dient es allein zum Erstellen eines Containers, ähnlich einem Ordner im Dateisystem, als Ziel für die Excel-Datei.</p>
+
+<p><strong>➔ Hinweis:</strong>
+Übrigens empfiehlt es sich dieselbe Ressourcengruppe wie beim Automation-Konto zu verwenden. Wenn du nämlich das Setup nur testen möchtest, reicht es später aus, lediglich die Resssourcengruppe zu entfernen um aufzuräumen. Das gilt jedoch nicht für die zuvor erstellte App-Registrierung, diese ist unabhängig von einer Subscription und einer Ressourcengruppe, App-Registrierungen befinden sich in MS-Entra-ID.</p>
+
+<p>Also, weiter geht es mit dem Speicherkonto:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_17.jpg" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_17.jpg" alt="StaledAutomation_17" /></a>
+Einstiegsseite zum Erstellen des Speicherkontos</p>
+
+<!--
+<figure>
+  <img src="/MyPics/2023-08-22-StaledAutomation_17.jpg" style="width:100%">
+  <figcaption>Figure 3: List with devices exported to Excel</figcaption>
+</figure>
+-->
+
+<p>Es ist nicht notwendig nachfolgend alle Seiten des Assistenten abzubilden, die für das Erstellen eines Speicherkontos in Azure benötigt werden. Die zwei folgenden Screenshots fassen zusammen, welche Optionen und Einstellungen insgesamt hier funktionieren.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_18.jpg" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_18.jpg" alt="StaledAutomation_18" /></a>
+Zusammenfassung aller Werte vor dem Erstellen des Speicherkontos (Seite1)</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_19.jpg" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_19.jpg" alt="StaledAutomation_19" /></a>
+Zusammenfassung aller Werte vor dem Erstellen des Speicherkontos (Seite 2)</p>
+
+<p>Nach Erstellung des Kontos sieht die Übersichtsseite wie folgt aus:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_20.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_20.png" alt="StaledAutomation_20" /></a>
+Übersicht des Speicherkontos</p>
+
+<h3 id="container-dem-speicherkonto-hinzufügen">Container dem Speicherkonto hinzufügen</h3>
+
+<p>Als abschließende Maßnahme fügst du dem Speicherkonto einen Container hinzu</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_21.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_21.png" alt="StaledAutomation_21" /></a>
+Hinzufügen eines Containers für das Speicherkonto</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_22.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_22.png" alt="StaledAutomation_22" /></a>
+Anzeige der Container im Speicherkonto</p>
+
+<p>Zum Abschluss werfen wir einen Blick auf den Zugriffsschlüssel des Speicherkontos. Wir benötigen den Schlüssel für die Variablen im Automatisierungskonto sowie für den Zugriff auf das Speicherkonto im Runbook. Kopiere ihn am besten ebenfalls in ein Textfile für später, wenn du die Variablen ergänzt.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_23.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_23.png" alt="StaledAutomation_23" /></a>
+Zugriffsschlüssel für das Speicherkonto</p>
+
+<p>Zugegeben, das geht definitiv sicherer als hier demonstriert. Zugriffsschlüssel sollten an einem sicheren Ort gespeichert (Key Vault) und von Zeit zu Zeit erneuert werden. Ich verzichte in dem Beispiel bewusst darauf.</p>
+
+<p>Wir wechseln zurück zum Automation-Konto in Azure. Wir haben jetzt alles beisammen um die Variablen anzulegen.</p>
+
+<p>Füge also folgende Variablen deinem Konto hinzu und achte darauf, dass die Namen der Variablen mit meinen hier abgebildeten übereinstimmen. Denn so werden sie in der Powershell Sequenz für das Runbook referenziert</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_24.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_24.png" alt="StaledAutomation_24" /></a>
+Variablen im Automation-Konto</p>
+
+<h2 id="powershell-runbook-integrieren">Powershell Runbook integrieren</h2>
+
+<p>Jetzt erstellen wir das Herzstück des Automation-Kontos, das Runbook vom “Type” Powershell.
+Der Name ist beliebig</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_25.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_25.png" alt="StaledAutomation_25" /></a>
+Erstellen des Runbooks in Automation</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_26.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_26.png" alt="StaledAutomation_26" /></a>
+Anzeige der Runbooks für das Automation-Konto</p>
+
+<p>Wenn das Runbook erstellt ist, selektiere es und öffne den Editor …</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_27.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_27.png" alt="StaledAutomation_27" /></a></p>
+
+<p>… füge die Powershell Sequenz aus meinem Repository (<a href="https://github.com/KlaBier/Powershell/blob/main/AutomationRunbookLab/RunbookCode.ps1">Link</a>) in den Editor ein</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_28.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_28.png" alt="StaledAutomation_28" /></a>
+Der Powershell Editor im Azure Portal</p>
+
+<p>Passe die PowerShell-Elemente an deine Bedürfnisse an oder lasse sie so, wie du sie in meinem Repository vorfindest. Wenn du im PowerShell-Editor fertig bist, ist es ratsam, mittels “Test Pane” (1) einen Test durchzuführen. Erst danach kannst du das Runbook veröffentlichen (2). Solange das Runbook im Automation-Konto nicht veröffentlicht wurde, kannst du keinen entsprechenden Zeitplan einrichten.
+Wenn alle benötigten Variablen vorhanden sind und die App-Registrierung sowie das Speicherkonto gemäß den Anweisungen erstellt wurden, sollte der Bildschirm nach einem Testlauf ungefähr wie folgt aussehen:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_29.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_29.png" alt="StaledAutomation_29" /></a>
+Testen des Powershell Runbooks</p>
+
+<p>Bei Unstimmigkeiten sind die Fehlermeldungen in der Regel selbsterklärend. Eine Fehleranalyse sollte keine allzu große Hürde darstellen, da es sich hierbei wohl um Tippfehler oder ähnliches handelt.
+Das Bildschirmprotokoll ist länger als hier sichtbar. Fehlermeldungen können außerhalb des Fensterinhalts liegen. Du kannst im Ausgabebereich nach oben scrollen und nachsehen, ob irgendwo ein Fehler protokolliert wurde. 
+Es kann irreführend sein, dass immer “Completed” in grün angezeigt wird, auch wenn außerhalb des Ausgabefensters Hinweise auf einen Fehler hinweisen und somit der “Status” keineswegs grün ist.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_30.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_30.png" alt="StaledAutomation_30" /></a>
+Fehler beim Testen des Powershell Runbooks</p>
+
+<h3 id="ergebnisse-anzeigen">Ergebnisse anzeigen</h3>
+
+<p>Wenn schließlich alles passt sollte in dem Container des Speicherkontos das gewünschte Excelfile liegen.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_31.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_31.png" alt="StaledAutomation_31" /></a>
+Speicherkonto mit der Exceldatei</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_32.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_32.png" alt="StaledAutomation_32" /></a>
+Liste mit unbenutzten Benutzerkonten</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_33.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_33.png" alt="StaledAutomation_33" /></a>
+Liste mit unbenutzten Computerkonten</p>
+
+<p>Zuletzt musst du noch ein Schedule hinzufügen und dem Runbook zuordnen. Dieser Schritt ist weitestgehend selbsterklärend.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_34.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_34.png" alt="StaledAutomation_34" /></a>
+Schedule für die Zeitplanung des Runbook</p>
+
+<p>Besonders leistungsstark und erwähnenswert finde ich hier die Möglichkeit mehrere Zeitplanungen in einem Automation-Konto vorzuhalten um hier maximale Flexibilität in der Ausführung zu gestatten.</p>
+
+<p>Wie auch immer das Runbook ausgeführt wird, es spielt keine Rolle ob manuell, wie oben beim Test beschrieben, oder über einen Zeitplan. Du erhältst nach jeder Ausführung eine Exceldatei mit dem Zeitstempel der Ausführung im Dateinamen.</p>
+
+<p>Das Runbook sieht im Automation-Konto abschließend wir folgt aus:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_35.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_35.png" alt="StaledAutomation_35" /></a>
+Übersichtsseite des fertiggestellten Runbooks</p>
+
+<p><strong>➔ Zusammenfassung:</strong>
+Ein Automation-Konto bietet zahlreiche Gestaltungsmöglichkeiten. Mein Beispiel zeigt einige der vielfältigen Optionen die Automation bietet. Grenzen sind hier die Fantasie des Administrators.</p>
+
+<p>Warum nicht ein neues Runbook im Automation-Konto erstellen, das die Excel-Datei nimmt und Computerkonten direkt deaktiviert oder halbjährlich löscht? Ähnliches lässt sich auch mit Benutzerkonten verwirklichen.</p>
+
+<p>Ich wünsche dir viel Erfolg im administrativen Umgang mit unbenutzten Identitäten und mit dem hier beschriebenen Setup.</p>
+
+<p>Kontaktiere mich gerne für einen Austausch oder wenn du Feedback hast</p>
+
+<p>Zu guter Letzt sei dir noch folgender Microsoft Artikel empfohlen:</p>
+
+<p>(<a href="https://learn.microsoft.com/de-de/azure/automation/automation-runbook-execution">Ausführen von Runbooks in Azure Automation</a>)</p>
+
+<h2 id="overview">Overview</h2>
+<p>You can find some cmdlets from the Microsoft Graph module in my Powershell repository (<a href="https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects">link</a>). These cmdlets help to identify user and computer objects in Microsoft Entra ID that have not been used for a long time. This is done by reverting to the timestamp of the last time the objects were used. The repository contains examples and suggestions on how to apply the cmdlets. This can help to manually create lists and store the results in CSV files or directly in XLSX files. Feel free to check out my blog post for details on this topic (<a href="https://nothingbutcloud.net/2023-03-22-FindStaledObjectsInAAD/">link</a>).</p>
+
+<p>If you want to use the commands from the examples to run these operations automatically in Azure, you have several options. A Logic App or an Automation account are good options. Below are step-by-step instructions on how to set up an Automation account, including the necessary scripts and everything that goes with it in Azure. Once implemented, you won’t have to worry about anything and will regularly receive the Excel file with objects that have been unused for a while.</p>
+
+<p>The basis for setting up the automation account is the following article from Microsoft:
+(<a href="https://learn.microsoft.com/en-us/azure/active-directory/governance/identity-governance-automation">Automate Microsoft Entra Identity Governance tasks via Azure Automation and Microsoft Graph</a>)</p>
+
+<p>Here in this post, we build on the scenario described by Microsoft and supplement the setup with the relevant technologies that are necessary for the automatism to follow the requirements for determining unused computer and user objects. For example, we integrate the graph modules, take care of the relevant graph permissions and make sure that the results load as Excel regularly in a storage account.</p>
+
+<p>In summary, here is a Lab guide to setting up the following technologies:</p>
+
+<ul>
+  <li>Implement the App Registration</li>
+  <li>Create the certificate and store it in Azure Automation and App Registration.</li>
+  <li>A storage account</li>
+  <li>Automation account</li>
+</ul>
+
+<h2 id="the-certificate">The certificate</h2>
+<p>The following cmdlets (<a href="https://github.com/KlaBier/Powershell/blob/main/AutomationRunbookLab/SelfSignedCert.ps1">Link</a>) create a self-signed certificate. Run the commands on a computer of your choice. In my lab it worked fine with a Windows 11 client.</p>
+
+<p>For more information about creating self-signed certificates, see the following Microsoft article:
+(<a href="https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-create-self-signed-certificate">Create a self-signed public certificate to authenticate your application</a></p>
+
+<p><strong>➔ Hinweis:</strong>
+Self-signed certificates should be avoided for productive use because they are not issued by a trusted certificate authority. If you have the possibility to obtain a certificate from an authorized certification authority, this is the recommended way. You have to make sure that besides the public key the private key can be exported as well, since both are needed for the import into Azure and Microsoft Entra ID. In this example, however, I consider a self-signed certificate to be harmless, since it is only used for the authentication of the app registration, which is not critical in my opinion.
+Alternatively, a secret could also be used for authentication in the app registry. However, I personally like to do without Secrets. They require handling (write down, copy, paste, …) the Secret value, which is a kind of a password. If you want to know more about Secrets, have a look at the following blog post of mine (<a href="https://nothingbutcloud.net/2023-01-07-GetSecretInfos">Link</a>), because Secrets have even more disadvantages.</p>
+
+<p>So we decide to use the certificate and when you generate and export it with the cmdlets your screen should look something like this:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_1.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_1.png" alt="StaledAutomation_1" /></a>
+Create self-signed certificate</p>
+
+<h2 id="create-automation-account">Create Automation Account</h2>
+
+<p>Als nächstes wird das Automation-Konto erstellt. Im Setup-Prozess müssen folgende Seiten bedient werden.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_2.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_2.png" alt="StaledAutomation_2" /></a>
+Basic Page: select Subscription and Ressource Group</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_3.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_3.png" alt="StaledAutomation_3" /></a>
+Advanced Page: nothing is changed</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_4.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_4.png" alt="StaledAutomation_4" /></a>
+Netzwork Page: nothing is changed</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_5.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_5.png" alt="StaledAutomation_5" /></a>
+Tags Page: nothing is changed</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_6.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_6.png" alt="StaledAutomation_6" /></a>
+Summary page and done</p>
+
+<h3 id="import-certificate">Import certificate</h3>
+
+<p>After creating the Automation account, we turn to the certificate that we generated on the Windows 11 client and exported with the associated private key. If you use a self-signed certificate on a client, for example to initialize certificate-based authentication with Powershell, you don’t have to do anything regarding the private key, because it resides in the local certificate store of the respective computer and is used directly from there.
+In this example, however, this is not the case because the authentication originates from the Automation account and not from a computer. You need to import the previously exported private key into Azure for this.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_7.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_7.png" alt="StaledAutomation_7" /></a>
+Import the private certificate key to Automation</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_8.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_8.png" alt="StaledAutomation_8" /></a>
+After certificate import in Automation</p>
+
+<h3 id="mimport-powershell-modules">MImport Powershell Modules</h3>
+
+<p>After importing the certificate, we continue in the Automation Account. Here you have to add the Powershell modules for the runbook.</p>
+
+<p>Nothing changes in the existing standard modules, only the modules shown below have to be added</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_9.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_9.png" alt="StaledAutomation_9" /></a>
+Required modules in the Automation Account</p>
+
+<p>Besides the three graph modules you need the module “ImportExcel” by Doug Finke (<a href="https://github.com/dfinke/ImportExcel">Link</a>). All modules can be added easily via Browse Gallery, as shown in the following figures using the example of “ImportExcel”. The procedure for the Graph modules is analogous.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_10.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_10.png" alt="StaledAutomation_10" /></a>
+Browse Gallery to add Custum Modules</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_11.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_11.png" alt="StaledAutomation_11" /></a>
+Import Powershell Modules</p>
+
+<h2 id="create-app-registration">Create App registration</h2>
+
+<p>The Automation Account is not yet finished, among other things, variables still need to be added here. The content required for this comes from Azure elements that we have not yet created, the app registration and also the storage account.</p>
+
+<p>The creation of the App Registration is unspectacular. Just add one in MS Entra ID under “App registrations” and leave all settings at default. For our example the public key of the certificate and the MS Graph permissions are additionally required. The name is free. In my lab it is “AdminAutomationApp”.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_12.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_12.png" alt="StaledAutomation_12" /></a>
+Create App registration with default settings</p>
+
+<h3 id="import-certificate-1">Import certificate</h3>
+
+<p>Once the app registration is created, we add the public key of the certificate we created and exported above (Win11 Client).</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_13.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_13.png" alt="StaledAutomation_13" /></a>
+“Upload certificate” adds the public key of a certificate …</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_14.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_14.png" alt="StaledAutomation_14" /></a>
+… to do this, specify the previously exported CER file for the “upload</p>
+
+<h3 id="add-graph-permissions">Add Graph Permissions</h3>
+
+<p>Then adjust the MS Graph permissions so that the list of permissions looks like this:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_15.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_15.png" alt="StaledAutomation_15" /></a>
+App registration Graph Permissions</p>
+
+<p>You will need the “Application ID” and the “Tenant ID” later for the variable values in the automation account. It is best to copy them into a text file.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_16.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_16.png" alt="StaledAutomation_16" /></a>
+App registration Overview Page</p>
+
+<h2 id="create-the-storage-account">Create the Storage Account</h2>
+
+<p>At this point  the App registration setup is complete and we turn our attention to the Storage Account, which is used by the Runbook, to store the Excel file with the unused objects.</p>
+
+<p>A Storage Account is a complex object, with multiple options and features. In our setup, it is used solely to create a container, similar to a folder in the file system, as a destination for the Excel file.</p>
+
+<p><strong>➔ Note:</strong>
+By the way, it is recommended to use the same Resource Group as for the Automation Account. If you only want to test the setup, it is sufficient to remove the Resource Group later to clean up the resources. However, this does not apply to the previously created App registration, this is independent of a Subscription and a Resource Group, because app registrations are located in MS-Entra-ID.</p>
+
+<p>So, moving on to the Storage Account:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_17.jpg" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_17.jpg" alt="StaledAutomation_17" /></a>
+Startpage to create the Storage Account</p>
+
+<!--
+<figure>
+  <img src="/MyPics/2023-08-22-StaledAutomation_17.jpg" style="width:100%">
+  <figcaption>Figure 3: List with devices exported to Excel</figcaption>
+</figure>
+-->
+
+<p>It is not necessary to show all the pages of the wizard that are needed to create a storage account in Azure. The two screenshots below summarize which options and settings work overall here.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_18.jpg" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_18.jpg" alt="StaledAutomation_18" /></a>
+Summary of all values before creating the storage account (page 1)</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_19.jpg" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_19.jpg" alt="StaledAutomation_19" /></a>
+Summary of all values before creating the storage account (page 2)</p>
+
+<p>After creating the account, the overview page looks like this:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_20.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_20.png" alt="StaledAutomation_20" /></a>
+Storage Account Overview Page</p>
+
+<h3 id="add-the-container-to-the-storage-account">Add the container to the Storage Account</h3>
+
+<p>As a final measure, you add a container to the Storage Account</p>
+
+<p><a href="/MyPics/2023-08-22-StaledAutomation_21.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_21.png" alt="StaledAutomation_21" /></a>
+Add Container to the Storage Account{:.figcaption}</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_22.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_22.png" alt="StaledAutomation_22" /></a>
+Storage Account with the Container</p>
+
+<p>Finally, let’s take a look at the access key of the Storage Account. We need the key for the variables in the automation account as well as for the access to the Storage Account in the Runbook. It’s best to copy it to a text file as well for later when you add the variables.</p>
+
+<p><a href="/MyPics/2023-08-22-StaledAutomation_23.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_23.png" alt="StaledAutomation_23" /></a>
+Storage Account Access keys{:.figcaption}</p>
+
+<p>Admittedly, there are more secure ways possible to handle the keys. Access keys should be stored in a secure place (Key Vault) and renewed from time to time. I’m deliberately not doing this in the example.</p>
+
+<p>We switch back to the Automation account in Azure. We now have everything together to create the variables.</p>
+
+<p class="figcaption">So add the following variables to your account and make sure that the names of the variables match my ones shown here. Because this is how they will be referenced in the Powershell sequence for the runbook
+<a href="/MyPics/2023-08-22-StaledAutomation_24.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_24.png" alt="StaledAutomation_24" /></a>
+List with variables</p>
+
+<h2 id="add-runbook">Add Runbook</h2>
+
+<p>Jetzt erstellen wir das Herzstück des Automation-Kontos, das Runbook vom “Type” Powershell.
+Der Name ist beliebig</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_25.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_25.png" alt="StaledAutomation_25" /></a>
+Create Runbook</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_26.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_26.png" alt="StaledAutomation_26" /></a>
+View Runbooks in the Automation Account</p>
+
+<p>When the runbook is created, select it and open the editor …</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_27.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_27.png" alt="StaledAutomation_27" /></a></p>
+
+<p>… paste the Powershell sequence from my repository (<a href="https://github.com/KlaBier/Powershell/blob/main/AutomationRunbookLab/RunbookCode.ps1">link</a>) into the editor</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_28.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_28.png" alt="StaledAutomation_28" /></a>
+Powershell editor in the Azure Portal</p>
+
+<p>Customize the PowerShell elements to your needs or leave them as you find them in my repository. When you are done in the PowerShell editor, it is advisable to run a test using “Test Pane” (1). Only then you can publish the runbook (2). As long as the runbook has not been published in the Automation Account, you cannot set up an appropriate schedule.
+If all the required variables are present and the App registration and Storage Account have been created according to the instructions, the screen should look something like this after a test run:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_29.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_29.png" alt="StaledAutomation_29" /></a>
+Testrun</p>
+
+<p>In case of discrepancies, the error messages are usually self-explanatory. An error analysis should not be too much of a hurdle, since these are probably typos or something similar.
+The screen log is longer than visible here. Error messages may be outside the window content. You can scroll up in the output area and see if an error was logged anywhere. 
+It can be misleading that “Completed” is always displayed in green, even if there are indications of an error outside the output window and thus the “Status” is not green at all.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_30.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_30.png" alt="StaledAutomation_30" /></a>
+Error while testing the Powershell runbook</p>
+
+<h3 id="show-results">Show results</h3>
+
+<p>If everything fits, the container of the storage account should contain the desired Excel file.</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_31.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_31.png" alt="StaledAutomation_31" /></a>
+Storage account and Excel file</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_32.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_32.png" alt="StaledAutomation_32" /></a>
+List of unused user accounts</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_33.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_33.png" alt="StaledAutomation_33" /></a>
+List of unused computer accounts</p>
+
+<p>Finally, you need to add a schedule and assign it to the runbook. This step is largely self-explanatory</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_34.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_34.png" alt="StaledAutomation_34" /></a>
+Planned schedule</p>
+
+<p>What I find particularly powerful and worth mentioning here is the ability to keep multiple schedules in an automation account to allow for maximum flexibility in execution.</p>
+
+<p>However the runbook is executed, it does not matter whether manually, as described above in the test, or via a schedule. You will receive an Excel file after each execution with the execution timestamp in the file name.</p>
+
+<p>The runbook will finally look like this in the Automation account:</p>
+
+<p class="figcaption"><a href="/MyPics/2023-08-22-StaledAutomation_35.png" target="_blank"><img src="/MyPics/2023-08-22-StaledAutomation_35.png" alt="StaledAutomation_35" /></a>
+Overview page of the completed runbook</p>
+
+<p><strong>➔ Conclusion:</strong>
+An Automation account offers numerous design options. My example shows some of the many options that Automation offers. The limits here are the imagination of the administrator.</p>
+
+<p>Why not create a new runbook in the Automation account that takes the Excel file and deactivates computer accounts directly or deletes them every six months? Something similar can be implemented with user accounts.</p>
+
+<p>I wish you success in administratively dealing with unused identities and with the setup described here.</p>
+
+<p>Feel free to contact me for an exchange or if you have feedback.</p>
+
+<p>Last but not least, the following Microsoft article is recommended:
+(<a href="https://learn.microsoft.com/en-us/azure/automation/automation-runbook-execution">Runbook execution in Azure Automation</a>)</p>
+
+<p>Cover image Niran Kasri from Pixabay</p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2023-08-22-StaledAutomation/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2023-08-22-StaledAutomation/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2023-08-22-StaledAutomation/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name>Klaus Bierschenk</name></author><summary type="html"><![CDATA[Niran Kasri auf Pixabay]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2023-08-22-StaledAutomation_Cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2023-08-22-StaledAutomation_Cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">The dilemma with unused objects in Azure AD</title><link href="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/" rel="alternate" type="text/html" title="The dilemma with unused objects in Azure AD" /><published>2023-03-22T09:00:32+01:00</published><updated>2023-03-31T12:03:51+02:00</updated><id>http://localhost:4000/FindStaledObjectsInAAD</id><content type="html" xml:base="http://localhost:4000/2023-03-22-FindStaledObjectsInAAD/"><![CDATA[<figure>
   <img src="/MyPics/2023-03-22-FindStaledObjectsInAAD_Cover.jpg" style="width:75%" />
   <figcaption>mohamed_hassan auf Pixabay</figcaption>
 </figure>
@@ -1254,45 +1811,4 @@ The KQL statement is inserted into the condition and is thus part of the signal 
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
 <a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Keep an eye to the most sensitive accounts in your Azure AD]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Zero Trust in Azure Identity - Part 4: Access Reviews</title><link href="http://localhost:4000/2021-01-19-ZeroTrust-AR/" rel="alternate" type="text/html" title="Zero Trust in Azure Identity - Part 4: Access Reviews" /><published>2021-01-19T14:22:32+01:00</published><updated>2023-03-05T07:35:35+01:00</updated><id>http://localhost:4000/ZeroTrust%20AR</id><content type="html" xml:base="http://localhost:4000/2021-01-19-ZeroTrust-AR/"><![CDATA[<ul id="markdown-toc">
-  <li><a href="#goodbye-forgotten-group-memberships" id="markdown-toc-goodbye-forgotten-group-memberships">Goodbye forgotten group memberships</a></li>
-  <li><a href="#access-review-using-an-example" id="markdown-toc-access-review-using-an-example">Access Review using an example</a></li>
-  <li><a href="#fine-tuning-for-access-control" id="markdown-toc-fine-tuning-for-access-control">Fine tuning for access control</a></li>
-  <li><a href="#access-reviews-vs-dynamic-groups" id="markdown-toc-access-reviews-vs-dynamic-groups">Access Reviews vs. Dynamic Groups</a></li>
-</ul>
-
-<h2 id="goodbye-forgotten-group-memberships">Goodbye forgotten group memberships</h2>
-
-<p>Who hasn’t had this happen to them? A user account is added to a group and then you forget to remove the member? Unfortunate if the group is a security-sensitive group or role, and there are quite a few of those in Azure. One remedy for this is the “Access Reviews”, or access checks, in German portal language. Access reviews are a means of putting groups, roles or enterprise applications to the test and validating the members assigned or contained.
-The settings in the Azure AD portal can be found in the objects for which you want to create a check. This means in the area of the groups or enterprise applications. The exception to this are the roles, whose “Access Reviews” are not administered in Azure AD in the roles, but in the PIM Dashboard. Somewhat hidden after selecting the “Manage” option. By the way, do not confuse this with the item “Review Access”, which is located in PIM directly above, under “Tasks”. This is used to process any pending reviews for the user account that is currently navigating in the PIM portal and is stored as a reviewer.</p>
-
-<h2 id="access-review-using-an-example">Access Review using an example</h2>
-
-<p>To explain the options available when reviewing roles, let’s take a look at an example of the settings you may encounter. Let’s say you want to review the members of the Global Reader role on a weekly basis and remove any user accounts you no longer need that you know should not be members there. To do this, we navigate to the “Manage” section in the PIM Dashboard and select the “Azure AD Roles” option, from where we go directly to the access checks. Many of the setting options are self-explanatory, such as the name or even the start date. One of the elementary options here is the time frame, notably the “Duration (in days)” option. This defines the period for which an “Access Review” is available and reviewers can make entries. The number of days possible here again depends on whether and which “Frequency” is selected, as the duration must not be longer than the number of days in the selected period, otherwise time overlaps will occur during the reviews. For our example, we select the weekly interval and 1 day for the duration. You can specify more than one role, but for our example we will limit ourselves to the role “Global Reader”.
-Further down in the dialog you specify the already mentioned reviewers. If there are several decision makers in your department, it may make sense to specify all of them here. If one of them starts the check, the list will later show for which user accounts the membership was approved or denied and also who decided this.</p>
-
-<h2 id="fine-tuning-for-access-control">Fine tuning for access control</h2>
-
-<p>At the very bottom of the dialog there is still the possibility of “fine tuning” via some advanced settings. Here you can specify whether accounts are actually removed or not. If no, this is only logged, which is useful for a test phase, for example. Especially worth mentioning at this point is the possibility to define what should happen if the reviewer(s) do not react. “No changes”, “Remove access”, “Approve access” or “Follow recommendations”. In the case of the latter, the system decides on the continued existence of the membership. For example, has a user not logged in for a period of 30 days? In that case, the role membership would be removed. Also hidden, but possibly very useful, is the possibility to select “Members (self)” in the checker. As the name already conveys, no other persons are requested to check, but the members themselves. This kind of check is basically a “knot in the handkerchief” that the administrator makes himself here to be reminded of the membership. An administratively probably rather rare scenario, but if the admin wants it, the option can certainly provide valuable services.</p>
-
-<h2 id="access-reviews-vs-dynamic-groups">Access Reviews vs. Dynamic Groups</h2>
-
-<p>When using access reviews for Azure AD groups, it is worth mentioning the possibility of dynamic groups, which permanently fill the security groups with members based on query rules. This can replace access checks and may be a more elegant way to deal with members, as the admin does not have to worry about anything else with a well-defined query. Of course, this only applies to groups where dynamic membership is appropriate and not to roles and enterprise applications, as there is no dynamic assignment here. Here, it is important to plan well and make an approach for access reviews or a dynamic group in advance.
-Access reviews also show up in various other places in Azure AD, such as access packages. The methodology behind this is always the same and analogous to that described here.</p>
-
-<p>Cover image Mohamed Hassan from Pixabay</p>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-
-<div class="share-box">
-<h5>Share this:</h5>
-
-<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2021-01-19-ZeroTrust-AR/" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
--->
-
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-01-19-ZeroTrust-AR/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
-
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-01-19-ZeroTrust-AR/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Automatic membership reminder]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-19-ZeroTrust_AR_cover.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Keep an eye to the most sensitive accounts in your Azure AD]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-01-22-ZeroTrust%20Monitoring_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
