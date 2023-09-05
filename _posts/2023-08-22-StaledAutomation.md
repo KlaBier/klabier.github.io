@@ -20,14 +20,14 @@ image:
 {:toc}
 
 ## Überblick
-Du findest in meinem Powershell-Repository ([Link](https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects)) einige Cmdlets aus dem Microsoft-Graph-Modul. Diese Cmdlets helfen, Benutzer- und Computerobjekte in Microsoft Entra ID zu identifizieren, die längere Zeit nicht benutzt wurden. Dabei wird auf den Zeitstempel der letzten Nutzung der Objekte zurückgegriffen. Im Repository sind Beispiele und Anregungen enthalten, wie die Cmdlets angewendet werden können. Das kann helfen, manuell Listen zu erstellen und die Ergebnisse in CSV-Dateien oder direkt in XLSX-Dateien abzulegen. Schau gerne in meinen Blog Beitrag für Details zu diesem Thema ([Link](https://nothingbutcloud.net/2023-03-22-FindStaledObjectsInAAD/))
+Du findest in meinem Powershell-Repository ([Link](https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects)) einige Cmdlets aus dem Microsoft-Graph-Modul. Diese Cmdlets helfen, Benutzer- und Computerobjekte in Microsoft Entra ID zu identifizieren, die längere Zeit nicht benutzt wurden. Dabei wird auf den Zeitstempel der letzten Nutzung der Objekte zurückgegriffen. Im Repository sind Beispiele und Anregungen enthalten, wie die Cmdlets angewendet werden können. Das kann helfen, manuell Listen zu erstellen und die Ergebnisse in CSV-Dateien oder direkt in XLSX-Dateien abzulegen. Schau gerne in meinen Blog Beitrag für Details zu diesem Thema ([The dilemma with unused objects in Azure AD](https://nothingbutcloud.net/2023-03-22-FindStaledObjectsInAAD/))
 
 Wenn du die Befehle aus den Beispielen verwenden möchtest, um diese Vorgänge automatisiert in Azure zu starten, hast du verschiedene Möglichkeiten. Eine Logic App oder ein Automation-Konto bieten sich hierfür an. Im Folgenden findest du eine Schritt-für-Schritt-Anleitung zur Einrichtung eines Automation-Kontos, mitsamt den notwendigen Skripten und allem, was in Azure dazu gehört. Einmal Implementiert brauchst du dich dann um nichts mehr kümmern und erhältst regelmäßig die Exceldatei mit seit längerem unbenutzten Objekten.
 
 Grundlage für den Aufbau des Automation-Kontos ist folgender Artikel von Microsoft:
 ([Automatisieren von Microsoft Entra Identity Governance-Aufgaben über Azure Automation und Microsoft Graph](https://learn.microsoft.com/de-de/azure/active-directory/governance/identity-governance-automation))
 
-Wir bauen hier in diesem Beitrag auf das von Microsoft beschriebene Stzenario auf und ergänzen das Setup mit den relevanten Technologien, die notwendig sind, damit der Automatismus den Anforderungen für das Ermitteln ungenutzter Computer- und Benutzerobjekte folgt. Hierfür integrieren wir beispielsweise die Graph-Module, kümmern uns um die relevanten Graph-Berechtigungen und sorgen dafür, dass die Ergebnisse als Excel regelmäßig in einem Speicherkonto laden.
+Wir bauen hier in diesem Beitrag auf das von Microsoft beschriebene Stzenario auf und ergänzen das Setup mit den relevanten Technologien, die notwendig sind, damit der Automatismus den Anforderungen für das Ermitteln ungenutzter Computer- und Benutzerobjekte folgt. Hierfür integrieren wir beispielsweise die Graph-Module, kümmern uns um die relevanten Graph-Berechtigungen und sorgen dafür, dass die Ergebnisse als Excel regelmäßig in einem Speicherkonto landen.
 
 Zusammenfassend findest du hier eine Anleitung für das Setup folgender Technologien:
 
@@ -45,7 +45,7 @@ Weitere Informationen zum Erstellen selbstsignierter Zertifikate findest du in f
 
 **➔ Hinweis:**
 Selbstsignierte Zertifikate sollten für den produktiven Einsatz vermieden werden, da sie nicht von einer vertrauenswürdigen Zertifizierungsstelle ausgestellt wurden. Wenn du die Möglichkeit hast, ein Zertifikat von einer autorisierten Zertifizierungsstelle zu beziehen, ist dies der empfohlene Weg. Du musst dabei sicherstellen, das neben dem öffentlichen Schlüssel der private Schlüssel ebenfalls exportiert werden kann, da beides für den Import in Azure und Microsoft Entra ID benötigt wird. Im vorliegenden Beispiel halte ich jedoch ein selbstsigniertes Zertifikat für unbedenklich, da es nur für die Authentifizierung der App-Registrierung eingesetzt wird, die meiner Meinung nach unkritisch ist.
-Alternativ ließe sich auch ein Secret für die Authentifizierung in der App-Registrierung verwenden. Ich persönlich verzichte jedoch gerne auf Secrets. Sie erfordern den Umgang (notieren, kopieren, einfügen, ...) mit dem Secret-Wert, der im Grunde nichts anderes als ein Passwort ist. Wenn du mehr zum Thema Secrets wissen möchtest, schau doch mal in folgendem Blog Beitrag von mir ([Link](https://nothingbutcloud.net/2023-01-07-GetSecretInfos)), Secrets haben nämlich noch mehr Nachteile.
+Alternativ ließe sich auch ein Secret für die Authentifizierung in der App-Registrierung verwenden. Ich persönlich verzichte jedoch gerne auf Secrets. Sie erfordern den Umgang (kopieren, einfügen, ...) mit dem Secret-Wert, der im Grunde nichts anderes als ein Passwort ist. Wenn du mehr zum Thema Secrets wissen möchtest, schau doch mal in folgendem Blog Beitrag von mir ([Check your Azure AD for expiring App Secrets](https://nothingbutcloud.net/2023-01-07-GetSecretInfos)), Secrets haben nämlich noch mehr Nachteile.
 
 Wir entscheiden uns also für das Zertifikat und wenn du es mit den Cmdlets generierst und exportierst sollte dein Bildschirm in etwas wie folgt aussehen:
 
@@ -254,7 +254,7 @@ Testen des Powershell Runbooks
 
 Bei Unstimmigkeiten sind die Fehlermeldungen in der Regel selbsterklärend. Eine Fehleranalyse sollte keine allzu große Hürde darstellen, da es sich hierbei wohl um Tippfehler oder ähnliches handelt.
 Das Bildschirmprotokoll ist länger als hier sichtbar. Fehlermeldungen können außerhalb des Fensterinhalts liegen. Du kannst im Ausgabebereich nach oben scrollen und nachsehen, ob irgendwo ein Fehler protokolliert wurde. 
-Es kann irreführend sein, dass immer "Completed" in grün angezeigt wird, auch wenn außerhalb des Ausgabefensters Hinweise auf einen Fehler hinweisen und somit der "Status" keineswegs grün ist.
+Es kann irreführend sein, dass immer "Completed" in grün angezeigt wird, auch wenn außerhalb des Ausgabefensters Hinweise auf einen Fehler deuten und somit der "Status" keineswegs grün ist.
 
 [![StaledAutomation_30](/MyPics/2023-08-22-StaledAutomation_30.png)](/MyPics/2023-08-22-StaledAutomation_30.png){:target="_blank"}
 Fehler beim Testen des Powershell Runbooks
@@ -295,7 +295,7 @@ Das Runbook sieht im Automation-Konto abschließend wir folgt aus:
 **➔ Zusammenfassung:**
 Ein Automation-Konto bietet zahlreiche Gestaltungsmöglichkeiten. Mein Beispiel zeigt einige der vielfältigen Optionen die Automation bietet. Grenzen sind hier die Fantasie des Administrators.
 
-Warum nicht ein neues Runbook im Automation-Konto erstellen, das die Excel-Datei nimmt und Computerkonten direkt deaktiviert oder halbjährlich löscht? Ähnliches lässt sich auch mit Benutzerkonten verwirklichen.
+Warum nicht ein neues Runbook im Automation-Konto erstellen, das die Excel-Datei auswertet und Computerkonten direkt deaktiviert oder halbjährlich löscht? Über ein Flag beispielsweise. Ähnliches lässt sich auch mit Benutzerkonten verwirklichen.
 
 Ich wünsche dir viel Erfolg im administrativen Umgang mit unbenutzten Identitäten und mit dem hier beschriebenen Setup.
 
@@ -306,7 +306,7 @@ Zu guter Letzt sei dir noch folgender Microsoft Artikel empfohlen:
 ([Ausführen von Runbooks in Azure Automation](https://learn.microsoft.com/de-de/azure/automation/automation-runbook-execution))
 
 ## Overview (English version)
-You can find some cmdlets from the Microsoft Graph module in my Powershell repository ([link](https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects)). These cmdlets help to identify user and computer objects in Microsoft Entra ID that have not been used for a long time. This is done by reverting to the timestamp of the last time the objects were used. The repository contains examples and suggestions on how to apply the cmdlets. This can help to manually create lists and store the results in CSV files or directly in XLSX files. Feel free to check out my blog post for details on this topic ([link](https://nothingbutcloud.net/2023-03-22-FindStaledObjectsInAAD/)).
+You can find some cmdlets from the Microsoft Graph module in my Powershell repository ([link](https://github.com/KlaBier/Powershell/tree/main/FindUnusedObjects)). These cmdlets help to identify user and computer objects in Microsoft Entra ID that have not been used for a long time. This is done by reverting to the timestamp of the last time the objects were used. The repository contains examples and suggestions on how to apply the cmdlets. This can help to manually create lists and store the results in CSV files or directly in XLSX files. Feel free to check out my blog post for details on this topic ([The dilemma with unused objects in Azure AD](https://nothingbutcloud.net/2023-03-22-FindStaledObjectsInAAD/)).
 
 If you want to use the commands from the examples to run these operations automatically in Azure, you have several options. A Logic App or an Automation Account are good options. Below are step-by-step instructions on how to set up an Automation Account, including the necessary scripts and everything that goes with it in Azure. Once implemented, you won't have to worry about anything and will regularly receive the Excel file with objects that have been unused for a while.
 
@@ -331,7 +331,7 @@ For more information about creating self-signed certificates, see the following 
 
 **➔ Note:**
 Self-signed certificates should be avoided for productive use because they are not issued by a trusted certificate authority. If you have the possibility to obtain a certificate from an authorized certification authority, this is the recommended way. You have to make sure that besides the public key the private key can be exported as well, since both are needed for the import into Azure and Microsoft Entra ID. In this example, however, I consider a self-signed certificate to be harmless, since it is only used for the authentication of the app registration, which is not critical in my opinion.
-Alternatively, a secret could also be used for authentication in the app registry. However, I personally like to do without Secrets. They require handling (copy, paste, ...) the Secret value, which is a kind of a password. If you want to know more about Secrets, have a look at the following blog post of mine ([Link](https://nothingbutcloud.net/2023-01-07-GetSecretInfos)), because Secrets have even more disadvantages.
+Alternatively, a secret could also be used for authentication in the app registry. However, I personally like to do without Secrets. They require handling (copy, paste, ...) the Secret value, which is a kind of a password. If you want to know more about Secrets, have a look at the following blog post of mine ([Check your Azure AD for expiring App Secrets](https://nothingbutcloud.net/2023-01-07-GetSecretInfos)), because Secrets have even more disadvantages.
 
 So we decide to use the certificate and when you generate and export it with the cmdlets your screen should look something like this:
 
