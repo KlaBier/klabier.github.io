@@ -8,6 +8,8 @@ Please find below a list of my publications. This are official publications and 
 
 | Article:                                                     | Published:                                               |
 | ------------------------------------------------------------ | --------------------------------------------------------- |
+| **Erscheint im Dez. 2023 - Screencast: Zero Trust für Admins**                     | December 2023, [Heise Academy Autorenseite](https://heise-academy.de/experten/klaus-bierschenk){:target="_blank"}                              |
+| **Ausgemistet - nicht mehr genutzte Entra-ID Koten ermitteln**                     | October 2023, IT-Administrator                              |
 | **MS Entra - Lifecycle Workflows**                     | March 2023, IT-Administrator                              |
 | **AD Management - Active Directory Health Check**                     | December 2022, ADMIN-MAGAZINE, Security, Linux New Media USA                                    |
 | **ADNetTools - Swiss Army knife for AD On-Prem**                     | August 2022, IT-Administrator                                    |
