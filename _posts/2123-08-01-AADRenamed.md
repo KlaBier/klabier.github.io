@@ -1,12 +1,7 @@
 ---
 title: "Azure AD renamed"
 author: Klaus Bierschenk
-date: 2023-10-01T08:00:32
-
-layout: list
-
-image:
-  path: /MyPics/2023-08-10-StaledAutomation_Cover.png
+date: 2123-10-01T08:00:23-08-10-StaledAutomation_Cover.png
 ---
 
 <figure>
