@@ -1,3 +1,4 @@
+
 source "https://rubygems.org"
 
 # Hello! This is where you manage which Jekyll version is used to run.
@@ -44,7 +45,7 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-titles-from-headings"
   gem "jekyll-include-cache"
- # gem "kramdown"
+  gem "kramdown"
 
   # Non-Github Pages plugins:
   gem "jekyll-last-modified-at"
