@@ -1,5 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-05-04T13:45:03+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
-</subtitle><entry><title type="html">Group Writeback in Entra Cloud Sync</title><link href="http://localhost:4000/2024-05-01-GroupWriteBack/" rel="alternate" type="text/html" title="Group Writeback in Entra Cloud Sync" /><published>2024-05-01T10:00:32+02:00</published><updated>2024-05-01T18:41:18+02:00</updated><id>http://localhost:4000/GroupWriteBack</id><content type="html" xml:base="http://localhost:4000/2024-05-01-GroupWriteBack/"><![CDATA[<figure>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-06-24T14:44:17+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
+</subtitle><entry><title type="html">European Cloud Summit ´24 Conference session</title><link href="http://localhost:4000/2024-05-16-ECS_24/" rel="alternate" type="text/html" title="European Cloud Summit ´24 Conference session" /><published>2024-05-16T21:13:32+02:00</published><updated>2024-06-24T14:44:17+02:00</updated><id>http://localhost:4000/ECS_24</id><content type="html" xml:base="http://localhost:4000/2024-05-16-ECS_24/"><![CDATA[<figure>
+  <img src="/MyPics/2024-05-16-ECS_24_Cover.png" style="width:75%" />
+  <figcaption>Figure 1: ECS @ Wiesbaden</figcaption>
+</figure>
+
+<h2 id="session-from-the-european-cloud-summit-in-wiesbaden">Session from the European Cloud Summit in Wiesbaden</h2>
+
+<p>Great days in Wiesbaden at the European Cloud Summit.</p>
+
+<p>I talked about Hybrid setups, one of my favorite topics in hybrid setups. We had a bit trouble starting the presentation on my Macbook because the projector hardware HDMI didn’t want to work the way I wanted it to. But in the end we fixed it and I have enjoyed speaking at ECS and being part of the speaker community at <a href="https://cloudsummit.eu/">European Cloud Summit 2024</a></p>
+
+<p> </p>
+
+<p class="figcaption"><a href="/MyPics/2024-05-16-ECS_24_2.png" target="_blank"><img src="/MyPics/2024-05-16-ECS_24_2.png" alt="ECS_1" /></a>
+Figure 1:</p>
+
+<p> </p>
+
+<p class="figcaption"><a href="/MyPics/2024-05-16-ECS_24_1.png" target="_blank"><img src="/MyPics/2024-05-16-ECS_24_1.png" alt="ECS_2" /></a>
+Figure 2: last session of the day, but still well attended</p>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<div class="share-box">
+<h5>Share this:</h5>
+
+<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2024-05-16-ECS_24/" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
+-->
+
+<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2024-05-16-ECS_24/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
+'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
+
+<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2024-05-16-ECS_24/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Figure 1: ECS @ Wiesbaden]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2024-05-16-ECS_24_Cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2024-05-16-ECS_24_Cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Group Writeback in Entra Cloud Sync</title><link href="http://localhost:4000/2024-05-01-GroupWriteBack/" rel="alternate" type="text/html" title="Group Writeback in Entra Cloud Sync" /><published>2024-05-01T10:00:32+02:00</published><updated>2024-05-01T18:41:18+02:00</updated><id>http://localhost:4000/GroupWriteBack</id><content type="html" xml:base="http://localhost:4000/2024-05-01-GroupWriteBack/"><![CDATA[<figure>
   <img src="/MyPics/2024-05-01-GroupWriteBack_Cover.png" style="width:75%" />
 </figure>
 
@@ -1784,57 +1818,4 @@ If everything is in order up to this point (which is to be assumed), the existin
 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
 
 <a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-09-10-CloudIdentitySummit_21/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Figure 1: Cloud Identity Summit '21 Teaser]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to change language in M365 Portal for a synchronized identity</title><link href="http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/" rel="alternate" type="text/html" title="How to change language in M365 Portal for a synchronized identity" /><published>2021-07-04T00:01:32+02:00</published><updated>2024-03-18T20:04:59+01:00</updated><id>http://localhost:4000/ChangeLanguageinM365Portal</id><content type="html" xml:base="http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/"><![CDATA[<figure>
-  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" style="width:60%" />
-</figure>
-
-<h2 id="puzzling-why-language-can-not-be-changed-in-m365-portal-for-synced-users">Puzzling why language can not be changed in M365 Portal for synced users?</h2>
-
-<p>Changing the language in the Azure portal instead is quite simple. Just click on the gear icon in the upper right corner and then on the language item, change it, save and you’re done. And the whole thing in the Azure Portal is independent of whether you are currently working with a cloud-only identity or with a synchronized account. So far so good 😃</p>
-
-<p>However, there is one issue in my daily life that I have been wondering about and putting off for quite some time. Whenever I work with a synchronized account in the M365 Admin portal and try to change the language there, the following message is shown:</p>
-
-<p>if the language is in German</p>
-
-<figure>
-  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_II.png" style="width:75%" />
-  <figcaption>Figure 1: Language Setting in German</figcaption>
-</figure>
-
-<p>and when you have set it already in English language</p>
-
-<figure>
-  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_IV.png" style="width:75%" />
-  <figcaption>Figure 2: Language setting in English</figcaption>
-</figure>
-
-<p>Now the whole thing becomes clumsy at last when you are the administrator yourself, as in my case. In my daily work the language was German, it was ok and the whole thing does not belong to my main issues. But whenever I try to change the language, I wonder at which central place this setting has to be made? On the myaccount.microsoft.com page? Or in some other place in the M365 portal?</p>
-
-<p>This week I didn’t have the topic with the language in the M365 portal present at all and I was in completely different topics in the Active Directory and with the attributes. But after looking through the list of attributes, I noticed the <strong>preferredLanguage</strong> attribute</p>
-
-<figure>
-  <img src="/MyPics/2021-06-23-ChangeLanguageinM365Portal_III.png" style="width:50%" />
-  <figcaption>Figure 3: Use Attribute "preferredLanguage" to set requested language</figcaption>
-</figure>
-
-<p>I remembered the language in the Microsoft 365 portal and indeed the attribute is used to set the language in Microsoft 365 in the form of the “Language Culture Names”. So <strong>de-DE</strong> stands for German and <strong>en-US</strong> for English - United States etc.. You can find an overview of the codes here:
-<a href="https://docs.microsoft.com/en-us/previous-versions/commerce-server/ee825488(v=cs.20)?redirectedfrom=MSDN">Table of Language Culture Names</a></p>
-
-<p>My first thought was, not really consistent from Microsoft to control the language behavior differently in two portals (Azure / M365), at least for synchronized identities. But the language is not changed too often and managing it centrally in on-premises for accounts originating there can make sense. After all, many other settings are also administered there, why not the language as well?</p>
-
-<p>Cover image by Mary Pahlke from Pixabay</p>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-
-<div class="share-box">
-<h5>Share this:</h5>
-
-<!--<a class="t" href="https://twitter.com/intent/tweet?text=&url=http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter fa"></i><span> twitter</span></a>
--->
-
-<a class="l" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/&amp;title=&amp;summary=&amp;source=webjeda" onclick="window.open(this.href, 'mywin',
-'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><i class="fa fa-linkedin fa"></i><span> linkedin</span></a>
-
-<a class="e" href="mailto:?subject=&amp;body=Check out this site http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/"><i class="fa fa-envelope fa"></i><span> email</span></a>                          
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-06-23-ChangeLanguageinM365Portal_cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name></name></author><summary type="html"><![CDATA[Figure 1: Cloud Identity Summit '21 Teaser]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" /><media:content medium="image" url="http://localhost:4000/MyPics/2021-09-30-CloudIdentitySummit_21_Cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
