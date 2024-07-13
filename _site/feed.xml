@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-06-24T15:11:07+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
-</subtitle><entry><title type="html">European Cloud Summit ´24 Conference session</title><link href="http://localhost:4000/2024-05-16-ECS_24/" rel="alternate" type="text/html" title="European Cloud Summit ´24 Conference session" /><published>2024-05-16T21:13:32+02:00</published><updated>2024-06-24T15:11:07+02:00</updated><id>http://localhost:4000/ECS_24</id><content type="html" xml:base="http://localhost:4000/2024-05-16-ECS_24/"><![CDATA[<figure>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-07-13T14:57:44+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">NothingButCloud</title><subtitle>Hydejack is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress.
+</subtitle><entry><title type="html">European Cloud Summit ´24 Conference session</title><link href="http://localhost:4000/2024-05-16-ECS_24/" rel="alternate" type="text/html" title="European Cloud Summit ´24 Conference session" /><published>2024-05-16T21:13:32+02:00</published><updated>2024-07-13T14:57:44+02:00</updated><id>http://localhost:4000/ECS_24</id><content type="html" xml:base="http://localhost:4000/2024-05-16-ECS_24/"><![CDATA[<figure>
   <img src="/MyPics/2024-05-16-ECS_24_Cover.png" style="width:75%" />
   <figcaption>Figure 1: ECS @ Wiesbaden</figcaption>
 </figure>
@@ -8,17 +8,26 @@
 
 <p>Great days in Wiesbaden at the European Cloud Summit.</p>
 
-<p>I talked about synchronization scenarios, one of my favorite topics in hybrid setups. We had a bit trouble starting the presentation on my Macbook because the projector hardware HDMI didn’t want to work the way I wanted it to. But in the end we fixed it and I have enjoyed speaking at ECS and being part of the speaker community at <a href="https://cloudsummit.eu/">European Cloud Summit 2024</a></p>
+<p>I talked about synchronization scenarios, one of my favorite topics in hybrid setups and I enjoyed speaking at ECS and being part of the speaker community <a href="https://cloudsummit.eu/">European Cloud Summit 2024</a></p>
 
-<p> </p>
+<p>Please find my slides here: <a href="/MySlides/20240516_CloudSummit_IdentitiesEverywhere.pdf">Session slides</a></p>
 
-<p class="figcaption"><a href="/MyPics/2024-05-16-ECS_24_2.png" target="_blank"><img src="/MyPics/2024-05-16-ECS_24_2.png" alt="ECS_1" /></a>
+<p>… and some insights below :-)</p>
+
+<p class="figcaption"> 
+<a href="/MyPics/2024-05-16-ECS_24_1.png" target="_blank"><img src="/MyPics/2024-05-16-ECS_24_1.png" alt="ECS_1" /></a>
 Figure 1:</p>
-
 <p> </p>
 
-<p class="figcaption"><a href="/MyPics/2024-05-16-ECS_24_1.png" target="_blank"><img src="/MyPics/2024-05-16-ECS_24_1.png" alt="ECS_2" /></a>
-Figure 2: last session of the day, but still well attended</p>
+<p class="figcaption"><a href="/MyPics/2024-05-16-ECS_24_2.png" target="_blank"><img src="/MyPics/2024-05-16-ECS_24_2.png" alt="ECS_2" /></a>
+Figure 2: Agrenda for today</p>
+
+<p class="figcaption"><a href="/MyPics/2024-05-16-ECS_24_3.png" target="_blank"><img src="/MyPics/2024-05-16-ECS_24_3.png" alt="ECS_3" /></a>
+Figure 3:</p>
+
+<p class="figcaption"> 
+<a href="/MyPics/2024-05-16-ECS_24_4.png" target="_blank"><img src="/MyPics/2024-05-16-ECS_24_4.png" alt="ECS_4" /></a>
+Figure 4: last session of the day, but still well attended</p>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 

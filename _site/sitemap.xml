@@ -78,7 +78,7 @@
 </url>
 <url>
 <loc>http://localhost:4000/2024-05-16-ECS_24/</loc>
-<lastmod>2024-06-24T15:11:07+02:00</lastmod>
+<lastmod>2024-07-13T14:57:44+02:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/Posts/</loc>
@@ -119,6 +119,10 @@
 <url>
 <loc>http://localhost:4000/MySlides/20240307_SecIT_2.0.pdf</loc>
 <lastmod>2024-03-07T19:18:53+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/MySlides/20240516_CloudSummit_IdentitiesEverywhere.pdf</loc>
+<lastmod>2024-07-13T14:40:16+02:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/MySlides/Meetup_10.06.2021.pdf</loc>
