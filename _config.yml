@@ -32,7 +32,7 @@ description:           >
 tagline:               Klaus Bierschenk - Azure and Identity Enthusiast. Author and public speaker
 
 # A list of keywords for your blog
-keywords:              [Identity, AzureAD]
+keywords:              [Identity, AzureAD, Entra, Cloud Sync, Cloud Connect, Zero Trust]
 
 favicon: assets/icons/KlausCartoon.ico
 #apple_touch_icon: /assets/img/logo.png
@@ -51,11 +51,14 @@ logo:                  /MyPics/Klaus.jpeg
   #twitter:             klabier
 
 # Add links to the sidebar.
+
 menu:
   - title:             Posts
     url:               /Posts/
   - title:             Publications
     url:               /publications/
+  - title:             Conferences / Talks
+    url:               /talks/
   - title:             About
     url:               /about/
 
@@ -313,6 +316,11 @@ collections:
   projects:
     permalink:         /projects/:path/
     output:            true
+
+  talks:
+    permalink:         /talks/:path/
+    output:            true
+
 
 
 # File inclusion/exclusion

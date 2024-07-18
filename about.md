@@ -1,6 +1,6 @@
 ---
 layout: about
-#image: /MyPics/Klaus_BW.jpeg
+image: /MyPics/Klaus_BW.jpeg
 
 # If active then this is shown at the top of the post
 description: >
