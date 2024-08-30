@@ -10,9 +10,9 @@ https://heise-academy.de/Videokurse/entra-id-neuerungen-q2-2024
 
 | Article:                                                     | Published:                                               |
 | ------------------------------------------------------------ | --------------------------------------------------------- |
-| **Screencast: Entra ID - Neuerungen in Q2/2024 (7 Videos, 48min)**                     | Juni 2024, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/synchronisation-von-identitaten-entra-connect-sync){:target="_blank"}                              |
+| **Screencast: Entra ID - Neuerungen in Q2/2024 (7 Videos, 48min)**                     | Juni 2024, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/entra-id-neuerungen-q2-2024){:target="_blank"}                              |
 | **Screencast: Synchronisation von Identitäten: Entra Connect Sync (16 Videos, 1:53h)**                     | Juni 2024, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/synchronisation-von-identitaten-entra-connect-sync){:target="_blank"}                              |
-| **Screencast: Entra ID - Neuerungen in Q1/2024 (6 Videos, 45min)**                     | April 2023, [Heise Academy Autorenseite](https://heise-academy.de/experten/klaus-bierschenk){:target="_blank"}                              |
+| **Screencast: Entra ID - Neuerungen in Q1/2024 (6 Videos, 45min)**                     | April 2023, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/entra-id-neuerungen-q1-2024){:target="_blank"}                              |
 |**Screencast: Zero Trust für Admins (64 Videos, 5h)**                     | December 2023, [Heise Academy Autorenseite](https://heise-academy.de/experten/klaus-bierschenk){:target="_blank"}                              |
 | **Ausgemistet - nicht mehr genutzte Entra-ID Koten ermitteln**                     | October 2023, IT-Administrator                              |
 | **MS Entra - Lifecycle Workflows**                     | March 2023, IT-Administrator                              |
