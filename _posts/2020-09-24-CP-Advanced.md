@@ -14,7 +14,7 @@ image:
 
 Last year at Ignite 2019, Microsoft introduced the Public Preview of Azure AD Cloud Provisioning (CP), wich was available shortly after the event.
 
-One year later, at all-digital Microsoft Ignite 2020, from September, 22-24, Microsoft announced some news in several sessions and talks about that new synchronization method, which is very interesting and make it more and more a complete solution. Microsoft called it  "Public Preview Refresh" and it will be availlable in October 2020.
+One year later, at all-digital Microsoft Ignite 2020, from September, 22-24, Microsoft announced some news in several sessions and talks about that new synchronization method, which is very interesting and make it more and more a complete solution. Microsoft called it  "Public Preview Refresh" and it will be available in October 2020.
 
 ## Whats in the box today?
 
@@ -55,7 +55,7 @@ I checked the CP environment for logging information, but this seems to be a cha
 
 Same with the log in the Cloud Provisioning Portal. Here the Admin will find rudimentary informations. Alltogether troubleshooting is a challenge with the logging capabilities at the moment.
 
-At Ignite Microsoft announces improvements with the logging in Cloud Provisioning for the GA version, when this becomes availlable by the end of 2020.
+At Ignite Microsoft announces improvements with the logging in Cloud Provisioning for the GA version, when this becomes available by the end of 2020.
 
 ## Tricky Attribute Mappings and Transformations with Microsoft Graph
 
@@ -135,7 +135,7 @@ At Ignite Microsoft announces those changes with the following timeline:
 - Accidental Deletes prevention
 - Attribute Mapping and transformations in the user interface
 
-<u>GA should be availlable by the end of the year with the following features</u>
+<u>GA should be available by the end of the year with the following features</u>
 
 - Password writeback (SSPR)
 - Synchronization of up to 150k AD Objects
