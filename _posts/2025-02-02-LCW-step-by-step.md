@@ -249,7 +249,7 @@ Figure 24: This is how our e-mail looks like
 
 Enjoy trying it out 😀
 
-... and ket me know, when you have hints, problems, questions, ...
+... and ket me know, when you have hints, problems, questions, using the e-mail option below
 
 Cover designed by vectorjuice / Freepik
 
