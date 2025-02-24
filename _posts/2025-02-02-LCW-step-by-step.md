@@ -24,7 +24,7 @@ Lifecycle Workflows are a fantastic way to trigger reactions based on user infor
 
 Other triggers for workflows can include changes in group memberships or modifications to a user account, such as updates to the **"Department"** attribute or any other attribute.
 
-In this [Article](https://learn.microsoft.com/en-us/entra/identity/hybrid/cloud-sync/how-to-configure-entra-to-active-directory) Microsoft describes this topic with a focus in the Identity Governance Dashboard. Interaction of Lifecycle Workflow and the Custom Extension Logic App is not part of this document.
+In this [Article](https://learn.microsoft.com/en-us/entra/identity/hybrid/cloud-sync/how-to-configure-entra-to-active-directory) Microsoft describes this topic with a focus in the Identity Governance Dashboard. The interaction of Lifecycle Workflows with the Custom Extension Logic App and the details of the setup of actions in the Designer are not part of this document.
 
 And if you’re new to the subject and not very familiar with Lifecycle Workflows, especially Custom Extensions and Logic Apps, you may quickly run into challenges when trying to set this up in a lab environment. In addition to the Microsoft examples, there are many great examples that describe working with Custom Extensions. However, I’ve noticed that most of them assume prior knowledge of Logic Apps, which not everyone may have. Especially, the parameterization of actions and the interaction with User Identity Informations can be challenging at various points.
 
@@ -68,8 +68,7 @@ Figure 4: Custom Extension is created... next steps are waiting in the Logic App
 {:.figcaption}
 
 Once the extension has been created along with the Logic App, the next step is to set up the Logic App. In our example, I created the Logic App directly from the Lifecycle Workflow dashboard, so the app is already pre-configured and we can get started right away. However, it is also possible to use an existing Logic App; in this case, some additional steps are required to deploy the app.
-You can find more information on this in this Microsoft article.
-https://learn.microsoft.com/en-us/entra/id-governance/configure-logic-app-lifecycle-workflows
+You can find more information on this in this Microsoft [Article](https://learn.microsoft.com/en-us/entra/id-governance/configure-logic-app-lifecycle-workflows).
 
 The managed identity created with the Logic App must be initially authorized.
 
@@ -79,7 +78,7 @@ To do this, we retrieve the ID of the service principal, which you can find in t
 Figure 5: Logic App has it's own Service Principal
 {:.figcaption}
 
-For our example, it is sufficient to assign the Directory Reader role.
+For our example, it is sufficient to assign the Directory Reader Role to the Service Principal.
 
 Depending on the actions performed by the Logic App, additional permissions may be required, as the workflow runs in the context of the service principal.
 
@@ -231,7 +230,7 @@ That’s it for now. Our Custom Extension can now be used within your Lifecycle 
 
 Additional information:
 This setup is like a Lego set – it can be expanded and customized as needed.
-Jan Bakker, in his example, sent an SMS and included a TAP. His post was great and inspired me to build my example. Thanks for that!
+Jan Bakker, in his [Example (Link here)](https://janbakker.tech/automate-issuing-temporary-access-pass-for-joiners-with-lifecycle-workflows/), sent an SMS and included a TAP. His post was great and inspired me to build my example. Thanks for that!
 
 But these are just ideas of what you can do with this functionality, and it is meant to inspire you to implement your own requirements using Lifecycle Workflows.
 
@@ -245,7 +244,7 @@ Our example email, sent to the new employee’s private email address, looks lik
 Figure 24: This is how our e-mail looks like
 {:.figcaption}
 
-“I hope this has helped you get a better understanding of the aspects of Lifecycle Workflows, Custom Extensions, and Logic Apps. 
+“I hope this has helped you get a better understanding of the aspects of Lifecycle Workflows, Custom Extensions and Logic Apps. 
 
 Enjoy trying it out 😀
 
