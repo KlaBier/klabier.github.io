@@ -244,7 +244,7 @@ Our example email, sent to the new employee’s private email address, looks lik
 Figure 24: This is how our e-mail looks like
 {:.figcaption}
 
-“I hope this has helped you get a better understanding of the aspects of Lifecycle Workflows, Custom Extensions and Logic Apps. 
+I hope this has helped you get a better understanding of the aspects of Lifecycle Workflows, Custom Extensions and Logic Apps. 
 
 Enjoy trying it out 😀
 
