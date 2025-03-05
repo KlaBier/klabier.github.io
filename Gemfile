@@ -59,4 +59,10 @@ gem "tzinfo-data" if Gem.win_platform?
 
 gem "jekyll-avatar"
 
+gem 'csv'
+gem 'logger'
+gem 'base64'
+
 #gem "github-pages"
+
+gem "bigdecimal", "~> 3.1"

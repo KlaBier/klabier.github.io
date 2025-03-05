@@ -20,7 +20,7 @@ But where to start when you have a bunch of applications relying in ADFS?
 
 Or when you might have a relying party to M365 with your federated Azure AD Domain?
 
-Then there are a couple of activities waiting for you ...
+Then there are a couple of activities waiting for you ....
 
 I attended some sessions last year on shutting down ADFS, and in migrating Relying Party Trusts from ADFS to Azure AD Enterprise Applications, for enduser SSO experiences. From those events and talks I got my own short archive with a list of articles and videos from Microsoft which covers related topics.
 
