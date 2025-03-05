@@ -64,5 +64,3 @@ gem 'logger'
 gem 'base64'
 
 #gem "github-pages"
-
-gem "bigdecimal", "~> 3.1"
