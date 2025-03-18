@@ -34,7 +34,7 @@ Back to our warning rule: figure (KQL group change.png) shows the basic statemen
 
 <figure class="medium">
   <a href="/MyPics/2021-01-22-ZeroTrust Monitoring_I.png"><img src="/MyPics/2021-01-22-ZeroTrust Monitoring_I.png"></a>
-  <figcaption>KQL is essential for defining the Alert Rule</figcaption>
+  <figcaption>KQL is essential for defining the Alert-Rule</figcaption>
 </figure>
 
 The statement is stripped down to the bare essentials and could still be drilled down, for example to include a temporal filter. In the lower area of the results you can see which values the result still provides, which are therefore part of the log entry. In addition to the account that the BGA group has changed, the account that has been added to the group is also visible here.
