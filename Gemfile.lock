@@ -114,7 +114,7 @@ PLATFORMS
 
 DEPENDENCIES
   base64
-  bigdecimal (~> 3.1)
+  bigdecimal
   csv
   jekyll (~> 4.1)
   jekyll-avatar
