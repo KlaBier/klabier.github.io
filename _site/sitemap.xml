@@ -29,10 +29,6 @@
 <lastmod>2025-03-05T18:07:52+01:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/2021-01-22-ZeroTrust-Monitoring/</loc>
-<lastmod>2025-03-18T13:25:01+01:00</lastmod>
-</url>
-<url>
 <loc>http://localhost:4000/2021-07-04-ChangeLanguageinM365Portal/</loc>
 <lastmod>2025-03-05T18:07:52+01:00</lastmod>
 </url>
@@ -55,6 +51,10 @@
 <url>
 <loc>http://localhost:4000/2024-05-01-GroupWriteBack/</loc>
 <lastmod>2025-03-05T18:07:52+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2024-11-25-ZeroTrust-Monitoring/</loc>
+<lastmod>2025-04-08T17:34:46+02:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/2024-11-26-Ignite/</loc>

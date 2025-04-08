@@ -1,6 +1,6 @@
 ---
 title: "Zero Trust in Azure Identity - Part 5: Simple Monitoring Break Glass Accounts"
-date: 2021-01-22T22:01:32
+date: 2024-11-25T22:01:32
 layout: list
 
 description: Keep an eye to the most sensitive accounts in your Azure AD
@@ -12,8 +12,9 @@ image:
 * this unordered seed list will be replaced by the toc
 {:toc}
 
-## Monitoring and Dealing with critical user accounts
+* This article was originally published in January 2021 and was updated in November 2024 to reflect technological advancements in Entra ID functionality
 
+## Monitoring and Dealing with critical user accounts
 
 Microsoft recommends so-called Break Glass accounts for emergency access. These have maximum permissions and are exempt from security measures such as "Conditional Access" policies. If something goes wrong with any policy or with the connection to on-premises, it is possible to access the tenant with these unaffected Break Glass accounts. In the first part of this post, we looked at more details about Break Glass accounts.
 However, it is not only important to be prepared for an emergency. It is equally important to monitor activities around these accounts. For simplicity, the administrator has created a group with the accounts stored in the "Excludes" in the policies. But what if someone cheats his way into this group with his account? The person could work unhindered with wide rights past all policies and thus represents a high risk. Since all activities are documented in the Azure logs, it is easy based on these logs to react to entries using KQL (Kusto Query Language) queries and, for example, send a mail and an SMS to a sender circle when changes are made to the BGA group. The following is necessary for this.
@@ -48,6 +49,16 @@ SigninLogs
 ## Be careful with Access Reviews  
 
 Actually, access reviews lend themselves to the control of BGA groups, but caution is advised in that context. Access Reviews also always allow members of a group to be removed, be it because an admin on his iPhone, on the go, mistakenly selects "deny", the BGA accounts fall out of the group and are thus unsuitable for emergency use. Admittedly a contrived example but the possibility exists and with sensitive accounts such as the BGA accounts you should leave nothing to chance and fare far better with the warning rules against Access Reviews in the event of controls on the break Glass accounts.
+
+## Update: November 2024
+The points I described above regarding Access Reviews are still valid. However, in the meantime, Microsoft has continued to enhance its technologies and has added some great new features to the Entra toolkit. As a result, I would approach the protection of a potential group—if you plan to use one—differently today.
+
+For example, there is now the option to use a restricted Administrative Unit (AU) and place the groups within it. A protected AU excludes all users who haven’t been explicitly granted permissions on that AU, including Global Admins.
+
+Alternatively, you could also use groups published in PIM (Privileged Identity Management), which also have a certain level of protection.
+
+
+[You can check this MS Article for more details and how you configure Alert Rules and Action Groups)](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview)
 
 Cover image by Peggy und Marco Lachmann-Anke from Pixabay 
 
