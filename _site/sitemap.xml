@@ -50,7 +50,7 @@
 </url>
 <url>
 <loc>http://localhost:4000/2024-05-01-GroupWriteBack/</loc>
-<lastmod>2025-03-05T18:07:52+01:00</lastmod>
+<lastmod>2025-04-12T16:55:14+02:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/2024-11-25-ZeroTrust-Monitoring/</loc>
@@ -59,6 +59,10 @@
 <url>
 <loc>http://localhost:4000/2024-11-26-Ignite/</loc>
 <lastmod>2025-03-05T18:07:52+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2025-01-16-SCU_ON_OFF/</loc>
+<lastmod>2025-04-12T18:16:51+02:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/2025-02-02-LCW-step-by-step/</loc>
