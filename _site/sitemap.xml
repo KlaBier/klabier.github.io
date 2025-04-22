@@ -97,6 +97,10 @@
 <lastmod>2025-03-28T21:15:58+01:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/talks/2025-04-11-ExpertsLive_25/</loc>
+<lastmod>2025-04-22T22:20:53+02:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/Posts/</loc>
 <lastmod>2025-03-05T18:07:51+01:00</lastmod>
 </url>
@@ -147,6 +151,10 @@
 <url>
 <loc>http://localhost:4000/MySlides/20250319_SecIT_2.0.pdf</loc>
 <lastmod>2025-03-14T16:48:10+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/MySlides/20250411_ExpertsLive_TN.pdf</loc>
+<lastmod>2025-04-12T22:27:44+02:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/MySlides/Meetup_10.06.2021.pdf</loc>
