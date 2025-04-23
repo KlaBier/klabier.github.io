@@ -35,6 +35,8 @@ I enjoyed presenting and being part of the [ExpertsLive 2025 in Leipzig](https:/
   </a>
 </div>
 
-Please find my session slides here: [Session slides](/MySlides/20250411_ExpertsLive_TN.pdf)
 
+
+Please find my session slides here: [Session slides](/MySlides/20250411_ExpertsLive_TN.pdf)
+... and the PowerShell Scripts can be found [here](https://github.com/KlaBier/Powershell/tree/main/BackupCAs_Examples%20-%20ExpertsLive2025)
 {% include  share.html %}
