@@ -1,7 +1,7 @@
 ---
 title: Demystifying Assignment Strategies with PIM for Groups"
 author: Klaus Bierschenk
-date: 2025-02-02T08:00:32
+date: 2025-05-11T08:00:32
 
 layout: list
 
