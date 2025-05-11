@@ -1,5 +1,5 @@
 ---
-title: "Lifecycle Workflows and Custom Extensions - step-by-step-guide"
+title: Lifecycle Workflows and Custom Extensions - step-by-step-guide
 author: Klaus Bierschenk
 date: 2025-02-02T08:00:32
 
