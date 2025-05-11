@@ -89,8 +89,8 @@ Figure 1: who can reset PW for which user or admins?
 
 To mitigate these risks:
 
-* Explicitly assign users to roles in addition to group-based assignments.
-This ensures they are treated as privileged identities, and prevents unauthorized users (e.g. Helpdesk Admins, see table above) from resetting their passwords.
+* In addition to assigning roles via groups, explicitly assign users to roles as well.
+This ensures they are treated as privileged identities, and prevents unauthorized users (e.g. User Admins, see table above) from resetting their passwords.
 
 * Always require strong MFA for activating groups that hold multiple active role assignments.
 This adds a critical layer of protection.
