@@ -1,5 +1,5 @@
 ---
-title: "Protecting your Conditional Access Policies: Streamlined Backup Strategies for Entra ID"
+title: "Protecting your Conditional Access Policies: Lean Backup Strategies for Entra ID"
 author: Klaus Bierschenk
 date: 2025-06-22T08:00:32
 
