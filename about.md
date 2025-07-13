@@ -36,9 +36,9 @@ I also occasionally publish articles — both online and in print — and produc
   <img src="/MyPics/About_Heise.png" style="width:75%">
 </figure>
 
-I live in beautiful Murnau, in the Garmisch-Partenkirchen area near the Austrian border. I love sports — especially trail running in the mountains.
+I live in beautiful Murnau, in the Garmisch-Partenkirchen area near the Austrian border.
 
-And one last thing: I’m also an ultra-distance mountain runner. I feel great when I’m out running or hiking in the mountains — these are the moments when I get my best ideas and inspiration.
+And one last thing: I love sports and I’m also an ultra-distance mountain runner. I feel great when I’m out running or hiking in the mountains — these are the moments when I get my best ideas and inspiration.
 
 <figure>
   <img src="/MyPics/About_Running.png" style="width:75%">
