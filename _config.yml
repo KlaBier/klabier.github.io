@@ -29,7 +29,7 @@ description:           >
   with a focus on personal sites that are meant to impress.
 
 # A shorter description for the sidebar.
-tagline:               Klaus Bierschenk - Azure and Identity Enthusiast. Author and public speaker
+tagline:               Klaus Bierschenk - Microsoft MVP - Azure and Identity Enthusiast. Author and public speaker
 
 # A list of keywords for your blog
 keywords:              [Identity, AzureAD, Entra, Cloud Sync, Cloud Connect, Zero Trust]

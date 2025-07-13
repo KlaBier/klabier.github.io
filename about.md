@@ -1,6 +1,6 @@
 ---
 layout: about
-image: /MyPics/Klaus_BW.jpeg
+image: /MyPics/Klaus_BW2.jpeg
 
 # If active then this is shown at the top of the post
 description: >
@@ -15,12 +15,31 @@ hide_description: true
 
 <!--author-->
 
-I started my experiences with the Microsoft Server Technologies in 1998 and it was exciting for me to be a part of the growing process of the entire Microsoft Identity Technologies in the past few years. To see how products and technologies become more and more stable, with an increasing functionality. From the beginning, with the early Windows Server Active Directory running on W2K boxes up to today, where customers are in the cloud, being faced with hybrid scenarios and where users are authenticating and getting access from around the globe. A challenging world from an identity perspective
+I started working with Microsoft Server technologies back in 1998, and it has been an exciting journey to witness the evolution of Microsoft Identity technologies over the years. It’s been fascinating to see how these products have become more stable, feature-rich, and globally relevant.
 
-I have a full time job at CGI as an Director Consulting Expert and I am supporting customers with questions and topics around the Active Directory Family and topics in Azure AD or related technolgies in the Microsoft Cloud. This is my personal blog and direct content from my job will not be shared here.
+From the early days of Windows Server Active Directory on Windows 2000 to today’s cloud-first world, identity has become more complex and critical than ever. We now deal with hybrid environments and users accessing resources from all over the globe — a truly challenging landscape from an identity perspective.
 
-I am also a occasional author and publish from time to time articles in the paper press or on the internet.
+I work full-time at CGI as a Director Consulting Expert, supporting customers with topics around the Active Directory family, Microsoft Entra ID, and related Microsoft Cloud technologies.
+This blog is a personal project, and I do not share direct content from my professional work here.
 
-The motivation for this blog is that I am getting a lot of information from the internet and from the identity community. My Intention with this blog is not making money. I follow a couple of really impressing people which makes my job sometimes easier with informations and experiences that they provide in different medias. Because of this I started that blog - to give something back, from my experience in daily projects and from my development and my learning process - without financial interest
+The motivation behind this blog is simple: I’ve learned so much from the internet and the identity community — from impressive individuals who openly share their knowledge and experience. I don’t intend to make money with this blog. Instead, it’s my way of giving back by sharing what I’ve learned in projects, development, and my own learning process — without any commercial interest.
 
-I live in the wonderful Murnau, in the Garmisch-Partenkirchen area, close to the Austrian border. I love sports, especially trailrunning in the mountains.
+In 2025, I was honored to be nominated as a Microsoft Security MVP. I’ve been active in the Active Directory and Entra ID community for many years, and I’m proud that Microsoft recognized my contributions.
+
+<figure>
+  <img src="/MyPics/About_MVP.png" style="width:75%">
+</figure>
+
+I also occasionally publish articles — both online and in print — and produce video courses and screencasts for the heise academy, focusing on Entra ID and other identity-related topics.
+
+<figure>
+  <img src="/MyPics/About_Heise.png" style="width:75%">
+</figure>
+
+I live in beautiful Murnau, in the Garmisch-Partenkirchen area near the Austrian border. I love sports — especially trail running in the mountains.
+
+And one last thing: I’m also an ultra-distance mountain runner. I feel great when I’m out running or hiking in the mountains — these are the moments when I get my best ideas and inspiration.
+
+<figure>
+  <img src="/MyPics/About_Running.png" style="width:75%">
+</figure>
