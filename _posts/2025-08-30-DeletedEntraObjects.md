@@ -25,7 +25,7 @@ Den folgenden Beitrag habe ich wieder zweisprachig verfasst. Dafür habe ich mic
 
 Gleichzeitig weiß ich, dass viele meiner Kontakte und Leser international sind und die Technologien, über die ich schreibe, ohnehin aus dem englischsprachigen Umfeld stammen. Deshalb findet sich der Text weiter unten zusätzlich in englischer Sprache.
 
-So kann jede und jeder die Wahl den Beitrag in der Sprache lesen, in der man sich am wohlsten fühlt.
+So hat jede und jeder die Wahl den Beitrag in der Sprache lesen, in der man sich am wohlsten fühlt.
 
 # Deutsche Version
 
@@ -64,7 +64,7 @@ Figure 2: List deleted EAs with Graph Explorer
 {:.figcaption}
 
 In der Abbildung oben ist zu sehen, dass die Liste der gelöschten Enterprise Applications über eine Abfrage des Endpunkts servicePrincipal in der Deleted Items API erstellt wird.
-Soll eine Administrative Unit wiederhergestellt werden, verwendet man stattdessen den Endpunkt administrativeUnit – das Vorgehen bleibt ansonsten identisch.
+Soll eine Administrative Unit wiederhergestellt werden, verwendet man stattdessen den Endpunkt administrativeUnit, das Vorgehen bleibt ansonsten identisch.
 
 Entscheidend ist dabei die id des Objekts: Diese kopieren wir und nutzen sie im nächsten Schritt in einem POST Graph-Befehl, wie in der folgenden Abbildung dargestellt.
 
@@ -77,7 +77,7 @@ Figure 3: Recover specific EA with Graph Explorer
 Bei Enterprise Applications gibt es eine wichtige Besonderheit: Es wird unterschieden zwischen Single-Tenant- und Multi-Tenant-Apps.
 
   - Single-Tenant-App: Wird eine Anwendung selbst erstellt, liegen sowohl die App Registration als auch die Enterprise Application (Service Principal) im eigenen Tenant.
-  - Multi-Tenant-App: Handelt es sich um eine Anwendung eines Drittanbieters, etwa aus der Galerie, wird diese von vielen Tenants genutzt. In diesem Fall verbleibt die App Registration im ursprünglichen Quell-Tenant des Anbieters, und jeder konsumierende Tenant erhält lediglich seinen eigenen Service Principal.
+  - Multi-Tenant-App: Handelt es sich um eine Anwendung eines Drittanbieters, etwa aus der Galerie, wird diese von vielen Tenants genutzt. In diesem Fall verbleibt die App Registration im ursprünglichen Quell-Tenant des Anbieters, und jeder konsumierende Tenant erhält lediglich seinen eigenen Service Principal (Enterprise Application).
 
 Warum ist das relevant für das Wiederherstellen von Anwendungsobjekten?
 Beim Restore über die Deleted Items API unterscheidet Microsoft wie folgt:
@@ -110,13 +110,13 @@ Um den Schaden im Ernstfall möglichst gering zu halten, sind proaktive Maßnahm
 Gerade für besonders wichtige Benutzer oder Gruppen empfiehlt es sich, rechtzeitig Schutzmechanismen zu etablieren, um einem Verlust vorzubeugen.
 
 Da dieses Thema sehr weitreichend ist, werde ich in einem separaten Beitrag noch ausführlicher darauf eingehen.
-An dieser Stelle möchte ich jedoch den Entra Exporter vorstellen, mit dem ich selbst gute Erfahrungen gesammelt habe. Er ist auch bereits in meinem Artikel zu CA-Policies und Backup-Strategien [Link](https://nothingbutcloud.net/2025-06-22-Backup-CA-Policies/) Thema.
+An dieser Stelle möchte ich den Entra Exporter vorstellen, mit dem ich selbst gute Erfahrungen gesammelt habe. Er ist auch bereits in meinem Artikel zu CA-Policies und Backup-Strategien [Link](https://nothingbutcloud.net/2025-06-22-Backup-CA-Policies/) Thema.
 
 **➜ Wichtig:**
 Der Entra Exporter ist kein klassisches Backuptool, sondern ein Werkzeug zum Exportieren von Objekten. Die Ergebnisse landen in JSON-Dateien, die wir im Notfall nutzen können, um verlorene Objekte oder Konfigurationselemente in Entra gezielt wiederherzustellen.
 Gerade bei bestimmten Objekten, wie zum Beispiel Administrative Units, kann das äußerst hilfreich sein.
 
-### Rekonstruieren einer hard deleted AU mit EntraExport JSON
+### Beispiel: Rekonstruieren einer hard deleted AU mit EntraExport JSON
 Bei Administrative Units oder Enterprise Applications spielt die Objekt-ID in der Regel keine so große Rolle, zumindest solange sie nicht explizit referenziert werden. Bei Sicherheitsgruppen ist das deutlich häufiger der Fall, bei AUs dagegen eher selten.
 
 Schauen wir uns nun die manuellen Schritte zur Wiederherstellung einer Administrative Unit an, die hard deleted wurde und daher komplett aus einem EntraExporter-Dump neu erstellt werden muss.
@@ -138,7 +138,7 @@ Im Folgenden schauen wir uns an, was nötig ist, um eine hard-deletete Administr
 
 ```html
 PATCH
-https://graph.microsoft.com/v1.0/administrativeUnits/{NEW_AU_GUID}
+https://graph.microsoft.com/v1.0/administrativeUnits/{NEW_AU_ID}
 
 Request Body
 {
@@ -154,7 +154,7 @@ In Aktion schaut es dann so aus:
 Figure 5: Customizing AU General settings
 {:.figcaption}
 
-Im JSON-Export befinden sich auch Attribute, die read-only sind und daher nicht zurückgeschrieben werden können. Diese müssen vor dem Ausführen des PATCH-Befehls aus dem Body entfernt werden, um Fehler zu vermeiden, beispielsweise die Attribute id oder deletedDateTime. Es macht schlicht keinen Sinn, diese Werte in das neue Objekt zu übernehmen.
+Im JSON-Export befinden sich auch Attribute, die read-only sind und daher nicht zurückgeschrieben werden können. Diese müssen vor dem Ausführen des PATCH-Befehls aus dem Body entfernt werden, um Fehler zu vermeiden, beispielsweise die Attribute **"id"** oder **"deletedDateTime"**. Es macht schlicht keinen Sinn, diese Werte in das neue Objekt zu übernehmen.
 
 Nach dem Bereinigen der JSON-Datei können wir die AU wiederherstellen. Sie besitzt dann erneut den ursprünglichen Namen und die Description.
 
@@ -170,14 +170,14 @@ Request Body:
     {
       "id": "1",
       "method": "POST",
-      "url": "/administrativeUnits/{NEW_AU_GUID}/members/$ref",
+      "url": "/administrativeUnits/{NEW_AU_ID}/members/$ref",
       "headers": { "Content-Type": "application/json" },
       "body": { "@odata.id": "<USER_DEVICE_OR_GROUP_OBJECT_ID>" }
     },
     {
       "id": "2",
       "method": "POST",
-      "url": "/administrativeUnits/{NEW_AU_GUID}/members/$ref",
+      "url": "/administrativeUnits/{NEW_AU_ID}/members/$ref",
       "headers": { "Content-Type": "application/json" },
       "body": { "@odata.id": "<ANOTHER_USER_<USER_DEVICE_OR_GROUP_OBJECT_ID>" }
     }
@@ -189,14 +189,14 @@ Request Body:
 Figure 6: Add member to AU
 {:.figcaption}
 
-Die Behandlung von Members funktioniert bei allen drei Objekttypen identisch: Es genügt, die jeweilige Objekt-ID (GUID) anzugeben, die im Unterordner Members hinterlegt ist.
+Die Behandlung von Members funktioniert bei allen drei Objekttypen identisch: Es genügt, die jeweilige Objekt-ID anzugeben, die im Unterordner Members hinterlegt ist.
 
 Aber was, wenn die Mitgliedschaft dynamic ist…
 Ist die Mitgliedschaft dynamisch, wird es sogar noch einfacher: Bereits im ersten Schritt, beim Anlegen bzw. Anpassen der AU, kann die entsprechende Query direkt mitgegeben werden.
 
 ```html
 PATCH
-https://graph.microsoft.com/v1.0/administrativeUnits/{NEW_AU_GUID}
+https://graph.microsoft.com/v1.0/administrativeUnits/{NEW_AU_ID}
 
 Request Body
 {
@@ -222,6 +222,8 @@ Am besten werden allerdings Vorbereitungen getroffen, damit es gar nicht erst zu
 Restore ist gut – doch noch besser ist es, den Verlust zu verhindern. Wie sich Objekte gezielt schützen lassen, werde ich in einem kommenden Beitrag betrachten
 
 Viel Spaß beim Ausprobieren 😀
+
+Weiterführende Infos von [Microsoft Learn](https://learn.microsoft.com/de-de/entra/architecture/recoverability-overview)
 
 # English Version
 
@@ -273,7 +275,7 @@ Figure 3: Recover specific EA with Graph Explorer
 With Enterprise Applications, there is one important distinction: the difference between single-tenant and multi-tenant apps.
 
   - Single-tenant app: If you create an application yourself, both the App Registration and the Enterprise Application (Service Principal) reside in your own tenant.
-  - Multi-tenant app: If the application comes from a third party, for example, from the gallery, it is used across many tenants. In this case, the App Registration remains in the original source tenant of the provider, while each consuming tenant only receives its own Service Principal.
+  - Multi-tenant app: If the application comes from a third party, for example, from the gallery, it is used across many tenants. In this case, the App Registration remains in the original source tenant of the provider, while each consuming tenant only receives its own Service Principal (Enterprise Application).
 
 Why is this relevant for restoring application objects?
 When using the Deleted Items API for restore, Microsoft makes a distinction here:
@@ -316,7 +318,7 @@ The Entra Exporter is **not** a traditional backup tool, but rather a utility fo
 This can be particularly helpful for certain object types, such as Administrative Units.
 
 
-### Rebuilding a hard-deleted Administrative Unit using EntraExporter JSON
+### Example: Rebuilding a hard-deleted Administrative Unit using EntraExporter JSON
 For Administrative Units or Enterprise Applications, the object ID usually doesn’t play a major role, at least as long as they are not explicitly referenced. For security groups, however, this is much more common, while for AUs it’s rather rare.
 
 Let’s now look at the manual steps for restoring an Administrative Unit that has been hard deleted and therefore needs to be completely recreated from an EntraExporter dump.
@@ -332,11 +334,11 @@ Figure 4: Example Folderstructure generated by EntraExporter
 In the following, I’ll show what’s required to rebuild a hard-deleted Administrative Unit (AU) using the information from an EntraExporter dump.
 
   1. Create a new AU. The display name doesn’t matter at this stage. What’s important is to copy the object ID from the properties and keep it ready for the next steps in Graph Explorer.
-  2. Use Graph Explorer. The request bodies are taken from the JSON file in the root folder of the AU export (see figure above), which we then use to restore the AU’s properties.
+  2. Use Graph Explorer. The request body are taken from the JSON file in the root folder of the AU export (see figure above), which we then use to restore the AU’s properties.
 
 ```html
 PATCH
-https://graph.microsoft.com/v1.0/administrativeUnits/{NEW_AU_GUID}
+https://graph.microsoft.com/v1.0/administrativeUnits/{NEW_AU_ID}
 
 Request Body
 {
@@ -352,7 +354,7 @@ Here’s what it looks like in action:
 Figure 5: Customizing AU General settings
 {:.figcaption}
 
-The JSON export also contains attributes that are read-only and therefore cannot be written back. These must be removed from the body before running the PATCH command in order to avoid errors, for example, the attributes id or deletedDateTime. It simply doesn’t make sense to transfer these values into the new object.
+The JSON export also contains attributes that are read-only and therefore cannot be written back. These must be removed from the body before running the PATCH command in order to avoid errors, for example, the attributes **"id"** or **"deletedDateTime"**. It simply doesn’t make sense to transfer these values into the new object.
 
 After cleaning up the JSON file, we can restore the AU. It will then once again have its original name and description.
 
@@ -368,14 +370,14 @@ Request Body:
     {
       "id": "1",
       "method": "POST",
-      "url": "/administrativeUnits/{NEW_AU_GUID}/members/$ref",
+      "url": "/administrativeUnits/{NEW_AU_ID}/members/$ref",
       "headers": { "Content-Type": "application/json" },
       "body": { "@odata.id": "<USER_DEVICE_OR_GROUP_OBJECT_ID>" }
     },
     {
       "id": "2",
       "method": "POST",
-      "url": "/administrativeUnits/{NEW_AU_GUID}/members/$ref",
+      "url": "/administrativeUnits/{NEW_AU_ID}/members/$ref",
       "headers": { "Content-Type": "application/json" },
       "body": { "@odata.id": "<ANOTHER_USER_<USER_DEVICE_OR_GROUP_OBJECT_ID>" }
     }
@@ -387,14 +389,14 @@ Request Body:
 Figure 6: Add member to AU
 {:.figcaption}
 
-Handling members works the same way for all three object types: it’s sufficient to provide the respective object ID (GUID), which is stored in the Members subfolder.
+Handling members works the same way for all three object types: it’s sufficient to provide the respective object ID, which is stored in the Members subfolder.
 
 But what if the membership is dynamic…
 If the membership is dynamic, things get even easier: already in the first step, when creating or updating the AU, you can directly include the corresponding query.
 
 ```html
 PATCH
-https://graph.microsoft.com/v1.0/administrativeUnits/{NEW_AU_GUID}
+https://graph.microsoft.com/v1.0/administrativeUnits/{NEW_AU_ID}
 
 Request Body
 {
@@ -422,6 +424,8 @@ Restore is good, but preventing loss is even better. In an upcoming post, I will
 Enjoy trying it out 😀
 
 ... and let me know, when you have hints, problems, questions, using the e-mail option below
+
+Additional reading from [Microsoft Learn](https://learn.microsoft.com/en-us/entra/architecture/recoverability-overview)
 
 {% include  share.html %}
 
