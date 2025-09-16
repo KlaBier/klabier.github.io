@@ -293,7 +293,7 @@ Regardless of the object type, once an object has been hard deleted, it is perma
 The specific impact, however, depends heavily on the type of object affected. Let’s start with users and groups.
 
 
-### Benutzer und Gruppen
+### Users and Groups
 Of course, you can create exports in advance to restore users or groups after a loss based on that information. However, the restored objects will always receive a new object ID, even if the UPN or other properties are identical to the original object.
 
 And that’s where the real problem lies: in Entra ID, all references are based on the object ID. So, if a group is used as an exclude in a Conditional Access policy, or if a user is explicitly included in the scope, newly created objects won’t help, because their new ID is simply unknown to those policies.
