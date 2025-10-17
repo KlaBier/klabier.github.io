@@ -321,6 +321,8 @@ collections:
     permalink:         /talks/:path/
     output:            true
 
+    
+
 
 
 # File inclusion/exclusion
@@ -444,4 +446,3 @@ jekyll_compose:
       links:
         - title: Project Link
           url: https://example.com
-

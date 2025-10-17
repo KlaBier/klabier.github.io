@@ -9,7 +9,6 @@ image:
 
 <figure>
   <img src="/MyPics/2025-04-11-ExpertsLive_25_Cover.png" style="width:75%">
-  <figcaption>Figure 1: ExpertsLive 2025</figcaption>
 </figure>
 
 ## Session from ExpertsLive in Leipzig 2025

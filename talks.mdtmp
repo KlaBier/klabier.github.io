@@ -1,0 +1,92 @@
+---
+layout: page
+title: Conferences and Talks
+permalink: /talks/
+---
+
+{% assign items = site.talks | where_exp: "i", "i.date" | sort: "date" %}
+{% assign today_num = 'now' | date: '%Y%m%d' | plus: 0 %}
+
+<div class="post-list">
+
+  {%- comment -%} ===== Upcoming ===== {%- endcomment -%}
+  {% assign has_upcoming = false %}
+  {% for item in items %}
+    {% assign item_num = item.date | date: '%Y%m%d' | plus: 0 %}
+    {% if item_num > today_num %}
+      {% assign has_upcoming = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% if has_upcoming %}
+  <h2 style="margin-top:1.5em;">Upcoming Talks</h2>
+  {% for item in items %}
+    {% assign item_num = item.date | date: '%Y%m%d' | plus: 0 %}
+    {% if item_num > today_num %}
+      {% assign img = item.image.path | default: item.image %}
+      <article style="display:flex; align-items:flex-start; margin-bottom:30px; gap:20px;">
+        {% if img %}
+          <a href="{{ item.url | relative_url }}">
+            <img src="{{ img | relative_url }}" alt="{{ item.title }}"
+                 style="width:160px; height:auto; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          </a>
+        {% endif %}
+        <div>
+          <h3 style="margin-bottom:4px;">
+            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          </h3>
+          <p class="post-meta">
+            <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%Y-%m-%d" }}</time>
+          </p>
+          {% if item.excerpt %}
+            <p>{{ item.excerpt | strip_html | truncate: 160 }}</p>
+          {% endif %}
+        </div>
+      </article>
+      <hr>
+    {% endif %}
+  {% endfor %}
+  {% endif %}
+
+  {%- comment -%} ===== Past ===== {%- endcomment -%}
+  {% assign has_past = false %}
+  {% for item in items %}
+    {% assign item_num = item.date | date: '%Y%m%d' | plus: 0 %}
+    {% if item_num <= today_num %}
+      {% assign has_past = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% if has_past %}
+  <h2 style="margin-top:2em;">Past Talks</h2>
+  {% for item in items reversed %}
+    {% assign item_num = item.date | date: '%Y%m%d' | plus: 0 %}
+    {% if item_num <= today_num %}
+      {% assign img = item.image.path | default: item.image %}
+      <article style="display:flex; align-items:flex-start; margin-bottom:30px; gap:20px;">
+        {% if img %}
+          <a href="{{ item.url | relative_url }}">
+            <img src="{{ img | relative_url }}" alt="{{ item.title }}"
+                 style="width:160px; height:auto; border-radius:10px; opacity:0.85; box-shadow:0 1px 6px rgba(0,0,0,0.08);">
+          </a>
+        {% endif %}
+        <div>
+          <h3 style="margin-bottom:4px;">
+            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          </h3>
+          <p class="post-meta">
+            <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%Y-%m-%d" }}</time>
+          </p>
+          {% if item.excerpt %}
+            <p>{{ item.excerpt | strip_html | truncate: 160 }}</p>
+          {% endif %}
+        </div>
+      </article>
+      <hr>
+    {% endif %}
+  {% endfor %}
+  {% endif %}
+
+</div>
