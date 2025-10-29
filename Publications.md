@@ -9,6 +9,14 @@ Please find below a list of my publications. This are official publications and 
 
 | Article:                                                     | Published:                                               |
 | ------------------------------------------------------------ | --------------------------------------------------------- |
+| **An der Sicherungsleine, Backup und Restore in Entra ID**                     | November 2025, IT-Administrator, Heinemann Verlag                                    |
+| **Screencast: Synchronisation von Identitäten: Identity Lifecycle Management**                     | October 2025, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/synchronisation-von-identitaten-lifecycle-workflow){:target="_blank"}                              |
+| **Screencast: Entra ID - Neuerungen in Q3/2025 (7 Videos, 49min)**                     | October 2025, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/entra-id-neuerungen-q2-2025){:target="_blank"}                              |
+| **Zero Trust mit Windows Boardmitteln**                     | July 2025, iX, Heise                       |
+| **Screencast: Entra ID - Neuerungen in Q2/2025 (7 Videos, 49min)**                     | July 2025, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/entra-id-neuerungen-q2-2025){:target="_blank"}                              |
+| **Zero Trust mit Blick auf Identity**                     | July 2025, IT-Administrator, Heinemann Verlag                                    |
+| **Screencast: Entra ID - Neuerungen in Q1/2025 (8 Videos, 59min)**                     | April 2025, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/entra-id-neuerungen-q1-2025){:target="_blank"}                              |
+| **Report from Ignite, Chicago "KI vs KI"**                     | January 2025, IT-Administrator, Heinemann Verlag                                    |
 | **Screencast: Entra ID - Neuerungen in Q2/2024 (7 Videos, 48min)**                     | Juni 2024, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/entra-id-neuerungen-q2-2024){:target="_blank"}                              |
 | **Screencast: Synchronisation von Identitäten: Entra Connect Sync (16 Videos, 1:53h)**                     | Juni 2024, [Heise Academy Link](https://heise-academy.de/Videokurse/synchronisation-von-identitaten-entra-connect-sync){:target="_blank"}                              |
 | **Screencast: Entra ID - Neuerungen in Q1/2024 (6 Videos, 45min)**                     | April 2023, [Heise Academy Link](https://heise-academy.de/Videokurse/entra-id-neuerungen-q1-2024){:target="_blank"}                              |
