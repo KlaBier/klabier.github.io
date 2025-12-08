@@ -17,7 +17,7 @@ image:
 * this unordered seed list will be replaced by the toc
 {:toc}
 
-Warm welcome to my new blog post!
+Warm welcome to my new blog post
 
 **For English**, please jump directly to the [English version further down](https://nothingbutcloud.net/2025-07-28-CA-PolicyAgent1/#english-version)
 
