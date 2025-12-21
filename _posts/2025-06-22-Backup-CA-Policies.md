@@ -64,11 +64,24 @@ At [Experts Live in Leipzig](https://expertslive.de/) in 2025, I had the opportu
 
 **The Challenge of Hard-Deleted Objects**
 
-An exciting topic, especially in the context of Conditional Access Policies, since these belong to the “hard deleted” objects. That means: If a CA policy is deleted, it’s gone immediately and permanently, without any recovery option.
+<span style="color:red">This has changed in September 2025</span>
 
-Changes can’t simply be rolled back either. There is no button to “restore last working state.”
+~~An exciting topic, especially in the context of Conditional Access Policies, since these belong to the “hard deleted” objects. That means: If a CA policy is deleted, it’s gone immediately and permanently, without any recovery option.~~
 
-It’s actually critical, considering how important Conditional Access are for the security of a tenant.
+~~Changes can’t simply be rolled back either. There is no button to “restore last working state.”~~
+
+~~It’s actually critical, considering how important Conditional Access are for the security of a tenant.~~
+
+Starting in September 2025, Conditional Access policies are no longer hard-deleted immediately.
+When a policy is deleted, it is now moved to the Recycle Bin, which is available in the Conditional Access dashboard.
+
+This is a major improvement compared to the previous behavior, where deleted policies were permanently removed right away.
+
+However, hard deletion is still relevant: Conditional Access policies remain in the Recycle Bin for 30 days only. After that period, they are permanently deleted.
+
+**To summarize:
+Soft deletion for Conditional Access policies is a great and much-needed improvement.
+Nevertheless, you should still make sure to back up your “holy grail” in Entra ID, because once the retention period expires, recovery is no longer possible.**
 
 ## Manual Import/Export via the Graph API
 
