@@ -23,8 +23,6 @@ Warm welcome to my new blog post
 
 Den folgenden Beitrag habe ich wieder zweisprachig verfasst. Dafür habe ich mich ganz bewusst entschieden, denn Deutsch ist meine Muttersprache, die ich sehr schätze und in der ich meine Gedanken, jenseits von KI, oder anderweitig automatisch erzeugten Texten, am unmittelbarsten und authentischsten ausdrücken kann.
 
-Gleichzeitig weiß ich, dass viele meiner Kontakte und Leser international sind und die Technologien, über die ich schreibe, ohnehin aus dem englischsprachigen Umfeld stammen. Deshalb findet sich der Text weiter unten zusätzlich in englischer Sprache.
-
 So hat jede und jeder die Wahl den Beitrag in der Sprache lesen, in der man sich am wohlsten fühlt.
 
 # Deutsche Version
