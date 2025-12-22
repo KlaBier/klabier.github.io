@@ -1,5 +1,5 @@
 ---
-title: "UPCOMING Feb 24,2026 Experts Live Denmark"
+title: "UPCOMING Feb 24,2026 Experts Live Denmark, Copenhagen"
 date: 2026-02-24T19:13:32
 layout: list
 
@@ -12,5 +12,7 @@ image:
 </figure>
 
 **Really looking forward to being part of this amazing speaker lineup!** - update soon!
+
+https://expertslive.dk/
 
 {% include  share.html %}
