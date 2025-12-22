@@ -1,17 +1,16 @@
 ---
 layout: about
 image: /MyPics/Klaus_BW2.jpeg
-
-# If active then this is shown at the top of the post
+title: About
 description: >
-  A boutique Jekyll theme for hackers, nerds, and academics,
-  with a focus on personal sites that are meant to impress.
-hide_description: true
-#redirect_from:
-#  - /download/
+  Microsoft Security MVP and identity specialist with hands-on experience in
+  Microsoft Entra ID, Active Directory, identity governance, and hybrid identity scenarios.
+hide_description: false
 ---
 
 # About
+
+I am Klaus Bierschenk, Microsoft Security MVP, working as a Director Consulting Expert with a strong focus on Microsoft Entra ID and identity security.
 
 <!--author-->
 
