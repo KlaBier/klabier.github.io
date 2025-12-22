@@ -3,7 +3,8 @@
 
 # Uncomment and set the URL of your site (with protocol, e.g. `https://`)
 # NOTE: You don't need to provide this property when hosting on GitHub Pages or Netlify.
-url: https://klabier.github.io
+url: https://nothingbutcloud.net
+baseurl: ""
 
 # Uncomment and set the "base URL" of your site.
 # When your site is in a subdirectory, set to `/<name of directory>`,
@@ -25,8 +26,7 @@ title:                 NothingButCloud
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Hydejack is a boutique Jekyll theme for hackers, nerds, and academics,
-  with a focus on personal sites that are meant to impress.
+  Hands-on knowledge around Microsoft Entra ID and identity security.
 
 # A shorter description for the sidebar.
 tagline:               Klaus Bierschenk - Microsoft MVP - Azure and Identity Enthusiast. Author and public speaker
@@ -339,16 +339,9 @@ include:
   - .well-known
   - LICENSE.md
 
-
-# Plugins
-# ----------------------------------------------------------------------------------------
-
-# added this in nov 24 because feed is not generated
-gems:
+plugins:
   - jekyll-feed
   - jekyll-seo-tag
-
-plugins:
   - jekyll-default-layout
   - jekyll-optional-front-matter
   - jekyll-paginate
