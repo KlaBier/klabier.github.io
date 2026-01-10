@@ -12,6 +12,8 @@ I am Klaus Bierschenk, Microsoft Security MVP, working as a Director Consulting 
 
 <!--author-->
 
+## Wanna know something about me?
+
 I started working with Microsoft Server technologies back in 1998, and it has been an exciting journey to witness the evolution of Microsoft Identity technologies over the years. It’s been fascinating to see how these products have become more stable, feature-rich, and globally relevant.
 
 From the early days of Windows Server Active Directory on Windows 2000 to today’s cloud-first world, identity has become more complex and critical than ever. We now deal with hybrid environments and users accessing resources from all over the globe — a truly challenging landscape from an identity perspective.
