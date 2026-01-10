@@ -15,7 +15,7 @@ image:
 This article was originally published in January 2021 as part of a five-part Zero Trust article series. Since then, many things have changed (both in strategy and technology) which led me to completely update this article in December 2025
 
 ## Monitoring in general
-There are organizations that outsource the monitoring of their systems. However, there are certain areas where you may not want to involve third parties when something happens — either because the information is sensitive or because the communication paths can be quite long.
+There are organizations that outsource the monitoring of their systems. However, there are certain areas where you may not want to involve third parties when something happens, either because the information is sensitive or because the communication paths can be quite long.
 Regardless of that, the approach described here makes sense in any case. If a Global Administrator sets up alerting in the way outlined in this article, they, or their team, will be informed directly and without detours. This can be via mobile notifications or direct email alerts.
 A good example is changes to a Conditional Access policy, or, as discussed later in this article, sign-ins using a break-glass account. There are many possible use cases for this approach.
 
@@ -23,10 +23,10 @@ A good example is changes to a Conditional Access policy, or, as discussed later
 ## Monitoring and dealing with critical user accounts
 Microsoft recommends using so-called break-glass accounts for emergency access. These accounts have maximum permissions and are excluded from security controls such as Conditional Access policies.
 
-If something goes wrong with a policy or if there are issues with the connection to on-premises systems — for example when using Pass-through Authentication (PTA) — these unaffected, cloud-only break-glass accounts can still be used to access the tenant.
+If something goes wrong with a policy or if there are issues with the connection to on-premises systems, for example when using Pass-through Authentication (PTA), these unaffected, cloud-only break-glass accounts can still be used to access the tenant.
 
 ## Send logs to Log Analytics
-First, a Log Analytics workspace is required to which Entra ID can send its logs. This is useful even without the break-glass account example, as sign-in and audit logs are only retained for a limited time in Entra ID itself — 30 days with an Entra ID P1/P2 license and only 7 days without one.
+First, a Log Analytics workspace is required to which Entra ID can send its logs. This is useful even without the break-glass account example, as sign-in and audit logs are only retained for a limited time in Entra ID itself: 30 days with an Entra ID P1/P2 license and only 7 days without one.
 A Log Analytics workspace can be created quickly via the Azure Portal. Once the workspace exists, it is added in Entra ID through the diagnostic settings. As a result, the log entries are sent to the Log Analytics workspace, where the retention period can be configured according to your requirements.
 
 The following images show step by step how to configure Entra ID to send the required logs to Log Analytics.
@@ -106,13 +106,18 @@ AuditLogs | where ActivityDisplayName == "Update policy"
 | project ActivityDateTime, ActivityDisplayName, TargetResources[0].displayName, InitiatedBy.user.userPrincipalName
 ```
 
-## How the alert looks
+## How the alert notification looks like
 When an alert is triggered, for example via email, you receive a notification that includes a link to the corresponding Log Analytics alert. This link allows you to directly investigate what happened and review the relevant details.
 
 <figure class="medium">
   <a href="/MyPics/2025-12-16-ZeroTrust Monitoring_8.png"><img src="/MyPics/2025-12-16-ZeroTrust Monitoring_8.png"></a>
   <figcaption>Mailmessage from Alerting</figcaption>
 </figure>
+
+## Putting break-glass accounts into a group
+In some environments, I see all break-glass accounts being added to a single group to make exclusions in Conditional Access policies easier to manage. I strongly advise against this approach, as it introduces additional complexity that needs to be maintained and secured.
+Such a group would itself require protection, for example through PIM for Groups or access reviews, which largely defeats the purpose. Instead of opening up another backdoor that then needs to be governed, it is usually the better option to avoid break-glass groups altogether.
+
 
 [You can refer to this Microsoft article for more details on how to configure alert rules and action groups.](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview)
 
