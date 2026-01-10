@@ -1,5 +1,5 @@
 ---
-title: "Zero Trust in Entra Identity - Easy Monitoring Break Glass Accounts"
+title: "Zero Trust in Entra ID: Monitoring Break-Glass Accounts and Other Sensitive Operations"
 date: 2025-12-16T22:01:32
 layout: list
 
@@ -117,7 +117,6 @@ When an alert is triggered, for example via email, you receive a notification th
 ## Putting break-glass accounts into a group
 In some environments, I see all break-glass accounts being added to a single group to make exclusions in Conditional Access policies easier to manage. I strongly advise against this approach, as it introduces additional complexity that needs to be maintained and secured.
 Such a group would itself require protection, for example through PIM for Groups or access reviews, which largely defeats the purpose. Instead of opening up another backdoor that then needs to be governed, it is usually the better option to avoid break-glass groups altogether.
-
 
 [You can refer to this Microsoft article for more details on how to configure alert rules and action groups.](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview)
 
