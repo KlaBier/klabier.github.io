@@ -8,8 +8,6 @@ description: >
 hide_description: false
 ---
 
-# About
-
 I am Klaus Bierschenk, Microsoft Security MVP, working as a Director Consulting Expert with a strong focus on Microsoft Entra ID and identity security.
 
 <!--author-->
