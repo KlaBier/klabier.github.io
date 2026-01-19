@@ -14,7 +14,7 @@ image:
 
 Welcome to my new blog post
 
-[Klicke hier, wenn Du lieber in Deutsch lesen möchtest](https://nothingbutcloud.net/2026-01-18-AURolesAssignedAutomatically/#group-assignment-strategy/#deutsche-Version)
+[Klicke hier, wenn Du lieber in Deutsch lesen möchtest](https://nothingbutcloud.net/2026-01-18-AURolesAssignedAutomatically/#deutsche-Version)
 
 # English version
 
@@ -25,17 +25,15 @@ Administrative Units (AUs) are a powerful feature in Microsoft Entra ID. They al
 
 AUs are often confused with Organizational Units (OUs) from Active Directory Domain Services, but they share nothing in common beyond a similar name. Administrative Units are designed purely for delegation: they allow you to scope administrative permissions so that administrators can manage only the objects contained within a specific AU.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_4.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_4.png"></a>
-  <figcaption>Administrative Units</figcaption>
-</figure>
+[![4](/MyPics/2026-01-18-AURolesAssignedAutomatically_4.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_4.png){:target="_blank"}
+Figure 1: Administrative Units
+{:.figcaption}
 
 One of the most powerful aspects of Administrative Units is their support for dynamic membership rules. Objects can be placed into an AU automatically based on specific attributes. Common examples include attributes such as extensionAttributes or the department attribute or other. By using dynamic membership rules, user accounts can be automatically collected into the appropriate Administrative Units without manual intervention.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_0.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_0.png"></a>
-  <figcaption>Administrative Unit - dynamic membership rule</figcaption>
-</figure>
+[![0](/MyPics/2026-01-18-AURolesAssignedAutomatically_0.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_0.png){:target="_blank"}
+Figure 2: Administrative Unit - dynamic membership rule
+{:.figcaption}
 
 Objects in Microsoft Entra ID can belong to multiple Administrative Units at the same time, which further increases the flexibility of delegation. A typical example is the use of AUs for projects. If an employee is involved in multiple projects, their account can be a member of all corresponding Administrative Units.
 
@@ -92,17 +90,15 @@ The individual steps required to set up this automation are described below.
 
 First, we need the group. When creating the group, it is important to enable the option that allows roles to be assigned to it.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_1.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_1.png"></a>
-  <figcaption>Create a security group with the role assignment option</figcaption>
-</figure>
+[![3](/MyPics/2026-01-18-AURolesAssignedAutomatically_1.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_1.png){:target="_blank"}
+Figure 3: Create a security group with the role assignment option
+{:.figcaption}
 
 Next, we move to the PIM dashboard. Here, the newly created group must be made available through the discovery process.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_2.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_2.png"></a>
-  <figcaption>Discover new groups in the PIM-Dashboard</figcaption>
-</figure>
+[![4](/MyPics/2026-01-18-AURolesAssignedAutomatically_2.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_2.png){:target="_blank"}
+Figure 4: Discover new groups in the PIM-Dashboard
+{:.figcaption}
 
 This is done using the option “Discover groups”, which lists all groups in the tenant that were created with the option to assign roles to them, as shown during the group creation step above.
 
@@ -121,10 +117,9 @@ To do this, we stay in the PIM dashboard and navigate to Roles, then to Assignme
 
 With this configuration, all users who have an assignment in the group receive the User Administrator role scoped to the Administrative Unit of class 8a.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_3.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_3.png"></a>
-  <figcaption>User Administator role assignment to specific class AU</figcaption>
-</figure>
+[![5](/MyPics/2026-01-18-AURolesAssignedAutomatically_3.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_3.png){:target="_blank"}
+Figure 5: User Administator role assignment to specific class AU
+{:.figcaption}
 
 At this point, we are done with PIM. If we decided against automation and wanted to handle everything manually, we could now assign users to the group as eligible members.
 
@@ -139,17 +134,15 @@ To create the Access Package, we navigate to Identity Governance in the Entra Ad
 
 Creating an Access Package is straightforward and intuitive. In our case, we created an access package for each class setup ...
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_5.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_5.png"></a>
-  <figcaption>Each class has its own Access Package</figcaption>
-</figure>
+[![6](/MyPics/2026-01-18-AURolesAssignedAutomatically_5.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_5.png){:target="_blank"}
+Figure 6: Each class has its own Access Package
+{:.figcaption}
 
 ... and the package contains in our example only the group as a resource. However, this could easily be extended by adding policies or additional resources to the Access Package.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_6.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_6.png"></a>
-  <figcaption>Access Package contains PIM-Group</figcaption>
-</figure>
+[![7](/MyPics/2026-01-18-AURolesAssignedAutomatically_6.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_6.png){:target="_blank"}
+Figure 7: Access Package contains PIM-Group
+{:.figcaption}
 
 In scenarios where administrators act only temporarily and assignments change frequently, this kind of dynamic approach can be helpful and does not necessarily introduce significant risk.
 
@@ -161,10 +154,9 @@ When creating a workflow, we first have to choose a template. Depending on the s
 
 For our use case, we select the “Mover” template.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_7.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_7.png"></a>
-  <figcaption>Lifecycle Workflow Template</figcaption>
-</figure>
+[![8](/MyPics/2026-01-18-AURolesAssignedAutomatically_7.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_7.png){:target="_blank"}
+Figure 8: Lifecycle Workflow Template
+{:.figcaption}
 
 In this example, we deliberately keep the tasks minimal, as the main goal is to assign the administrative role for an Administrative Unit.
 
@@ -172,17 +164,15 @@ As the first task, we keep the default task that sends an email notification to 
 
 In our example, this would include the classes in which the teacher might currently be assigned. In this scenario, there are only two classes, so this would be class 7b.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_8.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_8.png"></a>
-  <figcaption>Workflow task to remove existing access packages</figcaption>
-</figure>
+[![9](/MyPics/2026-01-18-AURolesAssignedAutomatically_8.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_8.png){:target="_blank"}
+Figure 9: Workflow task to remove existing access packages
+{:.figcaption}
 
 Finally, the Access Package for which this workflow was triggered is assigned. In our example, this is the Access Package for class 8a.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_9.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_9.png"></a>
-  <figcaption>Workflow task that assigns the appropriate access package</figcaption>
-</figure>
+[![10](/MyPics/2026-01-18-AURolesAssignedAutomatically_9.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_9.png){:target="_blank"}
+Figure 10:Workflow task that assigns the appropriate access package
+{:.figcaption}
 
 That’s all that is required in terms of configuration.
 
@@ -201,56 +191,47 @@ Now let’s look at the user account of Vanessa. At the moment, she is the class
 
 We simply update the attribute accordingly. That’s it.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_10.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_10.png"></a>
-  <figcaption>User properties that triggers the Lifecycle Workflow</figcaption>
-</figure>
+[![11](/MyPics/2026-01-18-AURolesAssignedAutomatically_10.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_10.png){:target="_blank"}
+Figure 11:User properties that triggers the Lifecycle Workflow
+{:.figcaption}
 
 During the next workflow run, this change is detected and the workflow is triggered. The results of the workflow execution look as follows.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_11.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_11.png"></a>
-  <figcaption>Workflow History shows what happened</figcaption>
-</figure>
+[![12](/MyPics/2026-01-18-AURolesAssignedAutomatically_11.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_11.png){:target="_blank"}
+Figure 12:After Workflow run Teacher has assigned access packages
+{:.figcaption}
 
 Taking a look at the Access Package shows the new assignments. Vanessa is now included as well.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_12.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_12.png"></a>
-  <figcaption>After Workflow run Teacher has assigned access packages</figcaption>
-</figure>
+[![13](/MyPics/2026-01-18-AURolesAssignedAutomatically_12.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_12.png){:target="_blank"}
+Figure 13:Workflow History shows what happened
+{:.figcaption}
 
 Based on the assignments that the respective PIM groups have on the Administrative Units, Vanessa can now manage student accounts in the Administrative Unit for class 8a.
 
 Using the **mystaff.microsoft.com** portal, Vanessa can see all Administrative Units for which she has administrative permissions.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_13.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_13.png"></a>
-  <figcaption>Teacher "mystaff" Web ´Site</figcaption>
-</figure>
+[![14](/MyPics/2026-01-18-AURolesAssignedAutomatically_13.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_13.png){:target="_blank"}
+Figure 14:Teacher "mystaff" Web ´Site
+{:.figcaption}
 
 The user accounts within those Administrative Units can then be managed accordingly.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_14.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_14.png"></a>
-  <figcaption>Students from AU for Teacher administration</figcaption>
-</figure>
+[![15](/MyPics/2026-01-18-AURolesAssignedAutomatically_14.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_14.png){:target="_blank"}
+Figure 15:Students from AU for Teacher administration
+{:.figcaption}
 
 If she instead uses the Entra Admin Center, she can see all Administrative Units and the users within them based on her administrative role. In the Administrative Unit for class 7b, the options to modify user accounts are disabled.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_15.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_15.png"></a>
-  <figcaption>Student outside Teacher scope cannot be edited</figcaption>
-</figure>
+[![16](/MyPics/2026-01-18-AURolesAssignedAutomatically_15.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_15.png){:target="_blank"}
+Figure 16:Student outside Teacher scope cannot be edited
+{:.figcaption}
 
 In contrast, editing is possible in the Administrative Unit for class 8a.
 
-
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_16.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_16.png"></a>
-  <figcaption>Users in the teacher’s scope can be edited</figcaption>
-</figure>
-
+[![17](/MyPics/2026-01-18-AURolesAssignedAutomatically_16.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_16.png){:target="_blank"}
+Figure 17:Users in the teacher’s scope can be edited
+{:.figcaption}
 
 ## Further ideas
 
@@ -274,17 +255,15 @@ Administrative Units (AUs) sind eine leistungsstarke Funktion in Microsoft Entra
 
 AUs werden häufig mit Organizational Units (OUs) aus den Active Directory Domain Services verwechselt, haben jedoch – abgesehen von der Namensähnlichkeit – nichts gemeinsam. Administrative Units sind ausschließlich für die Delegation konzipiert: Sie ermöglichen es, administrative Berechtigungen so zu begrenzen, dass Administratoren nur die Objekte innerhalb einer bestimmten AU verwalten können.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_4.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_4.png"></a>
-  <figcaption>Administrative Units</figcaption>
-</figure>
+[![4](/MyPics/2026-01-18-AURolesAssignedAutomatically_4.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_4.png){:target="_blank"}
+Figure 1: Administrative Units
+{:.figcaption}
 
 Einer der leistungsstärksten Aspekte von Administrative Units ist die Unterstützung dynamischer Mitgliedschaftsregeln. Objekte können automatisch einer AU zugeordnet werden, basierend auf bestimmten Attributen. Gängige Beispiele hierfür sind Attribute wie extensionAttributes, das Department Attribut oder andere Eigenschaften. Durch den Einsatz dynamischer Mitgliedschaftsregeln lassen sich Benutzerkonten automatisch den passenden Administrative Units zuordnen, ganz ohne manuellen Eingriff.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_0.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_0.png"></a>
-  <figcaption>Administrative Unit - dynamic membership rule</figcaption>
-</figure>
+[![0](/MyPics/2026-01-18-AURolesAssignedAutomatically_0.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_0.png){:target="_blank"}
+Figure 2: Administrative Unit - dynamic membership rule
+{:.figcaption}
 
 Objekte in Microsoft Entra ID können gleichzeitig Mitglied in mehreren Administrative Units sein, was die Flexibilität bei der Delegation weiter erhöht. Ein typisches Beispiel hierfür ist der Einsatz von AUs für Projekte. Ist ein Mitarbeiter in mehreren Projekten tätig, kann sein Benutzerkonto Mitglied in allen entsprechenden Administrative Units sein.
 
@@ -342,17 +321,15 @@ Die einzelnen Schritte, die zum Einrichten dieser Automatisierung erforderlich s
 
 Zunächst benötigen wir die Gruppe. Bei der Erstellung der Gruppe ist darauf zu achten, dass die Option aktiviert wird, die es erlaubt, dieser Gruppe Rollen zuzuweisen.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_1.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_1.png"></a>
-  <figcaption>Create a security group with the role assignment option</figcaption>
-</figure>
+[![3](/MyPics/2026-01-18-AURolesAssignedAutomatically_1.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_1.png){:target="_blank"}
+Figure 3: Create a security group with the role assignment option
+{:.figcaption}
 
 Als Nächstes wechseln wir in das PIM-Dashboard. Dort muss die neu erstellte Gruppe über den Discovery-Prozess verfügbar gemacht werden.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_2.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_2.png"></a>
-  <figcaption>Discover new groups in the PIM-Dashboard</figcaption>
-</figure>
+[![4](/MyPics/2026-01-18-AURolesAssignedAutomatically_2.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_2.png){:target="_blank"}
+Figure 4: Discover new groups in the PIM-Dashboard
+{:.figcaption}
 
 Dies erfolgt über die Option „Discover groups“, die alle Gruppen im Tenant auflistet, die mit der Option erstellt wurden, ihnen Rollen zuzuweisen, wie im vorherigen Schritt bei der Gruppenerstellung gezeigt.
 
@@ -370,10 +347,9 @@ Dazu bleiben wir im PIM-Dashboard und navigieren zu Roles, anschließend zu Assi
 
 Mit dieser Konfiguration erhalten alle Benutzer, die eine Zuweisung in der Gruppe haben, die Rolle User Administrator, beschränkt auf die Administrative Unit der Klasse 8a.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_3.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_3.png"></a>
-  <figcaption>User Administator role assignment to specific class AU</figcaption>
-</figure>
+[![5](/MyPics/2026-01-18-AURolesAssignedAutomatically_3.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_3.png){:target="_blank"}
+Figure 5: User Administator role assignment to specific class AU
+{:.figcaption}
 
 An dieser Stelle sind wir mit PIM zunächst fertig. Würden wir uns gegen eine Automatisierung entscheiden und alles manuell handhaben wollen, könnten wir den Benutzern jetzt eine eligible-Mitgliedschaft in der Gruppe zuweisen.
 
@@ -388,17 +364,15 @@ Um das Access Package zu erstellen, navigieren wir im Entra Admin Center zu Iden
 
 Die Erstellung eines Access Packages ist einfach und intuitiv. In unserem Fall haben wir für jede Klassenkonstellation ein eigenes Access Package erstellt ...
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_5.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_5.png"></a>
-  <figcaption>Each class has its own Access Package</figcaption>
-</figure>
+[![6](/MyPics/2026-01-18-AURolesAssignedAutomatically_5.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_5.png){:target="_blank"}
+Figure 6: Each class has its own Access Package
+{:.figcaption}
 
 ... in unserem Beispiel enthält das Access Package lediglich die Gruppe als Ressource. Dieses ließe sich jedoch problemlos erweitern, etwa durch zusätzliche Policies oder weitere Ressourcen, die in das Access Package aufgenommen werden.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_6.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_6.png"></a>
-  <figcaption>Access Package contains PIM-Group</figcaption>
-</figure>
+[![7](/MyPics/2026-01-18-AURolesAssignedAutomatically_6.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_6.png){:target="_blank"}
+Figure 7: Access Package contains PIM-Group
+{:.figcaption}
 
 In Szenarien, in denen Administratoren nur temporär tätig sind und sich Zuweisungen häufig ändern, kann ein solcher dynamischer Ansatz hilfreich sein und bringt nicht zwangsläufig ein signifikantes Risiko mit sich.
 
@@ -410,10 +384,9 @@ Beim Erstellen eines Workflows müssen wir zunächst ein Template auswählen. Ab
 
 Für unseren Anwendungsfall wählen wir das Template „Mover“.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_7.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_7.png"></a>
-  <figcaption>Lifecycle Workflow Template</figcaption>
-</figure>
+[![8](/MyPics/2026-01-18-AURolesAssignedAutomatically_7.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_7.png){:target="_blank"}
+Figure 8: Lifecycle Workflow Template
+{:.figcaption}
 
 In diesem Beispiel halten wir die Tasks bewusst minimal, da das Hauptziel die Zuweisung der administrativen Rolle für eine Administrative Unit ist.
 
@@ -421,17 +394,15 @@ Als ersten Task belassen wir den Standard-Task, der eine E-Mail-Benachrichtigung
 
 In unserem Beispiel betrifft dies die Klassen, denen der Lehrer aktuell zugeordnet sein könnte. In diesem Szenario gibt es nur zwei Klassen, sodass dies die Klasse 7b wäre.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_8.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_8.png"></a>
-  <figcaption>Workflow task to remove existing access packages</figcaption>
-</figure>
+[![9](/MyPics/2026-01-18-AURolesAssignedAutomatically_8.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_8.png){:target="_blank"}
+Figure 9: Workflow task to remove existing access packages
+{:.figcaption}
 
 Abschließend wird das Access Package zugewiesen, für das dieser Workflow ausgelöst wurde. In unserem Beispiel ist dies das Access Package für die Klasse 8a.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_9.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_9.png"></a>
-  <figcaption>Workflow task that assigns the appropriate access package</figcaption>
-</figure>
+[![10](/MyPics/2026-01-18-AURolesAssignedAutomatically_9.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_9.png){:target="_blank"}
+Figure 10:Workflow task that assigns the appropriate access package
+{:.figcaption}
 
 Damit sind alle erforderlichen Konfigurationen abgeschlossen.
 
@@ -447,55 +418,48 @@ Dies lässt sich vermeiden, indem die Option „Continue workflow execution on e
 
 Betrachten wir nun das Benutzerkonto von Vanessa. Aktuell ist sie die Klassenlehrerin der Klasse 7b. Ab sofort übernimmt sie die Klasse 8a und damit auch die administrativen Aufgaben für die Schülerkonten in der entsprechenden Administrative Unit.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_10.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_10.png"></a>
-  <figcaption>User properties that triggers the Lifecycle Workflow</figcaption>
-</figure>
+[![11](/MyPics/2026-01-18-AURolesAssignedAutomatically_10.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_10.png){:target="_blank"}
+Figure 11:User properties that triggers the Lifecycle Workflow
+{:.figcaption}
 
 Beim nächsten Durchlauf des Workflows wird diese Änderung erkannt und der Workflow ausgelöst. Die Ergebnisse der Workflow-Ausführung sehen wie folgt aus.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_11.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_11.png"></a>
-  <figcaption>Workflow History shows what happened</figcaption>
-</figure>
+[![12](/MyPics/2026-01-18-AURolesAssignedAutomatically_11.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_11.png){:target="_blank"}
+Figure 12:After Workflow run Teacher has assigned access packages
+{:.figcaption}
 
 Ein Blick in das Access Package zeigt die neuen Zuweisungen. Vanessa ist nun ebenfalls enthalten.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_12.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_12.png"></a>
-  <figcaption>After Workflow run Teacher has assigned access packages</figcaption>
-</figure>
+[![13](/MyPics/2026-01-18-AURolesAssignedAutomatically_12.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_12.png){:target="_blank"}
+Figure 13:Workflow History shows what happened
+{:.figcaption}
 
 Basierend auf den Zuweisungen, die die jeweiligen PIM-Gruppen auf den Administrative Units haben, kann Vanessa nun die Schülerkonten in der Administrative Unit der Klasse 8a verwalten.
 
 Über das Portal **mystaff.microsoft.com** sieht Vanessa alle Administrative Units, für die sie über administrative Berechtigungen verfügt.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_13.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_13.png"></a>
-  <figcaption>Teacher "mystaff" Web ´Site</figcaption>
-</figure>
+[![14](/MyPics/2026-01-18-AURolesAssignedAutomatically_13.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_13.png){:target="_blank"}
+Figure 14:Teacher "mystaff" Web ´Site
+{:.figcaption}
 
 Die Benutzerkonten innerhalb dieser Administrative Units können anschließend entsprechend verwaltet werden.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_14.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_14.png"></a>
-  <figcaption>Students from AU for Teacher administration</figcaption>
-</figure>
+[![15](/MyPics/2026-01-18-AURolesAssignedAutomatically_14.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_14.png){:target="_blank"}
+Figure 15:Students from AU for Teacher administration
+{:.figcaption}
 
 Nutzt sie stattdessen das Entra Admin Center, kann sie basierend auf ihrer administrativen Rolle alle Administrative Units sowie die darin enthaltenen Benutzer sehen. In der Administrative Unit der Klasse 7b sind die Optionen zum Bearbeiten der Benutzerkonten jedoch deaktiviert.
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_15.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_15.png"></a>
-  <figcaption>Student outside Teacher scope cannot be edited</figcaption>
-</figure>
+[![16](/MyPics/2026-01-18-AURolesAssignedAutomatically_15.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_15.png){:target="_blank"}
+Figure 16:Student outside Teacher scope cannot be edited
+{:.figcaption}
 
 Im Gegensatz dazu ist das Bearbeiten in der Administrative Unit der Klasse 8a möglich.
 
 
-<figure class="medium">
-  <a href="/MyPics/2026-01-18-AURolesAssignedAutomatically_16.png"><img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_16.png"></a>
-  <figcaption>Users in the teacher’s scope can be edited</figcaption>
-</figure>
+[![17](/MyPics/2026-01-18-AURolesAssignedAutomatically_16.png)](/MyPics/2026-01-18-AURolesAssignedAutomatically_16.png){:target="_blank"}
+Figure 17:Users in the teacher’s scope can be edited
+{:.figcaption}
 
 
 ## Weitere Ideen
