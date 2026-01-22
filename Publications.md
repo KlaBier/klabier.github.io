@@ -9,6 +9,7 @@ Please find below a list of my publications. This are official publications and 
 
 | Article:                                                     | Published:                                               |
 | ------------------------------------------------------------ | --------------------------------------------------------- |
+| **Kee to the Fortress! Zero Trust Features and Tools for Identities in Entra ID**                     | February 2026, [Admin Magazine](https://www.admin-magazine.com/){:target="_blank"}, New Media US                                    |
 | **An der Sicherungsleine, Backup und Restore in Entra ID**                     | November 2025, IT-Administrator, Heinemann Verlag                                    |
 | **Screencast: Synchronisation von Identitäten: Identity Lifecycle Management**                     | October 2025, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/synchronisation-von-identitaten-lifecycle-workflow){:target="_blank"}                              |
 | **Screencast: Entra ID - Neuerungen in Q3/2025 (7 Videos, 49min)**                     | October 2025, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/entra-id-neuerungen-q2-2025){:target="_blank"}                              |
