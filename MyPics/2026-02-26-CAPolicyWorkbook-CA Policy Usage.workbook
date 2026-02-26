@@ -1,0 +1,96 @@
+{
+  "version": "Notebook/1.0",
+  "items": [
+    {
+      "type": 9,
+      "content": {
+        "version": "KqlParameterItem/1.0",
+        "parameters": [
+          {
+            "id": "9ad6c9d6-4e0c-4c8a-bb3c-bafd276ed9b8",
+            "version": "KqlParameterItem/1.0",
+            "name": "timerange",
+            "label": "Lookback Period",
+            "type": 2,
+            "isRequired": true,
+            "typeSettings": {
+              "additionalResourceOptions": [],
+              "showDefault": false
+            },
+            "jsonData": "[\n  { \"value\": \"7d\",  \"label\": \"Last 7 days\" },\n  { \"value\": \"14d\", \"label\": \"Last 14 days\" },\n  { \"value\": \"30d\", \"label\": \"Last 30 days\" },\n  { \"value\": \"60d\", \"label\": \"Last 60 days\" },\n  { \"value\": \"90d\", \"label\": \"Last 90 days\" },\n  { \"value\": \"180d\", \"label\": \"Last 180 days\" }\n]",
+            "timeContext": {
+              "durationMs": 86400000
+            },
+            "value": "90d"
+          },
+          {
+            "id": "40ec5ade-e95b-4f94-a757-c6dc75fd2506",
+            "version": "KqlParameterItem/1.0",
+            "name": "DataCoverage",
+            "type": 1,
+            "query": "let lookback = totimespan({timerange});\nSigninLogs\n| where TimeGenerated > ago(lookback)\n| summarize FirstSeen=min(TimeGenerated), LastSeen=max(TimeGenerated)\n| extend Days = datetime_diff(\"day\", LastSeen, FirstSeen),\n         FirstSeenFormatted = format_datetime(FirstSeen, \"dd.MM.yyyy\")\n| project Coverage = strcat(\n    Days, \n    \" days of history available – first entry \",\n    FirstSeenFormatted\n)",
+            "isHiddenWhenLocked": true,
+            "queryType": 0,
+            "resourceType": "microsoft.operationalinsights/workspaces"
+          }
+        ],
+        "style": "pills",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces"
+      },
+      "name": "parameters - 3"
+    },
+    {
+      "type": 1,
+      "content": {
+        "json": "## CA-Policy Summary\n---\n"
+      },
+      "name": "text - 2"
+    },
+    {
+      "type": 1,
+      "content": {
+        "json": "### 📅 Data coverage  \n{DataCoverage}"
+      },
+      "customWidth": "25",
+      "name": "text - 4"
+    },
+    {
+      "type": 1,
+      "content": {
+        "json": "<div style=\"background-color:#f5f5f5;padding:12px;border-radius:6px;\">\n<b>ℹ️ Column Legend</b><br>\nSuccess = granted<br>\nFailure = blocked<br>\nNotApplied = conditions not met<br>\nReportOnly = simulation<br>\nEnforcedCount = Success + Failure\n</div>"
+      },
+      "customWidth": "25",
+      "name": "text - 4"
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "let lookback = totimespan({timerange});\n\n// Gesamtanzahl aller Evaluations aller CA-Policies\nlet totalEvaluations =\ntoscalar(\n    SigninLogs\n    | where TimeGenerated > ago(lookback)\n    | mv-expand CAP = ConditionalAccessPolicies\n    | where isnotempty(tostring(CAP.id))\n    | count\n);\n\n// Hauptabfrage\nSigninLogs\n| where TimeGenerated > ago(lookback)\n| mv-expand CAP = ConditionalAccessPolicies // Liste (Zeilen) für jede Aktion mit CA-Policies aus den SignInLogs\n| extend\n    PolicyName = tostring(CAP.displayName),\n    PolicyId   = tostring(CAP.id),\n    CAResult   = tostring(CAP.result)\n\n// wurde Policy wirklich angewendet?\n//| extend Applied = iff(CAResult in (\"success\",\"failure\"), 1, 0)\n\n| summarize\n    Success          = countif(CAResult == \"success\"),    // wie oft erlaubt\n    Failure          = countif(CAResult == \"failure\"),    // wie oft blocked?\n    NotApplied       = countif(CAResult == \"notApplied\"), // Bedingungen treffen nicht zu  (irrelevant)\n    ReportOnly       = countif(CAResult startswith \"reportOnly\")  // Wie oft nur simuliert?\n  by PolicyName, PolicyId\n\n|   extend EnforcedCount = Success + Failure                      // Wie oft hat sie wirklich gegriffen?\n\n\n| order by PolicyName asc",
+        "size": 2,
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces",
+        "gridSettings": {
+          "sortBy": [
+            {
+              "itemKey": "PolicyName",
+              "sortOrder": 1
+            }
+          ]
+        },
+        "sortBy": [
+          {
+            "itemKey": "PolicyName",
+            "sortOrder": 1
+          }
+        ]
+      },
+      "name": "query - 4"
+    }
+  ],
+  "fallbackResourceIds": [
+    "/subscriptions/7588d4c4-8fd2-415f-a62b-cdd52769f9cc/resourceGroups/KBCORP-Monitoring/providers/Microsoft.OperationalInsights/workspaces/LA-WS-AAD"
+  ],
+  "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+}
