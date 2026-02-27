@@ -1,5 +1,5 @@
 ---
-title: "How can I create a LA Workbook? Ideally one that shows unused CA-Policies?"
+title: "How to Build a Log Analytics Workbook for Unused CA Policies"
 date: 2026-02-26T22:16:32
 layout: list
 
@@ -21,7 +21,7 @@ Welcome to my new blog post
 
 In Entra, you will find several workbooks that provide useful insights into the state of your tenant. They are located in the Entra Admin Center under <b>Monitoring & Health</b>, directly within <b>Workbooks</b>.
 
-A dedicated section is reserved for Conditional Access. Not surprising — CA policies are among the most security-critical configurations in a tenant.
+A dedicated section is reserved for Conditional Access. Not surprising, CA policies are among the most security-critical configurations in a tenant.
 
 However, the existing workbooks in the **Insights** section focus on individual perspectives: users, target resources, or identified risks.
 
@@ -29,15 +29,15 @@ As part of my Entra housekeeping activities, I noticed that there is no central 
 
 That is exactly what I want to address in this article. We will create a simple workbook that provides this overview, which you can then extend based on your own requirements. Along the way, we will also discuss some key elements involved in building workbooks.
 
-If you are not interested in the step-by-step instructions, you can simply download the JSON workbook template and try it out right away.
+If you are not interested in the step-by-step instructions, you can simply download the JSON workbook template and try it out right away. Create a new Workbook and import the JSON from the file.
 
 [CA-Policy.JSON](/MyPics/2026-02-26-CAPolicyWorkbook-CA Policy Usage.workbook)
 
-A workbook offers many possibilities for designing individual elements. Accordingly, the available parameters and configuration options are quite extensive. It would neither be practical nor useful to explain every detail here — Microsoft does that much better in MS Learn.
+A workbook offers many possibilities for designing individual elements. Accordingly, the available parameters and configuration options are quite extensive. It would neither be practical nor useful to explain every detail here. Microsoft does that much better in MS Learn.
 
 In the following sections, we will focus on the key elements and their most important properties.
 
-If you would like to build the workbook step by step yourself — also to gain a better understanding of how it works — I recommend creating a new workbook and then importing the JSON template mentioned above.
+If you would like to build the workbook step by step yourself, also to gain a better understanding of how it works, I recommend creating a new workbook and then importing the JSON template mentioned above.
 
 This way, you will get the fully configured workbook, can edit it, review all parameters and their properties in detail, and at the same time rebuild your own version using the same information to better understand the structure.
 
@@ -45,9 +45,9 @@ This way, you will get the fully configured workbook, can edit it, review all pa
 
 If you want to perform evaluations over a longer period of time, the log data must be stored in a Log Analytics workspace.
 
-By default, this is not the case. Entra stores sign-in and audit logs (depending on your license) only for a limited period of time — usually up to 30 days — directly within Entra ID.
+By default, this is not the case. Entra stores sign-in and audit logs (depending on your license) only for a limited period of time (usually up to 30 days) directly within Entra ID.
 
-If you want to look further back — and that is exactly what we need for housekeeping — you need a place where the logs are stored long term.
+If you want to look further back, and that is exactly what we need for housekeeping, you need a place where the logs are stored long term.
 
 A Log Analytics workspace is exactly that: a central storage location for your logs. In addition, it allows you to use KQL to build targeted queries and analyze the data.
 
@@ -63,7 +63,7 @@ The image above shows the workbook with its individual sections:
 
 1. **Select time range**<br>
 Here you can choose the desired time period.
-In the dropdown list, I go back up to 180 days — provided that data is available for that period (retention period).
+In the dropdown list, I go back up to 180 days, provided that data is available for that period (retention period).
 
 2. **Actual data coverage**<br>
 This section shows how far back the available data actually goes.
@@ -75,13 +75,13 @@ A small legend explains the meaning of the individual columns in the workbook.
 
 4. **Policy information**<br>
 Here you see the actual evaluations of the Conditional Access policies.
-In my test environment, some policies appear multiple times. This is not a workbook issue. The reason is that I deleted and re-imported several CA policies for testing purposes.
-As a result, historical log data exists in the Log Analytics workspace for different Policy IDs — even if the name is identical.
+In my test environment, some policies appear multiple times as you can see. This is not a workbook issue. The reason is that I deleted and re-imported several CA policies for testing purposes for my Backup/Restore Conference Session.
+As a result, historical log data exists in the Log Analytics workspace for different Policy IDs, even if the name is identical.
 Under normal circumstances in a production environment, this behavior typically does not occur.
 
 ## Workbook elements in detail
 
-If you have created a new, empty workbook, the first step is to add a new element. In our case, we need a parameter that will later act as a variable within the actual KQL query.
+If you have created a new, empty workbook, the first step is to add a new element. In our case, we need a parameter that will later act as kind of a variable within the actual KQL query.
 
 Workbooks consist of different element types, for example text, queries, or parameters. For our use case, we select the element type Parameter, which we can later reference within the KQL query.
 
@@ -98,7 +98,7 @@ The finished dropdown definition looks as follows:
 The same approach applies to the parameter **DataCoverage**.
 This is also a parameter, but of type Text. The displayed content is calculated using its own KQL statement.
 
-This allows the workbook to dynamically determine how far back the available data actually goes. As a result, it is always visible which period real log data is available for — independent of the selected lookback value.
+This allows the workbook to dynamically determine how far back the available data actually goes. As a result, it is always visible which period real log data is available for, independent of the selected lookback value.
 
 Especially if the retention period in the Log Analytics workspace has been changed or is not clearly known, this parameter provides quick and transparent visibility.
 
@@ -119,14 +119,14 @@ This example clearly shows that workbook elements do not operate in isolation. P
 
 Normally, workbook elements are displayed one below the other. An exception is the element type “Group”.
 
-Both the legend and “Data Coverage” are part of such a Group in this example. This allows the elements to be placed side by side and arranged in a clean layout.
+Both the **Legend** and **Data Coverage** are part of such a Group in this example. This allows the elements to be placed side by side and arranged in a clean layout.
 
 If you want to implement this layout, select the element type Group when adding a new element and then add the desired elements within that group.
 
 [![0](/MyPics/2026-02-26-CAPolicyWorkbook_7.png)](/MyPics/2026-02-26-CAPolicyWorkbook_7.png){:target="_blank"}
 {:.figcaption}
 
-If we look at the legend using “Edit”, we simply find static text.
+If we look at the legend using **Edit**, we simply find static text.
 
 [![0](/MyPics/2026-02-26-CAPolicyWorkbook_8.png)](/MyPics/2026-02-26-CAPolicyWorkbook_8.png){:target="_blank"}
 {:.figcaption}
@@ -171,7 +171,7 @@ First, the sign-in logs are filtered for the selected time range. Afterwards, th
     CAResult   = tostring(CAP.result)
 ```
 
-The CAP object is of type dynamic. In order to aggregate the contained information later, we extract the relevant properties — name, ID, and result — and convert them into strings.
+The CAP object is of type dynamic. In order to aggregate the contained information later, we extract the relevant properties (name, ID, and result) and convert them into strings.
 
 The PolicyId is especially important because it is unique. The policy name alone is not sufficient, since policies may have been deleted and recreated with the same name. The ID remains the reliable reference.
 
@@ -188,7 +188,7 @@ Using summarize, we then count the results:
 
 The calculated values are written directly into the corresponding columns of the displayed table.
 
-EnforcedCount shows how often a policy actually took effect — meaning how often it enforced a decision (Success or Failure).
+**EnforcedCount** shows how often a policy actually took effect,  meaning how often it enforced a decision (Success or Failure).
 
 In this example, this is more of a supplementary value: it is created through a simple addition of Success and Failure and mainly serves as a quick indicator.
 
@@ -224,7 +224,7 @@ Dabei ist mir im Rahmen meiner Entra-Housekeeping-Aktivitäten aufgefallen, dass
 
 Genau das möchte ich mit diesem Beitrag ändern. Wir erstellen ein einfaches Workbook, das diese Übersicht liefert und das Du anschließend nach deinen eigenen Anforderungen erweitern kannst. Nebenbei besprechen wir einige wichtige Elemente für die Erstellung von Workbooks
 
-Wenn Dich die einzelnen Schritte nicht im Detail interessieren, kannst Du das JSON-Workbook-Template auch direkt herunterladen und sofort ausprobieren.
+Wenn Dich die einzelnen Schritte nicht im Detail interessieren, kannst Du das JSON-Workbook-Template auch direkt herunterladen und sofort ausprobieren. Erstelle hierfür einfach ein leeres Workbook und importiere den Inhalt aus der JSON-Datei.
 
 [CA-Policy.JSON](/MyPics/2026-02-26-CAPolicyWorkbook-CA Policy Usage.workbook)
 
@@ -270,9 +270,9 @@ Eine kleine Legende erklärt die Bedeutung der einzelnen Spalten im Workbook.
 
 4. **Policy-Informationen**<br>
 Hier siehst Du die eigentlichen Auswertungen zu den Conditional-Access-Policies.
-In meiner Testumgebung erscheinen einige Policies doppelt. Das ist kein Fehler im Workbook. Der Grund ist, dass ich für Testzwecke mehrere CA-Policies gelöscht und anschließend wieder importiert habe.
+In meiner Testumgebung erscheinen einige Policies doppelt. Das ist kein Fehler im Workbook. Der Grund ist, dass ich für einige Tests zu Backup/Recovery von CA-Policies mehrere gelöscht und anschließend wieder importiert habe.
 Dadurch existieren im Log Analytics Workspace historische Logdaten zu unterschiedlichen Policy-Ids, auch wenn der Name identisch ist.
-Unter normalen Bedingungen in einer produktiven Umgebung tritt dieses Verhalten in der Regel nicht auf.
+Unter normalen Bedingungen in einer produktiven Umgebung tritt dieses Verhalten nicht auf.
 
 ## Workbook Elemente im Detail
 
@@ -297,7 +297,6 @@ So wird im Workbook dynamisch berechnet, wie weit die tatsächlich vorhandenen D
 
 Gerade wenn die Retention im Log Analytics Workspace geändert wurde oder nicht genau bekannt ist, liefert dieser Parameter eine schnelle und transparente Orientierung.
 
-
 [![0](/MyPics/2026-02-26-CAPolicyWorkbook_4.png)](/MyPics/2026-02-26-CAPolicyWorkbook_4.png){:target="_blank"}
 {:.figcaption}
 
@@ -305,23 +304,23 @@ Im oben beschriebenen Textelement werden die Informationen lediglich ermittelt. 
 
 [![0](/MyPics/2026-02-26-CAPolicyWorkbook_5.png)](/MyPics/2026-02-26-CAPolicyWorkbook_5.png){:target="_blank"}
 {:.figcaption}
-Dieses zweite Textfeld ist deutlich weniger komplex. Es greift lediglich auf den zuvor berechneten Wert aus „DataCoverage“ zu und stellt ihn dar.
+Dieses zweite Textfeld ist deutlich weniger komplex. Es greift lediglich auf den zuvor berechneten Wert aus **DataCoverage** zu und stellt ihn dar.
 
 An diesem Beispiel wird gut sichtbar, dass die einzelnen Elemente eines Workbooks nicht isoliert voneinander arbeiten. Parameter und Abfragen können übergreifend genutzt werden. In diesem Fall wird der im ersten Schritt ermittelte Wert „DataCoverage“ in einem separaten Element wiederverwendet und angezeigt.
 
 [![0](/MyPics/2026-02-26-CAPolicyWorkbook_6.png)](/MyPics/2026-02-26-CAPolicyWorkbook_6.png){:target="_blank"}
 {:.figcaption}
 
-Normalerweise werden die einzelnen Elemente in einem Workbook untereinander dargestellt. Eine Ausnahme bildet jedoch das Element „Group“.
+Normalerweise werden die einzelnen Elemente in einem Workbook untereinander dargestellt. Eine Ausnahme bildet jedoch das Element **Group**.
 
-Sowohl die Legende als auch „Data Coverage“ sind in diesem Fall Teil einer solchen Group. Dadurch lassen sich die Elemente einfach nebeneinander platzieren und übersichtlich anordnen.
+Sowohl die Legende als auch **Data Coverage** sind in diesem Fall Teil einer solchen Group. Dadurch lassen sich die Elemente einfach nebeneinander platzieren und übersichtlich anordnen.
 
 Wenn du das so umsetzen möchtest, wählst Du beim Hinzufügen eines neuen Elements den Typ Group aus und fügst die gewünschten Elemente innerhalb dieser Gruppe hinzu.
 
 [![0](/MyPics/2026-02-26-CAPolicyWorkbook_7.png)](/MyPics/2026-02-26-CAPolicyWorkbook_7.png){:target="_blank"}
 {:.figcaption}
 
-Schauen wir uns mit "Edit" den Inhalt der Legende an, so ist hier einfacher statischer Text zu finden
+Schauen wir uns mit **Edit** den Inhalt der Legende an, so ist hier einfacher statischer Text zu finden
 
 [![0](/MyPics/2026-02-26-CAPolicyWorkbook_8.png)](/MyPics/2026-02-26-CAPolicyWorkbook_8.png){:target="_blank"}
 {:.figcaption}
@@ -393,10 +392,8 @@ In diesem Beispiel ist das jedoch eher ergänzende Information: Der Wert entsteh
 
 Die KQL-Sequenz transformiert somit rohe Sign-in-Daten in eine auswertbare Statistik zu den Conditional-Access-Policies.
 
-Zunächst werden die Sign-in-Logs auf den gewählten Zeitraum gefiltert. Anschließend werden die enthaltenen CA-Informationen normalisiert: Für jeden Sign-in entsteht eine eigene Zeile pro ausgewerteter Policy.
-
 ## Zusammenfassung
-Du erhältst damit eine klare Übersicht darüber, wie deine Conditional-Access-Policies tatsächlich im Tenant angewendet werden.
+Du erhältst mit diesem Workbook eine Übersicht, wie deine Conditional-Access-Policies tatsächlich im Tenant angewendet werden.
 
 Policies, die nie greifen, nur selten angewendet werden oder dauerhaft im ReportOnly-Modus laufen, werden sofort sichtbar. Dadurch lassen sich Altlasten, redundante Regeln oder schlicht überflüssige Policies schnell identifizieren.
 
