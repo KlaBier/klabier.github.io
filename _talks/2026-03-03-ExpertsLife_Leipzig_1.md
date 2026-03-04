@@ -4,11 +4,11 @@ date: 2026-03-03T19:13:32
 layout: list
 
 image:
-  path: /MyPics/2026-03-03-ExpertsLife_Leipzig_1.png
+  path: /MyPics/2026-03-03-ExpertsLife_Leipzig_2.jpeg
 ---
 
 <figure>
-  <img src="/MyPics/2026-03-03-ExpertsLife_Leipzig_1.png" style="width:75%">
+  <img src="/MyPics/2026-03-03-ExpertsLife_Leipzig_2.jpeg" style="width:75%">
 </figure>
 
 Die Experts Live Germany ist für mich immer etwas Besonderes. Sie bietet die perfekte Gelegenheit, mit großartigen Menschen aus der Community zusammenzukommen, sich auszutauschen und neue Impulse mitzunehmen. Leipzig war dafür wieder einmal ein hervorragender Rahmen.
@@ -39,12 +39,5 @@ Und mein PowerShell-Repo mit allen Skripten ist hier zu finden:
 [Powershell Repo Housekeeping](https://github.com/KlaBier/Powershell/blob/main/EntraHouseKeeping)
 
 Viel Spaß beim Ausprobieren und beim Aufräumen.
-
-<div style="border: 2px solid #000; max-width:75%; height: auto; margin: 0 auto;">
-  <a href="/MyPics/2026-03-03-ExpertsLife_Leipzig_2.jpeg" target="_blank">
-    <img src="/MyPics/2026-03-03-ExpertsLife_Leipzig_2.jpeg" style="width: 100%; height: auto;" />
-  </a>
-</div>
-
 
 {% include  share.html %}
