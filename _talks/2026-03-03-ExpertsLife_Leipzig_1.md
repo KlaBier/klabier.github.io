@@ -40,4 +40,32 @@ Und mein PowerShell-Repo mit allen Skripten ist hier zu finden:
 
 Viel Spaß beim Ausprobieren und beim Aufräumen.
 
+Und hier noch einige Impressionen aus der Halle:
+
+Here are a few impressions from the event.
+
+<div style="border: 2px solid #000; max-width:75%; height: auto; margin: 0 auto;">
+  <a href="/MyPics/2026-03-03-ExpertsLife_Leipzig_3.jpeg" target="_blank">
+    <img src="/MyPics/2026-03-03-ExpertsLife_Leipzig_3.jpeg" style="width: 100%; height: auto;" />
+  </a>
+</div>
+
+<br><br>
+
+<div style="border: 2px solid #000; max-width:75%; height: auto; margin: 0 auto;">
+  <a href="/MyPics/2026-03-03-ExpertsLife_Leipzig_4.jpeg" target="_blank">
+    <img src="/MyPics/2026-03-03-ExpertsLife_Leipzig_4.jpeg" style="width: 100%; height: auto;" />
+  </a>
+</div>
+
+<br><br>
+
+<div style="border: 2px solid #000; max-width:75%; height: auto; margin: 0 auto;">
+  <a href="/MyPics/2026-03-03-ExpertsLife_Leipzig_5.jpeg" target="_blank">
+    <img src="/MyPics/2026-03-03-ExpertsLife_Leipzig_5.jpeg" style="width: 100%; height: auto;" />
+  </a>
+</div>
+
+
+
 {% include  share.html %}
