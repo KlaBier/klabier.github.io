@@ -42,8 +42,6 @@ Viel Spaß beim Ausprobieren und beim Aufräumen.
 
 Und hier noch einige Impressionen aus der Halle:
 
-Here are a few impressions from the event.
-
 <div style="border: 2px solid #000; max-width:75%; height: auto; margin: 0 auto;">
   <a href="/MyPics/2026-03-03-ExpertsLife_Leipzig_3.jpeg" target="_blank">
     <img src="/MyPics/2026-03-03-ExpertsLife_Leipzig_3.jpeg" style="width: 100%; height: auto;" />
