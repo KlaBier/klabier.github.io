@@ -19,7 +19,7 @@ image:
 
 Warm welcome to my new blog post
 
-**For English**, please jump directly to the [English version further down](https://nothingbutcloud.net/2025-07-28-CA-PolicyAgent1/#english-version)
+**For English**, please jump directly to the [English version further down](https://nothingbutcloud.net/2025-08-30-DeletedEntraObjects/#english-version)
 
 Den folgenden Beitrag habe ich wieder zweisprachig verfasst. Dafür habe ich mich ganz bewusst entschieden, denn Deutsch ist meine Muttersprache, die ich sehr schätze und in der ich meine Gedanken, jenseits von KI, oder anderweitig automatisch erzeugten Texten, am unmittelbarsten und authentischsten ausdrücken kann.
 
