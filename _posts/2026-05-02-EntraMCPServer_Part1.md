@@ -65,7 +65,9 @@ The diagram below walks through each step, from entering the prompt to receiving
 
 - The user formulates a prompt, for example: "List all users with a last login more than 90 days ago"
 
-- Claude identifies the intent and forwards the request via the Anthropic backend to the MCP Server for Enterprise. Authentication is handled through the App Registration in Entra ID.
+- Claude identifies the intent and forwards the request via the Anthropic backend to the MCP Server for Enterprise.
+
+- Authentication is handled through the App Registration in Entra ID.
 
 - Entra ID verifies identity and permissions, just as they would if you were calling the Graph API directly.
 
@@ -121,39 +123,39 @@ Next, we configure the API permissions. Depending on which data you want to quer
 ## Add the connector in Claude Desktop App
 Next, we add the connector in the Claude Desktop App. For this, we need the Application (Client) ID and the secret we copied earlier.
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_0.png)](/MyPics/2026-05-02-MCP_CLientReg_0.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_0.png)](/MyPics/2026-05-02-MCP_ClientReg_0.png){:target="_blank"}
 {:.figcaption}
 
 The following screenshots walk through the steps for setting up the connector in the Claude Desktop App:
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_1.png)](/MyPics/2026-05-02-MCP_CLientReg_1.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_1.png)](/MyPics/2026-05-02-MCP_ClientReg_1.png){:target="_blank"}
 {:.figcaption}
 
 <br>
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_2.png)](/MyPics/2026-05-02-MCP_CLientReg_2.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_2.png)](/MyPics/2026-05-02-MCP_ClientReg_2.png){:target="_blank"}
 {:.figcaption}
 
 <br>
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_3.png)](/MyPics/2026-05-02-MCP_CLientReg_3.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_3.png)](/MyPics/2026-05-02-MCP_ClientReg_3.png){:target="_blank"}
 {:.figcaption}
 
 <br>
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_4.png)](/MyPics/2026-05-02-MCP_CLientReg_4.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_4.png)](/MyPics/2026-05-02-MCP_ClientReg_4.png){:target="_blank"}
 {:.figcaption}
 
 <br>
 
 The following screenshot shows what happens when a prompt is submitted for an object type that the App Registration has not been granted permissions for. Handy: Claude immediately lists the missing permissions, so you know exactly what needs to be added.
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_5.png)](/MyPics/2026-05-02-MCP_CLientReg_5.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_5.png)](/MyPics/2026-05-02-MCP_ClientReg_5.png){:target="_blank"}
 {:.figcaption}
 
 The results speak for themselves and as shown above, the setup is straightforward.
 
-[![0](/MyPics/2026-05-02-MCP_ClientPrompt_3.png)](/MyPics/2026-05-02-MCP_CLientPrompt_3.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientPrompt_3.png)](/MyPics/2026-05-02-MCP_ClientPrompt_3.png){:target="_blank"}
 {:.figcaption}
 
 ## Conclusion
@@ -164,7 +166,7 @@ If any of those questions remain unanswered for your scenario, Part II might be 
 # Deutsche Version
 
 ## Übersicht
-KI in Entra ID ist gerade in aler Munde: Security Copilot, der CA Policy Optimization Agent, der Access Review Agent. Die Liste wächst stetig. Aber die Kostendiskussion rund um SKU-basierte KI in Entra ID ist nach wie vor ein echtes Thema.
+KI in Entra ID ist gerade in aller Munde: Security Copilot, der CA Policy Optimization Agent, der Access Review Agent. Die Liste wächst stetig. Aber die Kostendiskussion rund um SKU-basierte KI in Entra ID ist nach wie vor ein echtes Thema.
 
 Vor einiger Zeit habe ich mir den Microsoft MCP Server for Enterprise genauer angeschaut und wie ich meinen alltäglichen KI-Client damit verbinden kann, um meinen Tenant in natürlicher Sprache abzufragen. Mein erstes Fazit: **Absolut beeindruckend!** Mir fehlen die Worte. Sowohl was die Einfachheit des Setups angeht, als auch die Qualität der Ergebnisse.
 

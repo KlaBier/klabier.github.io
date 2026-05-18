@@ -13,6 +13,7 @@ image:
   <img src="/MyPics/2025-12-16-ZeroTrust-Monitoring_cover.png" style="width:75%">
 </figure>
 
+
 * this unordered seed list will be replaced by the toc
 {:toc}
 
