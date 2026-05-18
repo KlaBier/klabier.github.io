@@ -9,6 +9,11 @@ image:
   path: /MyPics/2026-01-18-AURolesAssignedAutomatically_cover.jpg
 ---
 
+
+<figure>
+  <img src="/MyPics/2026-01-18-AURolesAssignedAutomatically_cover.jpg" style="width:50%">
+</figure>
+
 * this unordered seed list will be replaced by the toc
 {:toc}
 

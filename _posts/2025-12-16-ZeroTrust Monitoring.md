@@ -6,8 +6,12 @@ layout: list
 description: Keep an eye to the most sensitive accounts in your Entra ID
 
 image:
-  path: /MyPics/2025-12-16-ZeroTrust Monitoring_cover.png
+  path: /MyPics/2025-12-16-ZeroTrust-Monitoring_cover.png
 ---
+
+<figure>
+  <img src="/MyPics/2025-12-16-ZeroTrust-Monitoring_cover.png" style="width:75%">
+</figure>
 
 * this unordered seed list will be replaced by the toc
 {:toc}

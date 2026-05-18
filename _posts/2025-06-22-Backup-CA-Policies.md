@@ -10,7 +10,7 @@ image:
 ---
 
 <figure>
-  <img src="/MyPics/2025-06-22-CAPolicy-Cover.png" style="width:75%">
+  <img src="/MyPics/2025-06-22-CAPolicy-Cover.png" style="width:50%">
 </figure>
 
 

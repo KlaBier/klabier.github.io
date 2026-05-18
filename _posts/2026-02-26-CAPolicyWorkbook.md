@@ -9,6 +9,10 @@ image:
   path: /MyPics/2026-02-26-CAPolicyWorkbook_cover.png
 ---
 
+<figure>
+  <img src="/MyPics/2026-02-26-CAPolicyWorkbook_cover.png" style="width:50%">
+</figure>
+
 * this unordered seed list will be replaced by the toc
 {:toc}
 
@@ -209,8 +213,6 @@ Conditional Access tends to grow over time. New requirements lead to new policie
 
 Other issues, such as duplicate or overlapping CA policies or users not covered by Conditional Access policies at all, can be identified using the Conditional Access Optimization Agent. I recently wrote an article about this as well:  
 [Conditional Access Meets AI](https://nothingbutcloud.net/2025-07-28-CA-PolicyAgent1/)<br>
-
-
 
 # Deutsche Version
 ## Allgemeines
