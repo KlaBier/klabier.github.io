@@ -19,7 +19,7 @@ image:
 
 Welcome to my new blog post
 
-[Klicke hier, wenn Du lieber in Deutsch lesen möchtest](https://nothingbutcloud.net/2026-01-18-AURolesAssignedAutomatically/#deutsche-Version)
+[Klicke hier, wenn Du lieber in Deutsch lesen möchtest](https://nothingbutcloud.net/2026-01-18-AURolesAssignedAutomatically/#deutsche Version)
 
 # English version
 

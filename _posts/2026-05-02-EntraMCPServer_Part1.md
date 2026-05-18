@@ -18,7 +18,7 @@ image:
 
 Thanks for stopping by — enjoy the read :-)
 
-[Klicke hier, wenn Du lieber in Deutsch lesen möchtest](https://nothingbutcloud.net/2026-05-02-EntraMCPServer_Part1/#deutsche-version)
+[... und klicke hier, wenn Du lieber in Deutsch lesen möchtest](https://nothingbutcloud.net/2026-05-02-EntraMCPServer_Part1/#deutsche-version)
 
 # English version
 
@@ -42,7 +42,7 @@ Take a look at this output. Not bad, right?
     <img src="/MyPics/2026-05-02-MCP_ClientPrompt_2.png" style="width: 80%; height: auto;" />
   </a>
 </div>
-Picture above: Result of a CA Policy healthy query
+Picture above: Result of a CA Policy health query
 
 ## Get started
 Since there are various resources covering the setup of Claude with the MCP Server for Enterprise, I decided to document my setup here, exactly as it worked in my lab.
@@ -51,7 +51,7 @@ This is the first blog article of two parts and this one is focusing on the Clau
 
 Before we dive in, a few things worth knowing upfront:
 - The MCP Server communicates via the Microsoft Graph API, which generally also supports write operations.
-- However, the current version of the MCP Server supports read operations only — which is perfectly sufficient for analysis scenarios.
+- However, the current version of the MCP Server supports read operations only, which is perfectly sufficient for analysis scenarios.
 - The MCP Server for Enterprise is currently in Public Preview.
 - No additional license costs apply.
 - This setup works well for lab use. For a team of multiple administrators, things get more complex:  each admin needs the secret for their own configuration e.g.
@@ -67,7 +67,7 @@ The diagram below walks through each step, from entering the prompt to receiving
 
 - Claude identifies the intent and forwards the request via the Anthropic backend to the MCP Server for Enterprise. Authentication is handled through the App Registration in Entra ID.
 
-- Entra ID verifies identity and permissions, Conditional Access Policies, and security policies apply just as they would if you were calling the Graph API directly.
+- Entra ID verifies identity and permissions, just as they would if you were calling the Graph API directly.
 
 - The MCP Server translates the request into the appropriate Microsoft Graph API call, retrieves the data from your tenant, and returns it to Claude.
 
@@ -93,7 +93,7 @@ Two things are particularly important during registration:
 
 - **Redirect URI** - This is the endpoint to which Microsoft sends the authorization code after successful authentication. In this case: https://claude.ai/api/mcp/auth_callback
 
-- **Client Secret** - Often viewed critically in practice, and for good reason: a secret is essentially an application password — with all the risks that come with it. For this integration, it is currently the only supported method. If you prefer to avoid secrets altogether, Part II covers an alternative, one that works without Anthropic and without a secret.
+- **Client Secret** - Often viewed critically in practice, and for good reason: a secret is essentially an application password, with all the risks that come with it. For this integration, it is currently the only supported method. If you prefer to avoid secrets altogether, Part II covers an alternative, one that works without Anthropic and without a secret.
 
 The following screenshots walk through each step:
 
@@ -105,7 +105,8 @@ The following screenshots walk through each step:
 [![0](/MyPics/2026-05-02-MCP_AppReg_2.png)](/MyPics/2026-05-02-MCP_AppReg_2.png){:target="_blank"}
 {:.figcaption}
 
-💡 Important: Copy the secret value now and store it somewhere safe, it will be needed shortly when setting up the Claude Connector, and will no longer be visible once you navigate away from this page.
+💡 Important:
+Copy the secret value now and store it somewhere safe, it will be needed shortly when setting up the Claude Connector, and will no longer be visible once you navigate away from this page.
 
 Next, we configure the API permissions. Depending on which data you want to query from your tenant, permissions can be assigned granularly. Since we're querying Conditional Access Policies in this example, we grant the corresponding read permissions:
 
@@ -163,7 +164,7 @@ If any of those questions remain unanswered for your scenario, Part II might be 
 # Deutsche Version
 
 ## Übersicht
-KI in Entra ID ist gerade in aler Munde: Security Copilot, der CA Policy Optimization Agent, der Access Review Agent. Die Liste wächst stetig. Aber die Kostendiskussion rund um SKU-basierte KI ist nach wie vor ein echtes Thema.
+KI in Entra ID ist gerade in aler Munde: Security Copilot, der CA Policy Optimization Agent, der Access Review Agent. Die Liste wächst stetig. Aber die Kostendiskussion rund um SKU-basierte KI in Entra ID ist nach wie vor ein echtes Thema.
 
 Vor einiger Zeit habe ich mir den Microsoft MCP Server for Enterprise genauer angeschaut und wie ich meinen alltäglichen KI-Client damit verbinden kann, um meinen Tenant in natürlicher Sprache abzufragen. Mein erstes Fazit: **Absolut beeindruckend!** Mir fehlen die Worte. Sowohl was die Einfachheit des Setups angeht, als auch die Qualität der Ergebnisse.
 
@@ -185,7 +186,7 @@ Schaut euch dieses Ergebnis an. Nicht schlecht, oder?
 Abbildung oben: Ergebnis einer Abfrge nach dem Zustand meiner Conditional Access Richtlinien
 
 ## Grundlegende Überlegungen
-Es gibt einige Artikel zum Setup von Claude mit dem MCP Server for Enterprise. Diese ist stellenweise recht umfangreich und ich habe mich daher dazu entschieden, mein Setup hier zu dokumentieren, genau so, wie es in meinem Lab funktioniert hat.
+Es gibt einige Artikel zum Setup von Claude mit dem MCP Server for Enterprise. Trotzdem habe ich mich entschieden meine Erkenntnisse hier zu dokumentieren, da es hier und dort Aspekte gibt, die nicht offenkundig sind, die ich aber als wichtig erachte.
 
 Dies ist der erste von zwei Blogbeiträgen. Dieser Teil konzentriert sich auf die Claude-Integration mit Entra ID. Einschränkungen und Herausforderungen werden weiter unten behandelt. Im zweiten Teil gehe ich auf die Copilot-Implementierung als KI-Client innerhalb des Microsoft-Ökosystems ein, zusammen mit meinen Eindrücken und Erfahrungen.
 
@@ -195,7 +196,7 @@ Bevor wir loslegen, ein paar Dinge vorab, die es zu wissen gibt:
 - Die aktuelle Version des MCP Servers unterstützt jedoch ausschließlich Leseoperationen, was für Analyseszenarien vollkommen ausreichend ist.
 - Der MCP Server for Enterprise befindet sich aktuell in der Public Preview.
 - Es fallen keine zusätzlichen Lizenzkosten an.
-- Dieses Setup funktioniert gut für den Lab-Einsatz. Für ein Team mit mehreren Administratoren wird es komplexer: Jeder Admin benötigt das Secret für seine eigene Konfiguration.
+- Dieses Setup funktioniert gut für den Lab-Einsatz. Für ein Team mit mehreren Administratoren wird es komplexer: Beispielsweise benötigt jeder Admin das Secret für seine eigene Konfiguration.
 
 Wir bleiben aber erstmal bei Claude. Das folgende Diagramm zeigt die Komponenten, mit denen wir in diesem Artikel konfrontiert werden.
 
@@ -211,16 +212,16 @@ Das folgende Diagramm zeigt jeden Schritt, vom Eingeben des Prompts bis zum Erha
 - Der MCP Server übersetzt die Anfrage in den entsprechenden Microsoft Graph API-Aufruf, ruft die Daten aus dem Tenant ab und gibt sie an Claude zurück.
 - Claude antwortet! Nicht mit rohem JSON, sondern in verständlicher, lesbarer Sprache, direkt im Chat.
 
-⚠️ Datenschutz
+⚠️ **Datenschutz**
 Beim Einsatz von Claude als MCP-Client verlassen die Tenant-Daten die Microsoft-Infrastruktur und werden über das Anthropic-Backend verarbeitet. Vor dem Einsatz in der Produktion sollte geprüft werden, ob dies mit den Datenschutzrichtlinien der Organisation vereinbar ist, unabhängig davon, welcher regulatorische Rahmen gilt. Das gilt ebenso für jeden anderen externen KI-Client. Für Szenarien, in denen Tenant-Daten die Microsoft-Infrastruktur nicht verlassen dürfen, könnten Microsoft-native Komponenten wie Copilot eine geeignete Option sein, das werden wir in Teil II der Serie anschauen.
 
 ## Einrichten der App Registration
-Wenn der MCP Server for Enterprise noch nicht im Tenant vorhanden ist, muss er zunächst eingerichtet werden. Dafür gibt es verschiedene Möglichkeiten, zum Beispiel über PowerShell:
+Wenn der MCP Server for Enterprise noch nicht im Tenant vorhanden ist, muss er zunächst eingerichtet werden. Dafür gibt es verschiedene Möglichkeiten, zum Beispiel über die PowerShell:
 
 [![0](/MyPics/2026-05-02-MCP_1.png)](/MyPics/2026-05-02-MCP_1.png){:target="_blank"}
 {:.figcaption}
 
-... or directly with the Graph Explorer
+... oder direkt im Graph Explorer
 
 [![0](/MyPics/2026-05-02-MCP_2.png)](/MyPics/2026-05-02-MCP_2.png){:target="_blank"}
 {:.figcaption}
@@ -233,7 +234,8 @@ Zwei Dinge sind bei der Registrierung besonders wichtig:
 
 - **Client Secret** - In der Praxis wird dies oft kritisch gesehen, und das zu Recht: Ein Secret ist im Wesentlichen ein Anwendungspasswort, mit allen Risiken, die damit verbunden sind. Für die Integration mit Claude ist es jedoch derzeit die einzige unterstützte Methode.
 
-Die folgenden Abbildungen zeigen uns die notwendigen Schritte
+Die folgenden Abbildungen zeigen uns die notwendigen Schritte für die Einrichung
+
 [![0](/MyPics/2026-05-02-MCP_AppReg_1.png)](/MyPics/2026-05-02-MCP_AppReg_1.png){:target="_blank"}
 {:.figcaption}
 
@@ -242,7 +244,7 @@ Die folgenden Abbildungen zeigen uns die notwendigen Schritte
 [![0](/MyPics/2026-05-02-MCP_AppReg_2.png)](/MyPics/2026-05-02-MCP_AppReg_2.png){:target="_blank"}
 {:.figcaption}
 
-💡 Wichtig: Kopiere den Secret-Wert jetzt und bewahre ihn an einem sicheren Ort auf. Er wird gleich beim Einrichten des Claude Connectors benötigt und ist nicht mehr sichtbar, sobald du diese Seite verlässt.
+💡 **Wichtig:** Kopiere den Secret-Wert jetzt und bewahre ihn an einem sicheren Ort auf. Er wird gleich beim Einrichten des Claude Connectors benötigt und ist nicht mehr sichtbar, sobald du diese Seite verlässt.
 
 Als nächstes konfigurieren wir die API-Berechtigungen. Je nachdem, welche Daten aus dem Tenant abgefragt werden sollen, können die Berechtigungen granular vergeben werden. Da wir in diesem Beispiel Conditional Access Policies abfragen, erteilen wir die hierzu motwendigen Leseberechtigungen:
 
@@ -255,9 +257,9 @@ Als nächstes konfigurieren wir die API-Berechtigungen. Je nachdem, welche Daten
 {:.figcaption}
 
 ## Connector in der Claude Desktop App hinzufügen
-Als nächstes fügen wir den Connector in der Claude Desktop App hinzu. Dafür benötigen wir die Application (Client) ID und das Secret, das wir zuvor kopiert haben.
+Hierzu benötigen wir die Application (Client) ID und das Secret, das wir zuvor kopiert haben.
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_0.png)](/MyPics/2026-05-02-MCP_CLientReg_0.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_0.png)](/MyPics/2026-05-02-MCP_CLientReg_0.png{:target="_blank"}
 {:.figcaption}
 
 Die folgenden Screenshots zeigen die einzelnen Schritte zum Einrichten des Connectors in der Claude Desktop App:
@@ -282,7 +284,7 @@ Die folgenden Screenshots zeigen die einzelnen Schritte zum Einrichten des Conne
 
 <br>
 
-Der folgende Screenshot zeigt, was passiert, wenn ein Prompt für einen Objekttyp abgesetzt wird, für den der App-Registrierung keine Berechtigungen erteilt wurden. Praktisch: Claude listet sofort die fehlenden Berechtigungen auf, sodass man genau weiß, was noch hinzugefügt werden muss.
+Die folgende Hardcopy zeigt, was passiert, wenn ein Prompt für einen Objekttyp abgesetzt wird, für den die App-Registrierung keine Berechtigungen erteilt wurden. Praktisch: Claude listet sofort die fehlenden Berechtigungen auf, sodass man genau weiß, was noch hinzugefügt werden muss.
 
 [![0](/MyPics/2026-05-02-MCP_ClientReg_5.png)](/MyPics/2026-05-02-MCP_CLientReg_5.png){:target="_blank"}
 {:.figcaption}
