@@ -261,39 +261,39 @@ Als nächstes konfigurieren wir die API-Berechtigungen. Je nachdem, welche Daten
 ## Connector in der Claude Desktop App hinzufügen
 Hierzu benötigen wir die Application (Client) ID und das Secret, das wir zuvor kopiert haben.
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_0.png)](/MyPics/2026-05-02-MCP_CLientReg_0.png{:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_0.png)](/MyPics/2026-05-02-MCP_ClientReg_0.png{:target="_blank"}
 {:.figcaption}
 
 Die folgenden Screenshots zeigen die einzelnen Schritte zum Einrichten des Connectors in der Claude Desktop App:
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_1.png)](/MyPics/2026-05-02-MCP_CLientReg_1.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_1.png)](/MyPics/2026-05-02-MCP_ClientReg_1.png){:target="_blank"}
 {:.figcaption}
 
 <br>
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_2.png)](/MyPics/2026-05-02-MCP_CLientReg_2.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_2.png)](/MyPics/2026-05-02-MCP_ClientReg_2.png){:target="_blank"}
 {:.figcaption}
 
 <br>
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_3.png)](/MyPics/2026-05-02-MCP_CLientReg_3.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_3.png)](/MyPics/2026-05-02-MCP_ClientReg_3.png){:target="_blank"}
 {:.figcaption}
 
 <br>
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_4.png)](/MyPics/2026-05-02-MCP_CLientReg_4.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_4.png)](/MyPics/2026-05-02-MCP_ClientReg_4.png){:target="_blank"}
 {:.figcaption}
 
 <br>
 
 Die folgende Hardcopy zeigt, was passiert, wenn ein Prompt für einen Objekttyp abgesetzt wird, für den die App-Registrierung keine Berechtigungen erteilt wurden. Praktisch: Claude listet sofort die fehlenden Berechtigungen auf, sodass man genau weiß, was noch hinzugefügt werden muss.
 
-[![0](/MyPics/2026-05-02-MCP_ClientReg_5.png)](/MyPics/2026-05-02-MCP_CLientReg_5.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientReg_5.png)](/MyPics/2026-05-02-MCP_ClientReg_5.png){:target="_blank"}
 {:.figcaption}
 
 Die Ergebnisse sprechen für sich, und wie oben gezeigt, ist das Setup unkompliziert.
 
-[![0](/MyPics/2026-05-02-MCP_ClientPrompt_3.png)](/MyPics/2026-05-02-MCP_CLientPrompt_3.png){:target="_blank"}
+[![0](/MyPics/2026-05-02-MCP_ClientPrompt_3.png)](/MyPics/2026-05-02-MCP_ClientPrompt_3.png){:target="_blank"}
 {:.figcaption}
 
 ## Zusammenfassung
