@@ -9,10 +9,13 @@ Please find below a list of my publications. This are official publications and 
 
 | Article:                                                     | Published:                                               |
 | ------------------------------------------------------------ | --------------------------------------------------------- |
+| **Backup and restore in Entra ID - Safety Rope**                     | June 2026, [Admin Magazine](https://www.admin-magazine.com/){:target="_blank"}, New Media US                                    |
+| **Screencast: Entra ID - Neuerungen in Q1/2026 (7 Videos, 57min)**                     | May 2026, [Heise Academy Autorenseite](https://heise-academy.de/kurs/entra-id-neuerungen-q1-2026-2c76a5){:target="_blank"}                              |
 | **Kee to the Fortress! Zero Trust Features and Tools for Identities in Entra ID**                     | February 2026, [Admin Magazine](https://www.admin-magazine.com/){:target="_blank"}, New Media US                                    |
+| **Screencast: Entra ID - Neuerungen in Q4/2025 (7 Videos, 57min)**                     | January 2026, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/entra-id-neuerungen-q4-2025){:target="_blank"}                              |
 | **An der Sicherungsleine, Backup und Restore in Entra ID**                     | November 2025, IT-Administrator, Heinemann Verlag                                    |
 | **Screencast: Synchronisation von Identitäten: Identity Lifecycle Management**                     | October 2025, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/synchronisation-von-identitaten-lifecycle-workflow){:target="_blank"}                              |
-| **Screencast: Entra ID - Neuerungen in Q3/2025 (7 Videos, 49min)**                     | October 2025, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/entra-id-neuerungen-q2-2025){:target="_blank"}                              |
+| **Screencast: Entra ID - Neuerungen in Q3/2025 (7 Videos, 49min)**                     | October 2025, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/entra-id-neuerungen-q3-2025){:target="_blank"}                              |
 | **Zero Trust mit Windows Boardmitteln**                     | July 2025, iX, Heise                       |
 | **Screencast: Entra ID - Neuerungen in Q2/2025 (7 Videos, 49min)**                     | July 2025, [Heise Academy Autorenseite](https://heise-academy.de/Videokurse/entra-id-neuerungen-q2-2025){:target="_blank"}                              |
 | **Zero Trust mit Blick auf Identity**                     | July 2025, IT-Administrator, Heinemann Verlag                                    |
