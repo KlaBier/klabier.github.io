@@ -175,6 +175,7 @@ defaults:
         type:          WebPage
 
 kramdown:
+  toc_levels: 1..4
   math_engine:         mathjax
   math_engine_opts:    {}
   footnote_backlink:   '&#x21a9;&#xfe0e;'
