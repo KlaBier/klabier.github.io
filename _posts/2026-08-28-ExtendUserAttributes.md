@@ -3,7 +3,7 @@ title: "Need More User Attributes in Entra ID? Here Are Your Options"
 date: 2026-08-28T22:16:32
 layout: list
 
-description: Extend User Properties in Entra ID
+description: How to extend user attributes in Microsoft Entra ID using Extension Attributes and Directory Extensions, including support for dynamic groups
 
 image:
   path: /MyPics/2026-08-28-ExtendUserAttributes1_Cover.png
@@ -15,9 +15,6 @@ image:
 
 * this unordered seed list will be replaced by the toc
 {:toc}
-
-Welcome to my new blog post!
-
 
 # The Challenge
 
@@ -372,7 +369,7 @@ I described the general setup of Alert Rules and Action Groups in my article:
 ## Advantages 
 
 - Descriptive attribute names
-- Not limited to 15 attributes
+- Not limited to the predefined 15 attributes
 - Typed attributes
 - Supported by dynamic groups
 - Well suited for user classification and automation
