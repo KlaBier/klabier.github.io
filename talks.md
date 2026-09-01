@@ -4,35 +4,97 @@ title: Conferences and Talks
 permalink: /talks/
 ---
 
-{% assign items = site.talks | sort: "date" | reverse %}
-<div class="post-list">
-  {% for item in items %}
-    {% comment %}
-      Bild-URL aus Frontmatter holen:
-      - unterstützt 'image: /pfad.jpg' (String)
-      - und 'image: { path: /pfad.jpg }' (Objekt)
-    {% endcomment %}
-    {% assign img = item.image.path | default: item.image %}
+Microsoft Security MVP · International Speaker · Identity & Security
 
-    <article style="display:flex; align-items:flex-start; margin-bottom:30px; gap:20px;">
-  {% if img %}
-    <a href="{{ item.url | relative_url }}">
-      <img src="{{ img | relative_url }}" alt="{{ item.title }}"
-           style="width:160px; height:auto; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-    </a>
-  {% endif %}
-  <div>
-    <h2 class="post-title">
-      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-    </h2>
-    {% if item.date %}
-      <p class="post-meta"><time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%Y-%m-%d" }}</time></p>
+I regularly speak at international conferences and community events about
+Microsoft Identity & Security, Microsoft Entra ID, Hybrid Identity and Zero Trust.
+
+This page provides an overview of my upcoming sessions and talks from previous years.
+<br>
+
+{% assign items = site.talks | where_exp: "i", "i.date" | sort: "date" %}
+{% assign today_num = 'now' | date: '%Y%m%d' | plus: 0 %}
+
+<div class="post-list">
+
+  {%- comment -%} ===== Upcoming ===== {%- endcomment -%}
+  {% assign has_upcoming = false %}
+  {% for item in items %}
+    {% assign item_num = item.date | date: '%Y%m%d' | plus: 0 %}
+    {% if item_num > today_num %}
+      {% assign has_upcoming = true %}
+      {% break %}
     {% endif %}
-    {% if item.excerpt %}
-      <p>{{ item.excerpt | strip_html | truncate: 160 }}</p>
-    {% endif %}
-  </div>
-</article>
-<hr>
   {% endfor %}
+
+  {% if has_upcoming %}
+  <h2 style="margin-top:1.5em;">Upcoming Talks</h2>
+  {% for item in items %}
+    {% assign item_num = item.date | date: '%Y%m%d' | plus: 0 %}
+    {% if item_num > today_num %}
+      {% assign img = item.image.path | default: item.image %}
+      <article style="display:flex; align-items:flex-start; margin-bottom:30px; gap:20px;">
+        {% if img %}
+          <a href="{{ item.url | relative_url }}">
+            <img src="{{ img | relative_url }}" alt="{{ item.title }}"
+                 style="width:160px; height:auto; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+          </a>
+        {% endif %}
+        <div>
+          <h3 style="margin-bottom:4px;">
+            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          </h3>
+          <p class="post-meta">
+            <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%Y-%m-%d" }}</time>
+          </p>
+          {% if item.excerpt %}
+            <p>{{ item.excerpt | strip_html | truncate: 160 }}</p>
+          {% endif %}
+        </div>
+      </article>
+      <hr>
+    {% endif %}
+  {% endfor %}
+  {% endif %}
+
+  {%- comment -%} ===== Past ===== {%- endcomment -%}
+  {% assign has_past = false %}
+  {% for item in items %}
+    {% assign item_num = item.date | date: '%Y%m%d' | plus: 0 %}
+    {% if item_num <= today_num %}
+      {% assign has_past = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% if has_past %}
+  <h2 style="margin-top:2em;">Past Talks</h2>
+  {% for item in items reversed %}
+    {% assign item_num = item.date | date: '%Y%m%d' | plus: 0 %}
+    {% if item_num <= today_num %}
+      {% assign img = item.image.path | default: item.image %}
+      <article style="display:flex; align-items:flex-start; margin-bottom:30px; gap:20px;">
+        {% if img %}
+          <a href="{{ item.url | relative_url }}">
+            <img src="{{ img | relative_url }}" alt="{{ item.title }}"
+                 style="width:160px; height:auto; border-radius:10px; opacity:0.85; box-shadow:0 1px 6px rgba(0,0,0,0.08);">
+          </a>
+        {% endif %}
+        <div>
+          <h3 style="margin-bottom:4px;">
+            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          </h3>
+          <p class="post-meta">
+            <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%Y-%m-%d" }}</time>
+          </p>
+          {% if item.excerpt %}
+            <p>{{ item.excerpt | strip_html | truncate: 160 }}</p>
+          {% endif %}
+        </div>
+      </article>
+      <hr>
+    {% endif %}
+  {% endfor %}
+  {% endif %}
+
 </div>
