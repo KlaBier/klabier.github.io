@@ -1,5 +1,5 @@
 ---
-title: "Experts Live Denmark, Copenhagen,2027"
+title: "UPCOMING Experts Live Denmark, Copenhagen, 2027"
 date: 2027-02-10T19:13:32
 layout: list
 
