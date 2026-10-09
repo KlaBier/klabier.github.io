@@ -15,7 +15,7 @@ image:
 
 I will update this post with additional information after the talk
 
-The agenda and additional information can be found on the Troopers website:
+The agenda and additional information can be found on the Security Ninjas website:
 [Security Ninjas Germany 2026](https://www.secninjas-germany.com/agenda/)
 
 

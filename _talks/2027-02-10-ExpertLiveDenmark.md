@@ -23,6 +23,8 @@ The same team will return in February 2027 to deliver the masterclass at the Bel
 
 <br>
 
+I'll also have a second session, **"May the Sync Be with You"**, where we'll take a closer look at synchronization in modern hybrid identity environments and discuss different approaches and real-world scenarios.
+
 Stay tuned, and check the Experts Live Denmark website for updates.
 [ExpertsLive Denmark](https://expertslive.dk/)
 
