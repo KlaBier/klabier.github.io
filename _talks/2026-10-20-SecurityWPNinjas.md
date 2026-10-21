@@ -28,7 +28,7 @@ Beyond the technical capabilities, I also discussed the limitations of these app
 
 The many questions and discussions during and after my session showed just how much interest there is in this topic. It was great to exchange ideas, share practical experiences, and hear different perspectives.
 
-Many thanks to Microsoft for organizing the event and to everyone who joined my session!
+Many thanks to the organizer team of Security Ninjas for organizing the event and to everyone who joined my session!
 
 The agenda and additional information can be found on the Security Ninjas website:
 [Security Ninjas Germany 2026](https://www.secninjas-germany.com/)
