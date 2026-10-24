@@ -22,6 +22,19 @@ Thanks for stopping by — enjoy the read :-)
 
 # English version
 
+
+<div style="background-color: #eaf4ff; border-left: 5px solid #2878c8; padding: 18px 22px; border-radius: 6px; margin: 24px 0; color: #243447;">
+
+<strong>Important Update – October 2026</strong>
+
+<p>When I published this article in May 2026, the integration required a client secret. This is no longer necessary.</p>
+
+<p>I've since successfully tested the integration using a public client with Authorization Code Flow and PKCE, without a client secret.</p>
+
+<p>I'll explain the updated configuration in a separate blog post. The original article remains unchanged to document the setup at the time.</p>
+
+</div>
+
 ## General
 AI in Entra ID is everywhere right now, Security Copilot, the CA Policy Optimization Agent, the Access Review Agent. The list keeps growing. But the cost debate around SKU-based AI remains a real topic.
 
@@ -164,6 +177,18 @@ If any of those questions remain unanswered for your scenario, Part II might be 
 
 
 # Deutsche Version
+
+<div style="background-color: #eaf4ff; border-left: 5px solid #2878c8; padding: 18px 22px; border-radius: 6px; margin: 24px 0; color: #243447;">
+
+<strong>Wichtiger Hinweis – Oktober 2026</strong>
+
+<p>Als ich diesen Artikel im Mai 2026 veröffentlicht habe, war für die Integration noch ein Client Secret erforderlich. Das ist inzwischen nicht mehr notwendig.</p>
+
+<p>Mittlerweile habe ich die Integration mit einem Public Client und dem Authorization Code Flow mit PKCE erfolgreich getestet, ganz ohne Client Secret.</p>
+
+<p>Wie diese Konfiguration funktioniert, beschreibe ich in einem separaten Blogbeitrag. Der ursprüngliche Artikel bleibt als Dokumentation des damaligen Setups erhalten.</p>
+
+</div>
 
 ## Übersicht
 KI in Entra ID ist gerade in aller Munde: Security Copilot, der CA Policy Optimization Agent, der Access Review Agent. Die Liste wächst stetig. Aber die Kostendiskussion rund um SKU-basierte KI in Entra ID ist nach wie vor ein echtes Thema.
